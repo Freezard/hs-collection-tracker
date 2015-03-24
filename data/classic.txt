@@ -1,0 +1,116 @@
+neutral
+Wisp,common,0
+Abusive Sergeant,common,1
+Argent Squire,common,1
+Leper Gnome,common,1
+Shieldbearer,common,1
+Southsea Deckhand,common,1
+Worgen Infiltrator,common,1
+Young Dragonhawk,common,1
+Amani Berserker,common,2
+Bloodsail Raider,common,2
+Dire Wolf Alpha,common,2
+Faerie Dragon,common,2
+Ironbeak Owl,common,2
+Loot Hoarder,common,2
+Mad Bomber,common,2
+Youthful Brewmaster,common,2
+Acolyte of Pain,common,3
+Earthen Ring Farseer,common,3
+Flesheating Ghoul,common,3
+Harvest Golem,common,3
+Jungle Panther,common,3
+Raging Worgen,common,3
+Scarlet Crusader,common,3
+Tauren Warrior,common,3
+Thrallmar Farseer,common,3
+Ancient Brewmaster,common,4
+Cult Master,common,4
+Dark Iron Dwarf,common,4
+Dread Corsair,common,4
+Mogu'shan Warden,common,4
+Silvermoon Guardian,common,4
+Spellbreaker,common,4
+Fen Creeper,common,5
+Silver Hand Knight,common,5
+Spiteful Smith,common,5
+Stranglethorn Tiger,common,5
+Venture Co. Mercenary,common,5
+Frost Elemental,common,6
+Priestess of Elune,common,6
+Windfury Harpy,common,6
+Angry Chicken,rare,1
+Bloodsail Corsair,rare,1
+Lightwarden,rare,1
+Murloc Tidecaller,rare,1
+Secretkeeper,rare,1
+Young Priestess,rare,1
+Ancient Watcher,rare,2
+Crazed Alchemist,rare,2
+Knife Juggler,rare,2
+Mana Addict,rare,2
+Mana Wraith,rare,2
+Master Swordsmith,rare,2
+Pint-Sized Summoner,rare,2
+Sunfury Protector,rare,2
+Wild Pyromancer,rare,2
+Alarm-o-Bot,rare,3
+Arcane Golem,rare,3
+Coldlight Oracle,rare,3
+Coldlight Seer,rare,3
+Demolisher,rare,3
+Emperor Cobra,rare,3
+Imp Master,rare,3
+Injured Blademaster,rare,3
+Mind Control Tech,rare,3
+Questing Adventurer,rare,3
+Ancient Mage,rare,4
+Defender of Argus,rare,4
+Twilight Drake,rare,4
+Violet Teacher,rare,4
+Abomination,rare,5
+Azure Drake,rare,5
+Stampeding Kodo,rare,5
+Argent Commander,rare,6
+Gadgetzan Auctioneer,rare,6
+Sunwalker,rare,6
+Ravenholdt Assassin,rare,7
+Hungry Crab,epic,1
+Captain's Parrot,epic,1
+Doomsayer,epic,2
+Big Game Hunter,epic,3
+Blood Knight,epic,3
+Murloc Warleader,epic,3
+Southsea Captain,epic,3
+Faceless Manipulator,epic,5
+Sea Giant,epic,12
+Mountain Giant,epic,12
+Molten Giant,epic,20
+Bloodmage Thalnos,legendary,2
+Lorewalker Cho,legendary,2
+Millhouse Manastorm,legendary,2
+Nat Pagle,legendary,2
+King Mukla,legendary,3
+Tinkmaster Overspark,legendary,3
+Old Murk-Eye,legendary,4
+Captain Greenskin,legendary,5
+Elite Tauren Chieftain,legendary,5
+Harrison Jones,legendary,5
+Leeroy Jenkins,legendary,5
+Cairne Bloodhoof,legendary,6
+Hogger,legendary,6
+Illidan Stormrage,legendary,6
+Sylvanas Windrunner,legendary,6
+The Beast,legendary,6
+The Black Knight,legendary,6
+Baron Geddon,legendary,7
+Gruul,legendary,8
+Ragnaros the Firelord,legendary,8
+Alexstrasza,legendary,9
+Malygos,legendary,9
+Nozdormu,legendary,9
+Onyxia,legendary,9
+Ysera,legendary,9
+Deathwing,legendary,10
+
+druid

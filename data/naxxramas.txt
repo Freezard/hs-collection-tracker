@@ -1,0 +1,24 @@
+neutral
+Undertaker,common,1
+Zombie Chow,common,1
+Haunted Creeper,common,2
+Mad Scientist,common,2
+Nerub'ar Weblord,common,2
+Unstable Ghoul,common,2
+Dancing Swords,common,3
+Stoneskin Gargoyle,common,3
+Spectral Knight,common,5
+Nerubian Egg,rare,2
+Deathlord,rare,3
+Wailing Soul,rare,4
+Sludge Belcher,rare,5
+Echoing Ooze,epic,2
+Shade of Naxxramas,epic,3
+Baron Rivendare,legendary,4
+Feugen,legendary,5
+Loatheb,legendary,5
+Stalagg,legendary,5
+Maexxna,legendary,6
+Kel'Thuzad,legendary,8
+
+druid

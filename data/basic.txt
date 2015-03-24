@@ -1,0 +1,152 @@
+neutral
+Elven Archer,free,1
+Goldshire Footman,free,1
+Grimscale Oracle,free,1
+Murloc Raider,free,1
+Stonetusk Boar,free,1
+Voodoo Doctor,free,1
+Acidic Swamp Ooze,free,2
+Bloodfen Raptor,free,2
+Bluegill Warrior,free,2
+Frostwolf Grunt,free,2
+Kobold Geomancer,free,2
+Murloc Tidehunter,free,2
+Novice Engineer,free,2
+River Crocolisk,free,2
+Dalaran Mage,free,3
+Ironforge Rifleman,free,3
+Ironfur Grizzly,free,3
+Magma Rager,free,3
+Raid Leader,free,3
+Razorfen Hunter,free,3
+Shattered Sun Cleric,free,3
+Silverback Patriarch,free,3
+Wolfrider,free,3
+Chillwind Yeti,free,4
+Dragonling Mechanic,free,4
+Gnomish Inventor,free,4
+Oasis Snapjaw,free,4
+Ogre Magi,free,4
+Sen'jin Shieldmasta,free,4
+Stormwind Knight,free,4
+Booty Bay Bodyguard,free,5
+Darkscale Healer,free,5
+Frostwolf Warlord,free,5
+Gurubashi Berserker,free,5
+Nightblade,free,5
+Stormpike Commando,free,5
+Archmage,free,6
+Boulderfist Ogre,free,6
+Lord of the Arena,free,6
+Reckless Rocketeer,free,6
+Core Hound,free,7
+Stormwind Champion,free,7
+War Golem,free,7
+
+druid
+Innervate,free,0
+Moonfire,free,0
+Claw,free,1
+Mark of the Wild,free,2
+Wild Growth,free,2
+Healing Touch,free,3
+Savage Roar,free,3
+Swipe,free,4
+Starfire,free,6
+Ironbark Protector,free,8
+
+hunter
+Hunter's Mark,free,0
+Arcane Shot,free,1
+Tracking,free,1
+Timber Wolf,free,1
+Animal Companion,free,3
+Kill Command,free,3
+Multi-Shot,free,4
+Houndmaster,free,4
+Starving Buzzard,free,5
+Tundra Rhino,free,5
+
+mage
+Arcane Missiles,free,1
+Mirror Image,free,1
+Arcane Explosion,free,2
+Frostbolt,free,2
+Arcane Intellect,free,3
+Frost Nova,free,3
+Fireball,free,4
+Polymorph,free,4
+Water Elemental,free,4
+Flamestrike,free,7
+
+paladin
+Light's Justice,free,1
+Blessing of Might,free,1
+Hand of Protection,free,1
+Humility,free,1
+Holy Light,free,2
+Truesilver Champion,free,4
+Blessing of Kings,free,4
+Consecration,free,4
+Hammer of Wrath,free,4
+Guardian of Kings,free,7
+
+priest
+Holy Smite,free,1
+Mind Vision,free,1
+Power Word: Shield,free,1
+Northshire Cleric,free,1
+Divine Spirit,free,2
+Mind Blast,free,2
+Shadow Word: Pain,free,2
+Shadow Word: Death,free,3
+Holy Nova,free,5
+Mind Control,free,10
+
+rogue
+Backstab,free,0
+Deadly Poison,free,1
+Sinister Strike,free,1
+Sap,free,2
+Shiv,free,2
+Fan of Knives,free,3
+Assassin's Blade,free,5
+Assassinate,free,5
+Vanish,free,6
+Sprint,free,7
+
+shaman
+Ancestral Healing,free,0
+Totemic Might,free,0
+Frost Shock,free,1
+Rockbiter Weapon,free,1
+Windfury,free,2
+Flametongue Totem,free,2
+Hex,free,3
+Windspeaker,free,4
+Bloodlust,free,5
+Fire Elemental,free,6
+
+warlock
+Sacrificial Pact,free,0
+Corruption,free,1
+Mortal Coil,free,1
+Soulfire,free,1
+Voidwalker,free,1
+Succubus,free,2
+Drain Life,free,3
+Shadow Bolt,free,3
+Hellfire,free,4
+Dread Infernal,free,6
+
+warrior
+Execute,free,1
+Whirlwind,free,1
+Fiery War Axe,free,2
+Cleave,free,2
+Heroic Strike,free,2
+Charge,free,3
+Shield Block,free,3
+Warsong Commander,free,3
+Kor'kron Elite,free,4
+Arcanite Reaper,free,5
