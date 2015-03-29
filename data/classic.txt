@@ -76,6 +76,7 @@ Gadgetzan Auctioneer,rare,6
 Sunwalker,rare,6
 Ravenholdt Assassin,rare,7
 Hungry Crab,epic,1
+Captain's Parrot,epic,1
 Doomsayer,epic,2
 Big Game Hunter,epic,3
 Blood Knight,epic,3
@@ -91,7 +92,9 @@ Millhouse Manastorm,legendary,2
 Nat Pagle,legendary,2
 King Mukla,legendary,3
 Tinkmaster Overspark,legendary,3
+Old Murk-Eye,legendary,4
 Captain Greenskin,legendary,5
+Elite Tauren Chieftain,legendary,5
 Harrison Jones,legendary,5
 Leeroy Jenkins,legendary,5
 Cairne Bloodhoof,legendary,6
