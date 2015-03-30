@@ -111,3 +111,154 @@ Ysera,legendary,9
 Deathwing,legendary,10
 
 druid
+Naturalize,common,1
+Power of the Wild,common,2
+Wrath,common,2
+Mark of Nature,common,3
+Soul of the Forest,common,4
+Druid of the Claw,common,5
+Savagery,rare,1
+Bite,rare,4
+Keeper of the Grove,rare,4
+Nourish,rare,5
+Starfall,rare,5
+Force of Nature,epic,6
+Ancient of Lore,epic,7
+Ancient of War,epic,7
+Cenarius,legendary,9
+
+hunter
+Explosive Trap,common,2
+Freezing Trap,common,2
+Snipe,common,2
+Scavening Hyena,common,2
+Deadly Shot,common,3
+Unleash the Hounds,common,3
+Flare,rare,2
+Misdirection,rare,2
+Eaglehorn Bow,rare,3
+Explosive Shot,rare,5
+Savannah Highmane,rare,6
+Bestial Wrath,epic,1
+Snake Trap,epic,2
+Gladiator's Longbow,epic,7
+King Krush,legendary,9
+
+mage
+Ice Lance,common,1
+Mana Wyrm,common,1
+Sorcerer's Apprentice,common,2
+Ice Barrier,common,3
+Mirror Entity,common,3
+Cone of Cold,common,4
+Counterspell,rare,3
+Vaporize,rare,3
+Kirin Tor Mage,rare,3
+Ethereal Arcanist,rare,4
+Blizzard,rare,6
+Ice Block,epic,3
+Spellbender,epic,3
+Pyroblast,epic,10
+Archmage Antonidas,legendary,7
+
+paladin
+Blessing of Wisdom,common,1
+Eye for an Eye,common,1
+Noble Sacrifice,common,1
+Redemption,common,1
+Repentance,common,1
+Argent Protector,common,2
+Equality,rare,2
+Divine Favor,rare,3
+Aldor Peacekeeper,rare,3
+Blessed Champion,rare,5
+Holy Wrath,rare,5
+Sword of Justice,epic,3
+Avenging Wrath,epic,6
+Lay on Hands,epic,8
+Tirion Fordring,legendary,8
+
+priest
+Circle of Healing,common,0
+Silence,common,0
+Inner Fire,common,1
+Thoughtsteal,common,3
+Lightspawn,common,4
+Temple Enforcer,common,6
+Lightwell,rare,2
+Mass Dispel,rare,4
+Shadow Madness,rare,4
+Auchenai Soulpriest,rare,4
+Holy Fire,rare,6
+Shadowform,epic,3
+Mindgames,epic,4
+Cabal Shadow Priest,epic,6
+Prophet Velen,legendary,7
+
+rogue
+Shadowstep,common,0
+Cold Blood,common,1
+Conceal,common,1
+Betrayal,common,2
+Eviscerate,common,2
+Defias Ringleader,common,2
+Blade Flurry,rare,2
+Perdition's Blade,rare,3
+Headcrack,rare,3
+SI:7 Agent,rare,3
+Master of Disguise,rare,4
+Preparation,epic,0
+Patient Assassin,epic,2
+Kidnapper,epic,6
+Edwin VanCleef,legendary,3
+
+shaman
+Earth Shock,common,1
+Forked Lightning,common,1
+Lightning Bolt,common,1
+Dust Devil,common,1
+Stormforged Axe,common,2
+Unbound Elemental,common,3
+Ancestral Spirit,rare,2
+Feral Spirit,rare,3
+Lava Burst,rare,3
+Lightning Storm,rare,3
+Mana Tide Totem,rare,3
+Far Sight,epic,3
+Doomhammer,epic,5
+Earth Elemental,epic,5
+Al'Akir the Windlord,legendary,8
+
+warlock
+Power Overwhelming,common,1
+Blood Imp,common,1
+Flame Imp,common,1
+Demonfire,common,2
+Sense Demons,common,3
+Summoning Portal,common,4
+Felguard,rare,3
+Void Terror,rare,3
+Shadowflame,rare,4
+Doomguard,rare,5
+Siphon Soul,rare,6
+Pit Lord,epic,4
+Bane of Doom,epic,5
+Twisting Nether,epic,8
+Lord Jaraxxus,legendary,9
+
+warrior
+Inner Rage,common,0
+Battle Rage,common,2
+Rampage,common,2
+Slam,common,2
+Cruel Taskmaster,common,2
+Arathi Weaponsmith,common,4
+Upgrade!,rare,1
+Commanding Shout,rare,2
+Armorsmith,rare,2
+Frothing Berserker,rare,3
+Mortal Strike,rare,4
+Shield Slam,epic,1
+Brawl,epic,5
+Gorehowl,epic,7
+Grommash Hellscream,legendary,8

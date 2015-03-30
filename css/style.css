@@ -59,7 +59,7 @@ body {
 #header-center li a {
   font-family: "Comic Sans MS", "Palatino Linotype", "Times", serif;
   float: left;
-  border-top: 4px inset #FFFFFF;  
+  border-top: 4px inset #E3D3C8;  
   text-decoration: none;
   font-size: 0.65em;
   width: 120px;
@@ -72,8 +72,22 @@ body {
   margin: 0px 10px;
   border-radius: 4px 4px 0px 0px;
   text-transform: uppercase;
-  background-color: #FFFFFF;
+  background-color: #FFFFFF;  
   cursor: pointer;
+}
+#selectedQualityNormal.selected {
+  border-top-color: #98FF21;
+  box-shadow: inset 0 0 40px 1px #98FF21;
+}
+#selectedQualityGolden.selected {
+  border-top-color: gold;
+  box-shadow: inset 0 0 40px 1px gold;
+}
+#selectedQualityNormal:hover {
+  box-shadow: inset 0 0 40px 1px #98FF21;
+}
+#selectedQualityGolden:hover {
+  box-shadow: inset 0 0 40px 1px gold;
 }
 #container {
   position: relative;
@@ -221,13 +235,13 @@ h4 {
   text-align: center;
   width: 176px;
 }
-#classCards .golden1 {
+/*#classCards .golden1 {
   border-color: gold;
 }
 #classCards .golden2 {
   border-color: gold;
   box-shadow: inset 0 0 0 3px gold;
-}
+}*/
 #classCards .normal1 {
   background-color: #FFFF66;
 }
@@ -255,19 +269,59 @@ h4 {
   background-color: white;
   cursor: pointer;
 }
-#classCards #list_free a, #classCards #list_common a {
-
+#classCards #list_free a:hover, #classCards #list_common a:hover {
+  background-color: rgba(94, 111, 121, 0.2);
 }
-
-#classCards #list_rare a {
-
+#classCards #list_free .normal1, #classCards #list_common .normal1 {
+  background-color: rgba(94, 111, 121, 0.2);
 }
-#classCards #list_epic a {
-
-  /*background-color: rgba(238, 210, 238, 1);*/
+#classCards #list_free .normal1:hover, #classCards #list_common .normal1:hover {
+  background-color: rgba(94, 111, 121, 0.5);
 }
-#classCards #list_legendary a {  
-
+#classCards #list_free .normal2, #classCards #list_common .normal2 {
+  background-color: rgba(94, 111, 121, 0.5);
+}
+#classCards #list_free .normal2:hover, #classCards #list_common .normal2:hover {
+  background-color: rgba(94, 111, 121, 0.5);
+}
+#classCards #list_rare a:hover {
+  background-color: rgba(43, 136, 234, 0.2);
+}
+#classCards #list_rare .normal1 {
+  background-color: rgba(43, 136, 234, 0.2);
+}
+#classCards #list_rare .normal1:hover {
+  background-color: rgba(43, 136, 234, 0.5);
+}
+#classCards #list_rare .normal2 {
+  background-color: rgba(43, 136, 234, 0.5);
+}
+#classCards #list_rare .normal2:hover {
+  background-color: rgba(43, 136, 234, 0.5);
+}
+#classCards #list_epic a:hover {
+  background-color: rgba(227, 62, 255, 0.2);
+}
+#classCards #list_epic .normal1 {
+  background-color: rgba(227, 62, 255, 0.2);
+}
+#classCards #list_epic .normal1:hover {
+  background-color: rgba(227, 62, 255, 0.5);
+}
+#classCards #list_epic .normal2 {
+  background-color: rgba(227, 62, 255, 0.5);
+}
+#classCards #list_epic .normal2:hover {
+  background-color: rgba(227, 62, 255, 0.5);
+}
+#classCards #list_legendary a:hover {
+  background-color: rgba(255, 149, 9, 0.6);
+}
+#classCards #list_legendary .normal1 {
+  background-color: rgba(255, 149, 9, 0.6);
+}
+#classCards #list_legendary .normal1:hover {
+  background-color: rgba(255, 149, 9, 0.6);
 }
 #classCards li a:hover {
   background-color: orange;

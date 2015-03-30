@@ -77,10 +77,11 @@ var HSCollectionTracker = (function() {
 	var selectedClass = "neutral";
 	var selectedCardQuality = "normal";
 		
-	function card(name, rarity, mana, set, soulbound) {
+	function card(name, rarity, mana, type, set, soulbound) {
 		this.name = name;
 		this.rarity = rarity;
 		this.mana = mana;
+		this.type = type;
 		this.set = set;
 		this.soulbound = soulbound;
 		this.normal = 0;
@@ -317,9 +318,26 @@ var HSCollectionTracker = (function() {
 		return allText;
 	}
 
+	function initSelectedCardQuality() {		
+		var a = document.getElementById("selectedQualityNormal");
+		var b = document.getElementById("selectedQualityGolden");
+		
+		a.addEventListener("click", function() { setSelectedCardQuality(this); });
+		b.addEventListener("click", function() { setSelectedCardQuality(this); });
+    }
+
+    function setSelectedCardQuality(element) {
+		if (element.getAttribute("id") === "selectedQualityNormal")
+			document.getElementById("selectedQualityGolden").removeAttribute("class");
+		else document.getElementById("selectedQualityNormal").removeAttribute("class");
+		
+		selectedCardQuality = element.innerHTML.toLowerCase();
+		element.setAttribute("class", "selected");
+    }
+	
 	return {
 		init: function() {	
-//localStorage.clear();
+		//localStorage.clear();
 		console.log(JSON.stringify(localStorage).length);
 		
 		if (typeof(Storage) !== "undefined") {
@@ -350,7 +368,8 @@ var HSCollectionTracker = (function() {
 			var fei = localStorage.getItem("total");
 			missingCardsTotal = JSON.parse(fei);
 		}
-
+		
+		initSelectedCardQuality();
 		displayClassTabs();
 		displayCards(selectedClass);
 		displayMissingCards();
