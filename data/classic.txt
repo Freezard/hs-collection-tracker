@@ -1,264 +1,264 @@
 neutral
-Wisp,common,0
-Abusive Sergeant,common,1
-Argent Squire,common,1
-Leper Gnome,common,1
-Shieldbearer,common,1
-Southsea Deckhand,common,1
-Worgen Infiltrator,common,1
-Young Dragonhawk,common,1
-Amani Berserker,common,2
-Bloodsail Raider,common,2
-Dire Wolf Alpha,common,2
-Faerie Dragon,common,2
-Ironbeak Owl,common,2
-Loot Hoarder,common,2
-Mad Bomber,common,2
-Youthful Brewmaster,common,2
-Acolyte of Pain,common,3
-Earthen Ring Farseer,common,3
-Flesheating Ghoul,common,3
-Harvest Golem,common,3
-Jungle Panther,common,3
-Raging Worgen,common,3
-Scarlet Crusader,common,3
-Tauren Warrior,common,3
-Thrallmar Farseer,common,3
-Ancient Brewmaster,common,4
-Cult Master,common,4
-Dark Iron Dwarf,common,4
-Dread Corsair,common,4
-Mogu'shan Warden,common,4
-Silvermoon Guardian,common,4
-Spellbreaker,common,4
-Fen Creeper,common,5
-Silver Hand Knight,common,5
-Spiteful Smith,common,5
-Stranglethorn Tiger,common,5
-Venture Co. Mercenary,common,5
-Frost Elemental,common,6
-Priestess of Elune,common,6
-Windfury Harpy,common,6
-Angry Chicken,rare,1
-Bloodsail Corsair,rare,1
-Lightwarden,rare,1
-Murloc Tidecaller,rare,1
-Secretkeeper,rare,1
-Young Priestess,rare,1
-Ancient Watcher,rare,2
-Crazed Alchemist,rare,2
-Knife Juggler,rare,2
-Mana Addict,rare,2
-Mana Wraith,rare,2
-Master Swordsmith,rare,2
-Pint-Sized Summoner,rare,2
-Sunfury Protector,rare,2
-Wild Pyromancer,rare,2
-Alarm-o-Bot,rare,3
-Arcane Golem,rare,3
-Coldlight Oracle,rare,3
-Coldlight Seer,rare,3
-Demolisher,rare,3
-Emperor Cobra,rare,3
-Imp Master,rare,3
-Injured Blademaster,rare,3
-Mind Control Tech,rare,3
-Questing Adventurer,rare,3
-Ancient Mage,rare,4
-Defender of Argus,rare,4
-Twilight Drake,rare,4
-Violet Teacher,rare,4
-Abomination,rare,5
-Azure Drake,rare,5
-Stampeding Kodo,rare,5
-Argent Commander,rare,6
-Gadgetzan Auctioneer,rare,6
-Sunwalker,rare,6
-Ravenholdt Assassin,rare,7
-Hungry Crab,epic,1
-Doomsayer,epic,2
-Big Game Hunter,epic,3
-Blood Knight,epic,3
-Murloc Warleader,epic,3
-Southsea Captain,epic,3
-Faceless Manipulator,epic,5
-Sea Giant,epic,12
-Mountain Giant,epic,12
-Molten Giant,epic,20
-Bloodmage Thalnos,legendary,2
-Lorewalker Cho,legendary,2
-Millhouse Manastorm,legendary,2
-Nat Pagle,legendary,2
-King Mukla,legendary,3
-Tinkmaster Overspark,legendary,3
-Captain Greenskin,legendary,5
-Harrison Jones,legendary,5
-Leeroy Jenkins,legendary,5
-Cairne Bloodhoof,legendary,6
-Hogger,legendary,6
-Illidan Stormrage,legendary,6
-Sylvanas Windrunner,legendary,6
-The Beast,legendary,6
-The Black Knight,legendary,6
-Baron Geddon,legendary,7
-Gruul,legendary,8
-Ragnaros the Firelord,legendary,8
-Alexstrasza,legendary,9
-Malygos,legendary,9
-Nozdormu,legendary,9
-Onyxia,legendary,9
-Ysera,legendary,9
-Deathwing,legendary,10
+Wisp,common,0,minion
+Abusive Sergeant,common,1,minion
+Argent Squire,common,1,minion
+Leper Gnome,common,1,minion
+Shieldbearer,common,1,minion
+Southsea Deckhand,common,1,minion
+Worgen Infiltrator,common,1,minion
+Young Dragonhawk,common,1,minion
+Amani Berserker,common,2,minion
+Bloodsail Raider,common,2,minion
+Dire Wolf Alpha,common,2,minion
+Faerie Dragon,common,2,minion
+Ironbeak Owl,common,2,minion
+Loot Hoarder,common,2,minion
+Mad Bomber,common,2,minion
+Youthful Brewmaster,common,2,minion
+Acolyte of Pain,common,3,minion
+Earthen Ring Farseer,common,3,minion
+Flesheating Ghoul,common,3,minion
+Harvest Golem,common,3,minion
+Jungle Panther,common,3,minion
+Raging Worgen,common,3,minion
+Scarlet Crusader,common,3,minion
+Tauren Warrior,common,3,minion
+Thrallmar Farseer,common,3,minion
+Ancient Brewmaster,common,4,minion
+Cult Master,common,4,minion
+Dark Iron Dwarf,common,4,minion
+Dread Corsair,common,4,minion
+Mogu'shan Warden,common,4,minion
+Silvermoon Guardian,common,4,minion
+Spellbreaker,common,4,minion
+Fen Creeper,common,5,minion
+Silver Hand Knight,common,5,minion
+Spiteful Smith,common,5,minion
+Stranglethorn Tiger,common,5,minion
+Venture Co. Mercenary,common,5,minion
+Frost Elemental,common,6,minion
+Priestess of Elune,common,6,minion
+Windfury Harpy,common,6,minion
+Angry Chicken,rare,1,minion
+Bloodsail Corsair,rare,1,minion
+Lightwarden,rare,1,minion
+Murloc Tidecaller,rare,1,minion
+Secretkeeper,rare,1,minion
+Young Priestess,rare,1,minion
+Ancient Watcher,rare,2,minion
+Crazed Alchemist,rare,2,minion
+Knife Juggler,rare,2,minion
+Mana Addict,rare,2,minion
+Mana Wraith,rare,2,minion
+Master Swordsmith,rare,2,minion
+Pint-Sized Summoner,rare,2,minion
+Sunfury Protector,rare,2,minion
+Wild Pyromancer,rare,2,minion
+Alarm-o-Bot,rare,3,minion
+Arcane Golem,rare,3,minion
+Coldlight Oracle,rare,3,minion
+Coldlight Seer,rare,3,minion
+Demolisher,rare,3,minion
+Emperor Cobra,rare,3,minion
+Imp Master,rare,3,minion
+Injured Blademaster,rare,3,minion
+Mind Control Tech,rare,3,minion
+Questing Adventurer,rare,3,minion
+Ancient Mage,rare,4,minion
+Defender of Argus,rare,4,minion
+Twilight Drake,rare,4,minion
+Violet Teacher,rare,4,minion
+Abomination,rare,5,minion
+Azure Drake,rare,5,minion
+Stampeding Kodo,rare,5,minion
+Argent Commander,rare,6,minion
+Gadgetzan Auctioneer,rare,6,minion
+Sunwalker,rare,6,minion
+Ravenholdt Assassin,rare,7,minion
+Hungry Crab,epic,1,minion
+Doomsayer,epic,2,minion
+Big Game Hunter,epic,3,minion
+Blood Knight,epic,3,minion
+Murloc Warleader,epic,3,minion
+Southsea Captain,epic,3,minion
+Faceless Manipulator,epic,5,minion
+Sea Giant,epic,12,minion
+Mountain Giant,epic,12,minion
+Molten Giant,epic,20,minion
+Bloodmage Thalnos,legendary,2,minion
+Lorewalker Cho,legendary,2,minion
+Millhouse Manastorm,legendary,2,minion
+Nat Pagle,legendary,2,minion
+King Mukla,legendary,3,minion
+Tinkmaster Overspark,legendary,3,minion
+Captain Greenskin,legendary,5,minion
+Harrison Jones,legendary,5,minion
+Leeroy Jenkins,legendary,5,minion
+Cairne Bloodhoof,legendary,6,minion
+Hogger,legendary,6,minion
+Illidan Stormrage,legendary,6,minion
+Sylvanas Windrunner,legendary,6,minion
+The Beast,legendary,6,minion
+The Black Knight,legendary,6,minion
+Baron Geddon,legendary,7,minion
+Gruul,legendary,8,minion
+Ragnaros the Firelord,legendary,8,minion
+Alexstrasza,legendary,9,minion
+Malygos,legendary,9,minion
+Nozdormu,legendary,9,minion
+Onyxia,legendary,9,minion
+Ysera,legendary,9,minion
+Deathwing,legendary,10,minion
 
 druid
-Naturalize,common,1
-Power of the Wild,common,2
-Wrath,common,2
-Mark of Nature,common,3
-Soul of the Forest,common,4
-Druid of the Claw,common,5
-Savagery,rare,1
-Bite,rare,4
-Keeper of the Grove,rare,4
-Nourish,rare,5
-Starfall,rare,5
-Force of Nature,epic,6
-Ancient of Lore,epic,7
-Ancient of War,epic,7
-Cenarius,legendary,9
+Naturalize,common,1,spell
+Power of the Wild,common,2,spell
+Wrath,common,2,spell
+Mark of Nature,common,3,spell
+Soul of the Forest,common,4,spell
+Druid of the Claw,common,5,minion
+Savagery,rare,1,spell
+Bite,rare,4,spell
+Keeper of the Grove,rare,4,minion
+Nourish,rare,5,spell
+Starfall,rare,5,spell
+Force of Nature,epic,6,spell
+Ancient of Lore,epic,7,minion
+Ancient of War,epic,7,minion
+Cenarius,legendary,9,minion
 
 hunter
-Explosive Trap,common,2
-Freezing Trap,common,2
-Snipe,common,2
-Scavening Hyena,common,2
-Deadly Shot,common,3
-Unleash the Hounds,common,3
-Flare,rare,2
-Misdirection,rare,2
-Eaglehorn Bow,rare,3
-Explosive Shot,rare,5
-Savannah Highmane,rare,6
-Bestial Wrath,epic,1
-Snake Trap,epic,2
-Gladiator's Longbow,epic,7
-King Krush,legendary,9
+Explosive Trap,common,2,spell
+Freezing Trap,common,2,spell
+Snipe,common,2,spell
+Scavening Hyena,common,2,minion
+Deadly Shot,common,3,spell
+Unleash the Hounds,common,3,spell
+Flare,rare,2,spell
+Misdirection,rare,2,spell
+Eaglehorn Bow,rare,3,weapon
+Explosive Shot,rare,5,spell
+Savannah Highmane,rare,6,minion
+Bestial Wrath,epic,1,spell
+Snake Trap,epic,2,spell
+Gladiator's Longbow,epic,7,weapon
+King Krush,legendary,9,minion
 
 mage
-Ice Lance,common,1
-Mana Wyrm,common,1
-Sorcerer's Apprentice,common,2
-Ice Barrier,common,3
-Mirror Entity,common,3
-Cone of Cold,common,4
-Counterspell,rare,3
-Vaporize,rare,3
-Kirin Tor Mage,rare,3
-Ethereal Arcanist,rare,4
-Blizzard,rare,6
-Ice Block,epic,3
-Spellbender,epic,3
-Pyroblast,epic,10
-Archmage Antonidas,legendary,7
+Ice Lance,common,1,spell
+Mana Wyrm,common,1,minion
+Sorcerer's Apprentice,common,2,minion
+Ice Barrier,common,3,spell
+Mirror Entity,common,3,spell
+Cone of Cold,common,4,spell
+Counterspell,rare,3,spell
+Vaporize,rare,3,spell
+Kirin Tor Mage,rare,3,minion
+Ethereal Arcanist,rare,4,minion
+Blizzard,rare,6,spell
+Ice Block,epic,3,spell
+Spellbender,epic,3,spell
+Pyroblast,epic,10,spell
+Archmage Antonidas,legendary,7,minion
 
 paladin
-Blessing of Wisdom,common,1
-Eye for an Eye,common,1
-Noble Sacrifice,common,1
-Redemption,common,1
-Repentance,common,1
-Argent Protector,common,2
-Equality,rare,2
-Divine Favor,rare,3
-Aldor Peacekeeper,rare,3
-Blessed Champion,rare,5
-Holy Wrath,rare,5
-Sword of Justice,epic,3
-Avenging Wrath,epic,6
-Lay on Hands,epic,8
-Tirion Fordring,legendary,8
+Blessing of Wisdom,common,1,spell
+Eye for an Eye,common,1,spell
+Noble Sacrifice,common,1,spell
+Redemption,common,1,spell
+Repentance,common,1,spell
+Argent Protector,common,2,minion
+Equality,rare,2,spell
+Divine Favor,rare,3,spell
+Aldor Peacekeeper,rare,3,minion
+Blessed Champion,rare,5,spell
+Holy Wrath,rare,5,spell
+Sword of Justice,epic,3,weapon
+Avenging Wrath,epic,6,spell
+Lay on Hands,epic,8,spell
+Tirion Fordring,legendary,8,minion
 
 priest
-Circle of Healing,common,0
-Silence,common,0
-Inner Fire,common,1
-Thoughtsteal,common,3
-Lightspawn,common,4
-Temple Enforcer,common,6
-Lightwell,rare,2
-Mass Dispel,rare,4
-Shadow Madness,rare,4
-Auchenai Soulpriest,rare,4
-Holy Fire,rare,6
-Shadowform,epic,3
-Mindgames,epic,4
-Cabal Shadow Priest,epic,6
-Prophet Velen,legendary,7
+Circle of Healing,common,0,spell
+Silence,common,0,spell
+Inner Fire,common,1,spell
+Thoughtsteal,common,3,spell
+Lightspawn,common,4,minion
+Temple Enforcer,common,6,minion
+Lightwell,rare,2,minion
+Mass Dispel,rare,4,spell
+Shadow Madness,rare,4,spell
+Auchenai Soulpriest,rare,4,minion
+Holy Fire,rare,6,spell
+Shadowform,epic,3,spell
+Mindgames,epic,4,spell
+Cabal Shadow Priest,epic,6,minion
+Prophet Velen,legendary,7,minion
 
 rogue
-Shadowstep,common,0
-Cold Blood,common,1
-Conceal,common,1
-Betrayal,common,2
-Eviscerate,common,2
-Defias Ringleader,common,2
-Blade Flurry,rare,2
-Perdition's Blade,rare,3
-Headcrack,rare,3
-SI:7 Agent,rare,3
-Master of Disguise,rare,4
-Preparation,epic,0
-Patient Assassin,epic,2
-Kidnapper,epic,6
-Edwin VanCleef,legendary,3
+Shadowstep,common,0,spell
+Cold Blood,common,1,spell
+Conceal,common,1,spell
+Betrayal,common,2,spell
+Eviscerate,common,2,spell
+Defias Ringleader,common,2,minion
+Blade Flurry,rare,2,spell
+Perdition's Blade,rare,3,weapon
+Headcrack,rare,3,spell
+SI:7 Agent,rare,3,minion
+Master of Disguise,rare,4,minion
+Preparation,epic,0,spell
+Patient Assassin,epic,2,minion
+Kidnapper,epic,6,minion
+Edwin VanCleef,legendary,3,minion
 
 shaman
-Earth Shock,common,1
-Forked Lightning,common,1
-Lightning Bolt,common,1
-Dust Devil,common,1
-Stormforged Axe,common,2
-Unbound Elemental,common,3
-Ancestral Spirit,rare,2
-Feral Spirit,rare,3
-Lava Burst,rare,3
-Lightning Storm,rare,3
-Mana Tide Totem,rare,3
-Far Sight,epic,3
-Doomhammer,epic,5
-Earth Elemental,epic,5
-Al'Akir the Windlord,legendary,8
+Earth Shock,common,1,spell
+Forked Lightning,common,1,spell
+Lightning Bolt,common,1,spell
+Dust Devil,common,1,minion
+Stormforged Axe,common,2,weapon
+Unbound Elemental,common,3,minion
+Ancestral Spirit,rare,2,spell
+Feral Spirit,rare,3,spell
+Lava Burst,rare,3,spell
+Lightning Storm,rare,3,spell
+Mana Tide Totem,rare,3,minion
+Far Sight,epic,3,spell
+Doomhammer,epic,5,weapon
+Earth Elemental,epic,5,minion
+Al'Akir the Windlord,legendary,8,minion
 
 warlock
-Power Overwhelming,common,1
-Blood Imp,common,1
-Flame Imp,common,1
-Demonfire,common,2
-Sense Demons,common,3
-Summoning Portal,common,4
-Felguard,rare,3
-Void Terror,rare,3
-Shadowflame,rare,4
-Doomguard,rare,5
-Siphon Soul,rare,6
-Pit Lord,epic,4
-Bane of Doom,epic,5
-Twisting Nether,epic,8
-Lord Jaraxxus,legendary,9
+Power Overwhelming,common,1,spell
+Blood Imp,common,1,minion
+Flame Imp,common,1,minion
+Demonfire,common,2,spell
+Sense Demons,common,3,spell
+Summoning Portal,common,4,minion
+Felguard,rare,3,minion
+Void Terror,rare,3,minion
+Shadowflame,rare,4,spell
+Doomguard,rare,5,minion
+Siphon Soul,rare,6,spell
+Pit Lord,epic,4,minion
+Bane of Doom,epic,5,spell
+Twisting Nether,epic,8,spell
+Lord Jaraxxus,legendary,9,minion
 
 warrior
-Inner Rage,common,0
-Battle Rage,common,2
-Rampage,common,2
-Slam,common,2
-Cruel Taskmaster,common,2
-Arathi Weaponsmith,common,4
-Upgrade!,rare,1
-Commanding Shout,rare,2
-Armorsmith,rare,2
-Frothing Berserker,rare,3
-Mortal Strike,rare,4
-Shield Slam,epic,1
-Brawl,epic,5
-Gorehowl,epic,7
-Grommash Hellscream,legendary,8
+Inner Rage,common,0,spell
+Battle Rage,common,2,spell
+Rampage,common,2,spell
+Slam,common,2,spell
+Cruel Taskmaster,common,2,minion
+Arathi Weaponsmith,common,4,minion
+Upgrade!,rare,1,spell
+Commanding Shout,rare,2,spell
+Armorsmith,rare,2,minion
+Frothing Berserker,rare,3,minion
+Mortal Strike,rare,4,spell
+Shield Slam,epic,1,spell
+Brawl,epic,5,spell
+Gorehowl,epic,7,weapon
+Grommash Hellscream,legendary,8,minion
