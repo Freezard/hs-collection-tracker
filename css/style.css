@@ -300,24 +300,25 @@ body {
 #missingCardsWrap {
   position: relative;
   float: left;
-  max-width: 350px;
+  max-width: 400px;
 }
 /* ---------------- missingCards ---------------- */
 #missingCards {
   position: fixed;
-  width: 350px;
+  width: 400px;
   margin-top: 165px;
-  margin-left: 50px;
+  margin-left: 30px;
+  padding-left: 5px;
   background-color: #E3D3C8;
   border: 1px solid black;
   height: 300px;
 }
 #missingCards table {
   width: 100%;
-  margin-bottom: 50px;
+  margin-bottom: 20px;
 }
 #missingCards td{
-  padding: 2px 5px;
+  padding: 2px 0px;
 }
 #missingCards td.tdBold {
   font-weight: bold;
@@ -325,7 +326,16 @@ body {
 #missingCards h4 {
   text-align: center;
   margin-top: 10px;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
+}
+#missingCards td[id*="Dust"] {
+  color: rgba(50, 150, 215, 1.0);
+}
+#missingCards td[id*="Normal"] {
+  color: rgba(50, 150, 0, 1.0);
+}
+#missingCards td[id*="Golden"] {
+  color: rgba(200, 150, 0, 1.0);
 }
 /* ---------------------------------------------- */
 #footer {
