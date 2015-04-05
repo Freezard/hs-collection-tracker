@@ -308,25 +308,28 @@ body {
   width: 400px;
   margin-top: 165px;
   margin-left: 30px;
-  padding-left: 5px;
+  padding-left: 5px;  
   background-color: #E3D3C8;
   border: 1px solid black;
   height: 300px;
+  font-family: "Palatino Linotype", Palatino, Palladio, "URW Palladio L", "Book Antiqua", serif;
 }
 #missingCards table {
   width: 100%;
-  margin-bottom: 20px;
+  margin-bottom: 10px;
 }
 #missingCards td{
   padding: 2px 0px;
 }
-#missingCards td.tdBold {
+#missingCards td.tdHeader {
   font-weight: bold;
+  color: #AA5577;
 }
 #missingCards h4 {
+  color: #552255;
   text-align: center;
-  margin-top: 10px;
-  margin-bottom: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
 }
 #missingCards td[id*="Dust"] {
   color: rgba(50, 150, 215, 1.0);
