@@ -29,9 +29,9 @@ var HSCollectionTracker = (function() {
 		classic: 245,
 		reward: 2,
 		promo: 2,
-		naxxramas: 30,
-		gvg: 123,
-		blackrock: 31
+		naxxramas: 30
+//		gvg: 123,
+//		blackrock: 31
 	};
 	
 	var setsSoulbound = {
@@ -77,7 +77,7 @@ var HSCollectionTracker = (function() {
 	var selectedCardQuality = "normal";
 	var currentDust = 0;
 	var disenchantedDust = 0;
-	var version = 0.3;
+	var version = 0.33;
 	
 	function card(name, rarity, mana, type, className, set, soulbound) {
 		this.name = name;
@@ -513,6 +513,7 @@ var HSCollectionTracker = (function() {
 		}
 	  });*/
 	  
+	function restoreData() {
 		console.log("BACKING UP");
 		var storedClasses = JSON.parse(localStorage.getItem('classes'));
 		for (var className in storedClasses) {
@@ -558,6 +559,7 @@ var HSCollectionTracker = (function() {
 						sortCards(className);
 					
 					if (parseFloat(storedVersion) < parseFloat(version))
+						restoreData();
 
 				    updateLocalStorage();
 					localStorage.setItem("currentDust", currentDust);
