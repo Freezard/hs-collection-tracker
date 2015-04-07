@@ -204,7 +204,7 @@ body {
   background-color: rgba(174, 163, 60, 0.2);
 }
 #classCards #list_free .golden1 {
-  box-shadow: inset 0px -2px 0px 0px rgba(174, 163, 60, 0.7);
+  box-shadow: inset 0px -5px 0px 0px rgba(174, 163, 60, 0.7);
 }
 #classCards #list_free .normal1:hover {
   background-color: rgba(174, 163, 60, 0.5);
@@ -225,7 +225,7 @@ body {
   background-color: rgba(94, 111, 121, 0.2);
 }
 #classCards #list_common .golden1 {
-  box-shadow: inset 0px -2px 0px 0px rgba(94, 111, 121, 0.7);
+  box-shadow: inset 0px -5px 0px 0px rgba(94, 111, 121, 0.7);
 }
 #classCards #list_common .golden2 {
   box-shadow: inset 0px 0px 0px 2px rgba(94, 111, 121, 0.7);
@@ -246,7 +246,7 @@ body {
   background-color: rgba(43, 136, 234, 0.2);
 }
 #classCards #list_rare .golden1 {
-  box-shadow: inset 0px -2px 0px 0px rgba(43, 136, 234, 0.7);
+  box-shadow: inset 0px -5px 0px 0px rgba(43, 136, 234, 0.7);
 }
 #classCards #list_rare .golden2 {
   box-shadow: inset 0px 0px 0px 2px rgba(43, 136, 234, 0.7);
@@ -267,7 +267,7 @@ body {
   background-color: rgba(227, 62, 255, 0.2);
 }
 #classCards #list_epic .golden1 {
-  box-shadow: inset 0px -2px 0px 0px rgba(227, 62, 255, 0.7);
+  box-shadow: inset 0px -5px 0px 0px rgba(227, 62, 255, 0.7);
 }
 #classCards #list_epic .golden2 {
   box-shadow: inset 0px 0px 0px 2px rgba(227, 62, 255, 0.7);

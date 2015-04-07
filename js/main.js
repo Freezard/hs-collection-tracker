@@ -77,7 +77,7 @@ var HSCollectionTracker = (function() {
 	var selectedCardQuality = "normal";
 	var currentDust = 0;
 	var disenchantedDust = 0;
-	var version = 0.2;
+	var version = 0.3;
 	
 	function card(name, rarity, mana, type, className, set, soulbound) {
 		this.name = name;
@@ -183,36 +183,36 @@ var HSCollectionTracker = (function() {
 	}
 	
 	function updateNormalCard(card, number) {
-		classes[selectedClass].missingCards[card.rarity][0] -= number;
-		classes[selectedClass].missingCards.total[0] -= number;
+		classes[card.className].missingCards[card.rarity][0] -= number;
+		classes[card.className].missingCards.total[0] -= number;
 		missingCardsTotal[card.rarity][0] -= number;
 		missingCardsTotal.total[0] -= number;
 		
 		if (card.soulbound === "none" || card.soulbound === "golden") {
 		    var craftingCost = craftingCosts[card.rarity][0] ;
 		
-		    updateMissingDust(card.rarity, craftingCost * number);
+		    updateMissingDust(card, craftingCost * number);
 		}
 	}
 	
 	function updateGoldenCard(card, number) {
-		classes[selectedClass].missingCards[card.rarity][1] -= number;
-		classes[selectedClass].missingCards.total[1] -= number;
+		classes[card.className].missingCards[card.rarity][1] -= number;
+		classes[card.className].missingCards.total[1] -= number;
 		missingCardsTotal[card.rarity][1] -= number;
 		missingCardsTotal.total[1] -= number;
 		
 		if (card.soulbound === "none" || card.soulbound === "normal") {
 		    var craftingCost = craftingCosts[card.rarity][1];
 		
-		    updateMissingDust(card.rarity, craftingCost * number);
+		    updateMissingDust(card, craftingCost * number);
 		}
 	}
 	
-	function updateMissingDust(rarity, craftingCost) {
-		classes[selectedClass].missingDust[rarity] -= craftingCost;
-		classes[selectedClass].missingDust.total -= craftingCost;
+	function updateMissingDust(card, craftingCost) {
+		classes[card.className].missingDust[card.rarity] -= craftingCost;
+		classes[card.className].missingDust.total -= craftingCost;
 				
-		missingDustTotal[rarity] -= craftingCost;
+		missingDustTotal[card.rarity] -= craftingCost;
 		missingDustTotal.total -= craftingCost;
 	}
 	
@@ -249,7 +249,7 @@ var HSCollectionTracker = (function() {
 		
 		updateLocalStorage();
 		updateMissingCardsView(card.rarity, number);
-		updateMissingDustView(card.rarity);		
+		updateMissingDustView(card.rarity);
 	}
 	
 	function getCardCopies(card) {
@@ -512,6 +512,33 @@ var HSCollectionTracker = (function() {
 		  return false;
 		}
 	  });*/
+	  
+		console.log("BACKING UP");
+		var storedClasses = JSON.parse(localStorage.getItem('classes'));
+		for (var className in storedClasses) {
+			// level
+			for (var rarity in storedClasses[className].cards) {
+				for (var cardName in storedClasses[className].cards[rarity]) {
+					var card = storedClasses[className].cards[rarity][cardName];
+					if (classes[className].cards[rarity][cardName] !== undefined) {
+						classes[className].cards[rarity][cardName].normal = card.normal;
+						classes[className].cards[rarity][cardName].golden = card.golden;
+						
+						updateNormalCard(card, card.normal);
+						updateGoldenCard(card, card.golden);
+					}
+				}
+			}
+		}
+	}
+	
+	function loadLocalStorage() {
+		classes = JSON.parse(localStorage.getItem('classes'));
+		missingCardsTotal = JSON.parse(localStorage.getItem("missingCardsTotal"));
+		missingDustTotal = JSON.parse(localStorage.getItem("missingDustTotal"));
+		currentDust = parseInt(localStorage.getItem("currentDust"));
+		disenchantedDust = parseInt(localStorage.getItem("disenchantedDust"));	
+	}
 	
 	return {
 		init: function() {
@@ -521,30 +548,24 @@ var HSCollectionTracker = (function() {
 			if (typeof(Storage) !== "undefined") {
 				var storedVersion = localStorage.getItem("version");
 				
-				if (storedVersion === null) {
+				if (storedVersion != version) {
 					initializeClasses();
 				
-				    importCards("basic");
-				    importCards("classic");
-				    importCards("reward");
-				    importCards("promo");
-				    importCards("naxxramas");
+				    for (set in setsEnum)
+				        importCards(set);
 				
-					for (var className in classes) {
+					for (var className in classes)
 						sortCards(className);
-					}
 					
+					if (parseFloat(storedVersion) < parseFloat(version))
+
 				    updateLocalStorage();
 					localStorage.setItem("currentDust", currentDust);
 					localStorage.setItem("disenchantedDust", disenchantedDust);
 					localStorage.setItem("version", version);
 				}
 				else {
-					classes = JSON.parse(localStorage.getItem('classes'));
-					missingCardsTotal = JSON.parse(localStorage.getItem("missingCardsTotal"));
-					missingDustTotal = JSON.parse(localStorage.getItem("missingDustTotal"));
-					currentDust = parseInt(localStorage.getItem("currentDust"));
-					disenchantedDust = parseInt(localStorage.getItem("disenchantedDust"));
+					loadLocalStorage();
 				}
 			}			
 			
