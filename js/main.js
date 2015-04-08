@@ -77,7 +77,7 @@ var HSCollectionTracker = (function() {
 	var selectedCardQuality = "normal";
 	var currentDust = 0;
 	var disenchantedDust = 0;
-	var version = 0.33;
+	var version = 0.4;
 	
 	function card(name, rarity, mana, type, className, set, soulbound) {
 		this.name = name;
@@ -299,10 +299,12 @@ var HSCollectionTracker = (function() {
 	function displayClassTabs() {
 		var div = document.getElementById("classTabs");
 		var list = document.createElement("ul");
-		document.getElementById("classTabsBar").setAttribute("class", selectedClass);
+		var attrClass = document.getElementById("classTabsBar").getAttribute("class");
+		document.getElementById("classTabsBar").setAttribute("class", attrClass + " " + selectedClass);
 			
 		for (var className in classes) {
 			var listItem = document.createElement("li");
+			listItem.setAttribute("class", "col-xs-10ths nopadding");
 			var listItemLink = document.createElement("a");
 			var span = document.createElement("span");
 			span.innerHTML = classes[className].level;
@@ -326,7 +328,7 @@ var HSCollectionTracker = (function() {
 			
 			(function (className) {
 				listItemLink.addEventListener("click", function() {
-					document.getElementById("classTabsBar").setAttribute("class", className);
+					document.getElementById("classTabsBar").setAttribute("class", attrClass + " " + className);
 					selectedClass = className;
 					displayCards(className);
 					displayMissingCards();

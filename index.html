@@ -1,41 +1,59 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Hearthstone Collection Tracker</title>
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
 
 <div id="wrapper">
-  <div id="header">
-    <div id="header-left">
-	  <span class="title">Hearthstone Collection Tracker</span>
-	</div>
-    <div id="header-center">
-	  <ul>
-	    <li><a id="selectedQualityNormal" class="selected">Normal</a></li>
-		<li><a id="selectedQualityGolden">Golden</a></li>
+  <nav id="header" class="navbar navbar-default navbar-fixed-top">
+    <div class="container-fluid">
+      <div class="navbar-header">
+	    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+	    <span class="title navbar-brand">Hearthstone Collection Tracker</span>
+	  </div>
+      <div id="myNavbar" class="collapse navbar-collapse">
+	    <div id="header-center" class="center-block">
+  		<ul class="nav navbar-nav">
+	      <li><a id="selectedQualityNormal" class="selected">Normal</a></li>
+		  <li><a id="selectedQualityGolden">Golden</a></li>
+        </ul>
+		</div>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#" class="title">News</a></li>
+        <li><a href="#" class="title">About</a></li>
       </ul>
+	  </div>
 	</div>
-  </div>
-  <div id="container">
-    <div id="content">
-      <div id="classTabs"></div>
-      <div id="classTabsBar"></div>
-      <div id="classCards">
-        <ul id="list_free"></ul>
-        <ul id="list_common"></ul>
-        <ul id="list_rare"></ul>
-        <ul id="list_epic"></ul>
-        <ul id="list_legendary"></ul>
+  </nav>
+  <div id="container" class="container">
+  <div class="row">
+    <div id="content" class="col-xs-12 col-md-7 col-lg-11">
+      <div class="row" id="classTabs">
+	    
+	  </div>
+      <div class="row" id="classTabsBar"></div>
+      <div class="row" id="classCards">
+	    <div class="col-xs-5ths nopadding"><ul id="list_free"></ul></div>
+        <div class="col-xs-5ths nopadding"><ul id="list_common"></ul></div>
+        <div class="col-xs-5ths nopadding"><ul id="list_rare"></ul></div>
+        <div class="col-xs-5ths nopadding"><ul id="list_epic"></ul></div>
+        <div class="col-xs-5ths nopadding"><ul id="list_legendary"></ul></div>
       </div>
     </div>
-  </div>
-  <div id="missingCardsWrap">
+  <div id="missingCardsWrap" class="col-xs-0 col-md-5 col-lg-1">
     <div id="missingCards">
       <h4 id="missingCardsClassTitle"></h4>
       <table>
-	    <tr>
+	    <tr class>
 	      <td class="tdHeader">Free</td>
 	      <td class="tdHeader">Common</td>
 	      <td class="tdHeader">Rare</td>
@@ -104,11 +122,13 @@
 	    </tr>				
       </table>
     </div>
+  </div></div>
   </div>
   <div id="footer"></div>
 </div>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.min.js"></script>
 <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.3.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.2/underscore-min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
 <script type="text/javascript" src="js/main.js"></script>

@@ -1,65 +1,45 @@
 body {
   background-color: #FFFFFF;
-  font-size: 100%;
   /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
   margin: 0;
   padding: 0;
+  padding-top: 70px;
 }
 #wrapper {
   min-height: 100%;
   position: relative;
 }
-#header{
-  position: fixed;
-  margin: auto;
-  top: 0px;
-  vertical-align: middle;
-  line-height: 50px;
-  width: 100%;
-  height: 50px;
+#header {
   background-color: #E3D3C8;
-  z-index: 1;
 }
-#header-left {
-  float: left;
-  margin-left: 20px;
-}
-.title {  
-  font-size: 20px;
+#header .title {
+  font-size: 18px;
   color: #999999;
 }
-/* -------------- header-center -------------- */
 #header-center {
-  position: relative;
-  top: 10px;
   width: 280px;
-  margin: 0 auto;
 }
-#header-center ul {
-  width: 100%;
+#header-center ul {  
   list-style-type: none;
   padding: 0;
-  margin: 0 auto;
-  overflow: hidden;
   text-align: center;
 }
 #header-center li a {
   font-family: "Comic Sans MS", "Palatino Linotype", "Times", serif;
   float: left;
   border-top: 4px inset #E3D3C8;  
-  text-decoration: none;
-  font-size: 0.65em;
+  font-size: 10px;
   width: 120px;
-  height: 5px;
-  line-height: 6px;
-  display: block;
+  top: 10px;
+  line-height: 5px;
   color: black;
   font-weight: bold;
   padding: 10px 0px;
   margin: 0px 10px;
   border-radius: 4px 4px 0px 0px;
+  text-decoration: none;
   text-transform: uppercase;
-  background-color: #FFFFFF;  
+  background-color: #FFFFFF;
   cursor: pointer;
 }
 #selectedQualityNormal.selected {
@@ -77,41 +57,35 @@ body {
   box-shadow: inset 0 0 40px 1px gold;
 }
 /* ------------------------------------------- */
-#container {
-  position: relative;
+#container {  
   margin: 0px auto;
-  max-width: 870px;
-  top: 75px;
+  max-width: 900px;
 }
 #content {
   float: left;
   margin-bottom: 5px;
-  max-width: 870px;
-  overflow: auto;
 }
 /* ---------------- classTabs ---------------- */
 #classTabs ul {
-  width: 100%;
   list-style-type: none;
   padding: 0;
-  margin: 0;
-  overflow: hidden;
+  margin: 0;  
   text-align: center;
 }
 #classTabs li a {
   font-family: "Comic Sans MS", "Palatino Linotype", "Times", serif;
   float: left;
-  border-collapse: collapse;
+  overflow: hidden;
+  text-align: center;
   border: 5px double #98BF21;
   border-bottom-width: 0;
   text-decoration: none;
-  font-size: 0.65em;
-  width: 61px;
-  height: 30px;
-  display: block;
+  font-size: 10px;
+  min-height: 53px;
+  width: 100%;
   color: black;
   font-weight: bold;
-  padding: 10px 8px;
+  padding: 10px 0;
   margin: 0px 0px;
   border-radius: 4px 4px 0px 0px;
   text-transform: uppercase;
@@ -120,7 +94,7 @@ body {
 }
 #classTabs .neutral, #classTabsBar.neutral {
   background-color: #736358;
-  border-color: #938378;
+  border-color: #938378;  
 }
 #classTabs .druid, #classTabsBar.druid {
   background-color: #855C33;
@@ -161,11 +135,10 @@ body {
 #classTabs .warrior, #classTabsBar.warrior {
   background-color: #6B0000;
   border-color: #8B2020;
-  color: #C59C73;
+  color: #C59C73;  
 }
 #classTabsBar {
   height: 25px;
-  width: 864px;
   border: 3px ridge;
 }
 /* ------------------------------------------- */
@@ -174,22 +147,18 @@ body {
   list-style-type: none;
   padding: 0;
   margin: 0;
-  overflow: hidden;
-  float: left;
-  text-align: center;
-  width: 174px;
+  text-align: center;  
 }
 #classCards li a {
-  font-family: "Comic Sans MS", "Palatino Linotype", "Times", serif;
-  border-collapse: collapse;
+  font-family: "Comic Sans MS", "Palatino Linotype", "Times", serif;  
   border: 1px solid #DDDDDD;
-  text-decoration: none;
-  font-size: 0.65em;
-  width: 150px;
+  text-decoration: none;  
+  font-size: 10px;
+  overflow: hidden;
   display: block;
   color: black;
   font-weight: bold;
-  padding: 10px 10px;
+  padding: 10px 8px;
   margin: 0px 1px;
   margin-bottom: 2px;
   border-radius: 4px 4px 4px 4px;
@@ -300,26 +269,23 @@ body {
 #missingCardsWrap {
   position: relative;
   float: left;
-  max-width: 400px;
 }
 /* ---------------- missingCards ---------------- */
 #missingCards {
-  position: fixed;
-  width: 400px;
-  margin-top: 165px;
-  margin-left: 30px;
-  padding-left: 5px;  
+  position: fixed; 
+  margin-top: 75px;
+  padding-left: 2px;
   background-color: #E3D3C8;
   border: 1px solid black;
-  height: 300px;
   font-family: "Palatino Linotype", Palatino, Palladio, "URW Palladio L", "Book Antiqua", serif;
 }
 #missingCards table {
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 10px;  
 }
 #missingCards td{
-  padding: 2px 0px;
+  padding: 2px 5px;
+  font-size: 16px;
 }
 #missingCards td.tdHeader {
   font-weight: bold;
@@ -329,7 +295,9 @@ body {
   color: #552255;
   text-align: center;
   margin-top: 5px;
-  margin-bottom: 5px;
+  margin-bottom: 20px;
+  font-size: 16px;
+  font-weight: bold;
 }
 #missingCards td[id*="Dust"] {
   color: rgba(50, 150, 215, 1.0);
@@ -342,8 +310,7 @@ body {
 }
 /* ---------------------------------------------- */
 #footer {
-  position: relative;
-  top: 100px;
+  position: relative;  
   clear: left;
   width: 100%;
   height: 50px;
@@ -374,6 +341,80 @@ body {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
+}
+.col-xs-5ths,
+.col-sm-5ths,
+.col-md-5ths,
+.col-lg-5ths {
+    position: relative;
+    min-height: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.col-xs-5ths {
+    width: 20%;
+    float: left;
+}
+
+@media (min-width: 768px) {
+    .col-sm-5ths {
+        width: 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 992px) {
+    .col-md-5ths {
+        width: 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 1200px) {
+    .col-lg-5ths {
+        width: 20%;
+        float: left;
+    }
+}
+.col-xs-10ths,
+.col-sm-10ths,
+.col-md-10ths,
+.col-lg-10ths {
+    position: relative;
+    min-height: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.col-xs-10ths {
+    width: 10%;
+    float: left;
+}
+
+@media (min-width: 768px) {
+    .col-sm-10ths {
+        width: 10%;
+        float: left;
+    }
+}
+
+@media (min-width: 992px) {
+    .col-md-10ths {
+        width: 10%;
+        float: left;
+    }
+}
+
+@media (min-width: 1200px) {
+    .col-lg-10ths {
+        width: 10%;
+        float: left;
+    }
+}
+.nopadding {
+  padding-left: 0;
+  padding-right: 0;
 }
 /*
 #content:after {
