@@ -151,7 +151,7 @@ body {
 }
 #classCards li a {
   font-family: "Comic Sans MS", "Palatino Linotype", "Times", serif;  
-  border: 1px solid #DDDDDD;
+  box-shadow: inset 0px 0px 0px 1px #DDDDDD;
   text-decoration: none;  
   font-size: 10px;
   overflow: hidden;
@@ -172,7 +172,7 @@ body {
 #classCards #list_free .normal1 {
   background-color: rgba(174, 163, 60, 0.2);
 }
-#classCards #list_free .golden1 {
+#classCards #list_free .golden1{
   box-shadow: inset 0px -5px 0px 0px rgba(174, 163, 60, 0.7);
 }
 #classCards #list_free .normal1:hover {
@@ -185,7 +185,7 @@ body {
   box-shadow: inset 0px 0px 0px 2px rgba(174, 163, 60, 0.7);
 }
 #classCards #list_free .normal2:hover {
-  background-color: rgba(94, 111, 121, 0.5);
+  background-color: rgba(174, 163, 60, 0.5);
 }
 #classCards #list_common a:hover {
   background-color: rgba(94, 111, 121, 0.2);
