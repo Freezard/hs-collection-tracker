@@ -56,14 +56,16 @@ body {
 #selectedQualityGolden:hover {
   box-shadow: inset 0 0 40px 1px gold;
 }
+.navbar-right li a {
+  cursor: pointer;
+}
 /* ------------------------------------------- */
 #container {  
   margin: 0px auto;
-  max-width: 900px;
+  max-width: 940px;
 }
 #content {
   float: left;
-  margin-bottom: 5px;
 }
 /* ---------------- classTabs ---------------- */
 #classTabs ul {
@@ -81,7 +83,7 @@ body {
   border-bottom-width: 0;
   text-decoration: none;
   font-size: 10px;
-  min-height: 53px;
+  min-height: 54px;
   width: 100%;
   color: black;
   font-weight: bold;
@@ -173,7 +175,7 @@ body {
   background-color: rgba(174, 163, 60, 0.2);
 }
 #classCards #list_free .golden1{
-  box-shadow: inset 0px -5px 0px 0px rgba(174, 163, 60, 0.7);
+  box-shadow: inset 0px -4px 0px 0px rgba(174, 163, 60, 0.7);
 }
 #classCards #list_free .normal1:hover {
   background-color: rgba(174, 163, 60, 0.5);
@@ -182,7 +184,7 @@ body {
   background-color: rgba(174, 163, 60, 0.5);
 }
 #classCards #list_free .golden2 {
-  box-shadow: inset 0px 0px 0px 2px rgba(174, 163, 60, 0.7);
+  box-shadow: inset 0px -4px 0px 0px rgba(255, 225, 0, 0.7);
 }
 #classCards #list_free .normal2:hover {
   background-color: rgba(174, 163, 60, 0.5);
@@ -194,10 +196,10 @@ body {
   background-color: rgba(94, 111, 121, 0.2);
 }
 #classCards #list_common .golden1 {
-  box-shadow: inset 0px -5px 0px 0px rgba(94, 111, 121, 0.7);
+  box-shadow: inset 0px -4px 0px 0px rgba(94, 111, 121, 0.5);
 }
 #classCards #list_common .golden2 {
-  box-shadow: inset 0px 0px 0px 2px rgba(94, 111, 121, 0.7);
+  box-shadow: inset 0px -4px 0px 0px rgba(255, 225, 0, 0.7);
 }
 #classCards #list_common .normal1:hover {
   background-color: rgba(94, 111, 121, 0.5);
@@ -215,10 +217,10 @@ body {
   background-color: rgba(43, 136, 234, 0.2);
 }
 #classCards #list_rare .golden1 {
-  box-shadow: inset 0px -5px 0px 0px rgba(43, 136, 234, 0.7);
+  box-shadow: inset 0px -4px 0px 0px rgba(43, 136, 234, 0.7);
 }
 #classCards #list_rare .golden2 {
-  box-shadow: inset 0px 0px 0px 2px rgba(43, 136, 234, 0.7);
+   box-shadow: inset 0px -4px 0px 0px rgba(255, 225, 0, 0.7);
 }
 #classCards #list_rare .normal1:hover {
   background-color: rgba(43, 136, 234, 0.5);
@@ -236,10 +238,10 @@ body {
   background-color: rgba(227, 62, 255, 0.2);
 }
 #classCards #list_epic .golden1 {
-  box-shadow: inset 0px -5px 0px 0px rgba(227, 62, 255, 0.7);
+  box-shadow: inset 0px -4px 0px 0px rgba(227, 62, 255, 0.5);
 }
 #classCards #list_epic .golden2 {
-  box-shadow: inset 0px 0px 0px 2px rgba(227, 62, 255, 0.7);
+  box-shadow: inset 0px -4px 0px 0px rgba(255, 225, 0, 0.7);
 }
 #classCards #list_epic .normal1:hover {
   background-color: rgba(227, 62, 255, 0.5);
@@ -260,7 +262,7 @@ body {
   background-color: rgba(255, 149, 9, 0.6);
 }
 #classCards #list_legendary .golden1 {
-  box-shadow: inset 0px 0px 0px 2px rgba(255, 149, 9, 1);
+  box-shadow: inset 0px -4px 0px 0px rgba(255, 149, 9, 0.7);
 }
 #classCards li a:hover {
   background-color: orange;
@@ -281,21 +283,28 @@ body {
 }
 #missingCards table {
   width: 100%;
-  margin-bottom: 10px;  
+  margin-bottom: 10px;
 }
 #missingCards td{
   padding: 2px 5px;
   font-size: 16px;
 }
-#missingCards td.tdHeader {
+.special {
+  font-weight: bold;
+  color: #CAA597;
+}
+.special2 {
   font-weight: bold;
   color: #AA5577;
+}
+h2 {
+  color: #736358;
 }
 #missingCards h4 {
   color: #552255;
   text-align: center;
-  margin-top: 5px;
-  margin-bottom: 20px;
+  margin-top: 10px;
+  margin-bottom: 10px;
   font-size: 16px;
   font-weight: bold;
 }
@@ -309,15 +318,20 @@ body {
   color: rgba(200, 150, 0, 1.0);
 }
 /* ---------------------------------------------- */
+#about {
+  border: 1px solid;
+  background-color: #E3D3C8;  
+}
 #footer {
-  position: relative;  
+  position: relative;
   clear: left;
   width: 100%;
   height: 50px;
   text-align: center;
   vertical-align: middle;
-  line-height: 50px;
+  line-height: 50px;  
   margin: auto;
+  margin-top: 10px;
   background-color: #736358;
 }
 [contenteditable="true"] {

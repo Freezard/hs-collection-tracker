@@ -29,9 +29,9 @@ var HSCollectionTracker = (function() {
 		classic: 245,
 		reward: 2,
 		promo: 2,
-		naxxramas: 30
-//		gvg: 123,
-//		blackrock: 31
+		naxxramas: 30,
+		gvg: 123,
+		blackrock: 31
 	};
 	
 	var setsSoulbound = {
@@ -77,7 +77,7 @@ var HSCollectionTracker = (function() {
 	var selectedCardQuality = "normal";
 	var currentDust = 0;
 	var disenchantedDust = 0;
-	var version = 0.4;
+	var version = 0.8;
 	
 	function card(name, rarity, mana, type, className, set, soulbound) {
 		this.name = name;
@@ -164,13 +164,14 @@ var HSCollectionTracker = (function() {
 			for (var name in cardList[rarity]) {
 				sortedArray.push([name, cardList[rarity][name]]);
 			}
-			sortedArray.sort(function(a, b) { 
+			sortedArray.sort(function(a, b) {
 			    return a[1].mana == b[1].mana ?
 				a[1].type === b[1].type ?
 				a[1].name.localeCompare(b[1].name) :
 				a[1].type === "weapon" ? -1 :
+				b[1].type === "weapon" ? 1 :
 				a[1].type === "spell" ? -1 :
-				1 :	a[1].mana - b[1].mana
+				1 :	a[1].mana - b[1].mana;
 				});
 			
 			var sortedList = {};
@@ -479,9 +480,8 @@ var HSCollectionTracker = (function() {
 		selectedCardQuality = element.innerHTML.toLowerCase();
 		element.setAttribute("class", "selected");
     }
-	
-	// Not done
-	function handleKey(element, event) {
+
+	/*function handleKey(element, event) {
 	  var a = String.fromCharCode(event.keyCode);
 	  console.log(a); 
 	  console.log(element.parentNode.innerText.split(" ")[0]);
@@ -495,14 +495,14 @@ var HSCollectionTracker = (function() {
 			return true;
 		}
 	  return false;
-	}
+	}*/
 	
-	function lol(e) {
+   /*function lol(e) {
 	   window.getSelection().removeAllRanges();
-	   /*document.selection.empty()*/
+	   document.selection.empty();
 	   console.log(e);
 		//e.innerHTML = "lol";
-	}
+	}*/
 	
 	/*$('span[contenteditable]').keydown(function(e) {
 		// trap the return key being pressed
@@ -543,11 +543,36 @@ var HSCollectionTracker = (function() {
 		disenchantedDust = parseInt(localStorage.getItem("disenchantedDust"));	
 	}
 	
+	function displayAbout() {
+		var template = document.getElementById("template-about").innerHTML;
+		document.getElementById("containerRow").innerHTML = template;
+		
+		document.oncontextmenu = function() {
+            return true;
+        }
+	}
+	
+	function displayTracker() {
+		var template = document.getElementById("template-tracker").innerHTML;
+		document.getElementById("containerRow").innerHTML = template;
+		
+		displayClassTabs();
+		displayCards(selectedClass);
+		displayMissingCards();
+		displayMissingCardsTotal();
+		displayMissingDust();
+		displayMissingDustTotal();
+		
+		document.oncontextmenu = function() {
+            return false;
+        }
+	}
+	
 	return {
 		init: function() {
 		//	localStorage.clear();
 		//	console.log(JSON.stringify(localStorage).length);
-			
+
 			if (typeof(Storage) !== "undefined") {
 				var storedVersion = localStorage.getItem("version");
 				
@@ -571,19 +596,13 @@ var HSCollectionTracker = (function() {
 				else {
 					loadLocalStorage();
 				}
-			}			
-			
-			document.oncontextmenu = function() {
-                return false;
-            }
+			}
 			
 			initSelectedCardQuality();
-			displayClassTabs();
-			displayCards(selectedClass);
-			displayMissingCards();
-			displayMissingCardsTotal();
-			displayMissingDust();
-			displayMissingDustTotal();
+			document.getElementById("link-tracker").addEventListener("click", function() { displayTracker(); });
+			document.getElementById("link-about").addEventListener("click", function() { displayAbout(); });
+			
+			displayTracker();
 		}
 	};
 })();

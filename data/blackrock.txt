@@ -1,0 +1,29 @@
+neutral
+Blackwing Technician,common,3,minion
+Grim Patron,rare,5,minion
+Emperor Thaurissan,legendary,6,minion
+Majordomo Executus,legendary,9,minion
+
+druid
+Druid of the Flame,common,3,minion
+
+hunter
+Quick Shot,common,2,spell
+
+mage
+Dragon's Breath,common,5,spell
+
+priest
+Resurrect,rare,2,spell
+
+rogue
+Gang Up,common,2,spell
+
+shaman
+Lava Shock,rare,2,spell
+
+warlock
+Imp Gang Boss,common,3,minion
+
+warrior
+Axe Flinger,common,4,minion
