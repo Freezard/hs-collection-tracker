@@ -82,7 +82,7 @@ Blood Knight,epic,3,minion
 Murloc Warleader,epic,3,minion
 Southsea Captain,epic,3,minion
 Faceless Manipulator,epic,5,minion
-Sea Giant,epic,12,minion
+Sea Giant,epic,10,minion
 Mountain Giant,epic,12,minion
 Molten Giant,epic,20,minion
 Bloodmage Thalnos,legendary,2,minion
