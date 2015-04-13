@@ -168,6 +168,39 @@ body {
   background-color: white;
   cursor: pointer;
 }
+#classCards li a.buttonAll {
+  margin-bottom: 0px;
+  padding: 0;
+  border-radius: 0;
+  background-color: rgba(150, 200, 255, 1);
+  transition: padding 0.5s, color 1s;  
+  color: transparent;
+}
+#classCards #list_free li a.buttonAll:hover {
+  background-color: rgba(200, 230, 255, 1);
+  padding: 10px 0px;
+  color: black;
+}
+#classCards #list_common li a.buttonAll:hover {
+  background-color: rgba(200, 230, 255, 1);
+  padding: 10px 0px;
+  color: black;
+}
+#classCards #list_rare li a.buttonAll:hover {
+  background-color: rgba(200, 230, 255, 1);
+  padding: 10px 0px;
+  color: black;
+}
+#classCards #list_epic li a.buttonAll:hover {
+  background-color: rgba(200, 230, 255, 1);
+  padding: 10px 0px;
+  color: black;
+}
+#classCards #list_legendary li a.buttonAll:hover {
+  background-color: rgba(200, 230, 255, 1);
+  padding: 10px 0px;
+  color: black;
+}
 #classCards #list_free a:hover {
   background-color: rgba(174, 163, 60, 0.2);
 }
@@ -175,7 +208,7 @@ body {
   background-color: rgba(174, 163, 60, 0.2);
 }
 #classCards #list_free .golden1{
-  box-shadow: inset 0px -4px 0px 0px rgba(174, 163, 60, 0.7);
+  box-shadow: inset 0px 0px 0px 1px #DDDDDD, inset 0px -4px 0px 0px rgba(174, 163, 60, 0.7);
 }
 #classCards #list_free .normal1:hover {
   background-color: rgba(174, 163, 60, 0.5);
@@ -184,7 +217,7 @@ body {
   background-color: rgba(174, 163, 60, 0.5);
 }
 #classCards #list_free .golden2 {
-  box-shadow: inset 0px -4px 0px 0px rgba(255, 225, 0, 0.7);
+  box-shadow: inset 0px 0px 0px 1px #DDDDDD, inset 0px -4px 0px 0px rgba(255, 225, 0, 0.7);
 }
 #classCards #list_free .normal2:hover {
   background-color: rgba(174, 163, 60, 0.5);
@@ -196,10 +229,10 @@ body {
   background-color: rgba(94, 111, 121, 0.2);
 }
 #classCards #list_common .golden1 {
-  box-shadow: inset 0px -4px 0px 0px rgba(94, 111, 121, 0.5);
+  box-shadow: inset 0px 0px 0px 1px #DDDDDD, inset 0px -4px 0px 0px rgba(94, 111, 121, 0.5);
 }
 #classCards #list_common .golden2 {
-  box-shadow: inset 0px -4px 0px 0px rgba(255, 225, 0, 0.7);
+  box-shadow: inset 0px 0px 0px 1px #DDDDDD, inset 0px -4px 0px 0px rgba(255, 225, 0, 0.7);
 }
 #classCards #list_common .normal1:hover {
   background-color: rgba(94, 111, 121, 0.5);
@@ -217,10 +250,10 @@ body {
   background-color: rgba(43, 136, 234, 0.2);
 }
 #classCards #list_rare .golden1 {
-  box-shadow: inset 0px -4px 0px 0px rgba(43, 136, 234, 0.7);
+  box-shadow: inset 0px 0px 0px 1px #DDDDDD, inset 0px -4px 0px 0px rgba(43, 136, 234, 0.7);
 }
 #classCards #list_rare .golden2 {
-   box-shadow: inset 0px -4px 0px 0px rgba(255, 225, 0, 0.7);
+  box-shadow: inset 0px 0px 0px 1px #DDDDDD, inset 0px -4px 0px 0px rgba(255, 225, 0, 0.7);
 }
 #classCards #list_rare .normal1:hover {
   background-color: rgba(43, 136, 234, 0.5);
@@ -238,10 +271,10 @@ body {
   background-color: rgba(227, 62, 255, 0.2);
 }
 #classCards #list_epic .golden1 {
-  box-shadow: inset 0px -4px 0px 0px rgba(227, 62, 255, 0.5);
+  box-shadow: inset 0px 0px 0px 1px #DDDDDD, inset 0px -4px 0px 0px rgba(227, 62, 255, 0.5);
 }
 #classCards #list_epic .golden2 {
-  box-shadow: inset 0px -4px 0px 0px rgba(255, 225, 0, 0.7);
+  box-shadow: inset 0px 0px 0px 1px #DDDDDD, inset 0px -4px 0px 0px rgba(255, 225, 0, 0.7);
 }
 #classCards #list_epic .normal1:hover {
   background-color: rgba(227, 62, 255, 0.5);
@@ -262,10 +295,7 @@ body {
   background-color: rgba(255, 149, 9, 0.6);
 }
 #classCards #list_legendary .golden1 {
-  box-shadow: inset 0px -4px 0px 0px rgba(255, 149, 9, 0.7);
-}
-#classCards li a:hover {
-  background-color: orange;
+  box-shadow: inset 0px 0px 0px 1px #DDDDDD, inset 0px -4px 0px 0px rgba(255, 149, 9, 0.7);
 }
 /* ------------------------------------------ */
 #missingCardsWrap {

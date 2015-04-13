@@ -119,7 +119,7 @@ var HSCollectionTracker = (function() {
 		};
 		this.addCard = function(card) {
 			this.cards[card.rarity][card.name] = card;
-			var cardCopies = getCardCopies(card);
+			var cardCopies = getCardCopies(card.rarity);
 			
 			this.missingCards[card.rarity][0] += cardCopies;
 			this.missingCards[card.rarity][1] += cardCopies;
@@ -219,8 +219,15 @@ var HSCollectionTracker = (function() {
 	
 	// Adds a card through clicking on an <li><a> element
 	function addCard(element, card) {
-		if (card[selectedCardQuality] < getCardCopies(card)) {
-			updateCard(card, element, 1);
+		if (card[selectedCardQuality] < getCardCopies(card.rarity)) {
+			updateCard(card, 1);
+			
+		    var re = new RegExp(selectedCardQuality + "\\d");
+		    element.setAttribute("class", element.getAttribute("class").replace(re, selectedCardQuality + card[selectedCardQuality]));			
+			
+		    updateLocalStorage();
+		    updateMissingCardsView(card.rarity, 1);
+		    updateMissingDustView(card.rarity);			
 			
 			return true;
 		}
@@ -228,9 +235,50 @@ var HSCollectionTracker = (function() {
 		return false;
 	}
 	
+	function addAll(element) {
+		var x = element.parentNode.parentNode.id;
+		x = x.slice(5, x.length);
+		
+		var cardCopies = getCardCopies(x);
+		
+		for (var cardName in classes[selectedClass].cards[x]) {
+			var card = classes[selectedClass].cards[x][cardName];
+			
+			if (card[selectedCardQuality] < getCardCopies(card.rarity))
+			    updateCard(card, cardCopies - card[selectedCardQuality]);
+		}
+		
+		updateLocalStorage();
+		displayTracker();
+	}
+	
+	function removeAll(element) {
+		var x = element.parentNode.parentNode.id;
+		x = x.slice(5, x.length);
+		
+		var cardCopies = getCardCopies(x);
+		
+		for (var cardName in classes[selectedClass].cards[x]) {
+			var card = classes[selectedClass].cards[x][cardName];
+			
+			if (card[selectedCardQuality] > 0)
+			    updateCard(card, -card[selectedCardQuality]);
+		}
+		
+		updateLocalStorage();
+		displayTracker();
+	}
+	
 	function removeCard(element, card) {
 		if (card[selectedCardQuality] > 0) {
-		    updateCard(card, element, -1);
+		    updateCard(card, -1);
+		
+		    var re = new RegExp(selectedCardQuality + "\\d");
+		    element.setAttribute("class", element.getAttribute("class").replace(re, selectedCardQuality + card[selectedCardQuality]));
+		
+			updateLocalStorage();
+		    updateMissingCardsView(card.rarity, -1);
+		    updateMissingDustView(card.rarity);
 		
 		    return false;
 		}
@@ -238,23 +286,16 @@ var HSCollectionTracker = (function() {
 		return false;
 	}
 	
-	function updateCard(card, element, number) {
+	function updateCard(card, number) {
 	    card[selectedCardQuality] += number;
-	
-		var re = new RegExp(selectedCardQuality + "\\d");
-		element.setAttribute("class", element.getAttribute("class").replace(re, selectedCardQuality + card[selectedCardQuality]));
 		
 		if (selectedCardQuality === "normal")
 				updateNormalCard(card, number);
 		else updateGoldenCard(card, number);
-		
-		updateLocalStorage();
-		updateMissingCardsView(card.rarity, number);
-		updateMissingDustView(card.rarity);
 	}
 	
-	function getCardCopies(card) {
-		return card.rarity === "legendary" ? 1 : 2;
+	function getCardCopies(rarity) {
+		return rarity === "legendary" ? 1 : 2;
 	}
 	
 	function updateLocalStorage() {
@@ -357,8 +398,18 @@ var HSCollectionTracker = (function() {
 			//list.innerHTML="&nbsp";
 		}
 		
-		for (var rarity in cardList) {		    
+		for (var rarity in cardList) {
 			var list = document.getElementById("list_" + rarity);
+			
+			var li = document.createElement("li");
+			var link = document.createElement("a");
+			link.textContent = "Apply to all";
+			link.setAttribute("class", "buttonAll");
+			link.addEventListener("click", function() { addAll(this); });
+			link.addEventListener("contextmenu", function() { removeAll(this); });
+			li.appendChild(link);
+			list.appendChild(li);
+			
 			for (var name in cardList[rarity]) {
 				var card = cardList[rarity][name];
 				var listItem = document.createElement("li");
