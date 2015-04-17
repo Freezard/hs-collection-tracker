@@ -1,19 +1,27 @@
 neutral
 Blackwing Technician,common,3,minion
+Dragon Egg,rare,1,minion
 Grim Patron,rare,5,minion
 Emperor Thaurissan,legendary,6,minion
+Rend Blackhand,legendary,7,minion
 Majordomo Executus,legendary,9,minion
 
 druid
 Druid of the Flame,common,3,minion
+Volcanic Lumberer,rare,9,minion
 
 hunter
 Quick Shot,common,2,spell
+Core Rager,rare,4,minion
 
 mage
 Dragon's Breath,common,5,spell
 
+paladin
+Dragon Consort,rare,5,minion
+
 priest
+Twilight Whelp,common,1,minion
 Resurrect,rare,2,spell
 
 rogue

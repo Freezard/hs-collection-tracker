@@ -77,7 +77,7 @@ var HSCollectionTracker = (function() {
 	var selectedCardQuality = "normal";
 	var currentDust = 0;
 	var disenchantedDust = 0;
-	var version = 0.85;
+	var version = 0.90;
 	
 	function card(name, rarity, mana, type, className, set, soulbound) {
 		this.name = name;
@@ -602,6 +602,18 @@ var HSCollectionTracker = (function() {
             return true;
         }
 	}
+
+	function displayNews() {
+		var template = document.getElementById("template-news").innerHTML;
+		document.getElementById("containerRow").innerHTML = template;
+		
+	    var news = document.getElementById("link-news");
+		news.className = news.className.replace(" news", "");
+		
+		document.oncontextmenu = function() {
+            return true;
+        }
+	}
 	
 	function displayTracker() {
 		var template = document.getElementById("template-tracker").innerHTML;
@@ -636,8 +648,11 @@ var HSCollectionTracker = (function() {
 					for (var className in classes)
 						sortCards(className);
 					
-					if (parseFloat(storedVersion) < parseFloat(version))
+					if (parseFloat(storedVersion) < parseFloat(version)) {
 						restoreData();
+						var news = document.getElementById("link-news");
+						news.className = news.className + " news";
+					}
 
 				    updateLocalStorage();
 					localStorage.setItem("currentDust", currentDust);
@@ -652,6 +667,7 @@ var HSCollectionTracker = (function() {
 			initSelectedCardQuality();
 			document.getElementById("link-tracker").addEventListener("click", function() { displayTracker(); });
 			document.getElementById("link-about").addEventListener("click", function() { displayAbout(); });
+			document.getElementById("link-news").addEventListener("click", function() { displayNews(); });
 			
 			displayTracker();
 		}
