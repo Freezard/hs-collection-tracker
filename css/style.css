@@ -295,7 +295,7 @@ body {
   background-color: rgba(255, 149, 9, 0.6);
 }
 #classCards #list_legendary .golden1 {
-  box-shadow: inset 0px 0px 0px 1px #DDDDDD, inset 0px -4px 0px 0px rgba(255, 225, 0, 0.7);
+  box-shadow: inset 0px 0px 0px 1px #DDDDDD, inset 0px -4px 0px 0px rgba(255, 120, 0, 0.7);
 }
 /* ------------------------------------------ */
 #missingCardsWrap {
