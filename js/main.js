@@ -77,7 +77,7 @@ var HSCollectionTracker = (function() {
 	var selectedCardQuality = "normal";
 	var currentDust = 0;
 	var disenchantedDust = 0;
-	var version = 0.90;
+	var version = 0.91;
 	
 	function card(name, rarity, mana, type, className, set, soulbound) {
 		this.name = name;

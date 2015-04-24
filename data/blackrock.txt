@@ -1,9 +1,11 @@
 neutral
 Blackwing Technician,common,3,minion
 Dragon Egg,rare,1,minion
+Hungry Dragon,common,4,minion
 Grim Patron,rare,5,minion
 Emperor Thaurissan,legendary,6,minion
 Rend Blackhand,legendary,7,minion
+Chromaggus,legendary,8,minion
 Majordomo Executus,legendary,9,minion
 
 druid
@@ -16,6 +18,7 @@ Core Rager,rare,4,minion
 
 mage
 Dragon's Breath,common,5,spell
+Flamewaker,rare,3,minion
 
 paladin
 Dragon Consort,rare,5,minion
@@ -26,12 +29,16 @@ Resurrect,rare,2,spell
 
 rogue
 Gang Up,common,2,spell
+Dark Iron Skulker,rare,5,minion
 
 shaman
+Fireguard Destroyer,common,4,minion
 Lava Shock,rare,2,spell
 
 warlock
 Imp Gang Boss,common,3,minion
+Demonwrath,rare,3,spell
 
 warrior
 Axe Flinger,common,4,minion
+Revenge,rare,2,spell
