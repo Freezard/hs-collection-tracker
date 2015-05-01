@@ -1,5 +1,9 @@
 neutral
 Blackwing Technician,common,3,minion
+Dragonkin Sorcerer,common,4,minion
+Blackwing Corruptor,common,5,minion
+Drakonid Crusher,common,6,minion
+Volcanic Drake,common,6,minion
 Dragon Egg,rare,1,minion
 Hungry Dragon,common,4,minion
 Grim Patron,rare,5,minion
@@ -7,6 +11,7 @@ Emperor Thaurissan,legendary,6,minion
 Rend Blackhand,legendary,7,minion
 Chromaggus,legendary,8,minion
 Majordomo Executus,legendary,9,minion
+Nefarian,legendary,9,minion
 
 druid
 Druid of the Flame,common,3,minion
@@ -21,6 +26,7 @@ Dragon's Breath,common,5,spell
 Flamewaker,rare,3,minion
 
 paladin
+Solemn Vigil,common,5,spell
 Dragon Consort,rare,5,minion
 
 priest
