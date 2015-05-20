@@ -37,8 +37,9 @@
 		    <li><a id="selectedQualityGolden">Golden</a></li>
           </ul>
 		</div>
-        <ul class="nav navbar-nav navbar-right">
+        <ul class="nav navbar-nav navbar-right">		  
 		  <li><a id="link-tracker" class="title">Tracker</a></li>
+		  <li><a id="link-packs" class="title">Pack Guide</a></li>		  
           <li><a id="link-news" class="title">News</a></li>
           <li><a id="link-about" class="title">About</a></li>
         </ul>
@@ -68,7 +69,7 @@
   <div id="missingCards">
     <h4 id="missingCardsClassTitle"></h4>
     <table>
-	  <tr class>
+	  <tr>
 	    <td class="special">Free</td>
 	    <td class="special">Common</td>
 	    <td class="special">Rare</td>
@@ -154,12 +155,96 @@
 </script>
 <script id="template-news" type="text/html">
 <div id="about" class="col-xs-12">
-  <h2>News</h2>  
+  <h2>News</h2>
+  <p><span class="special2">21-05-15</span> - Added a new feature called Pack Guide which helps you determine whether to buy Classic or GvG packs.</p>
   <p><span class="special2">01-05-15</span> - Added cards from the fifth wing of Blackrock Mountain.</p>
   <p><span class="special2">24-04-15</span> - Added cards from the fourth wing of Blackrock Mountain.</p>
   <p><span class="special2">17-04-15</span> - Added cards from the third wing of Blackrock Mountain.</p>
   <p><span class="special2">13-04-15</span> - Added buttons for filling/clearing entire columns.</p>
   <p><span class="special2">12-04-15</span> - Initial release.</p>
+</div>
+</script>
+<script id="template-packs" type="text/html">
+<div id="about" class="col-xs-12">
+  <h2>Pack Guide</h2>
+  <p>This guide will help you determine whether you should buy Classic or Goblins vs Gnomes packs.<br/>
+     It displays the amount of cards missing from each set and calculates the average amount of dust that you will receive from the pack.<br/>
+	 The value is based on dust received from disenchanting duplicate cards and the amount of dust required to craft new cards.</p>
+  <p>Golden cards are not included in the calculation but there will be an option to include them soon.</p>
+  <div class="col-xs-6">
+    <img src="images/pack_classic.png" alt="Classic pack" width="160" height="216">
+	<table>
+	  <tr>
+	    <td></td>
+		<td>Missing normal</td>
+		<td>Missing golden</td>
+	  </tr>
+	  <tr>
+	    <td>Common</td>
+		<td id="classicMissingCommonNormal"></td>
+		<td id="classicMissingCommonGolden"></td>
+	  </tr>
+	  <tr>
+	    <td>Rare</td>
+		<td id="classicMissingRareNormal"></td>
+		<td id="classicMissingRareGolden"></td>
+	  </tr>
+	  <tr>
+	    <td>Epic</td>
+		<td id="classicMissingEpicNormal"></td>
+		<td id="classicMissingEpicGolden"></td>
+	  </tr>
+	  <tr>
+	    <td>Legendary</td>
+		<td id="classicMissingLegendaryNormal"></td>
+		<td id="classicMissingLegendaryGolden"></td>
+	  </tr>
+	  <tr>
+	    <td><hr></td>
+	  </tr>
+	  <tr>
+	    <td>Average value</td>
+		<td id="classicAverageValue">0</td>
+	  </tr>
+	</table>  
+  </div>
+  <div class="col-xs-6">
+    <img src="images/pack_gvg.png" alt="GvG pack" width="160" height="216">
+	<table>
+	  <tr>
+	    <td></td>
+		<td>Missing normal</td>
+		<td>Missing golden</td>
+	  </tr>
+	  <tr>
+	    <td>Common</td>
+		<td id="gvgMissingCommonNormal"></td>
+		<td id="gvgMissingCommonGolden"></td>
+	  </tr>
+	  <tr>
+	    <td>Rare</td>
+		<td id="gvgMissingRareNormal"></td>
+		<td id="gvgMissingRareGolden"></td>
+	  </tr>
+	  <tr>
+	    <td>Epic</td>
+		<td id="gvgMissingEpicNormal"></td>
+		<td id="gvgMissingEpicGolden"></td>
+	  </tr>
+	  <tr>
+	    <td>Legendary</td>
+		<td id="gvgMissingLegendaryNormal"></td>
+		<td id="gvgMissingLegendaryGolden"></td>
+	  </tr>
+	  <tr>
+	    <td><hr></td>
+	  </tr>
+	  <tr>
+	    <td>Average value</td>
+		<td id="gvgAverageValue">0</td>
+	  </tr>
+	</table>
+  </div>
 </div>
 </script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/json2/20140204/json2.min.js"></script>

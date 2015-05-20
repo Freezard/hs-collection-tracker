@@ -356,6 +356,27 @@ h2 {
   border: 1px solid;
   background-color: #E3D3C8;
 }
+#about div {
+  margin-top: 20px;
+}
+#about img {
+  display: block;
+  margin: auto;
+  margin-bottom: 20px;
+}
+#about table {
+  width: 100%; 
+  margin-bottom: 10px;
+}
+#about td[id*="AverageValue"] {
+  color: rgba(50, 150, 215, 1.0);
+  font-weight: bold;
+  font-size: 18px;
+}
+#about hr {
+  margin: 3px 0 1px 0;
+  border-top: 1px solid #736358;
+}
 #footer {
   position: relative;
   clear: left;
