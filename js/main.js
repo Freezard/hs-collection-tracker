@@ -80,10 +80,10 @@ var HSCollectionTracker = (function() {
 	// Values = normal and golden cards
 	var chanceOfGetting = {
 		free: [0, 0],
-		common: [0.74, 0.02],
-		rare: [0.21, 0.01],
-		epic: [0.04, 0.0025],
-		legendary: [0.01, 0.0005]
+		common: [0.70, 0.0147],
+		rare: [0.214, 0.0137],
+		epic: [0.0428, 0.003],
+		legendary: [0.0108, 0.001]
 	};
 
 	var missingCardsTotal = {};
@@ -100,10 +100,11 @@ var HSCollectionTracker = (function() {
 	var classes = {};
 	var selectedClass = "neutral";
 	var selectedCardQuality = "normal";
+	var packsExcludeGolden = false;
 	var currentDust = 0;
 	var disenchantedDust = 0;
 	
-	var version = 0.97;
+	var version = 0.98;
 	
 	function card(name, rarity, mana, type, className, set, soulbound) {
 		this.name = name;
@@ -677,52 +678,49 @@ var HSCollectionTracker = (function() {
         }
 	}
 	
-	// FIX THIS
 	function displayPacks() {
 		var template = document.getElementById("template-packs").innerHTML;
 		document.getElementById("containerRow").innerHTML = template;
 		
-		document.getElementById("classicMissingCommonNormal").innerHTML = missingCardsTotal["classic"]["common"][0];
-		document.getElementById("classicMissingCommonGolden").innerHTML = missingCardsTotal["classic"]["common"][1];
-		document.getElementById("classicMissingRareNormal").innerHTML = missingCardsTotal["classic"]["rare"][0];
-		document.getElementById("classicMissingRareGolden").innerHTML = missingCardsTotal["classic"]["rare"][1];
-		document.getElementById("classicMissingEpicNormal").innerHTML = missingCardsTotal["classic"]["epic"][0];
-		document.getElementById("classicMissingEpicGolden").innerHTML = missingCardsTotal["classic"]["epic"][1];
-		document.getElementById("classicMissingLegendaryNormal").innerHTML = missingCardsTotal["classic"]["legendary"][0];
-		document.getElementById("classicMissingLegendaryGolden").innerHTML = missingCardsTotal["classic"]["legendary"][1];
+		document.getElementById("checkboxGolden").addEventListener("click", function() { packsExcludeGolden = !packsExcludeGolden; updatePackGuide(); });
+		document.getElementById("checkboxGolden").checked = packsExcludeGolden;
 		
-		document.getElementById("gvgMissingCommonNormal").innerHTML = missingCardsTotal["gvg"]["common"][0];
-		document.getElementById("gvgMissingCommonGolden").innerHTML = missingCardsTotal["gvg"]["common"][1];
-		document.getElementById("gvgMissingRareNormal").innerHTML = missingCardsTotal["gvg"]["rare"][0];
-		document.getElementById("gvgMissingRareGolden").innerHTML = missingCardsTotal["gvg"]["rare"][1];
-		document.getElementById("gvgMissingEpicNormal").innerHTML = missingCardsTotal["gvg"]["epic"][0];
-		document.getElementById("gvgMissingEpicGolden").innerHTML = missingCardsTotal["gvg"]["epic"][1];
-		document.getElementById("gvgMissingLegendaryNormal").innerHTML = missingCardsTotal["gvg"]["legendary"][0];
-		document.getElementById("gvgMissingLegendaryGolden").innerHTML = missingCardsTotal["gvg"]["legendary"][1];
-		
-		var averageValue = 0;
 		for (rarity in raritiesEnum) {
-			if (rarity !== "free")
-		        averageValue += chanceOfGetting[rarity][0] * (((setsEnum["classic"][rarity] - missingCardsTotal["classic"][rarity][0]) / setsEnum["classic"][rarity]) * disenchantmentValue[rarity][0]
-		            + (missingCardsTotal["classic"][rarity][0] / setsEnum["classic"][rarity]) * craftingCosts[rarity][0]);
+			if (rarity !== "free") {
+				var rarityCapitalized = capitalizeFirstLetter(rarity);
+				for (set in packsEnum) {
+		            document.getElementById(set + "Missing" + rarityCapitalized + "Normal").innerHTML = missingCardsTotal[set][rarity][0];
+		            document.getElementById(set + "Missing" + rarityCapitalized + "Golden").innerHTML = missingCardsTotal[set][rarity][1];
+				}
+			}
 		}
 		
-		document.getElementById("classicAverageValue").innerHTML = (averageValue * 5).toFixed(1);
-		
-	    averageValue = 0;
-		for (rarity in raritiesEnum) {
-			if (rarity !== "free")
-		        averageValue += chanceOfGetting[rarity][0] * (((setsEnum["gvg"][rarity] - missingCardsTotal["gvg"][rarity][0]) / setsEnum["gvg"][rarity]) * disenchantmentValue[rarity][0]
-		            + (missingCardsTotal["gvg"][rarity][0] / setsEnum["gvg"][rarity]) * craftingCosts[rarity][0]);
-		}
-		
-		document.getElementById("gvgAverageValue").innerHTML = (averageValue * 5).toFixed(1);
+		updatePackGuide();
 		
 		document.getElementById("header-center").style.visibility = "hidden";
 		
 		document.oncontextmenu = function() {
             return true;
         }
+	}
+	
+	function updatePackGuide() {		
+		var averageValue = 0;
+		for (set in packsEnum) {
+		    for (rarity in raritiesEnum) {
+			    if (rarity !== "free") {
+		            averageValue += chanceOfGetting[rarity][0] * (((setsEnum[set][rarity] - missingCardsTotal[set][rarity][0]) / setsEnum[set][rarity]) * disenchantmentValue[rarity][0]
+		                + (missingCardsTotal[set][rarity][0] / setsEnum[set][rarity]) * craftingCosts[rarity][0]);
+					if (!document.getElementById("checkboxGolden").checked)
+					    averageValue += chanceOfGetting[rarity][1] * (((setsEnum[set][rarity] - missingCardsTotal[set][rarity][1]) / setsEnum[set][rarity]) * disenchantmentValue[rarity][1]
+		                    + (missingCardsTotal[set][rarity][1] / setsEnum[set][rarity]) * craftingCosts[rarity][1]);
+					else averageValue += chanceOfGetting[rarity][1] * disenchantmentValue[rarity][1];
+				}
+		    }
+		
+		    document.getElementById(set + "AverageValue").innerHTML = (averageValue * 5).toFixed(1);
+			averageValue = 0;
+		}
 	}
 	
 	function displayTracker() {
@@ -779,9 +777,9 @@ var HSCollectionTracker = (function() {
 			
 			initSelectedCardQuality();
 			document.getElementById("link-tracker").addEventListener("click", function() { displayTracker(); });
-			document.getElementById("link-about").addEventListener("click", function() { displayAbout(); });
-			document.getElementById("link-news").addEventListener("click", function() { displayNews(); });
 			document.getElementById("link-packs").addEventListener("click", function() { displayPacks(); });
+			document.getElementById("link-news").addEventListener("click", function() { displayNews(); });
+			document.getElementById("link-about").addEventListener("click", function() { displayAbout(); });
 			
 			displayTracker();
 		}

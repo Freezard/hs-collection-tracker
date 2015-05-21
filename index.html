@@ -141,7 +141,7 @@
 </div>
 </script>
 <script id="template-about" type="text/html">
-<div id="about" class="col-xs-12">
+<div class="col-xs-12 side-page">
   <h2>About</h2>
   <p><span class="special2">Hearthstone Collection Tracker</span> lets you know how many cards you are missing from your collection, and how much dust is needed to craft them.
      Simply choose whether you want to add or remove a normal or golden card, then click on a card to add a copy of it and right-click to remove one.
@@ -154,8 +154,9 @@
 </div>
 </script>
 <script id="template-news" type="text/html">
-<div id="about" class="col-xs-12">
+<div class="col-xs-12 side-page">
   <h2>News</h2>
+  <p><span class="special2">21-05-15</span> - Updated the Pack Guide to account for golden cards and added an option to exclude them.</p>
   <p><span class="special2">21-05-15</span> - Added a new feature called Pack Guide which helps you determine whether to buy Classic or GvG packs.</p>
   <p><span class="special2">01-05-15</span> - Added cards from the fifth wing of Blackrock Mountain.</p>
   <p><span class="special2">24-04-15</span> - Added cards from the fourth wing of Blackrock Mountain.</p>
@@ -165,12 +166,13 @@
 </div>
 </script>
 <script id="template-packs" type="text/html">
-<div id="about" class="col-xs-12">
+<div class="col-xs-12 side-page">
   <h2>Pack Guide</h2>
   <p>This guide will help you determine whether you should buy Classic or Goblins vs Gnomes packs.<br/>
      It displays the amount of cards missing from each set and calculates the average amount of dust that you will receive from the pack.<br/>
-	 The value is based on dust received from disenchanting duplicate cards and the amount of dust required to craft new cards.</p>
-  <p>Golden cards are not included in the calculation but there will be an option to include them soon.</p>
+	 The dust value is based on dust received from disenchanting duplicate cards and the amount of dust required to craft new cards.<br/>
+	 Since there are no official stats about card rarities, the stats have been approximated from a large number of pack openings.</p>
+  <p>If you tick the "I don't care about golden cards" box, it assumes that every golden card will be disenchanted.</p>
   <div class="col-xs-6">
     <img src="images/pack_classic.png" alt="Classic pack" width="160" height="216">
 	<table>
@@ -203,8 +205,8 @@
 	    <td><hr></td>
 	  </tr>
 	  <tr>
-	    <td>Average value</td>
-		<td id="classicAverageValue">0</td>
+	    <td>Average pack value</td>
+		<td id="classicAverageValue"></td>
 	  </tr>
 	</table>  
   </div>
@@ -240,10 +242,13 @@
 	    <td><hr></td>
 	  </tr>
 	  <tr>
-	    <td>Average value</td>
-		<td id="gvgAverageValue">0</td>
+	    <td>Average pack value</td>
+		<td id="gvgAverageValue"></td>
 	  </tr>
 	</table>
+  </div>
+  <div class="center">
+    <input type="checkbox" name="golden" id="checkboxGolden">I don't care about golden cards
   </div>
 </div>
 </script>
