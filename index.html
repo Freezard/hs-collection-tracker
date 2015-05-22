@@ -67,7 +67,8 @@
 </div>
 <div id="missingCardsWrap" class="hidden-xs hidden-sm col-lg-1">
   <div id="missingCards">
-    <h4 id="missingCardsClassTitle"></h4>
+    <p>Missing Cards</p>
+    <p id="missingCardsClassTitle"></p>
     <table>
 	  <tr>
 	    <td class="special">Free</td>
@@ -102,7 +103,7 @@
 	    <td id="classMissingDustTotal"></td>
 	  </tr>
     </table>
-    <h4>TOTAL</h4>
+    <p id="missingCardsTotalTitle">TOTAL</p>
     <table>
 	  <tr>
 	    <td class="special">Free</td>
@@ -137,6 +138,17 @@
 	    <td id="totalMissingDustTotal"></td>
 	  </tr>
     </table>
+	<hr>
+	<div class="center">
+      <input type="checkbox" id="checkboxGolden" onchange="HSCollectionTracker.toggleGoldenCards()">I don't care about golden cards
+    </div>
+	<table>
+	  <tr>
+	    <td class="normal">Green = Normal copies</td><tr>
+        <td class="golden">Gold = Golden copies</td></tr><tr>
+        <td class="dust">Blue = Dust required to craft missing cards</td></tr>
+      </tr>
+    </table>    
   </div>
 </div>
 </script>
@@ -156,6 +168,8 @@
 <script id="template-news" type="text/html">
 <div class="col-xs-12 side-page">
   <h2>News</h2>
+  <p><span class="special2">22-05-15</span> - Updated the infobox and moved the option to exclude golden cards there.
+                            It's now a global option that applies to both dust required and the Pack Guide.</p>
   <p><span class="special2">21-05-15</span> - Updated the Pack Guide to account for golden cards and added an option to exclude them.</p>
   <p><span class="special2">21-05-15</span> - Added a new feature called Pack Guide which helps you determine whether to buy Classic or GvG packs.</p>
   <p><span class="special2">01-05-15</span> - Added cards from the fifth wing of Blackrock Mountain.</p>
@@ -172,7 +186,7 @@
      It displays the amount of cards missing from each set and calculates the average amount of dust that you will receive from the pack.<br/>
 	 The dust value is based on dust received from disenchanting duplicate cards and the amount of dust required to craft new cards.<br/>
 	 Since there are no official stats about card rarities, the stats have been approximated from a large number of pack openings.</p>
-  <p>If you tick the "I don't care about golden cards" box, it assumes that every golden card will be disenchanted.</p>
+  <p>If you have ticked the "I don't care about golden cards" box, it assumes that every golden card will be disenchanted.</p>
   <div class="col-xs-6">
     <img src="images/pack_classic.png" alt="Classic pack" width="160" height="216">
 	<table>
@@ -246,9 +260,6 @@
 		<td id="gvgAverageValue"></td>
 	  </tr>
 	</table>
-  </div>
-  <div class="center">
-    <input type="checkbox" name="golden" id="checkboxGolden">I don't care about golden cards
   </div>
 </div>
 </script>

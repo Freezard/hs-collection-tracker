@@ -89,22 +89,25 @@ var HSCollectionTracker = (function() {
 	var missingCardsTotal = {};
 	
 	var missingDustTotal = {
-			free: 0,
-			common: 0,
-			rare: 0,
-			epic: 0,
-			legendary: 0,
-			total: 0,
+			free: [0, 0],
+			common: [0, 0],
+			rare: [0, 0],
+			epic: [0, 0],
+			legendary: [0, 0],
+			total: [0, 0]
 		};
 
 	var classes = {};
 	var selectedClass = "neutral";
 	var selectedCardQuality = "normal";
-	var packsExcludeGolden = false;
+	var settings = {
+		excludeGoldenCards: false
+	};
+	
 	var currentDust = 0;
 	var disenchantedDust = 0;
 	
-	var version = 0.98;
+	var version = 0.99;
 	
 	function card(name, rarity, mana, type, className, set, soulbound) {
 		this.name = name;
@@ -134,15 +137,15 @@ var HSCollectionTracker = (function() {
 			rare: [0, 0],
 			epic: [0, 0],
 			legendary: [0, 0],
-			total: [0, 0],
+			total: [0, 0]
 		};
 		this.missingDust = {
-			free: 0,
-			common: 0,
-			rare: 0,
-			epic: 0,
-			legendary: 0,
-			total: 0,
+			free: [0, 0],
+			common: [0, 0],
+			rare: [0, 0],
+			epic: [0, 0],
+			legendary: [0, 0],
+			total: [0, 0]
 		};
 		this.addCard = function(card) {
 			this.cards[card.rarity][card.name] = card;
@@ -161,20 +164,20 @@ var HSCollectionTracker = (function() {
 			if (card.soulbound === "none" || card.soulbound === "normal") {
 				var craftingCostGolden = craftingCosts[card.rarity][1] * cardCopies;
 				
-				this.missingDust[card.rarity] += craftingCostGolden;
-				this.missingDust.total += craftingCostGolden;
+				this.missingDust[card.rarity][1] += craftingCostGolden;
+				this.missingDust.total[1] += craftingCostGolden;
 				
-				missingDustTotal[card.rarity] += craftingCostGolden;
-				missingDustTotal.total += craftingCostGolden;
+				missingDustTotal[card.rarity][1] += craftingCostGolden;
+				missingDustTotal.total[1] += craftingCostGolden;
 			}
 			if (card.soulbound === "none" || card.soulbound === "golden") {
 				var craftingCostNormal = craftingCosts[card.rarity][0] * cardCopies;
 				
-				this.missingDust[card.rarity] += craftingCostNormal;
-				this.missingDust.total += craftingCostNormal;
+				this.missingDust[card.rarity][0] += craftingCostNormal;
+				this.missingDust.total[0] += craftingCostNormal;
 				
-				missingDustTotal[card.rarity] += craftingCostNormal;
-				missingDustTotal.total += craftingCostNormal;
+				missingDustTotal[card.rarity][0] += craftingCostNormal;
+				missingDustTotal.total[0] += craftingCostNormal;
 			}
 		}
 	}
@@ -219,7 +222,7 @@ var HSCollectionTracker = (function() {
 		if (card.soulbound === "none" || card.soulbound === "golden") {
 		    var craftingCost = craftingCosts[card.rarity][0] ;
 		
-		    updateMissingDust(card, craftingCost * number);
+		    updateMissingDust(card, craftingCost * number, "normal");
 		}
 	}
 	
@@ -232,16 +235,23 @@ var HSCollectionTracker = (function() {
 		if (card.soulbound === "none" || card.soulbound === "normal") {
 		    var craftingCost = craftingCosts[card.rarity][1];
 		
-		    updateMissingDust(card, craftingCost * number);
+		    updateMissingDust(card, craftingCost * number, "golden");
 		}
 	}
 	
-	function updateMissingDust(card, craftingCost) {
-		classes[card.className].missingDust[card.rarity] -= craftingCost;
-		classes[card.className].missingDust.total -= craftingCost;
-				
-		missingDustTotal[card.rarity] -= craftingCost;
-		missingDustTotal.total -= craftingCost;
+	function updateMissingDust(card, craftingCost, cardQuality) {		
+		if (cardQuality === "normal") {
+			classes[card.className].missingDust[card.rarity][0] -= craftingCost;
+		    classes[card.className].missingDust.total[0] -= craftingCost;
+		    missingDustTotal[card.rarity][0] -= craftingCost;
+		    missingDustTotal.total[0] -= craftingCost;
+		}
+		else if (cardQuality === "golden") {
+			classes[card.className].missingDust[card.rarity][1] -= craftingCost;
+		    classes[card.className].missingDust.total[1] -= craftingCost;
+			missingDustTotal[card.rarity][1] -= craftingCost;
+		    missingDustTotal.total[1] -= craftingCost;
+		}
 	}
 	
 	// Adds a card through clicking on an <li><a> element
@@ -347,14 +357,28 @@ var HSCollectionTracker = (function() {
 		var cardQualityCapitalized = capitalizeFirstLetter(selectedCardQuality);
 		
 		var td = document.getElementById("classMissingDust" + rarityCapitalized);
-		td.innerHTML = addThousandSeparator(classes[selectedClass].missingDust[rarity]);
-		td = document.getElementById("classMissingDustTotal");
-		td.innerHTML = addThousandSeparator(classes[selectedClass].missingDust.total);
+		var td2 = document.getElementById("classMissingDustTotal");
+		
+		if (settings.excludeGoldenCards) {
+		    td.innerHTML = addThousandSeparator(classes[selectedClass].missingDust[rarity][0]);
+			td2.innerHTML = addThousandSeparator(classes[selectedClass].missingDust.total[0]);
+		}
+		else {
+		    td.innerHTML = addThousandSeparator(classes[selectedClass].missingDust[rarity][0] + classes[selectedClass].missingDust[rarity][1]);
+			td2.innerHTML = addThousandSeparator(classes[selectedClass].missingDust.total[0] + classes[selectedClass].missingDust.total[1]);
+		}
 		
 		td = document.getElementById("totalMissingDust" + rarityCapitalized);
-		td.innerHTML = addThousandSeparator(missingDustTotal[rarity]);
-		td = document.getElementById("totalMissingDustTotal");
-		td.innerHTML = addThousandSeparator(missingDustTotal.total);
+		td2 = document.getElementById("totalMissingDustTotal");
+		
+		if (settings.excludeGoldenCards) {
+		    td.innerHTML = addThousandSeparator(missingDustTotal[rarity][0]);
+			td2.innerHTML = addThousandSeparator(missingDustTotal.total[0]);
+		}
+		else {
+			td.innerHTML = addThousandSeparator(missingDustTotal[rarity][0] + missingDustTotal[rarity][1]);
+			td.innerHTML = addThousandSeparator(missingDustTotal.total[0] + missingDustTotal.total[1]);
+		}
 	}
 	
 	function capitalizeFirstLetter(string) {
@@ -502,7 +526,10 @@ var HSCollectionTracker = (function() {
 		for (var rarity in classes[selectedClass].missingCards) {
 			var rarityCapitalized = rarity.charAt(0).toUpperCase() + rarity.slice(1);
 			var td = document.getElementById("classMissingDust" + rarityCapitalized);
-			var dust = classes[selectedClass].missingDust[rarity];
+			var dust = 0;
+			if (settings.excludeGoldenCards)
+				dust = classes[selectedClass].missingDust[rarity][0];
+			else dust = classes[selectedClass].missingDust[rarity][0] + classes[selectedClass].missingDust[rarity][1];
 			td.innerHTML = dust.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 		}
 	}
@@ -511,7 +538,10 @@ var HSCollectionTracker = (function() {
 		for (var rarity in missingDustTotal) {
 			var rarityCapitalized = rarity.charAt(0).toUpperCase() + rarity.slice(1);
 			var td = document.getElementById("totalMissingDust" + rarityCapitalized);
-			var dust = missingDustTotal[rarity];
+			var dust = 0;
+			if (settings.excludeGoldenCards)
+				dust = missingDustTotal[rarity][0];
+			else dust = missingDustTotal[rarity][0] + missingDustTotal[rarity][1];
 			td.innerHTML = dust.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 		}
 	}	
@@ -650,7 +680,9 @@ var HSCollectionTracker = (function() {
 		missingCardsTotal = JSON.parse(localStorage.getItem("missingCardsTotal"));
 		missingDustTotal = JSON.parse(localStorage.getItem("missingDustTotal"));
 		currentDust = parseInt(localStorage.getItem("currentDust"));
-		disenchantedDust = parseInt(localStorage.getItem("disenchantedDust"));	
+		disenchantedDust = parseInt(localStorage.getItem("disenchantedDust"));
+		if (localStorage.getItem("settings") !== null)
+		    settings = JSON.parse(localStorage.getItem("settings"));
 	}
 	
 	function displayAbout() {
@@ -682,9 +714,6 @@ var HSCollectionTracker = (function() {
 		var template = document.getElementById("template-packs").innerHTML;
 		document.getElementById("containerRow").innerHTML = template;
 		
-		document.getElementById("checkboxGolden").addEventListener("click", function() { packsExcludeGolden = !packsExcludeGolden; updatePackGuide(); });
-		document.getElementById("checkboxGolden").checked = packsExcludeGolden;
-		
 		for (rarity in raritiesEnum) {
 			if (rarity !== "free") {
 				var rarityCapitalized = capitalizeFirstLetter(rarity);
@@ -711,7 +740,7 @@ var HSCollectionTracker = (function() {
 			    if (rarity !== "free") {
 		            averageValue += chanceOfGetting[rarity][0] * (((setsEnum[set][rarity] - missingCardsTotal[set][rarity][0]) / setsEnum[set][rarity]) * disenchantmentValue[rarity][0]
 		                + (missingCardsTotal[set][rarity][0] / setsEnum[set][rarity]) * craftingCosts[rarity][0]);
-					if (!document.getElementById("checkboxGolden").checked)
+					if (!settings.excludeGoldenCards)
 					    averageValue += chanceOfGetting[rarity][1] * (((setsEnum[set][rarity] - missingCardsTotal[set][rarity][1]) / setsEnum[set][rarity]) * disenchantmentValue[rarity][1]
 		                    + (missingCardsTotal[set][rarity][1] / setsEnum[set][rarity]) * craftingCosts[rarity][1]);
 					else averageValue += chanceOfGetting[rarity][1] * disenchantmentValue[rarity][1];
@@ -734,6 +763,8 @@ var HSCollectionTracker = (function() {
 		displayMissingDust();
 		displayMissingDustTotal();
 		
+		document.getElementById("checkboxGolden").checked = settings.excludeGoldenCards;
+		
 		document.getElementById("header-center").style.visibility = "visible";
 		
 		document.oncontextmenu = function() {
@@ -743,7 +774,6 @@ var HSCollectionTracker = (function() {
 	
 	return {
 		init: function() {
-		//	localStorage.clear();
 		//	console.log(JSON.stringify(localStorage).length);
 
 			if (typeof(Storage) !== "undefined") {
@@ -782,7 +812,14 @@ var HSCollectionTracker = (function() {
 			document.getElementById("link-about").addEventListener("click", function() { displayAbout(); });
 			
 			displayTracker();
-		}
+		},
+		
+		toggleGoldenCards: function() {
+		    settings.excludeGoldenCards = !settings.excludeGoldenCards;
+		    localStorage.setItem("settings", JSON.stringify(settings));
+			displayMissingDust();
+			displayMissingDustTotal();
+	    }
 	};
 })();
 

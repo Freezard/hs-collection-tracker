@@ -305,23 +305,44 @@ body {
 /* ---------------- missingCards ---------------- */
 #missingCards {
   position: fixed; 
-  margin-top: 75px;
-  padding-left: 2px;
+  margin-top: 55px;
   background-color: #E3D3C8;
   border: 1px solid black;
   font-family: "Palatino Linotype", Palatino, Palladio, "URW Palladio L", "Book Antiqua", serif;
 }
+#missingCards p {
+  color: #CAA597;
+  background-color: #736358;
+  text-align: center;
+  height: 30px;  
+  line-height: 30px;
+  margin-bottom: 0;
+}
+#missingCards p[id^=missing]{
+  color: #8A6557;
+  background-color: #C59C73;
+  height: 20px;
+  line-height: 20px;
+  font-weight: bold;
+}
 #missingCards table {
   width: 100%;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
 }
-#missingCards td{
+#missingCards td {
   padding: 2px 5px;
   font-size: 16px;
 }
+#missingCards hr {
+  margin: 0px 0 5px 0;
+  border-top: 1px solid #736358;
+}
+#missingCards div.center {
+  text-align: center;
+}
 .special {
   font-weight: bold;
-  color: #CAA597;
+  color: #B3A398;
 }
 .special2 {
   font-weight: bold;
@@ -334,17 +355,17 @@ h2 {
   color: #552255;
   text-align: center;
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   font-size: 16px;
   font-weight: bold;
 }
-#missingCards td[id*="Dust"] {
+#missingCards td[id*="Dust"], .dust {
   color: rgba(50, 150, 215, 1.0);
 }
-#missingCards td[id*="Normal"] {
+#missingCards td[id*="Normal"], .normal {
   color: rgba(50, 150, 0, 1.0);
 }
-#missingCards td[id*="Golden"] {
+#missingCards td[id*="Golden"], .golden {
   color: rgba(200, 150, 0, 1.0);
 }
 /* ---------------------------------------------- */
@@ -382,16 +403,16 @@ h2 {
   text-align: center;
 }
 #footer {
-  position: relative;
+  position: relative;  
   clear: left;
   width: 100%;
   height: 50px;
   text-align: center;
   vertical-align: middle;
-  line-height: 50px;  
+  line-height: 50px;
   margin: auto;
   margin-top: 10px;
-  background-color: #736358;
+
 }
 [contenteditable="true"] {
   border-bottom-style: solid;
