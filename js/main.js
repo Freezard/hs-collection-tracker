@@ -377,7 +377,7 @@ var HSCollectionTracker = (function() {
 		}
 		else {
 			td.innerHTML = addThousandSeparator(missingDustTotal[rarity][0] + missingDustTotal[rarity][1]);
-			td.innerHTML = addThousandSeparator(missingDustTotal.total[0] + missingDustTotal.total[1]);
+			td2.innerHTML = addThousandSeparator(missingDustTotal.total[0] + missingDustTotal.total[1]);
 		}
 	}
 	
