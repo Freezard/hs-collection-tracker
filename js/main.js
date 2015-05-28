@@ -321,6 +321,9 @@ var HSCollectionTracker = (function() {
 	}
 	
 	function updateMissingCardsView(rarity, number) {
+		if (settings.excludeGoldenCards && selectedCardQuality === "golden")
+			return;
+		
 		var rarityCapitalized = capitalizeFirstLetter(rarity);
 		var cardQualityCapitalized = capitalizeFirstLetter(selectedCardQuality);
 		
