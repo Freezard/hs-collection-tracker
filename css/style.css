@@ -96,7 +96,7 @@ body {
 }
 #classTabs .neutral, #classTabsBar.neutral {
   background-color: #736358;
-  border-color: #938378;  
+  border-color: #938378;
 }
 #classTabs .druid, #classTabsBar.druid {
   background-color: #855C33;
@@ -143,13 +143,107 @@ body {
   height: 25px;
   border: 3px ridge;
 }
+#classTabsBar ul {
+  list-style-type: none;
+  padding: 0;
+  text-align: center;
+}
+#classTabsBar li a {
+  font-family: "Comic Sans MS", "Palatino Linotype", "Times", serif;
+  float: left;  
+  text-decoration: none;
+  font-size: 8px;
+  overflow: hidden;
+  color: black;
+  font-weight: bold;
+  padding: 2px 8px;  
+  margin: 0px 2px;
+  margin-top: 2px;
+  border-radius: 4px 4px 4px 4px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+#classTabsBar ul.neutral li a {
+  background-color: #736358;
+  box-shadow: inset 0px 0px 2px 1px #938378;
+}
+#classTabsBar ul.neutral li a:hover, #classTabsBar ul.neutral li a.selected {
+  background-color: #938378;
+}
+#classTabsBar ul.druid li a {
+  background-color: #855C33;
+  box-shadow: inset 0px 0px 2px 1px #C59C73;
+}
+#classTabsBar ul.druid li a:hover, #classTabsBar ul.druid li a.selected {
+  background-color: #C59C73;
+}
+#classTabsBar ul.hunter li a {
+  background-color: #709020;
+  box-shadow: inset 0px 0px 2px 1px #90B040;
+}
+#classTabsBar ul.hunter li a:hover, #classTabsBar ul.hunter li a.selected {
+  background-color: #90B040;
+}
+#classTabsBar ul.mage li a {
+  background-color: #80B2FF;
+  box-shadow: inset 0px 0px 2px 1px #A0D2FF;
+}
+#classTabsBar ul.mage li a:hover, #classTabsBar ul.mage li a.selected {
+  background-color: #A0D2FF;
+}
+#classTabsBar ul.paladin li a {
+  background-color: #EBC84D;
+  box-shadow: inset 0px 0px 2px 1px #FBE86D;
+}
+#classTabsBar ul.paladin li a:hover, #classTabsBar ul.paladin li a.selected {
+  background-color: #FBE86D;
+}
+#classTabsBar ul.priest li a {
+  background-color: #F7FAFA;
+  box-shadow: inset 0px 0px 2px 1px #DDDDDD;
+}
+#classTabsBar ul.priest li a:hover, #classTabsBar ul.priest li a.selected {
+  background-color: #DDDDDD;
+}
+#classTabsBar ul.rogue li a {
+  color: #C59C73;
+  background-color: #1C1C1C;
+  box-shadow: inset 0px 0px 2px 1px #3C3C3C;
+}
+#classTabsBar ul.rogue li a:hover, #classTabsBar ul.rogue li a.selected {
+  background-color: #3C3C3C;
+}
+#classTabsBar ul.shaman li a {
+  color: #C59C73;
+  background-color: #191987;
+  box-shadow: inset 0px 0px 2px 1px #3939A7;
+}
+#classTabsBar ul.shaman li a:hover, #classTabsBar ul.shaman li a.selected {
+  background-color: #3939A7;
+}
+#classTabsBar ul.warlock li a {
+  color: #C59C73;
+  background-color: #470047;
+  box-shadow: inset 0px 0px 2px 1px #672067;
+}
+#classTabsBar ul.warlock li a:hover, #classTabsBar ul.warlock li a.selected {
+  background-color: #672067;
+}
+#classTabsBar ul.warrior li a {
+  color: #C59C73;
+  background-color: #6B0000;
+  box-shadow: inset 0px 0px 2px 1px #8B2020;
+}
+#classTabsBar ul.warrior li a:hover, #classTabsBar ul.warrior li a.selected {
+  background-color: #8B2020;
+}
 /* ------------------------------------------- */
 /* ---------------- classCards --------------- */
 #classCards ul {
   list-style-type: none;
   padding: 0;
   margin: 0;
-  text-align: center;  
+  text-align: center;
 }
 #classCards li a {
   font-family: "Comic Sans MS", "Palatino Linotype", "Times", serif;  
@@ -304,7 +398,7 @@ body {
 }
 /* ---------------- missingCards ---------------- */
 #missingCards {
-  position: fixed; 
+  position: fixed;
   margin-top: 55px;
   background-color: #E3D3C8;
   border: 1px solid black;
@@ -314,7 +408,7 @@ body {
   color: #CAA597;
   background-color: #736358;
   text-align: center;
-  height: 30px;  
+  height: 30px;
   line-height: 30px;
   margin-bottom: 0;
 }
@@ -327,17 +421,16 @@ body {
 }
 #missingCards table {
   width: 100%;
-  margin-bottom: 5px;
 }
 #missingCards td {
-  padding: 2px 5px;
+  padding: 0px 5px;
   font-size: 16px;
 }
 #missingCards hr {
-  margin: 0px 0 5px 0;
+  margin: 0px 0 0px 0;
   border-top: 1px solid #736358;
 }
-#missingCards div.center {
+#missingCards div.center {  
   text-align: center;
 }
 .special {

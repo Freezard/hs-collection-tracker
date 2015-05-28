@@ -56,7 +56,15 @@
 <script id="template-tracker" type="text/html">
 <div id="content" class="col-xs-12 col-md-7 col-lg-11">
   <div class="row" id="classTabs"></div>
-  <div class="row" id="classTabsBar"></div>
+  <div class="row" id="classTabsBar">
+    <ul>
+	  <li><a>All</a></li>
+	  <li><a>Classic</a></li>
+	  <li><a>Naxxramas</a></li>
+	  <li><a>GvG</a></li>
+	  <li><a>Blackrock</a></li>
+	</ul>
+  </div>
   <div class="row" id="classCards">
     <div class="col-xs-5ths nopadding"><ul id="list_free"></ul></div>
     <div class="col-xs-5ths nopadding"><ul id="list_common"></ul></div>
@@ -148,7 +156,7 @@
         <td class="golden">Gold = Golden copies</td></tr><tr>
         <td class="dust">Blue = Dust required to craft missing cards</td></tr>
       </tr>
-    </table>    
+    </table>
   </div>
 </div>
 </script>
@@ -168,6 +176,8 @@
 <script id="template-news" type="text/html">
 <div class="col-xs-12 side-page">
   <h2>News</h2>
+  <p><span class="special2">28-05-15</span> - Added filtering by card set. Click on a filtering button below the class tabs to only show cards from these sets.
+                            Also removed missing golden cards from the infobox when "I don't care about golden cards" is selected.</p>
   <p><span class="special2">22-05-15</span> - Updated the infobox and moved the option to exclude golden cards there.
                             It's now a global option that applies to both dust required and the Pack Guide.</p>
   <p><span class="special2">21-05-15</span> - Updated the Pack Guide to account for golden cards and added an option to exclude them.</p>
@@ -186,7 +196,7 @@
      It displays the amount of cards missing from each set and calculates the average amount of dust that you will receive from the pack.<br/>
 	 The dust value is based on dust received from disenchanting duplicate cards and the amount of dust required to craft new cards.<br/>
 	 Since there are no official stats about card rarities, the stats have been approximated from a large number of pack openings.</p>
-  <p>If you have ticked the "I don't care about golden cards" box, it assumes that every golden card will be disenchanted.</p>
+  <p>If you have ticked the "I don't care about golden cards" box, it is assumed that every golden card will be disenchanted.</p>
   <div class="col-xs-6">
     <img src="images/pack_classic.png" alt="Classic pack" width="160" height="216">
 	<table>
