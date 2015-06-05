@@ -57,13 +57,20 @@
 <div id="content" class="col-xs-12 col-md-7 col-lg-11">
   <div class="row" id="classTabs"></div>
   <div class="row" id="classTabsBar">
-    <ul>
-	  <li><a>All</a></li>
-	  <li><a>Classic</a></li>
-	  <li><a>Naxxramas</a></li>
-	  <li><a>GvG</a></li>
-	  <li><a>Blackrock</a></li>
-	</ul>
+    <div class="col-xs-8">
+      <ul id="filtersLeft">
+	    <li><a>All</a></li>
+	    <li><a>Classic</a></li>
+	    <li><a>Naxxramas</a></li>
+	    <li><a>GvG</a></li>
+	    <li><a>Blackrock</a></li>
+	  </ul>
+    </div>
+	<div class="col-xs-4">
+	  <ul id="filtersRight">
+	    <li><a>Show only missing cards</a></li>
+	  </ul>
+	</div>
   </div>
   <div class="row" id="classCards">
     <div class="col-xs-5ths nopadding"><ul id="list_free"></ul></div>
@@ -176,6 +183,8 @@
 <script id="template-news" type="text/html">
 <div class="col-xs-12 side-page">
   <h2>News</h2>
+  <p><span class="special2">05-06-15</span> - Added filtering by missing cards. The option is located at the right of the filtering bar, below the class tabs.
+                            If "I don't care about golden cards" is selected, only missing normal cards are shown.</p>  
   <p><span class="special2">28-05-15</span> - Added filtering by card set. Click on a filtering button below the class tabs to only show cards from these sets.
                             Also removed missing golden cards from the infobox when "I don't care about golden cards" is selected.</p>
   <p><span class="special2">22-05-15</span> - Updated the infobox and moved the option to exclude golden cards there.

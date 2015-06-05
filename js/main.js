@@ -2,6 +2,9 @@
     Hearthstone Collection Tracker
 */
 var HSCollectionTracker = (function() {
+	/*********************************************************
+	***************************DATA***************************
+	*********************************************************/
 	var classesEnum = {
 		neutral: "neutral",
 		druid: "druid",
@@ -93,14 +96,15 @@ var HSCollectionTracker = (function() {
 	var selectedClass = "neutral";
 	var selectedCardQuality = "normal";
 	var settings = {
-		excludeGoldenCards: false
+		excludeGoldenCards: false,
+		showOnlyMissingCards: false
 	};
 	var filter = "all";
 	
 	var currentDust = 0;
 	var disenchantedDust = 0;
 	
-	var version = 1.00;
+	var version = 1.01;
 	
 	function card(name, rarity, mana, type, className, set, soulbound) {
 		this.name = name;
@@ -158,7 +162,9 @@ var HSCollectionTracker = (function() {
 			}
 		}
 	}
-
+	/*********************************************************
+	**************************UTILS***************************
+	*********************************************************/
 	// Sorts all the card lists for the specified class
 	// Sorting order: Mana cost: Lower > higher
 	// Type: Weapon > spell > minion
@@ -190,6 +196,56 @@ var HSCollectionTracker = (function() {
 		}
 	}
 	
+	function readTextFile(fileName) {
+		var rawFile;
+		var allText = "";
+		if (window.XMLHttpRequest) {
+			// code for IE7+, Firefox, Chrome, Opera, Safari
+			rawFile = new XMLHttpRequest();
+		}
+		else {
+			// code for IE6, IE5
+			rawFile = new ActiveXObject("Microsoft.XMLHTTP");
+		}
+		rawFile.open("GET", "data/" + fileName, false);
+		rawFile.onreadystatechange = function () {
+			if(rawFile.readyState === 4) {
+				if(rawFile.status === 200 || rawFile.status == 0) {
+					allText = rawFile.responseText;
+				}
+			}
+		}
+		rawFile.send(null);
+			
+		return allText;
+	}
+	
+	function importCards(set) {
+		var cardData = readTextFile(set + ".txt");
+		cardData = cardData.replace(/(\r)/gm, "");
+		var cardLines = cardData.split("\n");
+		var cardClass;
+		for (var i = 0; i < cardLines.length; i++) {
+			var cardLine = cardLines[i].split(",");
+			if (cardLine.length == 1 && cardLine != "") {
+				cardClass = cardLine[0];
+			}
+			else if (cardLine != "") {
+				classes[cardClass].addCard(new card(cardLine[0], cardLine[1], cardLine[2], cardLine[3], cardClass, set, setsSoulbound[set]));
+			}
+		}
+	}	
+	
+	function capitalizeFirstLetter(string) {
+		return string.charAt(0).toUpperCase() + string.slice(1);
+	}
+	
+	function addThousandSeparator(number) {
+		return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+	}
+	/*********************************************************
+	**********************CARD FUNCTIONS**********************
+	*********************************************************/
 	function updateNormalCard(card, number) {
 		missingCards.classes[card.className][card.set][card.rarity][0] -= number;
 		missingCards.classes[card.className][card.set].total[0] -= number;
@@ -242,6 +298,8 @@ var HSCollectionTracker = (function() {
 		    updateLocalStorage();
 		    updateMissingCardsView(card.rarity, 1);
 		    updateMissingDustView(card.rarity);			
+			
+			displayCards(selectedClass);
 			
 			return true;
 		}
@@ -296,6 +354,8 @@ var HSCollectionTracker = (function() {
 		    updateMissingCardsView(card.rarity, -1);
 		    updateMissingDustView(card.rarity);
 		
+		    displayCards(selectedClass);
+		
 		    return false;
 		}
 		
@@ -313,7 +373,9 @@ var HSCollectionTracker = (function() {
 	function getCardCopies(rarity) {
 		return rarity === "legendary" ? 1 : 2;
 	}
-	
+	/*********************************************************
+	*************************DISPLAY**************************
+	*********************************************************/
 	function updateLocalStorage() {
 		localStorage.setItem('classes', JSON.stringify(classes));
 		localStorage.setItem('missingCards', JSON.stringify(missingCards));
@@ -363,20 +425,11 @@ var HSCollectionTracker = (function() {
 		}
 	}
 	
-	function capitalizeFirstLetter(string) {
-		return string.charAt(0).toUpperCase() + string.slice(1);
-	}
-	
-	function addThousandSeparator(number) {
-		return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
-	}
-	
 	function displayClassTabs() {
 		var div = document.getElementById("classTabs");
 		var list = document.createElement("ul");
 		var attrClass = document.getElementById("classTabsBar").getAttribute("class");
 		document.getElementById("classTabsBar").setAttribute("class", attrClass + " " + selectedClass);
-		document.getElementById("classTabsBar").getElementsByTagName("ul")[0].setAttribute("class", selectedClass);
 		
 		for (var className in classes) {
 			var listItem = document.createElement("li");
@@ -405,7 +458,6 @@ var HSCollectionTracker = (function() {
 			(function (className) {
 				listItemLink.addEventListener("click", function() {
 					document.getElementById("classTabsBar").setAttribute("class", attrClass + " " + className);
-					document.getElementById("classTabsBar").getElementsByTagName("ul")[0].setAttribute("class", className);
 					selectedClass = className;
 					displayCards(className);
 					displayMissingCards();
@@ -420,14 +472,14 @@ var HSCollectionTracker = (function() {
 		}
 		div.appendChild(list);
 		
-		var filterList = document.getElementById("classTabsBar").getElementsByTagName("a");
+		var filterList = document.getElementById("filtersLeft").getElementsByTagName("a");
 		for (var i = 0; i < filterList.length; i++) {
 			var filterListItem = filterList[i];
 			if (filter === filterListItem.innerHTML.toLowerCase())
 				filterListItem.setAttribute("class", "selected");
 	        (function (filterListItem) {				
 			    filterListItem.addEventListener("click", function() {
-					setFilter(filterListItem.innerHTML.toLowerCase());					
+					filter = filterListItem.innerHTML.toLowerCase();
 					var c = document.getElementById("classTabsBar").getElementsByTagName("a");
 					for (var i = 0; i < c.length; i++)
                       c[i].removeAttribute("class");
@@ -435,7 +487,21 @@ var HSCollectionTracker = (function() {
 					displayCards(selectedClass);
 					});
 			}(filterListItem))
-		}		
+		}
+		
+		var filterListRight = document.getElementById("filtersRight").getElementsByTagName("a")[0];
+		if (settings.showOnlyMissingCards)
+			filterListRight.setAttribute("class", "selected");
+		
+	    filterListRight.addEventListener("click", function() {
+			settings.showOnlyMissingCards = !settings.showOnlyMissingCards;
+			localStorage.setItem("settings", JSON.stringify(settings));
+			
+			if (settings.showOnlyMissingCards)
+			    filterListRight.setAttribute("class", "selected");
+			else filterListRight.removeAttribute("class");
+			displayCards(selectedClass);
+			});
 	}
 	
 	function displayCards(className) {
@@ -465,17 +531,23 @@ var HSCollectionTracker = (function() {
 			for (var name in cardList[rarity]) {
 				var card = cardList[rarity][name];
 				if (filter === "all" || card.set === filter) {
-				    var listItem = document.createElement("li");
-				    var listItemLink = document.createElement("a");
-				    listItemLink.textContent = name;
-				    (function (card) {
-					    listItemLink.addEventListener("click", function() { addCard(this, card); });
-					    listItemLink.addEventListener("contextmenu", function() { removeCard(this, card); });
-					    }(card))
-				    listItemLink.setAttribute("class", "normal" + cardList[rarity][name].normal + " " + "golden" + cardList[rarity][name].golden + " " + "noselect");
+					if (!settings.showOnlyMissingCards || 
+					(settings.showOnlyMissingCards && 
+					(!settings.excludeGoldenCards && (card.normal < getCardCopies(card.rarity) || card.golden < getCardCopies(card.rarity))) ||
+					(settings.excludeGoldenCards && (card.normal < getCardCopies(card.rarity)))
+					)) {
+				        var listItem = document.createElement("li");
+				        var listItemLink = document.createElement("a");
+				        listItemLink.textContent = name;
+				        (function (card) {
+					        listItemLink.addEventListener("click", function() { addCard(this, card); });
+					        listItemLink.addEventListener("contextmenu", function() { removeCard(this, card); });
+					        }(card))
+				        listItemLink.setAttribute("class", "normal" + cardList[rarity][name].normal + " " + "golden" + cardList[rarity][name].golden + " " + "noselect");
 			
-				    listItem.appendChild(listItemLink);
-				    list.appendChild(listItem);
+				        listItem.appendChild(listItemLink);
+				        list.appendChild(listItem);
+					}
 				}
 			}
 		}
@@ -572,7 +644,9 @@ var HSCollectionTracker = (function() {
 			td.innerHTML = dust.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 		}
 	}	
-
+	/*********************************************************
+	**************************INIT****************************
+	*********************************************************/
 	function initializeClasses() {
 		for (var className in classesEnum)
 			classes[className] = new classHS(className);
@@ -627,46 +701,6 @@ var HSCollectionTracker = (function() {
 			total: [0, 0]
 		}
 	}
-	
-	function importCards(set) {
-		var cardData = readTextFile(set + ".txt");
-		cardData = cardData.replace(/(\r)/gm, "");
-		var cardLines = cardData.split("\n");
-		var cardClass;
-		for (var i = 0; i < cardLines.length; i++) {
-			var cardLine = cardLines[i].split(",");
-			if (cardLine.length == 1 && cardLine != "") {
-				cardClass = cardLine[0];
-			}
-			else if (cardLine != "") {
-				classes[cardClass].addCard(new card(cardLine[0], cardLine[1], cardLine[2], cardLine[3], cardClass, set, setsSoulbound[set]));
-			}
-		}
-	}
-		
-	function readTextFile(fileName) {
-		var rawFile;
-		var allText = "";
-		if (window.XMLHttpRequest) {
-			// code for IE7+, Firefox, Chrome, Opera, Safari
-			rawFile = new XMLHttpRequest();
-		}
-		else {
-			// code for IE6, IE5
-			rawFile = new ActiveXObject("Microsoft.XMLHTTP");
-		}
-		rawFile.open("GET", "data/" + fileName, false);
-		rawFile.onreadystatechange = function () {
-			if(rawFile.readyState === 4) {
-				if(rawFile.status === 200 || rawFile.status == 0) {
-					allText = rawFile.responseText;
-				}
-			}
-		}
-		rawFile.send(null);
-			
-		return allText;
-	}
 
 	function initSelectedCardQuality() {		
 		var selectedQualityNormal = document.getElementById("selectedQualityNormal");
@@ -684,40 +718,6 @@ var HSCollectionTracker = (function() {
 		selectedCardQuality = element.innerHTML.toLowerCase();
 		element.setAttribute("class", "selected");
     }
-
-	/*function handleKey(element, event) {
-	  var a = String.fromCharCode(event.keyCode);
-	  console.log(a); 
-	  console.log(element.parentNode.innerText.split(" ")[0]);
-	  if (/\d/.test(a)) {
-		  if (window.getSelection().type == "Range")
-			  if (element.innerHTML.length <= 2)
-				  return true;
-			  else return false;
-		  
-		  else if (element.innerHTML.length + 1 <= 2)
-			return true;
-		}
-	  return false;
-	}*/
-	
-   /*function lol(e) {
-	   window.getSelection().removeAllRanges();
-	   document.selection.empty();
-	   console.log(e);
-		//e.innerHTML = "lol";
-	}*/
-	
-	/*$('span[contenteditable]').keydown(function(e) {
-		// trap the return key being pressed
-		if (e.keyCode === 13) {
-		  // insert 2 br tags (if only one br tag is inserted the cursor won't go to the next line)
-		  //document.execCommand('insertHTML', false, '<br><br>');
-		  document.getElementById("a").blur();
-		  // prevent the default behaviour of return key pressed
-		  return false;
-		}
-	  });*/
 	  
 	function restoreData() {
 		console.log("BACKING UP");
@@ -737,6 +737,10 @@ var HSCollectionTracker = (function() {
 				}
 			}
 		}
+		
+		var storedSettings = JSON.parse(localStorage.getItem('settings'));
+		for (var setting in storedSettings)
+			settings[setting] = storedSettings[setting];
 	}
 	
 	function loadLocalStorage() {
@@ -814,11 +818,7 @@ var HSCollectionTracker = (function() {
 		    document.getElementById(set + "AverageValue").innerHTML = (averageValue * 5).toFixed(1);
 			averageValue = 0;
 		}
-	}
-	
-	function setFilter(name) {
-		filter = name;
-	}
+	}	
 	
 	function displayTracker() {
 		var template = document.getElementById("template-tracker").innerHTML;
@@ -890,6 +890,7 @@ var HSCollectionTracker = (function() {
 			displayMissingDustTotal();
 			displayMissingCards();
 			displayMissingCardsTotal();
+			displayCards(selectedClass);
 	    }
 	};
 })();
@@ -897,3 +898,37 @@ var HSCollectionTracker = (function() {
 window.onload = HSCollectionTracker.init();
 
 //alert(Object.keys(classEnum).length);
+
+	/*function handleKey(element, event) {
+	  var a = String.fromCharCode(event.keyCode);
+	  console.log(a); 
+	  console.log(element.parentNode.innerText.split(" ")[0]);
+	  if (/\d/.test(a)) {
+		  if (window.getSelection().type == "Range")
+			  if (element.innerHTML.length <= 2)
+				  return true;
+			  else return false;
+		  
+		  else if (element.innerHTML.length + 1 <= 2)
+			return true;
+		}
+	  return false;
+	}*/
+	
+   /*function lol(e) {
+	   window.getSelection().removeAllRanges();
+	   document.selection.empty();
+	   console.log(e);
+		//e.innerHTML = "lol";
+	}*/
+	
+	/*$('span[contenteditable]').keydown(function(e) {
+		// trap the return key being pressed
+		if (e.keyCode === 13) {
+		  // insert 2 br tags (if only one br tag is inserted the cursor won't go to the next line)
+		  //document.execCommand('insertHTML', false, '<br><br>');
+		  document.getElementById("a").blur();
+		  // prevent the default behaviour of return key pressed
+		  return false;
+		}
+	  });*/
