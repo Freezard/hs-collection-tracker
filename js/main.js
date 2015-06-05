@@ -485,6 +485,9 @@ var HSCollectionTracker = (function() {
                       c[i].removeAttribute("class");
 				    filterListItem.setAttribute("class", "selected");
 					displayCards(selectedClass);
+					
+					var filterListRight = document.getElementById("filtersRight").getElementsByTagName("a")[0];
+		            if (settings.showOnlyMissingCards)
 					});
 			}(filterListItem))
 		}
