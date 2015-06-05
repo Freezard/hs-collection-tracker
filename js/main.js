@@ -488,6 +488,7 @@ var HSCollectionTracker = (function() {
 					
 					var filterListRight = document.getElementById("filtersRight").getElementsByTagName("a")[0];
 		            if (settings.showOnlyMissingCards)
+			            filterListRight.setAttribute("class", "selected");
 					});
 			}(filterListItem))
 		}
