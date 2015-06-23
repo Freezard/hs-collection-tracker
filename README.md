@@ -14,8 +14,8 @@ Website can be found at http://freezard.github.io/hs-collection-tracker
 - Filter cards by expansion set.
 - Option to only show cards where at least one normal or golden copy is missing.
 - Option to ignore golden copies if only interested in collecting normal copies.
-- Your collection and settings are saved locally in the browser.
 - The Pack Guide lets you know which card pack is the most valuable based on your collection.
+- Your collection and settings are saved locally in the browser.
 - Tracker is updated whenever new cards are released.
 - Supports all modern browsers.
 
