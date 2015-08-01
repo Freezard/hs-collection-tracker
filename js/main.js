@@ -17,7 +17,7 @@ var HSCollectionTracker = (function() {
 		warlock: "warlock",
 		warrior: "warrior"
 	};
-		
+			
 	var raritiesEnum = {
 		free: "free",
 		common: "common",
@@ -722,30 +722,6 @@ var HSCollectionTracker = (function() {
 		selectedCardQuality = element.innerHTML.toLowerCase();
 		element.setAttribute("class", "selected");
     }
-	  
-	function restoreData() {
-		console.log("BACKING UP");
-		var storedClasses = JSON.parse(localStorage.getItem('classes'));
-		for (var className in storedClasses) {
-			// level
-			for (var rarity in storedClasses[className].cards) {
-				for (var cardName in storedClasses[className].cards[rarity]) {
-					var card = storedClasses[className].cards[rarity][cardName];
-					if (classes[className].cards[rarity][cardName] !== undefined) {
-						classes[className].cards[rarity][cardName].normal = card.normal;
-						classes[className].cards[rarity][cardName].golden = card.golden;
-						
-						updateNormalCard(card, card.normal);
-						updateGoldenCard(card, card.golden);
-					}
-				}
-			}
-		}
-		
-		var storedSettings = JSON.parse(localStorage.getItem('settings'));
-		for (var setting in storedSettings)
-			settings[setting] = storedSettings[setting];
-	}
 	
 	function loadLocalStorage() {
 		classes = JSON.parse(localStorage.getItem('classes'));
@@ -766,6 +742,9 @@ var HSCollectionTracker = (function() {
 		document.oncontextmenu = function() {
             return true;
         }
+		
+		document.getElementById('in').addEventListener('click', exportCollection);
+		document.getElementById('files').addEventListener('change', importCollection);
 	}
 
 	function displayNews() {
@@ -842,7 +821,86 @@ var HSCollectionTracker = (function() {
 		document.oncontextmenu = function() {
             return false;
         }
-	}	
+	}
+
+	function loadCollection(collection) {
+		console.log("BACKING UP");
+		for (var className in collection) {
+			// level
+			for (var rarity in collection[className].cards) {
+				for (var cardName in collection[className].cards[rarity]) {
+					var card = collection[className].cards[rarity][cardName];
+					if (classes[className].cards[rarity][cardName] !== undefined) {
+						classes[className].cards[rarity][cardName].normal = card.normal;
+						classes[className].cards[rarity][cardName].golden = card.golden;
+						
+						updateNormalCard(card, card.normal);
+						updateGoldenCard(card, card.golden);
+					}
+				}
+			}
+		}
+	}
+	
+	function importCollection(evt) {
+		// Check for the various File API support.
+        if (window.File && window.FileReader && window.FileList && window.Blob) {
+            // Great success! All the File APIs are supported.
+	    var files = evt.target.files; // FileList object
+
+        // Loop through the FileList and render image files as thumbnails.
+        var f = files[0];
+        // Only process image files.
+        if (!f.name.match(/[^\\]*\.(json)$/i)) {
+			alert("Not a JSON file.");
+            return;
+        }		
+
+        var reader = new FileReader();
+
+        // Closure to capture the file information.
+        reader.onload = (function(event) {
+	        try {
+			    var lola = JSON.parse(event.target.result);
+				initializeCollection();
+			    loadCollection(lola);
+				updateLocalStorage();
+		    }
+		    catch(e) {
+				if (e instanceof SyntaxError) {
+					alert("Invalid JSON file.");
+				}
+				else if (e instanceof TypeError) {
+			        alert("Invalid HSCT file");
+				}
+				else alert(e);
+				return;
+		    }
+        });
+
+        // Read in the image file as a data URL.
+		reader.readAsText(f);
+        } else {
+            alert('The File APIs are not fully supported in this browser.');
+        }
+	}
+	
+	function exportCollection() {
+		var blob = new Blob([JSON.stringify(classes)], { type: "text/plain;charset=utf-8;"} );
+        saveAs(blob, "HSCT.json");				
+	}
+	
+	function initializeCollection() {
+		initializeMissingDust();
+		initializeMissingCards();
+		initializeClasses();
+				
+		for (set in setsEnum)
+		    importCards(set);
+				
+		for (var className in classes)
+			sortCards(className);		
+	}
 	
 	return {
 		init: function() {
@@ -852,18 +910,15 @@ var HSCollectionTracker = (function() {
 				var storedVersion = localStorage.getItem("version");
 				
 				if (storedVersion != version) {
-					initializeMissingDust();
-					initializeMissingCards();
-					initializeClasses();
-				
-				    for (set in setsEnum)
-				        importCards(set);
-				
-					for (var className in classes)
-						sortCards(className);
+					initializeCollection()
 					
 					if (parseFloat(storedVersion) < parseFloat(version)) {
-						restoreData();
+						var storedCollection = JSON.parse(localStorage.getItem('classes'));
+						loadCollection(storedCollection);
+						var storedSettings = JSON.parse(localStorage.getItem('settings'));
+						for (var setting in storedSettings)
+						    settings[setting] = storedSettings[setting];
+						
 						var news = document.getElementById("link-news");
 						news.className = news.className + " news";
 					}
@@ -873,18 +928,18 @@ var HSCollectionTracker = (function() {
 					localStorage.setItem("disenchantedDust", disenchantedDust);
 					localStorage.setItem("version", version);
 				}
-				else {
-					loadLocalStorage();
+				else {					
+				    loadLocalStorage();
 				}
 			}
 						
 			initSelectedCardQuality();
-			document.getElementById("link-tracker").addEventListener("click", function() { displayTracker(); });
-			document.getElementById("link-packs").addEventListener("click", function() { displayPacks(); });
-			document.getElementById("link-news").addEventListener("click", function() { displayNews(); });
-			document.getElementById("link-about").addEventListener("click", function() { displayAbout(); });			
+			document.getElementById("link-tracker").addEventListener("click", displayTracker);
+			document.getElementById("link-packs").addEventListener("click", displayPacks);
+			document.getElementById("link-news").addEventListener("click", displayNews);
+			document.getElementById("link-about").addEventListener("click", displayAbout);			
 			
-			displayTracker();
+			displayTracker();	
 		},
 		
 		toggleGoldenCards: function() {
