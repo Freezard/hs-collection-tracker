@@ -743,8 +743,8 @@ var HSCollectionTracker = (function() {
             return true;
         }
 		
-		document.getElementById('in').addEventListener('click', exportCollection);
-		document.getElementById('files').addEventListener('change', importCollection);
+		//document.getElementById('in').addEventListener('click', exportCollection);
+		//document.getElementById('files').addEventListener('change', importCollection);
 	}
 
 	function displayNews() {
