@@ -104,7 +104,7 @@ var HSCollectionTracker = (function() {
 	var currentDust = 0;
 	var disenchantedDust = 0;
 	
-	var version = 1.01;
+	var version = 1.02;
 	
 	function card(name, rarity, mana, type, className, set, soulbound) {
 		this.name = name;
@@ -742,9 +742,6 @@ var HSCollectionTracker = (function() {
 		document.oncontextmenu = function() {
             return true;
         }
-		
-		//document.getElementById('in').addEventListener('click', exportCollection);
-		//document.getElementById('files').addEventListener('change', importCollection);
 	}
 
 	function displayNews() {
@@ -841,16 +838,12 @@ var HSCollectionTracker = (function() {
 			}
 		}
 	}
-	
-	function importCollection(evt) {
-		// Check for the various File API support.
-        if (window.File && window.FileReader && window.FileList && window.Blob) {
-            // Great success! All the File APIs are supported.
-	    var files = evt.target.files; // FileList object
+		
+	function importCollection(event) {
+	    var files = event.target.files; // FileList object
 
-        // Loop through the FileList and render image files as thumbnails.
         var f = files[0];
-        // Only process image files.
+        // Only process JSON files.
         if (!f.name.match(/[^\\]*\.(json)$/i)) {
 			alert("Not a JSON file.");
             return;
@@ -861,10 +854,11 @@ var HSCollectionTracker = (function() {
         // Closure to capture the file information.
         reader.onload = (function(event) {
 	        try {
-			    var lola = JSON.parse(event.target.result);
+			    var collection = JSON.parse(event.target.result);
 				initializeCollection();
-			    loadCollection(lola);
+			    loadCollection(collection);
 				updateLocalStorage();
+				displayTracker();
 		    }
 		    catch(e) {
 				if (e instanceof SyntaxError) {
@@ -878,16 +872,18 @@ var HSCollectionTracker = (function() {
 		    }
         });
 
-        // Read in the image file as a data URL.
+        // Read in the JSON file as text.
 		reader.readAsText(f);
-        } else {
-            alert('The File APIs are not fully supported in this browser.');
-        }
 	}
 	
 	function exportCollection() {
-		var blob = new Blob([JSON.stringify(classes)], { type: "text/plain;charset=utf-8;"} );
-        saveAs(blob, "HSCT.json");				
+		// Check for File API support.
+        if (window.Blob) {
+		    var blob = new Blob([JSON.stringify(classes)], { type: "text/plain;charset=utf-8;"} );
+            saveAs(blob, "HSCT.json");
+		} else {
+            alert('Exporting is not supported in this browser.');
+        }
 	}
 	
 	function initializeCollection() {
@@ -938,8 +934,26 @@ var HSCollectionTracker = (function() {
 			document.getElementById("link-packs").addEventListener("click", displayPacks);
 			document.getElementById("link-news").addEventListener("click", displayNews);
 			document.getElementById("link-about").addEventListener("click", displayAbout);			
+			document.getElementById('link-export').addEventListener('click', exportCollection);
+			document.getElementById('link-import').addEventListener('click', function() {
+		        // Check for File API support.
+                if (window.File && window.FileReader && window.FileList) {
+			        var elem = document.getElementById("files");
+					elem.value = "";
+			        var event = new MouseEvent('click', {
+			            'view': window,
+			            'bubbles': true,
+			            'cancelable': true
+			        });            
+                    elem.dispatchEvent(event);			
+			    } else {
+                    alert('Importing is not supported in this browser.');
+                }
+		    });
 			
-			displayTracker();	
+		    document.getElementById('files').addEventListener('change', importCollection);
+			
+			displayTracker();
 		},
 		
 		toggleGoldenCards: function() {

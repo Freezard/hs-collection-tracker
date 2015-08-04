@@ -42,6 +42,9 @@ body {
   background-color: #FFFFFF;
   cursor: pointer;
 }
+#files {
+  display: none;
+}
 #selectedQualityNormal.selected {
   border-top-color: #98FF21;
   box-shadow: inset 0 0 40px 1px #98FF21;

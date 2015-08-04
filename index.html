@@ -40,7 +40,15 @@
 		</div>
         <ul class="nav navbar-nav navbar-right">		  
 		  <li><a id="link-tracker" class="title">Tracker</a></li>
-		  <li><a id="link-packs" class="title">Pack Guide</a></li>		  
+		  <li><a id="link-packs" class="title">Pack Guide</a></li>
+		  <li class="dropdown">
+		    <a class="dropdown-toggle title" data-toggle="dropdown">Options
+		    <span class="caret"></span></a>
+		    <ul class="dropdown-menu">
+			  <li><input type="file" id="files" name="files[]"><a id="link-import" class="title">Import</a></li>
+			  <li><a id="link-export" class="title">Export</a></li>
+		    </ul>
+		  </li>
           <li><a id="link-news" class="title">News</a></li>
           <li><a id="link-about" class="title">About</a></li>
         </ul>
@@ -184,8 +192,10 @@
 <script id="template-news" type="text/html">
 <div class="col-xs-12 side-page">
   <h2>News</h2>
+  <p><span class="special2">04-08-15</span> - Added options to import and export collections, located in the header. Can be used to copy collections between
+                            browsers and online/offline mode, or to create backups. Works on all modern browsers except iOS.</p>
   <p><span class="special2">05-06-15</span> - Added filtering by missing cards. The option is located at the right of the filtering bar, below the class tabs.
-                            If "I don't care about golden cards" is selected, only missing normal cards are shown.</p>  
+                            If "I don't care about golden cards" is selected, only missing normal cards are shown.</p>
   <p><span class="special2">28-05-15</span> - Added filtering by card set. Click on a filtering button below the class tabs to only show cards from these sets.
                             Also removed missing golden cards from the infobox when "I don't care about golden cards" is selected.</p>
   <p><span class="special2">22-05-15</span> - Updated the infobox and moved the option to exclude golden cards there.
