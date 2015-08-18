@@ -44,7 +44,13 @@ var HSCollectionTracker = (function() {
 			epic: 52,
 			legendary: 20
 		},
-		blackrock: 31
+		blackrock: 31,
+		tgt: {
+		    common: 98,
+			rare: 72,
+			epic: 54,
+			legendary: 20
+		}			
 	};
 	
 	var setsSoulbound = {
@@ -54,7 +60,8 @@ var HSCollectionTracker = (function() {
 		promo: "golden",
 		naxxramas: "normal",
 		gvg: "none",
-		blackrock: "normal"		
+		blackrock: "normal",
+		tgt: "none"
 	};
 	
 	var packsEnum = {
@@ -104,7 +111,7 @@ var HSCollectionTracker = (function() {
 	var currentDust = 0;
 	var disenchantedDust = 0;
 	
-	var version = 1.02;
+	var version = 1.03;
 	
 	function card(name, rarity, mana, type, className, set, soulbound) {
 		this.name = name;

@@ -1,0 +1,151 @@
+neutral
+Gadgetzan Jouster,common,1,minion
+Lowly Squire,common,1,minion
+Tournament Attendee,common,1,minion
+Boneguard Lieutenant,common,2,minion
+Flame Juggler,common,2,minion
+Lance Carrier,common,2,minion
+Argent Horserider,common,3,minion
+Dragonhawk Rider,common,3,minion
+Ice Rager,common,3,minion
+Silent Knight,common,3,minion
+Silver Hand Regent,common,3,minion
+Evil Heckler,common,4,minion
+Frigid Snobold,common,4,minion
+Maiden of the Lake,common,4,minion
+Refreshment Vendor,common,4,minion
+Tournament Medic,common,4,minion
+Clockwork Knight,common,5,minion
+Kvaldir Raider,common,5,minion
+Mukla's Champion,common,5,minion
+Pit Fighter,common,5,minion
+Captured Jormungar,common,7,minion
+North Sea Kraken,common,9,minion
+Injured Kvaldir,rare,1,minion
+Argent Watchman,rare,2,minion
+Coliseum Manager,rare,3,minion
+Fencing Coach,rare,3,minion
+Light's Champion,rare,3,minion
+Saboteur,rare,3,minion
+Armored Warhorse,rare,4,minion
+Master Jouster,rare,6,minion
+Mogor's Champion,rare,6,minion
+Garrison Commander,epic,2,minion
+Master of Ceremonies,epic,3,minion
+Crowd Favorite,epic,4,minion
+Twilight Guardian,epic,4,minion
+Recruiter,epic,5,minion
+Grand Crusader,epic,6,minion
+Kodorider,epic,6,minion
+Sideshow Spelleater,epic,6,minion
+Frost Giant,epic,10,minion
+Eydis Darkbane,legendary,3,minion
+Fjola Lightbane,legendary,3,minion
+Gormok the Impaler,legendary,4,minion
+Nexus-Champion Saraad,legendary,5,minion
+Bolf Ramshield,legendary,6,minion
+Justicar Trueheart,legendary,6,minion
+The Skeleton Knight,legendary,6,minion
+Chillmaw,legendary,7,minion
+Skycap'n Kragg,legendary,7,minion
+Icehowl,legendary,9,minion
+
+druid
+Living Roots,common,1,spell
+Druid of the Saber,common,2,minion
+Wildwalker,common,4,minion
+Darnassus Aspirant,rare,2,minion
+Savage Combatant,rare,4,minion
+Knights of the Wild,rare,7,minion
+Mulch,epic,3,spell
+Astral Communion,epic,4,spell
+Aviana,legendary,9,minion
+
+hunter
+Brave Archer,common,1,minion
+Bear Trap,common,2,spell
+King's Elekk,common,2,minion
+Powershot,rare,3,spell
+Ram Wrangler,rare,5,minion
+Ball of Spiders,rare,6,spell
+Lock and Load,epic,2,spell
+Stablemaster,epic,3,minion
+Dreadscale,legendary,3,minion
+Acidmaw,legendary,7,minion
+
+mage
+Spellslinger,common,3,minion
+Dalaran Aspirant,common,4,minion
+Flame Lance,common,5,spell
+Fallen Hero,rare,3,minion
+Effigy,rare,3,spell
+Polymorph: Boar,rare,3,spell
+Arcane Blast,epic,1,spell
+Coldarra Drake,epic,6,minion
+Rhonin,legendary,8,minion
+
+paladin
+Seal of Champions,common,3,spell
+Warhorse Trainer,common,3,minion
+Murloc Knight,common,4,minion
+Competitive Spirit,rare,1,spell
+Argent Lance,rare,2,weapon
+Tuskarr Jouster,rare,5,minion
+Enter the Coliseum,epic,6,spell
+Mysterious Challenger,epic,6,minion
+Eadric the Pure,legendary,7,minion
+
+priest
+Flash Heal,common,1,spell
+Power Word: Glory,common,1,spell
+Holy Champion,common,4,minion
+Convert,rare,2,spell
+Wyrmrest Agent,rare,2,minion
+Spawn of Shadows,rare,4,minion
+Confuse,epic,2,spell
+Shadowfiend,epic,3,minion
+Confessor Paletress,legendary,7,minion
+
+rogue
+Buccaneer,common,1,minion
+Undercity Valiant,common,2,minion
+Shado-Pan Rider,common,5,minion
+Cutpurse,rare,2,minion
+Burgle,rare,3,spell
+Shady Dealer,rare,3,minion
+Beneath the Grounds,epic,3,spell
+Poisoned Blade,epic,4,weapon
+Anub'arak,legendary,9,minion
+
+shaman
+Ancestral Knowledge,common,2,spell
+Totem Golem,common,2,minion
+Tuskarr Totemic,common,3,minion
+Healing Wave,rare,3,spell
+Draenei Totemcarver,rare,4,minion
+Thunder Bluff Valiant,rare,5,minion
+Elemental Destruction,epic,3,spell
+Charged Hammer,epic,4,weapon
+The Mistcaller,legendary,6,minion
+
+warlock
+Demonfuse,common,2,spell
+Wrathguard,common,4,minion
+Fearsome Doomguard,common,7,minion
+Tiny Knight of Evil,rare,2,minion
+Fist of Jaraxxus,rare,4,spell
+Void Crusher,rare,6,minion
+Dreadsteed,epic,4,minion
+Dark Bargain,epic,6,spell
+Wilfred Fizzlebang,legendary,6,minion
+
+warrior
+Bolster,common,2,spell
+Bash,common,3,spell
+Orgrimmar Aspirant,common,3,minion
+Alexstrasza's Champion,rare,2,minion
+Sparring Partner,rare,2,minion
+King's Defender,rare,3,weapon
+Magnataur Alpha,epic,4,minion
+Sea Reaver,epic,6,minion
+Varian Wrynn,legendary,10,minion
