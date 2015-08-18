@@ -66,7 +66,8 @@ var HSCollectionTracker = (function() {
 	
 	var packsEnum = {
 		classic: "classic",
-		gvg: "gvg"
+		gvg: "gvg",
+		tgt: "tgt"
 	};
 	
 	// Values = normal and golden cards
