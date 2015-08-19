@@ -56,7 +56,7 @@ Druid of the Saber,common,2,minion
 Wildwalker,common,4,minion
 Darnassus Aspirant,rare,2,minion
 Savage Combatant,rare,4,minion
-Knights of the Wild,rare,7,minion
+Knight of the Wild,rare,7,minion
 Mulch,epic,3,spell
 Astral Communion,epic,4,spell
 Aviana,legendary,9,minion
