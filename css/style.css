@@ -481,7 +481,7 @@ h2 {
   background-color: #E3D3C8;
 }
 .side-page div {
-  margin-top: 20px;
+  margin-top: 20px;  
 }
 .side-page img {
   display: block;
@@ -489,8 +489,34 @@ h2 {
   margin-bottom: 20px;
 }
 .side-page table {
+  font-family: "Comic Sans MS", "Palatino Linotype", "Times", serif;
   width: 100%;
   margin-bottom: 10px;
+  font-size: 12px;
+  outline: solid 1px;
+}
+.side-page .tablePack td {
+  background-color: #E5BC97;
+}
+.side-page #select {
+  margin-bottom: 10px;
+}
+.side-page tr.normal td {
+  background-color: #C59C73;
+  color: #000000;
+}
+.side-page tr.golden td {
+  background-color: #736358;
+  color: rgba(200, 150, 0, 1.0);
+}
+.side-page td, .side-page th {
+  background-color: #C59C73;
+  color: #000000;
+  /*border: 1px solid #B8BF21;*/
+  padding: 3px 5px;
+}
+.side-page th {
+  text-align: center;
 }
 .side-page td[id*="AverageValue"] {
   color: rgba(50, 150, 215, 1.0);

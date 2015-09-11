@@ -28,29 +28,134 @@ var HSCollectionTracker = (function() {
 	
 	// Values = the number of cards in each set
 	var setsEnum = {
-		basic: 133,
+		basic: {
+		    free: {
+				neutral: 86,
+				other: 20,
+				total: 266
+			}
+		},
 		classic: {
-		    common: 188,
-			rare: 162,
-			epic: 74,
-			legendary: 33
+		    common: {
+				neutral: 80,
+				other: 12,
+				total: 188
+			},
+			rare: {
+				neutral: 72,
+				other: 10,
+				total: 162
+			},
+			epic: {
+				neutral: 20,
+				other: 6,
+				total: 74
+			},
+			legendary: {
+				neutral: 24,
+				other: 1,
+				total: 33
+			}
 		},
-		reward: 2,
-		promo: 2,
-		naxxramas: 30,
+		reward: {
+			epic: {
+				neutral: 2,
+				total: 2
+			},
+			legendary: {
+				neutral: 1,
+				total: 1
+			}
+		},
+		promo: {
+			legendary: {
+				neutral: 2,
+				total: 2
+			}
+		},
+		naxxramas: {
+		    common: {
+				neutral: 18,
+				other: 2,
+				total: 36
+			},
+			rare: {
+				neutral: 8,
+				other: 0,
+				total: 8
+			},
+			epic: {
+				neutral: 4,
+				other: 0,
+				total: 4
+			},
+			legendary: {
+				neutral: 6,
+				other: 0,
+				total: 6
+			}
+		},
 		gvg: {
-		    common: 80,
-			rare: 74,
-			epic: 52,
-			legendary: 20
+		    common: {
+				neutral: 44,
+				other: 4,
+				total: 80
+			},
+			rare: {
+				neutral: 20,
+				other: 6,
+				total: 74
+			},
+			epic: {
+				neutral: 16,
+				other: 4,
+				total: 52
+			},
+			legendary: {
+				neutral: 11,
+				other: 1,
+				total: 20
+			}
 		},
-		blackrock: 31,
+		blackrock: {
+		    common: {
+				neutral: 12,
+				other: 2,
+				total: 30
+			},
+			rare: {
+				neutral: 4,
+				other: 2,
+				total: 22
+			},
+			legendary: {
+				neutral: 5,
+				total: 5
+			}
+		},
 		tgt: {
-		    common: 98,
-			rare: 72,
-			epic: 54,
-			legendary: 20
-		}			
+		    common: {
+				neutral: 44,
+				other: 6,
+				total: 98
+			},
+			rare: {
+				neutral: 18,
+				other: 6,
+				total: 72
+			},
+			epic: {
+				neutral: 18,
+				other: 4,
+				total: 54
+			},
+			legendary: {
+				neutral: 10,
+				hunter: 2,
+				other: 1,				
+				total: 20
+			}
+		}
 	};
 	
 	var setsSoulbound = {
@@ -112,7 +217,7 @@ var HSCollectionTracker = (function() {
 	var currentDust = 0;
 	var disenchantedDust = 0;
 	
-	var version = 1.04;
+	var version = 1.05;
 	
 	function card(name, rarity, mana, type, className, set, soulbound) {
 		this.name = name;
@@ -520,7 +625,7 @@ var HSCollectionTracker = (function() {
 		var cardList = classes[className].cards;
 			
 		for (var className in raritiesEnum) {
-			var list = document.getElementById("list_" + className);		
+			var list = document.getElementById("list_" + className);
 			while (list.firstChild) {
 				list.removeChild(list.firstChild);
 			}
@@ -741,6 +846,121 @@ var HSCollectionTracker = (function() {
 		    settings = JSON.parse(localStorage.getItem("settings"));
 	}
 	
+	function displayProgress() {
+		var template = document.getElementById("template-progress");
+		document.getElementById("containerRow").innerHTML = template.innerHTML;
+		
+		document.getElementById("header-center").style.visibility = "hidden";
+		
+		document.oncontextmenu = function() {
+            return true;
+        }
+		
+		document.getElementById('select').addEventListener('change', displayProgressTable);
+		
+	//	for (set in setsEnum)
+	//	    buildProgressTable(set);
+	}
+	
+	function displayProgressTable(evt) {
+		document.getElementById("containerRow").childNodes[1].removeChild(
+		    document.getElementById("containerRow").childNodes[1].lastChild);		
+		buildProgressTable(evt.target.value);
+	}
+	
+	function buildProgressTable(set) {
+		var table = document.createElement("table");
+		table.setAttribute("id", "progressTable");
+		var tr = document.createElement("tr");
+		var td = document.createElement("th");
+		td.innerHTML = set.toUpperCase();
+		td.setAttribute("colspan", 9);
+		tr.appendChild(td);
+		table.appendChild(tr);
+		
+		tr = document.createElement("tr");
+		tr.appendChild(document.createElement("td"));
+		for (rarity in setsEnum[set]) {
+		    td = document.createElement("td");
+		    td.innerHTML = capitalizeFirstLetter(rarity);
+		    tr.appendChild(td);
+		    tr.appendChild(document.createElement("td"));
+		}
+		table.appendChild(tr);
+		
+		document.getElementById("containerRow").childNodes[1].appendChild(table);
+		
+		for (classHS in classesEnum) {
+			table.appendChild(buildProgressTableRow("normal", set, classHS));
+			if (!settings.excludeGoldenCards)
+			    table.appendChild(buildProgressTableRow("golden", set, classHS));
+		}
+		table.appendChild(buildProgressTableRow("normal", set, "total"));
+		if (!settings.excludeGoldenCards)
+		    table.appendChild(buildProgressTableRow("golden", set, "total"));
+	}
+	
+	function buildProgressTableRow(quality, set, classHS) {
+		var tr = document.createElement("tr");
+		tr.setAttribute("class", quality);
+		td = document.createElement("td");
+		
+		var i;
+		if (quality == "normal") {
+			i = 0;
+		    td.innerHTML = capitalizeFirstLetter(classHS);
+		}
+		else {
+			i = 1;
+		}
+		tr.appendChild(td);
+
+		for (rarity in setsEnum[set]) {
+		    var td = document.createElement("td");
+			var text;
+			var total;
+			
+			if (classHS == "neutral")
+			    total = setsEnum[set][rarity].neutral;
+			else if (classHS == "total")
+				total = setsEnum[set][rarity].total;
+			else if (set == "tgt" && classHS == "hunter" && rarity == "legendary")
+				total = setsEnum[set][rarity].hunter;
+			else total = setsEnum[set][rarity].other;
+			
+			total == undefined ? total = 0 : total = total;
+			
+			if (total == 0) {
+				text = "-";
+			}
+			else {
+				var missing;
+				if (classHS != "total")
+			        missing = missingCards.classes[classHS][set][rarity][i];
+				else missing = missingCards.total[set][rarity][i];
+				text = total - missing + "/" + total +
+				   	   " (" + Math.round(((total - missing) / total) * 100) + "%)";
+			}
+			
+		    td.innerHTML = text;
+			tr.appendChild(td);
+			td = document.createElement("td");
+			
+			if ((quality == "normal" && setsSoulbound[set] == "normal" || setsSoulbound[set] == "both") ||
+			    (quality == "golden" && setsSoulbound[set] == "golden" || setsSoulbound[set] == "both")) {
+					text = "-";
+				}
+			else if (total != 0) {
+			    var totalDust = total * craftingCosts[rarity][i];
+			    var currDust = (total - missing) * craftingCosts[rarity][i];
+			    text = " " + currDust + "/" + totalDust;
+			}
+			td.innerHTML = text;
+			tr.appendChild(td);
+		}
+		return tr;
+	}
+	
 	function displayAbout() {
 		var template = document.getElementById("template-about").innerHTML;
 		document.getElementById("containerRow").innerHTML = template;
@@ -770,16 +990,6 @@ var HSCollectionTracker = (function() {
 		var template = document.getElementById("template-packs").innerHTML;
 		document.getElementById("containerRow").innerHTML = template;
 		
-		for (rarity in raritiesEnum) {
-			if (rarity !== "free") {
-				var rarityCapitalized = capitalizeFirstLetter(rarity);
-				for (set in packsEnum) {
-		            document.getElementById(set + "Missing" + rarityCapitalized + "Normal").innerHTML = missingCards.total[set][rarity][0];
-		            document.getElementById(set + "Missing" + rarityCapitalized + "Golden").innerHTML = missingCards.total[set][rarity][1];
-				}
-			}
-		}
-		
 		updatePackGuide();
 		
 		document.getElementById("header-center").style.visibility = "hidden";
@@ -794,11 +1004,11 @@ var HSCollectionTracker = (function() {
 		for (set in packsEnum) {
 		    for (rarity in raritiesEnum) {
 			    if (rarity !== "free") {
-		            averageValue += chanceOfGetting[rarity][0] * (((setsEnum[set][rarity] - missingCards.total[set][rarity][0]) / setsEnum[set][rarity]) * disenchantmentValue[rarity][0]
-		                + (missingCards.total[set][rarity][0] / setsEnum[set][rarity]) * craftingCosts[rarity][0]);
+		            averageValue += chanceOfGetting[rarity][0] * (((setsEnum[set][rarity].total - missingCards.total[set][rarity][0]) / setsEnum[set][rarity].total) * disenchantmentValue[rarity][0]
+		                + (missingCards.total[set][rarity][0] / setsEnum[set][rarity].total) * craftingCosts[rarity][0]);
 					if (!settings.excludeGoldenCards)
-					    averageValue += chanceOfGetting[rarity][1] * (((setsEnum[set][rarity] - missingCards.total[set][rarity][1]) / setsEnum[set][rarity]) * disenchantmentValue[rarity][1]
-		                    + (missingCards.total[set][rarity][1] / setsEnum[set][rarity]) * craftingCosts[rarity][1]);
+					    averageValue += chanceOfGetting[rarity][1] * (((setsEnum[set][rarity].total - missingCards.total[set][rarity][1]) / setsEnum[set][rarity].total) * disenchantmentValue[rarity][1]
+		                    + (missingCards.total[set][rarity][1] / setsEnum[set][rarity].total) * craftingCosts[rarity][1]);
 					else averageValue += chanceOfGetting[rarity][1] * disenchantmentValue[rarity][1];
 				}
 		    }
@@ -939,6 +1149,7 @@ var HSCollectionTracker = (function() {
 						
 			initSelectedCardQuality();
 			document.getElementById("link-tracker").addEventListener("click", displayTracker);
+			document.getElementById("link-progress").addEventListener("click", displayProgress);
 			document.getElementById("link-packs").addEventListener("click", displayPacks);
 			document.getElementById("link-news").addEventListener("click", displayNews);
 			document.getElementById("link-about").addEventListener("click", displayAbout);			

@@ -40,6 +40,7 @@
 		</div>
         <ul class="nav navbar-nav navbar-right">		  
 		  <li><a id="link-tracker" class="title">Tracker</a></li>
+		  <li><a id="link-progress" class="title">Progress</a></li>
 		  <li><a id="link-packs" class="title">Pack Guide</a></li>
 		  <li class="dropdown">
 		    <a class="dropdown-toggle title" data-toggle="dropdown">Options
@@ -177,6 +178,24 @@
   </div>
 </div>
 </script>
+<script id="template-progress" type="text/html">
+<div class="col-xs-12 side-page">
+  <h2>Progress</h2>
+  <p>This page displays how many cards and how much dust you've collected for a selected set below.</p>
+  <p>The first column for each rarity displays how many cards you have collected, and the second column displays the dust (if the cards are craftable).
+  If you have ticked the "I don't care about golden cards" box, golden data will not be displayed.</p>
+  <select id="select">
+    <option value="basic">Basic</option>
+    <option value="classic">Classic</option>
+    <option value="reward">Reward</option>
+    <option value="promo">Promo</option>
+	<option value="naxxramas">Naxxramas</option>
+	<option value="gvg">Goblins vs Gnomes</option>
+	<option value="blackrock">Blackrock Mountain</option>
+	<option value="tgt">The Grand Tournament</option>
+  </select>
+</div>
+</script>
 <script id="template-about" type="text/html">
 <div class="col-xs-12 side-page">
   <h2>About</h2>
@@ -193,6 +212,7 @@
 <script id="template-news" type="text/html">
 <div class="col-xs-12 side-page">
   <h2>News</h2>
+  <p><span class="special2">11-09-15</span> - Added a progress page which displays how complete your collection is in detail. Also cleaned up the Pack Guide a bit.</p>
   <p><span class="special2">18-08-15</span> - Added cards from The Grand Tournament.</p>
   <p><span class="special2">04-08-15</span> - Added options to import and export collections, located in the header. Can be used to copy collections between
                             browsers and online/offline mode, or to create backups. Works on all modern browsers except iOS.</p>
@@ -214,42 +234,14 @@
 <script id="template-packs" type="text/html">
 <div class="col-xs-12 side-page">
   <h2>Pack Guide</h2>
-  <p>This guide will help you determine whether you should buy Classic or Goblins vs Gnomes packs.<br/>
-     It displays the amount of cards missing from each set and calculates the average amount of dust that you will receive from the pack.<br/>
-	 The dust value is based on dust received from disenchanting duplicate cards and the amount of dust required to craft new cards.<br/>
+  <p>This guide will help you determine which pack you should buy based on your collection.</p>
+  <p>It calculates the average amount of dust that you will receive from each pack.
+	 The dust value is based on dust received from disenchanting duplicate cards and the amount of dust required to craft new cards.
 	 Since there are no official stats about card rarities, the stats have been approximated from a large number of pack openings.</p>
   <p>If you have ticked the "I don't care about golden cards" box, it is assumed that every golden card will be disenchanted.</p>
   <div class="col-xs-4">
     <img src="images/pack_classic.png" alt="Classic pack" width="160" height="216">
-	<table>
-	  <tr>
-	    <td></td>
-		<td>Normal</td>
-		<td>Golden</td>
-	  </tr>
-	  <tr>
-	    <td>Common</td>
-		<td id="classicMissingCommonNormal"></td>
-		<td id="classicMissingCommonGolden"></td>
-	  </tr>
-	  <tr>
-	    <td>Rare</td>
-		<td id="classicMissingRareNormal"></td>
-		<td id="classicMissingRareGolden"></td>
-	  </tr>
-	  <tr>
-	    <td>Epic</td>
-		<td id="classicMissingEpicNormal"></td>
-		<td id="classicMissingEpicGolden"></td>
-	  </tr>
-	  <tr>
-	    <td>Legendary</td>
-		<td id="classicMissingLegendaryNormal"></td>
-		<td id="classicMissingLegendaryGolden"></td>
-	  </tr>
-	  <tr>
-	    <td><hr></td>
-	  </tr>
+	<table class="tablePack">
 	  <tr>
 	    <td>Average pack value</td>
 		<td id="classicAverageValue"></td>
@@ -258,35 +250,7 @@
   </div>
   <div class="col-xs-4">
     <img src="images/pack_gvg.png" alt="GvG pack" width="160" height="216">
-	<table>
-	  <tr>
-	    <td></td>
-		<td>Normal</td>
-		<td>Golden</td>
-	  </tr>
-	  <tr>
-	    <td>Common</td>
-		<td id="gvgMissingCommonNormal"></td>
-		<td id="gvgMissingCommonGolden"></td>
-	  </tr>
-	  <tr>
-	    <td>Rare</td>
-		<td id="gvgMissingRareNormal"></td>
-		<td id="gvgMissingRareGolden"></td>
-	  </tr>
-	  <tr>
-	    <td>Epic</td>
-		<td id="gvgMissingEpicNormal"></td>
-		<td id="gvgMissingEpicGolden"></td>
-	  </tr>
-	  <tr>
-	    <td>Legendary</td>
-		<td id="gvgMissingLegendaryNormal"></td>
-		<td id="gvgMissingLegendaryGolden"></td>
-	  </tr>
-	  <tr>
-	    <td><hr></td>
-	  </tr>
+	<table class="tablePack">
 	  <tr>
 	    <td>Average pack value</td>
 		<td id="gvgAverageValue"></td>
@@ -295,35 +259,7 @@
   </div>
   <div class="col-xs-4">
     <img src="images/pack_tgt.png" alt="TGT pack" width="160" height="216">
-	<table>
-	  <tr>
-	    <td></td>
-		<td>Normal</td>
-		<td>Golden</td>
-	  </tr>
-	  <tr>
-	    <td>Common</td>
-		<td id="tgtMissingCommonNormal"></td>
-		<td id="tgtMissingCommonGolden"></td>
-	  </tr>
-	  <tr>
-	    <td>Rare</td>
-		<td id="tgtMissingRareNormal"></td>
-		<td id="tgtMissingRareGolden"></td>
-	  </tr>
-	  <tr>
-	    <td>Epic</td>
-		<td id="tgtMissingEpicNormal"></td>
-		<td id="tgtMissingEpicGolden"></td>
-	  </tr>
-	  <tr>
-	    <td>Legendary</td>
-		<td id="tgtMissingLegendaryNormal"></td>
-		<td id="tgtMissingLegendaryGolden"></td>
-	  </tr>
-	  <tr>
-	    <td><hr></td>
-	  </tr>
+	<table class="tablePack">
 	  <tr>
 	    <td>Average pack value</td>
 		<td id="tgtAverageValue"></td>
