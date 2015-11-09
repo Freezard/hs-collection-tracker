@@ -252,6 +252,8 @@ var HSCollectionTracker = (function() {
 			
 			missingCards.total[card.set][card.rarity][0] += cardCopies;
 			missingCards.total[card.set][card.rarity][1] += cardCopies;
+			missingCards.total[card.set].total[0] += cardCopies;
+			missingCards.total[card.set].total[1] += cardCopies;
 			missingCards.total.total[0] += cardCopies;
 			missingCards.total.total[1] += cardCopies;		
 			
@@ -363,6 +365,7 @@ var HSCollectionTracker = (function() {
 		missingCards.classes[card.className][card.set][card.rarity][0] -= number;
 		missingCards.classes[card.className][card.set].total[0] -= number;
 		missingCards.total[card.set][card.rarity][0] -= number;
+		missingCards.total[card.set].total[0] -= number;
 		missingCards.total.total[0] -= number;
 		
 		if (card.soulbound === "none" || card.soulbound === "golden") {
@@ -376,6 +379,7 @@ var HSCollectionTracker = (function() {
 		missingCards.classes[card.className][card.set][card.rarity][1] -= number;
 		missingCards.classes[card.className][card.set].total[1] -= number;
 		missingCards.total[card.set][card.rarity][1] -= number;
+		missingCards.total[card.set].total[1] -= number;
 		missingCards.total.total[1] -= number;
 		
 		if (card.soulbound === "none" || card.soulbound === "normal") {
@@ -873,6 +877,9 @@ var HSCollectionTracker = (function() {
 		table.setAttribute("id", "progressTable");
 		var tr = document.createElement("tr");
 		var td = document.createElement("th");
+		
+		//console.log(missingCards.total[set].total);
+		
 		td.innerHTML = set.toUpperCase();
 		td.setAttribute("colspan", 9);
 		tr.appendChild(td);
