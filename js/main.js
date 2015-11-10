@@ -792,7 +792,7 @@ var HSCollectionTracker = (function() {
 			var td = document.getElementById("totalMissingDust" + rarityCapitalized);
 			var dust = 0;
 			if (settings.excludeGoldenCards)
-				dust = missingDust.total[rarity][0];
+				dust = missingDust.total.total[rarity][0];
 			else dust = missingDust.total.total[rarity][0] + missingDust.total.total[rarity][1];
 			td.innerHTML = dust.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 		}
