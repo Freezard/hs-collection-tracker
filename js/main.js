@@ -159,8 +159,8 @@ var HSCollectionTracker = (function() {
 		loe: {
 		    common: {
 				neutral: 4,
-				other: 6,
-				total: 10
+				other: 2,
+				total: 6
 			},
 			rare: {
 				neutral: 4,
@@ -240,7 +240,7 @@ var HSCollectionTracker = (function() {
 	var currentDust = 0;
 	var disenchantedDust = 0;
 	
-	var version = 1.07;
+	var version = 1.08;
 	
 	function card(name, rarity, mana, type, className, set, soulbound) {
 		this.name = name;

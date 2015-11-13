@@ -17,3 +17,9 @@ Sacred Trial,common,1,spell
 
 shaman
 Rumbling Elemental,common,4,minion
+
+warlock
+Dark Peddler,common,2,minion
+
+warrior
+Obsidian Destroyer,common,7,minion
