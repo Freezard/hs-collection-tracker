@@ -1,0 +1,19 @@
+neutral
+Jeweled Scarab,common,2,minion
+Anubisath Sentinel,common,5,minion
+Ancient Shade,rare,4,minion
+Summoning Stone,rare,5,minion
+Djinni of Zephyrs,epic,5,minion
+Reno Jackson,legendary,6,minion
+
+hunter
+Explorer's Hat,rare,2,spell
+
+mage
+Forgotten Torch,common,3,spell
+
+paladin
+Sacred Trial,common,1,spell
+
+shaman
+Rumbling Elemental,common,4,minion

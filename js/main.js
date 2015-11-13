@@ -155,7 +155,29 @@ var HSCollectionTracker = (function() {
 				other: 1,				
 				total: 20
 			}
-		}
+		},
+		loe: {
+		    common: {
+				neutral: 4,
+				other: 6,
+				total: 10
+			},
+			rare: {
+				neutral: 4,
+				other: 2,
+				total: 6
+			},
+			epic: {
+				neutral: 2,
+				other: 0,
+				total: 2
+			},
+			legendary: {
+				neutral: 1,
+				other: 0,
+				total: 1
+			}
+		}		
 	};
 	
 	var setsSoulbound = {
@@ -166,7 +188,8 @@ var HSCollectionTracker = (function() {
 		naxxramas: "normal",
 		gvg: "none",
 		blackrock: "normal",
-		tgt: "none"
+		tgt: "none",
+		loe: "normal"
 	};
 	
 	var packsEnum = {
@@ -217,7 +240,7 @@ var HSCollectionTracker = (function() {
 	var currentDust = 0;
 	var disenchantedDust = 0;
 	
-	var version = 1.06;
+	var version = 1.07;
 	
 	function card(name, rarity, mana, type, className, set, soulbound) {
 		this.name = name;
