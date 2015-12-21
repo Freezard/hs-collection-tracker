@@ -60,16 +60,19 @@ var HSCollectionTracker = (function() {
 		reward: {
 			epic: {
 				neutral: 2,
+				other: 0,
 				total: 2
 			},
 			legendary: {
 				neutral: 1,
+				other: 0,
 				total: 1
 			}
 		},
 		promo: {
 			legendary: {
 				neutral: 2,
+				other: 0,
 				total: 2
 			}
 		},
@@ -130,6 +133,7 @@ var HSCollectionTracker = (function() {
 			},
 			legendary: {
 				neutral: 5,
+				other: 0,
 				total: 5
 			}
 		},
@@ -240,7 +244,7 @@ var HSCollectionTracker = (function() {
 	var currentDust = 0;
 	var disenchantedDust = 0;
 	
-	var version = 1.11;
+	var version = 1.12;
 	
 	function card(name, rarity, mana, type, className, set, soulbound) {
 		this.name = name;
@@ -974,7 +978,7 @@ var HSCollectionTracker = (function() {
 		//console.log(missingCards.total[set].total);
 		
 		td.innerHTML = set.toUpperCase();
-		td.setAttribute("colspan", 9);
+		td.setAttribute("colspan", 11);
 		tr.appendChild(td);
 		table.appendChild(tr);
 		
@@ -986,6 +990,11 @@ var HSCollectionTracker = (function() {
 		    tr.appendChild(td);
 		    tr.appendChild(document.createElement("td"));
 		}
+		td = document.createElement("td");
+		td.innerHTML = "All";
+		tr.appendChild(td);
+		tr.appendChild(document.createElement("td"));		
+		
 		table.appendChild(tr);
 		
 		document.getElementById("containerRow").childNodes[1].appendChild(table);
@@ -1058,6 +1067,63 @@ var HSCollectionTracker = (function() {
 			td.innerHTML = text;
 			tr.appendChild(td);
 		}
+		
+		// All rarities combined
+		var td = document.createElement("td");
+		var text;
+		var total = 0;
+		
+		if (classHS == "neutral")
+			for (rarity in setsEnum[set])
+				total += setsEnum[set][rarity].neutral;
+		else if (classHS == "total")
+			for (rarity in setsEnum[set])
+				total += setsEnum[set][rarity].total;
+		else if (set == "tgt" && classHS == "hunter" && rarity == "legendary")
+			total = setsEnum[set][rarity].hunter;
+		else for (rarity in setsEnum[set])
+				total += setsEnum[set][rarity].other;
+		
+		if (isNaN(total) || total == undefined) total = 0;
+		
+		if (total == 0) {
+			text = "-";
+		}
+		else {
+			var missing;
+			if (classHS != "total")
+				missing = missingCards.classes[classHS][set].total[i];
+			else missing = missingCards.total[set].total[i];
+			text = total - missing + "/" + total +
+				   " (" + Math.round(((total - missing) / total) * 100) + "%)";
+		}
+		
+		td.innerHTML = text;
+		tr.appendChild(td);
+		td = document.createElement("td");
+		
+		if ((quality == "normal" && setsSoulbound[set] == "normal" || setsSoulbound[set] == "both") ||
+			(quality == "golden" && setsSoulbound[set] == "golden" || setsSoulbound[set] == "both")) {
+				text = "-";
+			}
+		else if (total != 0) {
+			var cl = classHS;
+			if (cl != "neutral" && cl != "total")
+				cl = "other";
+				
+			var totalDust = 0;
+			for (rarity in setsEnum[set])
+				totalDust += setsEnum[set][rarity][cl] * craftingCosts[rarity][i];
+			var currDust = 0;
+			if (classHS != "total")
+			    currDust = totalDust - missingDust.classes[classHS][set].total[i];
+			else currDust = totalDust - missingDust.total[set].total[i];
+			text = " " + currDust + "/" + totalDust +
+				   " (" + Math.round((currDust / totalDust) * 100) + "%)";
+		}
+		td.innerHTML = text;
+		tr.appendChild(td);
+		
 		return tr;
 	}
 	

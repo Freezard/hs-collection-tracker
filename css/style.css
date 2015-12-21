@@ -481,7 +481,7 @@ h2 {
   background-color: #E3D3C8;
 }
 .side-page div {
-  margin-top: 20px;  
+  margin-top: 20px;
 }
 .side-page img {
   display: block;
@@ -497,6 +497,9 @@ h2 {
 }
 .side-page .tablePack td {
   background-color: #E5BC97;
+}
+.side-page #progressTable {
+  font-size: 10px;
 }
 .side-page #select {
   margin-bottom: 10px;
