@@ -244,7 +244,7 @@ var HSCollectionTracker = (function() {
 	var currentDust = 0;
 	var disenchantedDust = 0;
 	
-	var version = 1.12;
+	var version = 1.13;
 	
 	function card(name, rarity, mana, type, className, set, soulbound) {
 		this.name = name;
@@ -277,7 +277,7 @@ var HSCollectionTracker = (function() {
 			missingCards.classes[name][card.set].total[0] += cardCopies;
 			missingCards.classes[name][card.set].total[1] += cardCopies;
 			missingCards.classes[name].total[card.rarity][0] += cardCopies;
-			missingCards.classes[name].total[card.rarity][1] += cardCopies;			
+			missingCards.classes[name].total[card.rarity][1] += cardCopies;
 			missingCards.classes[name].total.total[0] += cardCopies;
 			missingCards.classes[name].total.total[1] += cardCopies;
 			
@@ -288,7 +288,7 @@ var HSCollectionTracker = (function() {
 			missingCards.total.total[card.rarity][0] += cardCopies;
 			missingCards.total.total[card.rarity][1] += cardCopies;
 			missingCards.total.total.total[0] += cardCopies;
-			missingCards.total.total.total[1] += cardCopies;		
+			missingCards.total.total.total[1] += cardCopies;
 			
 			if (card.soulbound === "none" || card.soulbound === "normal") {
 				var craftingCostGolden = craftingCosts[card.rarity][1] * cardCopies;
@@ -399,6 +399,17 @@ var HSCollectionTracker = (function() {
 	function addThousandSeparator(number) {
 		return number.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 	}
+	
+	function getMissingDataObject() {
+		return {
+				free: [0, 0],
+				common: [0, 0],
+				rare: [0, 0],
+				epic: [0, 0],
+				legendary: [0, 0],
+				total: [0, 0]
+			};
+	}	
 	/*********************************************************
 	**********************CARD FUNCTIONS**********************
 	*********************************************************/
@@ -736,14 +747,7 @@ var HSCollectionTracker = (function() {
 	function displayMissingCards() {
 		document.getElementById("missingCardsClassTitle").innerHTML = selectedClass.toUpperCase();
 		
-		var missing = {
-			free: [0, 0],
-			common: [0, 0],
-			rare: [0, 0],
-			epic: [0, 0],
-			legendary: [0, 0],
-			total: [0, 0]
-		};
+		var missing = getMissingDataObject();
 		
 		for (var set in missingCards.classes[selectedClass]) {
 			if (set === "total")				
@@ -769,14 +773,7 @@ var HSCollectionTracker = (function() {
 	}
 	
 	function displayMissingCardsTotal() {
-		var missing = {
-			free: [0, 0],
-			common: [0, 0],
-			rare: [0, 0],
-			epic: [0, 0],
-			legendary: [0, 0],
-			total: [0, 0]
-		};
+		var missing = getMissingDataObject();
 		
 		for (var set in missingCards.total) {
 			if (set === "total")
@@ -832,92 +829,22 @@ var HSCollectionTracker = (function() {
 			classes[className] = new classHS(className);
 	}
 	
-	function initializeMissingCards() {
-		missingCards.classes = {};
-		for (var classHS in classesEnum) {
-			missingCards.classes[classHS] = {};
-			for (var set in setsEnum)
-		        missingCards.classes[classHS][set] = {
-			        free: [0, 0],
-			        common: [0, 0],
-			        rare: [0, 0],
-			        epic: [0, 0],
-			        legendary: [0, 0],
-			        total: [0, 0]
-		        };
-		    missingCards.classes[classHS].total = {
-			    free: [0, 0],
-			    common: [0, 0],
-			    rare: [0, 0],
-			    epic: [0, 0],
-			    legendary: [0, 0],
- 			    total: [0, 0]
-	        };
+	function initializeMissingData() {
+		for (var i = 0, missingData = missingCards; i < 2; i++, missingData = missingDust) {
+			missingData.classes = {};
+			for (var classHS in classesEnum) {
+				missingData.classes[classHS] = {};
+				for (var set in setsEnum)
+					missingData.classes[classHS][set] = getMissingDataObject();
+				missingData.classes[classHS].total = getMissingDataObject();
+			}
+			missingData.total = {};
+			for (var set in setsEnum) {
+				missingData.total[set] = getMissingDataObject();
+			}
+			
+			missingData.total.total = getMissingDataObject();
 		}
-		missingCards.total = {};
-		for (var set in setsEnum) {
-		    missingCards.total[set] = {
-			    free: [0, 0],
-			    common: [0, 0],
-			    rare: [0, 0],
-			    epic: [0, 0],
-			    legendary: [0, 0],
-			    total: [0, 0]
-		    };
-		}
-		
-		missingCards.total.total = {
-			free: [0, 0],
-			common: [0, 0],
-			rare: [0, 0],
-			epic: [0, 0],
-			legendary: [0, 0],
-			total: [0, 0]
-		};
-	}
-	
-	function initializeMissingDust() {
-		missingDust.classes = {};
-		for (var classHS in classesEnum) {
-			missingDust.classes[classHS] = {};
-			for (var set in setsEnum)
-		        missingDust.classes[classHS][set] = {
-			        free: [0, 0],
-			        common: [0, 0],
-			        rare: [0, 0],
-			        epic: [0, 0],
-			        legendary: [0, 0],
-			        total: [0, 0]
-		        };
-		    missingDust.classes[classHS].total = {
-			    free: [0, 0],
-			    common: [0, 0],
-			    rare: [0, 0],
-			    epic: [0, 0],
-			    legendary: [0, 0],
-			    total: [0, 0]
-		    };
-		}
-		missingDust.total = {};
-		for (var set in setsEnum) {
-		    missingDust.total[set] = {
-			    free: [0, 0],
-			    common: [0, 0],
-			    rare: [0, 0],
-			    epic: [0, 0],
-			    legendary: [0, 0],
-			    total: [0, 0]
-		    };
-		}
-		
-		missingDust.total.total = {
-			free: [0, 0],
-			common: [0, 0],
-			rare: [0, 0],
-			epic: [0, 0],
-			legendary: [0, 0],
-			total: [0, 0]
-		};
 	}
 
 	function initSelectedCardQuality() {		
@@ -947,6 +874,9 @@ var HSCollectionTracker = (function() {
 		    settings = JSON.parse(localStorage.getItem("settings"));
 	}
 	
+	/*********************************************************
+	***********************PROGRESS PAGE**********************
+	*********************************************************/
 	function displayProgress() {
 		var template = document.getElementById("template-progress");
 		document.getElementById("containerRow").innerHTML = template.innerHTML;
@@ -1126,7 +1056,9 @@ var HSCollectionTracker = (function() {
 		
 		return tr;
 	}
-	
+	/*********************************************************
+	**********************HTML TEMPLATES**********************
+	*********************************************************/
 	function displayAbout() {
 		var template = document.getElementById("template-about").innerHTML;
 		document.getElementById("containerRow").innerHTML = template;
@@ -1203,7 +1135,9 @@ var HSCollectionTracker = (function() {
             return false;
         }
 	}
-
+	/*********************************************************
+	************************COLLECTION************************
+	*********************************************************/
 	function loadCollection(collection) {
 		console.log("BACKING UP");
 		for (var className in collection) {
@@ -1271,8 +1205,7 @@ var HSCollectionTracker = (function() {
 	}
 	
 	function initializeCollection() {
-		initializeMissingDust();
-		initializeMissingCards();
+		initializeMissingData();
 		initializeClasses();
 				
 		for (set in setsEnum)
@@ -1281,7 +1214,9 @@ var HSCollectionTracker = (function() {
 		for (var className in classes)
 			sortCards(className);		
 	}
-	
+	/*********************************************************
+	***********************MAIN FUNCTION**********************
+	*********************************************************/
 	return {
 		init: function() {
 		//	console.log(JSON.stringify(localStorage).length);
@@ -1300,7 +1235,7 @@ var HSCollectionTracker = (function() {
 						    settings[setting] = storedSettings[setting];
 						
 						var news = document.getElementById("link-news");
-						news.className = news.className + " news";
+						//news.className = news.className + " news";
 					}
 
 				    updateLocalStorage();
@@ -1354,7 +1289,9 @@ var HSCollectionTracker = (function() {
 })();
 
 window.onload = HSCollectionTracker.init();
-
+/*********************************************************
+************************UNFINISHED************************
+*********************************************************/
 //alert(Object.keys(classEnum).length);
 
 	/*function handleKey(element, event) {
