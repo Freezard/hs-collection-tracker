@@ -204,29 +204,29 @@ var HSCollectionTracker = (function() {
 	
 	// Values = normal and golden cards
 	var craftingCosts = {
-		free: [0, 0],
-		common: [40, 400],
-		rare: [100, 800],
-		epic: [400, 1600],
-		legendary: [1600, 3200]
+		free:      { normal: 0, golden: 0 },
+		common:    { normal: 40, golden: 400 },
+		rare:      { normal: 100, golden: 800 },
+		epic:      { normal: 400, golden: 1600 },
+		legendary: { normal: 1600, golden: 3200 }
 	};
 	
 	// Values = normal and golden cards
 	var disenchantmentValue = {
-		free: [0, 0],
-		common: [5, 50],
-		rare: [20, 100],
-		epic: [100, 400],
-		legendary: [400, 1600]
+		free:      { normal: 0, golden: 0 },
+		common:    { normal: 5, golden: 50 },
+		rare:      { normal: 20, golden: 100 },
+		epic:      { normal: 100, golden: 400 },
+		legendary: { normal: 400, golden: 1600 }
 	};
 	
 	// Values = normal and golden cards
 	var chanceOfGetting = {
-		free: [0, 0],
-		common: [0.70, 0.0147],
-		rare: [0.214, 0.0137],
-		epic: [0.0428, 0.003],
-		legendary: [0.0108, 0.001]
+		free:      { normal: 0, golden: 0 },
+		common:    { normal: 0.7, golden: 0.0147 },
+		rare:      { normal: 0.214, golden: 0.0137 },
+		epic:      { normal: 0.0428, golden: 0.003 },
+		legendary: { normal: 0.0108, golden: 0.001 }
 	};
 
 	var missingCards = {};
@@ -244,7 +244,7 @@ var HSCollectionTracker = (function() {
 	var currentDust = 0;
 	var disenchantedDust = 0;
 	
-	var version = 1.13;
+	var version = 1.14;
 	
 	function card(name, rarity, mana, type, className, set, soulbound) {
 		this.name = name;
@@ -272,49 +272,49 @@ var HSCollectionTracker = (function() {
 			this.cards[card.rarity][card.name] = card;
 			var cardCopies = getCardCopies(card.rarity);
 			
-			missingCards.classes[name][card.set][card.rarity][0] += cardCopies;
-			missingCards.classes[name][card.set][card.rarity][1] += cardCopies;
-			missingCards.classes[name][card.set].total[0] += cardCopies;
-			missingCards.classes[name][card.set].total[1] += cardCopies;
-			missingCards.classes[name].total[card.rarity][0] += cardCopies;
-			missingCards.classes[name].total[card.rarity][1] += cardCopies;
-			missingCards.classes[name].total.total[0] += cardCopies;
-			missingCards.classes[name].total.total[1] += cardCopies;
+			missingCards.classes[name][card.set][card.rarity].normal += cardCopies;
+			missingCards.classes[name][card.set][card.rarity].golden += cardCopies;
+			missingCards.classes[name][card.set].total.normal += cardCopies;
+			missingCards.classes[name][card.set].total.golden += cardCopies;
+			missingCards.classes[name].total[card.rarity].normal += cardCopies;
+			missingCards.classes[name].total[card.rarity].golden += cardCopies;
+			missingCards.classes[name].total.total.normal += cardCopies;
+			missingCards.classes[name].total.total.golden += cardCopies;
 			
-			missingCards.total[card.set][card.rarity][0] += cardCopies;
-			missingCards.total[card.set][card.rarity][1] += cardCopies;
-			missingCards.total[card.set].total[0] += cardCopies;
-			missingCards.total[card.set].total[1] += cardCopies;
-			missingCards.total.total[card.rarity][0] += cardCopies;
-			missingCards.total.total[card.rarity][1] += cardCopies;
-			missingCards.total.total.total[0] += cardCopies;
-			missingCards.total.total.total[1] += cardCopies;
+			missingCards.total[card.set][card.rarity].normal += cardCopies;
+			missingCards.total[card.set][card.rarity].golden += cardCopies;
+			missingCards.total[card.set].total.normal += cardCopies;
+			missingCards.total[card.set].total.golden += cardCopies;
+			missingCards.total.total[card.rarity].normal += cardCopies;
+			missingCards.total.total[card.rarity].golden += cardCopies;
+			missingCards.total.total.total.normal += cardCopies;
+			missingCards.total.total.total.golden += cardCopies;
 			
 			if (card.soulbound === "none" || card.soulbound === "normal") {
-				var craftingCostGolden = craftingCosts[card.rarity][1] * cardCopies;
+				var craftingCostGolden = craftingCosts[card.rarity].golden * cardCopies;
 				
-				missingDust.classes[name][card.set][card.rarity][1] += craftingCostGolden;
-				missingDust.classes[name][card.set].total[1] += craftingCostGolden;
-				missingDust.classes[name].total[card.rarity][1] += craftingCostGolden;
-				missingDust.classes[name].total.total[1] += craftingCostGolden;
+				missingDust.classes[name][card.set][card.rarity].golden += craftingCostGolden;
+				missingDust.classes[name][card.set].total.golden += craftingCostGolden;
+				missingDust.classes[name].total[card.rarity].golden += craftingCostGolden;
+				missingDust.classes[name].total.total.golden += craftingCostGolden;
 				
-				missingDust.total[card.set][card.rarity][1] += craftingCostGolden;
-				missingDust.total[card.set].total[1] += craftingCostGolden;
-				missingDust.total.total[card.rarity][1] += craftingCostGolden;
-				missingDust.total.total.total[1] += craftingCostGolden;
+				missingDust.total[card.set][card.rarity].golden += craftingCostGolden;
+				missingDust.total[card.set].total.golden += craftingCostGolden;
+				missingDust.total.total[card.rarity].golden += craftingCostGolden;
+				missingDust.total.total.total.golden += craftingCostGolden;
 			}
 			if (card.soulbound === "none" || card.soulbound === "golden") {
-				var craftingCostNormal = craftingCosts[card.rarity][0] * cardCopies;
+				var craftingCostNormal = craftingCosts[card.rarity].normal * cardCopies;
 				
-				missingDust.classes[name][card.set][card.rarity][0] += craftingCostNormal;
-				missingDust.classes[name][card.set].total[0] += craftingCostNormal;
-				missingDust.classes[name].total[card.rarity][0] += craftingCostNormal;
-				missingDust.classes[name].total.total[0] += craftingCostNormal;
+				missingDust.classes[name][card.set][card.rarity].normal += craftingCostNormal;
+				missingDust.classes[name][card.set].total.normal += craftingCostNormal;
+				missingDust.classes[name].total[card.rarity].normal += craftingCostNormal;
+				missingDust.classes[name].total.total.normal += craftingCostNormal;
 				
-				missingDust.total[card.set][card.rarity][0] += craftingCostNormal;
-				missingDust.total[card.set].total[0] += craftingCostNormal;
-				missingDust.total.total[card.rarity][0] += craftingCostNormal;
-				missingDust.total.total.total[0] += craftingCostNormal;
+				missingDust.total[card.set][card.rarity].normal += craftingCostNormal;
+				missingDust.total[card.set].total.normal += craftingCostNormal;
+				missingDust.total.total[card.rarity].normal += craftingCostNormal;
+				missingDust.total.total.total.normal += craftingCostNormal;
 			}
 		}
 	}
@@ -322,7 +322,8 @@ var HSCollectionTracker = (function() {
 	**************************UTILS***************************
 	*********************************************************/
 	// Sorts all the card lists for the specified class
-	// Sorting order: Mana cost: Lower > higher
+	// Sorting order:
+	// Mana cost: Lower > higher
 	// Type: Weapon > spell > minion
 	// Name: Lexicographical order
 	function sortCards(className) {
@@ -402,48 +403,48 @@ var HSCollectionTracker = (function() {
 	
 	function getMissingDataObject() {
 		return {
-				free: [0, 0],
-				common: [0, 0],
-				rare: [0, 0],
-				epic: [0, 0],
-				legendary: [0, 0],
-				total: [0, 0]
+				free:      { normal: 0, golden: 0 },
+				common:    { normal: 0, golden: 0 },
+				rare:      { normal: 0, golden: 0 },
+				epic:      { normal: 0, golden: 0 },
+				legendary: { normal: 0, golden: 0 },
+				total:     { normal: 0, golden: 0 }
 			};
 	}	
 	/*********************************************************
 	**********************CARD FUNCTIONS**********************
 	*********************************************************/
 	function updateNormalCard(card, number) {
-		missingCards.classes[card.className][card.set][card.rarity][0] -= number;
-		missingCards.classes[card.className][card.set].total[0] -= number;
-		missingCards.classes[card.className].total[card.rarity][0] -= number;
-		missingCards.classes[card.className].total.total[0] -= number;
+		missingCards.classes[card.className][card.set][card.rarity].normal -= number;
+		missingCards.classes[card.className][card.set].total.normal -= number;
+		missingCards.classes[card.className].total[card.rarity].normal -= number;
+		missingCards.classes[card.className].total.total.normal -= number;
 		
-		missingCards.total[card.set][card.rarity][0] -= number;
-		missingCards.total[card.set].total[0] -= number;
-		missingCards.total.total[card.rarity][0] -= number;
-		missingCards.total.total.total[0] -= number;
+		missingCards.total[card.set][card.rarity].normal -= number;
+		missingCards.total[card.set].total.normal -= number;
+		missingCards.total.total[card.rarity].normal -= number;
+		missingCards.total.total.total.normal -= number;
 		
 		if (card.soulbound === "none" || card.soulbound === "golden") {
-		    var craftingCost = craftingCosts[card.rarity][0] ;
+		    var craftingCost = craftingCosts[card.rarity].normal;
 		
 		    updateMissingDust(card, craftingCost * number, "normal");
 		}
 	}
 	
 	function updateGoldenCard(card, number) {
-		missingCards.classes[card.className][card.set][card.rarity][1] -= number;
-		missingCards.classes[card.className][card.set].total[1] -= number;
-		missingCards.classes[card.className].total[card.rarity][1] -= number;
-		missingCards.classes[card.className].total.total[1] -= number;
+		missingCards.classes[card.className][card.set][card.rarity].golden -= number;
+		missingCards.classes[card.className][card.set].total.golden -= number;
+		missingCards.classes[card.className].total[card.rarity].golden -= number;
+		missingCards.classes[card.className].total.total.golden -= number;
 		
-		missingCards.total[card.set][card.rarity][1] -= number;
-		missingCards.total[card.set].total[1] -= number;
-		missingCards.total.total[card.rarity][1] -= number;
-		missingCards.total.total.total[1] -= number;
+		missingCards.total[card.set][card.rarity].golden -= number;
+		missingCards.total[card.set].total.golden -= number;
+		missingCards.total.total[card.rarity].golden -= number;
+		missingCards.total.total.total.golden -= number;
 		
 		if (card.soulbound === "none" || card.soulbound === "normal") {
-		    var craftingCost = craftingCosts[card.rarity][1];
+		    var craftingCost = craftingCosts[card.rarity].golden;
 		
 		    updateMissingDust(card, craftingCost * number, "golden");
 		}
@@ -451,26 +452,26 @@ var HSCollectionTracker = (function() {
 	
 	function updateMissingDust(card, craftingCost, cardQuality) {		
 		if (cardQuality === "normal") {
-			missingDust.classes[card.className][card.set][card.rarity][0] -= craftingCost;
-		    missingDust.classes[card.className][card.set].total[0] -= craftingCost;
-			missingDust.classes[card.className].total[card.rarity][0] -= craftingCost;
-			missingDust.classes[card.className].total.total[0] -= craftingCost;
+			missingDust.classes[card.className][card.set][card.rarity].normal -= craftingCost;
+		    missingDust.classes[card.className][card.set].total.normal -= craftingCost;
+			missingDust.classes[card.className].total[card.rarity].normal -= craftingCost;
+			missingDust.classes[card.className].total.total.normal -= craftingCost;
 			
-		    missingDust.total[card.set][card.rarity][0] -= craftingCost;
-			missingDust.total[card.set].total[0] -= craftingCost;
-			missingDust.total.total[card.rarity][0] -= craftingCost;
-		    missingDust.total.total.total[0] -= craftingCost;
+		    missingDust.total[card.set][card.rarity].normal -= craftingCost;
+			missingDust.total[card.set].total.normal -= craftingCost;
+			missingDust.total.total[card.rarity].normal -= craftingCost;
+		    missingDust.total.total.total.normal -= craftingCost;
 		}
 		else if (cardQuality === "golden") {
-			missingDust.classes[card.className][card.set][card.rarity][1] -= craftingCost;
-		    missingDust.classes[card.className][card.set].total[1] -= craftingCost;
-			missingDust.classes[card.className].total[card.rarity][1] -= craftingCost;
-			missingDust.classes[card.className].total.total[1] -= craftingCost;
+			missingDust.classes[card.className][card.set][card.rarity].golden -= craftingCost;
+		    missingDust.classes[card.className][card.set].total.golden -= craftingCost;
+			missingDust.classes[card.className].total[card.rarity].golden -= craftingCost;
+			missingDust.classes[card.className].total.total.golden -= craftingCost;
 			
-		    missingDust.total[card.set][card.rarity][1] -= craftingCost;
-			missingDust.total[card.set].total[1] -= craftingCost;
-		    missingDust.total.total[card.rarity][1] -= craftingCost;
-			missingDust.total.total.total[1] -= craftingCost;
+		    missingDust.total[card.set][card.rarity].golden -= craftingCost;
+			missingDust.total[card.set].total.golden -= craftingCost;
+		    missingDust.total.total[card.rarity].golden -= craftingCost;
+			missingDust.total.total.total.golden -= craftingCost;
 		}
 	}
 	
@@ -591,24 +592,24 @@ var HSCollectionTracker = (function() {
 		var td2 = document.getElementById("classMissingDustTotal");
 		
 		if (settings.excludeGoldenCards) {
-		    td.innerHTML = addThousandSeparator(missingDust.classes[selectedClass].total[rarity][0]);
-			td2.innerHTML = addThousandSeparator(missingDust.classes[selectedClass].total.total[0]);
+		    td.innerHTML = addThousandSeparator(missingDust.classes[selectedClass].total[rarity].normal);
+			td2.innerHTML = addThousandSeparator(missingDust.classes[selectedClass].total.total.normal);
 		}
 		else {
-		    td.innerHTML = addThousandSeparator(missingDust.classes[selectedClass].total[rarity][0] + missingDust.classes[selectedClass].total[rarity][1]);
-			td2.innerHTML = addThousandSeparator(missingDust.classes[selectedClass].total.total[0] + missingDust.classes[selectedClass].total.total[1]);
+		    td.innerHTML = addThousandSeparator(missingDust.classes[selectedClass].total[rarity].normal + missingDust.classes[selectedClass].total[rarity].golden);
+			td2.innerHTML = addThousandSeparator(missingDust.classes[selectedClass].total.total.normal + missingDust.classes[selectedClass].total.total.golden);
 		}
 		
 		td = document.getElementById("totalMissingDust" + rarityCapitalized);
 		td2 = document.getElementById("totalMissingDustTotal");
 		
 		if (settings.excludeGoldenCards) {
-		    td.innerHTML = addThousandSeparator(missingDust.total.total[rarity][0]);
-			td2.innerHTML = addThousandSeparator(missingDust.total.total.total[0]);
+		    td.innerHTML = addThousandSeparator(missingDust.total.total[rarity].normal);
+			td2.innerHTML = addThousandSeparator(missingDust.total.total.total.normal);
 		}
 		else {
-			td.innerHTML = addThousandSeparator(missingDust.total.total[rarity][0] + missingDust.total.total[rarity][1]);
-			td2.innerHTML = addThousandSeparator(missingDust.total.total.total[0] + missingDust.total.total.total[1]);
+			td.innerHTML = addThousandSeparator(missingDust.total.total[rarity].normal + missingDust.total.total[rarity].golden);
+			td2.innerHTML = addThousandSeparator(missingDust.total.total.total.normal + missingDust.total.total.total.golden);
 		}
 	}
 	
@@ -754,8 +755,8 @@ var HSCollectionTracker = (function() {
 				missing[set] = missingCards.classes[selectedClass].total;
 			else {
 			    for (var rarity in missingCards.classes[selectedClass][set]) {
-				    missing[rarity][0] += missingCards.classes[selectedClass][set][rarity][0];
-				    missing[rarity][1] += missingCards.classes[selectedClass][set][rarity][1];
+				    missing[rarity].normal += missingCards.classes[selectedClass][set][rarity].normal;
+				    missing[rarity].golden += missingCards.classes[selectedClass][set][rarity].golden;
 			    }
 			}
 		}
@@ -763,12 +764,12 @@ var HSCollectionTracker = (function() {
 		for (var rarity in missing) {
 			var rarityCapitalized = rarity.charAt(0).toUpperCase() + rarity.slice(1);
 			var td = document.getElementById("classMissing" + rarityCapitalized + "Normal");
-			var normal = missingCards.classes[selectedClass].total[rarity][0];
+			var normal = missingCards.classes[selectedClass].total[rarity].normal;
 			td.innerHTML = normal;
 			td = document.getElementById("classMissing" + rarityCapitalized + "Golden");
 			if (settings.excludeGoldenCards)
 			    td.innerHTML = "";
-			else td.innerHTML = missingCards.classes[selectedClass].total[rarity][1];
+			else td.innerHTML = missingCards.classes[selectedClass].total[rarity].golden;
 		}
 	}
 	
@@ -780,8 +781,8 @@ var HSCollectionTracker = (function() {
 				missing[set] = missingCards.total[set];
 			else {
 			    for (var rarity in missingCards.total[set]) {
-				    missing[rarity][0] += missingCards.total[set][rarity][0];
-				    missing[rarity][1] += missingCards.total[set][rarity][1];
+				    missing[rarity].normal += missingCards.total[set][rarity].normal;
+				    missing[rarity].golden += missingCards.total[set][rarity].golden;
 			    }
 			}
 		}
@@ -789,12 +790,12 @@ var HSCollectionTracker = (function() {
 		for (var rarity in missing) {
 			var rarityCapitalized = rarity.charAt(0).toUpperCase() + rarity.slice(1);
 			var td = document.getElementById("totalMissing" + rarityCapitalized + "Normal");
-			var normal = missingCards.total.total[rarity][0];
+			var normal = missingCards.total.total[rarity].normal;
 			td.innerHTML = normal;
 			td = document.getElementById("totalMissing" + rarityCapitalized + "Golden");
 			if (settings.excludeGoldenCards)
 			    td.innerHTML = "";
-			else td.innerHTML = missingCards.total.total[rarity][1];
+			else td.innerHTML = missingCards.total.total[rarity].golden;
 		}
 	}
 	
@@ -804,8 +805,8 @@ var HSCollectionTracker = (function() {
 			var td = document.getElementById("classMissingDust" + rarityCapitalized);
 			var dust = 0;
 			if (settings.excludeGoldenCards)
-				dust = missingDust.classes[selectedClass].total[rarity][0];
-			else dust = missingDust.classes[selectedClass].total[rarity][0] + missingDust.classes[selectedClass].total[rarity][1];
+				dust = missingDust.classes[selectedClass].total[rarity].normal;
+			else dust = missingDust.classes[selectedClass].total[rarity].normal + missingDust.classes[selectedClass].total[rarity].golden;
 			td.innerHTML = dust.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 		}
 	}
@@ -816,8 +817,8 @@ var HSCollectionTracker = (function() {
 			var td = document.getElementById("totalMissingDust" + rarityCapitalized);
 			var dust = 0;
 			if (settings.excludeGoldenCards)
-				dust = missingDust.total.total[rarity][0];
-			else dust = missingDust.total.total[rarity][0] + missingDust.total.total[rarity][1];
+				dust = missingDust.total.total[rarity].normal;
+			else dust = missingDust.total.total[rarity].normal + missingDust.total.total[rarity].golden;
 			td.innerHTML = dust.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 		}
 	}	
@@ -946,11 +947,11 @@ var HSCollectionTracker = (function() {
 		
 		var i;
 		if (quality == "normal") {
-			i = 0;
+			i = "normal";
 		    td.innerHTML = capitalizeFirstLetter(classHS);
 		}
 		else {
-			i = 1;
+			i = "golden";
 		}
 		tr.appendChild(td);
 
@@ -1102,12 +1103,12 @@ var HSCollectionTracker = (function() {
 		for (set in packsEnum) {
 		    for (rarity in raritiesEnum) {
 			    if (rarity !== "free") {
-		            averageValue += chanceOfGetting[rarity][0] * (((setsEnum[set][rarity].total - missingCards.total[set][rarity][0]) / setsEnum[set][rarity].total) * disenchantmentValue[rarity][0]
-		                + (missingCards.total[set][rarity][0] / setsEnum[set][rarity].total) * craftingCosts[rarity][0]);
+		            averageValue += chanceOfGetting[rarity].normal * (((setsEnum[set][rarity].total - missingCards.total[set][rarity].normal) / setsEnum[set][rarity].total) * disenchantmentValue[rarity].normal
+		                + (missingCards.total[set][rarity].normal / setsEnum[set][rarity].total) * craftingCosts[rarity].normal);
 					if (!settings.excludeGoldenCards)
-					    averageValue += chanceOfGetting[rarity][1] * (((setsEnum[set][rarity].total - missingCards.total[set][rarity][1]) / setsEnum[set][rarity].total) * disenchantmentValue[rarity][1]
-		                    + (missingCards.total[set][rarity][1] / setsEnum[set][rarity].total) * craftingCosts[rarity][1]);
-					else averageValue += chanceOfGetting[rarity][1] * disenchantmentValue[rarity][1];
+					    averageValue += chanceOfGetting[rarity].golden * (((setsEnum[set][rarity].total - missingCards.total[set][rarity].golden) / setsEnum[set][rarity].total) * disenchantmentValue[rarity].golden
+		                    + (missingCards.total[set][rarity].golden / setsEnum[set][rarity].total) * craftingCosts[rarity].golden);
+					else averageValue += chanceOfGetting[rarity].golden * disenchantmentValue[rarity].golden;
 				}
 		    }
 		
