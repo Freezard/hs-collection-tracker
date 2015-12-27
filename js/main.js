@@ -244,7 +244,7 @@ var HSCollectionTracker = (function() {
 	var currentDust = 0;
 	var disenchantedDust = 0;
 	
-	var version = 1.14;
+	var version = 1.141;
 	
 	function card(name, rarity, mana, type, className, set, soulbound) {
 		this.name = name;
@@ -272,49 +272,30 @@ var HSCollectionTracker = (function() {
 			this.cards[card.rarity][card.name] = card;
 			var cardCopies = getCardCopies(card.rarity);
 			
-			missingCards.classes[name][card.set][card.rarity].normal += cardCopies;
-			missingCards.classes[name][card.set][card.rarity].golden += cardCopies;
-			missingCards.classes[name][card.set].total.normal += cardCopies;
-			missingCards.classes[name][card.set].total.golden += cardCopies;
-			missingCards.classes[name].total[card.rarity].normal += cardCopies;
-			missingCards.classes[name].total[card.rarity].golden += cardCopies;
-			missingCards.classes[name].total.total.normal += cardCopies;
-			missingCards.classes[name].total.total.golden += cardCopies;
+			for (var i = 0, quality = "normal"; i < 2; i++, quality = "golden") {
+				missingCards.classes[name][card.set][card.rarity][quality] += cardCopies;
+				missingCards.classes[name][card.set].total[quality] += cardCopies;
+				missingCards.classes[name].total[card.rarity][quality] += cardCopies;
+				missingCards.classes[name].total.total[quality] += cardCopies;
 			
-			missingCards.total[card.set][card.rarity].normal += cardCopies;
-			missingCards.total[card.set][card.rarity].golden += cardCopies;
-			missingCards.total[card.set].total.normal += cardCopies;
-			missingCards.total[card.set].total.golden += cardCopies;
-			missingCards.total.total[card.rarity].normal += cardCopies;
-			missingCards.total.total[card.rarity].golden += cardCopies;
-			missingCards.total.total.total.normal += cardCopies;
-			missingCards.total.total.total.golden += cardCopies;
-			
-			if (card.soulbound === "none" || card.soulbound === "normal") {
-				var craftingCostGolden = craftingCosts[card.rarity].golden * cardCopies;
+				missingCards.total[card.set][card.rarity][quality] += cardCopies;
+				missingCards.total[card.set].total[quality] += cardCopies;
+				missingCards.total.total[card.rarity][quality] += cardCopies;
+				missingCards.total.total.total[quality] += cardCopies;
 				
-				missingDust.classes[name][card.set][card.rarity].golden += craftingCostGolden;
-				missingDust.classes[name][card.set].total.golden += craftingCostGolden;
-				missingDust.classes[name].total[card.rarity].golden += craftingCostGolden;
-				missingDust.classes[name].total.total.golden += craftingCostGolden;
-				
-				missingDust.total[card.set][card.rarity].golden += craftingCostGolden;
-				missingDust.total[card.set].total.golden += craftingCostGolden;
-				missingDust.total.total[card.rarity].golden += craftingCostGolden;
-				missingDust.total.total.total.golden += craftingCostGolden;
-			}
-			if (card.soulbound === "none" || card.soulbound === "golden") {
-				var craftingCostNormal = craftingCosts[card.rarity].normal * cardCopies;
-				
-				missingDust.classes[name][card.set][card.rarity].normal += craftingCostNormal;
-				missingDust.classes[name][card.set].total.normal += craftingCostNormal;
-				missingDust.classes[name].total[card.rarity].normal += craftingCostNormal;
-				missingDust.classes[name].total.total.normal += craftingCostNormal;
-				
-				missingDust.total[card.set][card.rarity].normal += craftingCostNormal;
-				missingDust.total[card.set].total.normal += craftingCostNormal;
-				missingDust.total.total[card.rarity].normal += craftingCostNormal;
-				missingDust.total.total.total.normal += craftingCostNormal;
+				if (card.soulbound !== "both" && card.soulbound !== quality) {
+					var craftingCost = craftingCosts[card.rarity][quality] * cardCopies;
+					
+					missingDust.classes[name][card.set][card.rarity][quality] += craftingCost;
+					missingDust.classes[name][card.set].total[quality] += craftingCost;
+					missingDust.classes[name].total[card.rarity][quality] += craftingCost;
+					missingDust.classes[name].total.total[quality] += craftingCost;
+					
+					missingDust.total[card.set][card.rarity][quality] += craftingCost;
+					missingDust.total[card.set].total[quality] += craftingCost;
+					missingDust.total.total[card.rarity][quality] += craftingCost;
+					missingDust.total.total.total[quality] += craftingCost;
+				}
 			}
 		}
 	}
@@ -414,39 +395,23 @@ var HSCollectionTracker = (function() {
 	/*********************************************************
 	**********************CARD FUNCTIONS**********************
 	*********************************************************/
-	function updateNormalCard(card, number) {
-		missingCards.classes[card.className][card.set][card.rarity].normal -= number;
-		missingCards.classes[card.className][card.set].total.normal -= number;
-		missingCards.classes[card.className].total[card.rarity].normal -= number;
-		missingCards.classes[card.className].total.total.normal -= number;
+	function updateCard(card, quality, number) {
+		card[selectedCardQuality] += number;
 		
-		missingCards.total[card.set][card.rarity].normal -= number;
-		missingCards.total[card.set].total.normal -= number;
-		missingCards.total.total[card.rarity].normal -= number;
-		missingCards.total.total.total.normal -= number;
+		missingCards.classes[card.className][card.set][card.rarity][quality] -= number;
+		missingCards.classes[card.className][card.set].total[quality] -= number;
+		missingCards.classes[card.className].total[card.rarity][quality] -= number;
+		missingCards.classes[card.className].total.total[quality] -= number;
 		
-		if (card.soulbound === "none" || card.soulbound === "golden") {
-		    var craftingCost = craftingCosts[card.rarity].normal;
+		missingCards.total[card.set][card.rarity][quality] -= number;
+		missingCards.total[card.set].total[quality] -= number;
+		missingCards.total.total[card.rarity][quality] -= number;
+		missingCards.total.total.total[quality] -= number;
 		
-		    updateMissingDust(card, craftingCost * number, "normal");
-		}
-	}
-	
-	function updateGoldenCard(card, number) {
-		missingCards.classes[card.className][card.set][card.rarity].golden -= number;
-		missingCards.classes[card.className][card.set].total.golden -= number;
-		missingCards.classes[card.className].total[card.rarity].golden -= number;
-		missingCards.classes[card.className].total.total.golden -= number;
+		if (card.soulbound !== "both" && card.soulbound !== quality) {
+		    var craftingCost = craftingCosts[card.rarity][quality];
 		
-		missingCards.total[card.set][card.rarity].golden -= number;
-		missingCards.total[card.set].total.golden -= number;
-		missingCards.total.total[card.rarity].golden -= number;
-		missingCards.total.total.total.golden -= number;
-		
-		if (card.soulbound === "none" || card.soulbound === "normal") {
-		    var craftingCost = craftingCosts[card.rarity].golden;
-		
-		    updateMissingDust(card, craftingCost * number, "golden");
+		    updateMissingDust(card, craftingCost * number, quality);
 		}
 	}
 	
@@ -478,7 +443,7 @@ var HSCollectionTracker = (function() {
 	// Adds a card through clicking on an <li><a> element
 	function addCard(element, card) {
 		if (card[selectedCardQuality] < getCardCopies(card.rarity)) {
-			updateCard(card, 1);
+			updateCard(card, selectedCardQuality, 1);
 			
 		    var re = new RegExp(selectedCardQuality + "\\d");
 		    element.setAttribute("class", element.getAttribute("class").replace(re, selectedCardQuality + card[selectedCardQuality]));			
@@ -506,7 +471,7 @@ var HSCollectionTracker = (function() {
 			var card = classes[selectedClass].cards[rarity][list[i].innerHTML];
 			
 			if (card[selectedCardQuality] < getCardCopies(card.rarity))
-			    updateCard(card, cardCopies - card[selectedCardQuality]);
+			    updateCard(card, selectedCardQuality, cardCopies - card[selectedCardQuality]);
 		}
 		
 		updateLocalStorage();
@@ -524,7 +489,7 @@ var HSCollectionTracker = (function() {
 			var card = classes[selectedClass].cards[rarity][list[i].innerHTML];
 			
 			if (card[selectedCardQuality] > 0)
-			    updateCard(card, -card[selectedCardQuality]);
+			    updateCard(card, selectedCardQuality, -card[selectedCardQuality]);
 		}
 		
 		updateLocalStorage();
@@ -533,7 +498,7 @@ var HSCollectionTracker = (function() {
 	
 	function removeCard(element, card) {
 		if (card[selectedCardQuality] > 0) {
-		    updateCard(card, -1);
+		    updateCard(card, selectedCardQuality, -1);
 		
 		    var re = new RegExp(selectedCardQuality + "\\d");
 		    element.setAttribute("class", element.getAttribute("class").replace(re, selectedCardQuality + card[selectedCardQuality]));
@@ -548,14 +513,6 @@ var HSCollectionTracker = (function() {
 		}
 		
 		return false;
-	}
-	
-	function updateCard(card, number) {
-	    card[selectedCardQuality] += number;
-		
-		if (selectedCardQuality === "normal")
-				updateNormalCard(card, number);
-		else updateGoldenCard(card, number);
 	}
 	
 	function getCardCopies(rarity) {
@@ -825,19 +782,19 @@ var HSCollectionTracker = (function() {
 	/*********************************************************
 	**************************INIT****************************
 	*********************************************************/
-	function initializeClasses() {
+	function initClasses() {
 		for (var className in classesEnum)
 			classes[className] = new classHS(className);
 	}
 	
-	function initializeMissingData() {
+	function initMissingData() {
 		for (var i = 0, missingData = missingCards; i < 2; i++, missingData = missingDust) {
 			missingData.classes = {};
-			for (var classHS in classesEnum) {
-				missingData.classes[classHS] = {};
+			for (var className in classesEnum) {
+				missingData.classes[className] = {};
 				for (var set in setsEnum)
-					missingData.classes[classHS][set] = getMissingDataObject();
-				missingData.classes[classHS].total = getMissingDataObject();
+					missingData.classes[className][set] = getMissingDataObject();
+				missingData.classes[className].total = getMissingDataObject();
 			}
 			missingData.total = {};
 			for (var set in setsEnum) {
@@ -856,6 +813,31 @@ var HSCollectionTracker = (function() {
 		selectedQualityGolden.addEventListener("click", function() { setSelectedCardQuality(this); });
     }
 
+	function initEventListeners() {
+		document.getElementById("link-tracker").addEventListener("click", displayTracker);
+		document.getElementById("link-progress").addEventListener("click", displayProgress);
+		document.getElementById("link-packs").addEventListener("click", displayPacks);
+		document.getElementById("link-news").addEventListener("click", displayNews);
+		document.getElementById("link-about").addEventListener("click", displayAbout);			
+		document.getElementById('link-export').addEventListener('click', exportCollection);
+		document.getElementById('link-import').addEventListener('click', function() {
+			// Check for File API support.
+			if (window.File && window.FileReader && window.FileList) {
+				var elem = document.getElementById("files");
+				elem.value = "";
+				var event = new MouseEvent('click', {
+					'view': window,
+					'bubbles': true,
+					'cancelable': true
+				});            
+				elem.dispatchEvent(event);			
+			} else {
+				alert('Importing is not supported in this browser.');
+			}
+		});		
+		document.getElementById('files').addEventListener('change', importCollection);		
+	}
+	
     function setSelectedCardQuality(element) {
 		if (element.getAttribute("id") === "selectedQualityNormal")
 			document.getElementById("selectedQualityGolden").removeAttribute("class");
@@ -874,7 +856,6 @@ var HSCollectionTracker = (function() {
 		if (localStorage.getItem("settings") !== null)
 		    settings = JSON.parse(localStorage.getItem("settings"));
 	}
-	
 	/*********************************************************
 	***********************PROGRESS PAGE**********************
 	*********************************************************/
@@ -930,17 +911,17 @@ var HSCollectionTracker = (function() {
 		
 		document.getElementById("containerRow").childNodes[1].appendChild(table);
 		
-		for (classHS in classesEnum) {
-			table.appendChild(buildProgressTableRow("normal", set, classHS));
+		for (className in classesEnum) {
+			table.appendChild(buildProgressTableRow("normal", set, className));
 			if (!settings.excludeGoldenCards)
-			    table.appendChild(buildProgressTableRow("golden", set, classHS));
+			    table.appendChild(buildProgressTableRow("golden", set, className));
 		}
 		table.appendChild(buildProgressTableRow("normal", set, "total"));
 		if (!settings.excludeGoldenCards)
 		    table.appendChild(buildProgressTableRow("golden", set, "total"));
 	}
 	
-	function buildProgressTableRow(quality, set, classHS) {
+	function buildProgressTableRow(quality, set, className) {
 		var tr = document.createElement("tr");
 		tr.setAttribute("class", quality);
 		td = document.createElement("td");
@@ -948,7 +929,7 @@ var HSCollectionTracker = (function() {
 		var i;
 		if (quality == "normal") {
 			i = "normal";
-		    td.innerHTML = capitalizeFirstLetter(classHS);
+		    td.innerHTML = capitalizeFirstLetter(className);
 		}
 		else {
 			i = "golden";
@@ -960,11 +941,11 @@ var HSCollectionTracker = (function() {
 			var text;
 			var total;
 			
-			if (classHS == "neutral")
+			if (className == "neutral")
 			    total = setsEnum[set][rarity].neutral;
-			else if (classHS == "total")
+			else if (className == "total")
 				total = setsEnum[set][rarity].total;
-			else if (set == "tgt" && classHS == "hunter" && rarity == "legendary")
+			else if (set == "tgt" && className == "hunter" && rarity == "legendary")
 				total = setsEnum[set][rarity].hunter;
 			else total = setsEnum[set][rarity].other;
 			
@@ -975,8 +956,8 @@ var HSCollectionTracker = (function() {
 			}
 			else {
 				var missing;
-				if (classHS != "total")
-			        missing = missingCards.classes[classHS][set][rarity][i];
+				if (className != "total")
+			        missing = missingCards.classes[className][set][rarity][i];
 				else missing = missingCards.total[set][rarity][i];
 				text = total - missing + "/" + total +
 				   	   " (" + Math.round(((total - missing) / total) * 100) + "%)";
@@ -1004,13 +985,13 @@ var HSCollectionTracker = (function() {
 		var text;
 		var total = 0;
 		
-		if (classHS == "neutral")
+		if (className == "neutral")
 			for (rarity in setsEnum[set])
 				total += setsEnum[set][rarity].neutral;
-		else if (classHS == "total")
+		else if (className == "total")
 			for (rarity in setsEnum[set])
 				total += setsEnum[set][rarity].total;
-		else if (set == "tgt" && classHS == "hunter" && rarity == "legendary")
+		else if (set == "tgt" && className == "hunter" && rarity == "legendary")
 			total = setsEnum[set][rarity].hunter;
 		else for (rarity in setsEnum[set])
 				total += setsEnum[set][rarity].other;
@@ -1022,8 +1003,8 @@ var HSCollectionTracker = (function() {
 		}
 		else {
 			var missing;
-			if (classHS != "total")
-				missing = missingCards.classes[classHS][set].total[i];
+			if (className != "total")
+				missing = missingCards.classes[className][set].total[i];
 			else missing = missingCards.total[set].total[i];
 			text = total - missing + "/" + total +
 				   " (" + Math.round(((total - missing) / total) * 100) + "%)";
@@ -1038,7 +1019,7 @@ var HSCollectionTracker = (function() {
 				text = "-";
 			}
 		else if (total != 0) {
-			var cl = classHS;
+			var cl = className;
 			if (cl != "neutral" && cl != "total")
 				cl = "other";
 				
@@ -1046,8 +1027,8 @@ var HSCollectionTracker = (function() {
 			for (rarity in setsEnum[set])
 				totalDust += setsEnum[set][rarity][cl] * craftingCosts[rarity][i];
 			var currDust = 0;
-			if (classHS != "total")
-			    currDust = totalDust - missingDust.classes[classHS][set].total[i];
+			if (className != "total")
+			    currDust = totalDust - missingDust.classes[className][set].total[i];
 			else currDust = totalDust - missingDust.total[set].total[i];
 			text = " " + currDust + "/" + totalDust +
 				   " (" + Math.round((currDust / totalDust) * 100) + "%)";
@@ -1150,8 +1131,8 @@ var HSCollectionTracker = (function() {
 						classes[className].cards[rarity][cardName].normal = card.normal;
 						classes[className].cards[rarity][cardName].golden = card.golden;
 						
-						updateNormalCard(card, card.normal);
-						updateGoldenCard(card, card.golden);
+						updateCard(card, "normal", card.normal);
+						updateCard(card, "golden", card.golden);
 					}
 				}
 			}
@@ -1174,7 +1155,7 @@ var HSCollectionTracker = (function() {
         reader.onload = (function(event) {
 	        try {
 			    var collection = JSON.parse(event.target.result);
-				initializeCollection();
+				initCollection();
 			    loadCollection(collection);
 				updateLocalStorage();
 				displayTracker();
@@ -1205,9 +1186,9 @@ var HSCollectionTracker = (function() {
         }
 	}
 	
-	function initializeCollection() {
-		initializeMissingData();
-		initializeClasses();
+	function initCollection() {
+		initMissingData();
+		initClasses();
 				
 		for (set in setsEnum)
 		    importCards(set);
@@ -1226,7 +1207,7 @@ var HSCollectionTracker = (function() {
 				var storedVersion = localStorage.getItem("version");
 				
 				if (storedVersion != version) {
-					initializeCollection()
+					initCollection()
 					
 					if (parseFloat(storedVersion) < parseFloat(version)) {
 						var storedCollection = JSON.parse(localStorage.getItem('classes'));
@@ -1250,29 +1231,7 @@ var HSCollectionTracker = (function() {
 			}
 						
 			initSelectedCardQuality();
-			document.getElementById("link-tracker").addEventListener("click", displayTracker);
-			document.getElementById("link-progress").addEventListener("click", displayProgress);
-			document.getElementById("link-packs").addEventListener("click", displayPacks);
-			document.getElementById("link-news").addEventListener("click", displayNews);
-			document.getElementById("link-about").addEventListener("click", displayAbout);			
-			document.getElementById('link-export').addEventListener('click', exportCollection);
-			document.getElementById('link-import').addEventListener('click', function() {
-		        // Check for File API support.
-                if (window.File && window.FileReader && window.FileList) {
-			        var elem = document.getElementById("files");
-					elem.value = "";
-			        var event = new MouseEvent('click', {
-			            'view': window,
-			            'bubbles': true,
-			            'cancelable': true
-			        });            
-                    elem.dispatchEvent(event);			
-			    } else {
-                    alert('Importing is not supported in this browser.');
-                }
-		    });
-			
-		    document.getElementById('files').addEventListener('change', importCollection);
+			initEventListeners();
 			
 			displayTracker();
 		},
