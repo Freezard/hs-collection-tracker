@@ -17,7 +17,7 @@ var HSCollectionTracker = (function() {
 		warlock: "warlock",
 		warrior: "warrior"
 	};
-			
+	
 	var raritiesEnum = {
 		free: "free",
 		common: "common",
@@ -26,7 +26,8 @@ var HSCollectionTracker = (function() {
 		legendary: "legendary"
 	};
 	
-	// Values = the number of cards in each set
+	// Properties = the number of cards in each set.
+	// Hardcoded, should be built dynamically
 	var setsEnum = {
 		basic: {
 		    free: {
@@ -184,6 +185,7 @@ var HSCollectionTracker = (function() {
 		}		
 	};
 	
+	// Lists which card qualities are uncraftable for each set
 	var setsSoulbound = {
 		basic: "both",
 		classic: "none",
@@ -202,8 +204,7 @@ var HSCollectionTracker = (function() {
 		tgt: "tgt"
 	};
 	
-	// Values = normal and golden cards
-	var craftingCosts = {
+	var craftingCost = {
 		free:      { normal: 0, golden: 0 },
 		common:    { normal: 40, golden: 400 },
 		rare:      { normal: 100, golden: 800 },
@@ -211,7 +212,6 @@ var HSCollectionTracker = (function() {
 		legendary: { normal: 1600, golden: 3200 }
 	};
 	
-	// Values = normal and golden cards
 	var disenchantmentValue = {
 		free:      { normal: 0, golden: 0 },
 		common:    { normal: 5, golden: 50 },
@@ -220,7 +220,8 @@ var HSCollectionTracker = (function() {
 		legendary: { normal: 400, golden: 1600 }
 	};
 	
-	// Values = normal and golden cards
+	// Chance of getting a card of a specific quality when opening packs.
+	// For each card, not in total
 	var chanceOfGetting = {
 		free:      { normal: 0, golden: 0 },
 		common:    { normal: 0.7, golden: 0.0147 },
@@ -229,23 +230,32 @@ var HSCollectionTracker = (function() {
 		legendary: { normal: 0.0108, golden: 0.001 }
 	};
 
+	// Keeps track of how many cards and how much dust is missing
 	var missingCards = {};
 	var missingDust = {};
 
+	// The collection of cards, divided by classes
 	var classes = {};
+	
+	// Class and card quality currently selected in the tracker
 	var selectedClass = "neutral";
 	var selectedCardQuality = "normal";
+	
+	// Persistent settings
 	var settings = {
 		excludeGoldenCards: false,
 		showOnlyMissingCards: false
 	};
-	var filter = "all";
 	
+	var filterBySet = "all";
+	
+	// Currently unused
 	var currentDust = 0;
 	var disenchantedDust = 0;
 	
-	var version = 1.141;
+	var version = 1.142;
 	
+	// Card object
 	function card(name, rarity, mana, type, className, set, soulbound) {
 		this.name = name;
 		this.rarity = rarity;
@@ -256,11 +266,19 @@ var HSCollectionTracker = (function() {
 		this.soulbound = soulbound;
 		this.normal = 0;
 		this.golden = 0;
-	}
+		this.isCraftable = function(quality) {
+			return this.soulbound !== "both" && this.soulbound !== quality;
+		}
+		this.getCraftingCost = function(quality) {
+			return craftingCost[this.rarity][quality];
+		}
 		
+	}
+	
+	// Class object
 	function classHS(name) {
 		this.name = name;
-		this.level = 1;
+		this.level = 1; // Currently unused
 		this.cards = {
 			free: {},
 			common: {},
@@ -268,32 +286,34 @@ var HSCollectionTracker = (function() {
 			epic: {},
 			legendary: {}
 		};
+		// Adds a card to this class
 		this.addCard = function(card) {
-			this.cards[card.rarity][card.name] = card;
-			var cardCopies = getCardCopies(card.rarity);
+			var rarity = card.rarity, set = card.set;
+			var cardCopies = getCardCopies(rarity);
+			this.cards[rarity][card.name] = card;
 			
 			for (var i = 0, quality = "normal"; i < 2; i++, quality = "golden") {
-				missingCards.classes[name][card.set][card.rarity][quality] += cardCopies;
-				missingCards.classes[name][card.set].total[quality] += cardCopies;
-				missingCards.classes[name].total[card.rarity][quality] += cardCopies;
+				missingCards.classes[name][set][rarity][quality] += cardCopies;
+				missingCards.classes[name][set].total[quality] += cardCopies;
+				missingCards.classes[name].total[rarity][quality] += cardCopies;
 				missingCards.classes[name].total.total[quality] += cardCopies;
 			
-				missingCards.total[card.set][card.rarity][quality] += cardCopies;
-				missingCards.total[card.set].total[quality] += cardCopies;
-				missingCards.total.total[card.rarity][quality] += cardCopies;
+				missingCards.total[set][rarity][quality] += cardCopies;
+				missingCards.total[set].total[quality] += cardCopies;
+				missingCards.total.total[rarity][quality] += cardCopies;
 				missingCards.total.total.total[quality] += cardCopies;
 				
-				if (card.soulbound !== "both" && card.soulbound !== quality) {
-					var craftingCost = craftingCosts[card.rarity][quality] * cardCopies;
+				if (card.isCraftable(quality)) {
+					var craftingCost = card.getCraftingCost(quality) * cardCopies;
 					
-					missingDust.classes[name][card.set][card.rarity][quality] += craftingCost;
-					missingDust.classes[name][card.set].total[quality] += craftingCost;
-					missingDust.classes[name].total[card.rarity][quality] += craftingCost;
+					missingDust.classes[name][set][rarity][quality] += craftingCost;
+					missingDust.classes[name][set].total[quality] += craftingCost;
+					missingDust.classes[name].total[rarity][quality] += craftingCost;
 					missingDust.classes[name].total.total[quality] += craftingCost;
 					
-					missingDust.total[card.set][card.rarity][quality] += craftingCost;
-					missingDust.total[card.set].total[quality] += craftingCost;
-					missingDust.total.total[card.rarity][quality] += craftingCost;
+					missingDust.total[set][rarity][quality] += craftingCost;
+					missingDust.total[set].total[quality] += craftingCost;
+					missingDust.total.total[rarity][quality] += craftingCost;
 					missingDust.total.total.total[quality] += craftingCost;
 				}
 			}
@@ -301,39 +321,8 @@ var HSCollectionTracker = (function() {
 	}
 	/*********************************************************
 	**************************UTILS***************************
-	*********************************************************/
-	// Sorts all the card lists for the specified class
-	// Sorting order:
-	// Mana cost: Lower > higher
-	// Type: Weapon > spell > minion
-	// Name: Lexicographical order
-	function sortCards(className) {
-		var cardList = classes[className].cards;
-		
-		for (var rarity in cardList) {
-			var sortedArray = [];
-			for (var name in cardList[rarity]) {
-				sortedArray.push([name, cardList[rarity][name]]);
-			}
-			sortedArray.sort(function(a, b) {
-			    return a[1].mana == b[1].mana ?
-				a[1].type === b[1].type ?
-				a[1].name.localeCompare(b[1].name) :
-				a[1].type === "weapon" ? -1 :
-				b[1].type === "weapon" ? 1 :
-				a[1].type === "spell" ? -1 :
-				1 :	a[1].mana - b[1].mana;
-				});
-			
-			var sortedList = {};
-			for (var i = 0; i < sortedArray.length; ++i)
-				if (sortedArray[i] !== undefined)
-					sortedList[sortedArray[i][0]] = sortedArray[i][1];
-		
-			cardList[rarity] = sortedList;
-		}
-	}
-	
+	*********************************************************/	
+	// Reads a text file and returns the content
 	function readTextFile(fileName) {
 		var rawFile;
 		var allText = "";
@@ -358,22 +347,6 @@ var HSCollectionTracker = (function() {
 		return allText;
 	}
 	
-	function importCards(set) {
-		var cardData = readTextFile(set + ".txt");
-		cardData = cardData.replace(/(\r)/gm, "");
-		var cardLines = cardData.split("\n");
-		var cardClass;
-		for (var i = 0; i < cardLines.length; i++) {
-			var cardLine = cardLines[i].split(",");
-			if (cardLine.length == 1 && cardLine != "") {
-				cardClass = cardLine[0];
-			}
-			else if (cardLine != "") {
-				classes[cardClass].addCard(new card(cardLine[0], cardLine[1], cardLine[2], cardLine[3], cardClass, set, setsSoulbound[set]));
-			}
-		}
-	}	
-	
 	function capitalizeFirstLetter(string) {
 		return string.charAt(0).toUpperCase() + string.slice(1);
 	}
@@ -395,6 +368,55 @@ var HSCollectionTracker = (function() {
 	/*********************************************************
 	**********************CARD FUNCTIONS**********************
 	*********************************************************/
+	// Imports cards from the given set name to the collection.
+	// Card data is stored in text files
+	function importCards(set) {
+		var cardData = readTextFile(set + ".txt");
+		cardData = cardData.replace(/(\r)/gm, "");
+		var cardLines = cardData.split("\n");
+		var cardClass;
+		for (var i = 0; i < cardLines.length; i++) {
+			var cardLine = cardLines[i].split(",");
+			
+			if (cardLine.length == 1 && cardLine != "")
+				cardClass = cardLine[0];			
+			else if (cardLine != "")
+				classes[cardClass].addCard(new card(cardLine[0], cardLine[1], cardLine[2],
+				cardLine[3], cardClass, set, setsSoulbound[set]));
+		}
+	}	
+	
+	// Sorts all the card lists for the specified class.
+	// Sorting order:
+	// Mana cost: Lower > higher
+	// Type: Weapon > spell > minion
+	// Name: Lexicographical order
+	function sortCards(className) {
+		var cardList = classes[className].cards;
+		
+		for (var rarity in cardList) {
+			var sortedArray = [];
+			for (var name in cardList[rarity])
+				sortedArray.push([name, cardList[rarity][name]]);
+			sortedArray.sort(function(a, b) {
+			    return a[1].mana == b[1].mana ?
+				a[1].type === b[1].type ?
+				a[1].name.localeCompare(b[1].name) :
+				a[1].type === "weapon" ? -1 :
+				b[1].type === "weapon" ? 1 :
+				a[1].type === "spell" ? -1 :
+				1 :	a[1].mana - b[1].mana;
+				});
+			
+			var sortedList = {};
+			for (var i = 0; i < sortedArray.length; ++i)
+				if (sortedArray[i] !== undefined)
+					sortedList[sortedArray[i][0]] = sortedArray[i][1];
+		
+			cardList[rarity] = sortedList;
+		}
+	}
+	
 	function updateCard(card, quality, number) {
 		card[selectedCardQuality] += number;
 		
@@ -409,9 +431,9 @@ var HSCollectionTracker = (function() {
 		missingCards.total.total.total[quality] -= number;
 		
 		if (card.soulbound !== "both" && card.soulbound !== quality) {
-		    var craftingCost = craftingCosts[card.rarity][quality];
+		    var cost = craftingCost[card.rarity][quality];
 		
-		    updateMissingDust(card, craftingCost * number, quality);
+		    updateMissingDust(card, cost * number, quality);
 		}
 	}
 	
@@ -620,11 +642,11 @@ var HSCollectionTracker = (function() {
 		var filterList = document.getElementById("filtersLeft").getElementsByTagName("a");
 		for (var i = 0; i < filterList.length; i++) {
 			var filterListItem = filterList[i];
-			if (filter === filterListItem.innerHTML.toLowerCase())
+			if (filterBySet === filterListItem.innerHTML.toLowerCase())
 				filterListItem.setAttribute("class", "selected");
 	        (function (filterListItem) {				
 			    filterListItem.addEventListener("click", function() {
-					filter = filterListItem.innerHTML.toLowerCase();
+					filterBySet = filterListItem.innerHTML.toLowerCase();
 					var c = document.getElementById("classTabsBar").getElementsByTagName("a");
 					for (var i = 0; i < c.length; i++)
                       c[i].removeAttribute("class");
@@ -679,7 +701,7 @@ var HSCollectionTracker = (function() {
 			
 			for (var name in cardList[rarity]) {
 				var card = cardList[rarity][name];
-				if (filter === "all" || card.set === filter) {
+				if (filterBySet === "all" || card.set === filterBySet) {
 					if (!settings.showOnlyMissingCards || 
 					(settings.showOnlyMissingCards && 
 					(!settings.excludeGoldenCards && (card.normal < getCardCopies(card.rarity) || card.golden < getCardCopies(card.rarity))) ||
@@ -972,8 +994,8 @@ var HSCollectionTracker = (function() {
 					text = "-";
 				}
 			else if (total != 0) {
-			    var totalDust = total * craftingCosts[rarity][i];
-			    var currDust = (total - missing) * craftingCosts[rarity][i];
+			    var totalDust = total * craftingCost[rarity][i];
+			    var currDust = (total - missing) * craftingCost[rarity][i];
 			    text = " " + currDust + "/" + totalDust;
 			}
 			td.innerHTML = text;
@@ -1025,7 +1047,7 @@ var HSCollectionTracker = (function() {
 				
 			var totalDust = 0;
 			for (rarity in setsEnum[set])
-				totalDust += setsEnum[set][rarity][cl] * craftingCosts[rarity][i];
+				totalDust += setsEnum[set][rarity][cl] * craftingCost[rarity][i];
 			var currDust = 0;
 			if (className != "total")
 			    currDust = totalDust - missingDust.classes[className][set].total[i];
@@ -1085,10 +1107,10 @@ var HSCollectionTracker = (function() {
 		    for (rarity in raritiesEnum) {
 			    if (rarity !== "free") {
 		            averageValue += chanceOfGetting[rarity].normal * (((setsEnum[set][rarity].total - missingCards.total[set][rarity].normal) / setsEnum[set][rarity].total) * disenchantmentValue[rarity].normal
-		                + (missingCards.total[set][rarity].normal / setsEnum[set][rarity].total) * craftingCosts[rarity].normal);
+		                + (missingCards.total[set][rarity].normal / setsEnum[set][rarity].total) * craftingCost[rarity].normal);
 					if (!settings.excludeGoldenCards)
 					    averageValue += chanceOfGetting[rarity].golden * (((setsEnum[set][rarity].total - missingCards.total[set][rarity].golden) / setsEnum[set][rarity].total) * disenchantmentValue[rarity].golden
-		                    + (missingCards.total[set][rarity].golden / setsEnum[set][rarity].total) * craftingCosts[rarity].golden);
+		                    + (missingCards.total[set][rarity].golden / setsEnum[set][rarity].total) * craftingCost[rarity].golden);
 					else averageValue += chanceOfGetting[rarity].golden * disenchantmentValue[rarity].golden;
 				}
 		    }
