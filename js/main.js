@@ -253,7 +253,7 @@ var HSCollectionTracker = (function() {
 	var currentDust = 0;
 	var disenchantedDust = 0;
 	
-	var version = 1.142;
+	var version = 1.143;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, soulbound) {
@@ -266,13 +266,6 @@ var HSCollectionTracker = (function() {
 		this.soulbound = soulbound;
 		this.normal = 0;
 		this.golden = 0;
-		this.isCraftable = function(quality) {
-			return this.soulbound !== "both" && this.soulbound !== quality;
-		}
-		this.getCraftingCost = function(quality) {
-			return craftingCost[this.rarity][quality];
-		}
-		
 	}
 	
 	// Class object
@@ -289,32 +282,16 @@ var HSCollectionTracker = (function() {
 		// Adds a card to this class
 		this.addCard = function(card) {
 			var rarity = card.rarity, set = card.set;
-			var cardCopies = getCardCopies(rarity);
+			var copies = getMaxCopies(rarity);
 			this.cards[rarity][card.name] = card;
 			
 			for (var i = 0, quality = "normal"; i < 2; i++, quality = "golden") {
-				missingCards.classes[name][set][rarity][quality] += cardCopies;
-				missingCards.classes[name][set].total[quality] += cardCopies;
-				missingCards.classes[name].total[rarity][quality] += cardCopies;
-				missingCards.classes[name].total.total[quality] += cardCopies;
-			
-				missingCards.total[set][rarity][quality] += cardCopies;
-				missingCards.total[set].total[quality] += cardCopies;
-				missingCards.total.total[rarity][quality] += cardCopies;
-				missingCards.total.total.total[quality] += cardCopies;
+				updateMissingCards(card, quality, copies);
 				
-				if (card.isCraftable(quality)) {
-					var craftingCost = card.getCraftingCost(quality) * cardCopies;
+				if (isCraftable(card, quality)) {
+					var craftingCost = getCraftingCost(card, quality, copies);
 					
-					missingDust.classes[name][set][rarity][quality] += craftingCost;
-					missingDust.classes[name][set].total[quality] += craftingCost;
-					missingDust.classes[name].total[rarity][quality] += craftingCost;
-					missingDust.classes[name].total.total[quality] += craftingCost;
-					
-					missingDust.total[set][rarity][quality] += craftingCost;
-					missingDust.total[set].total[quality] += craftingCost;
-					missingDust.total.total[rarity][quality] += craftingCost;
-					missingDust.total.total.total[quality] += craftingCost;
+					updateMissingDust(card, quality, craftingCost);
 				}
 			}
 		}
@@ -364,6 +341,83 @@ var HSCollectionTracker = (function() {
 				legendary: { normal: 0, golden: 0 },
 				total:     { normal: 0, golden: 0 }
 			};
+	}
+	/*********************************************************
+	**************************INIT****************************
+	*********************************************************/
+	function initClasses() {
+		for (var className in classesEnum)
+			classes[className] = new classHS(className);
+	}
+	
+	function initMissingData() {
+		for (var i = 0, missingData = missingCards; i < 2; i++, missingData = missingDust) {
+			missingData.classes = {};
+			for (var className in classesEnum) {
+				missingData.classes[className] = {};
+				for (var set in setsEnum)
+					missingData.classes[className][set] = getMissingDataObject();
+				missingData.classes[className].total = getMissingDataObject();
+			}
+			missingData.total = {};
+			for (var set in setsEnum) {
+				missingData.total[set] = getMissingDataObject();
+			}
+			
+			missingData.total.total = getMissingDataObject();
+		}
+	}
+
+	function initSelectedCardQuality() {		
+		var selectedQualityNormal = document.getElementById("selectedQualityNormal");
+		var selectedQualityGolden = document.getElementById("selectedQualityGolden");
+		
+		selectedQualityNormal.addEventListener("click", function() { setSelectedCardQuality(this); });
+		selectedQualityGolden.addEventListener("click", function() { setSelectedCardQuality(this); });
+    }
+
+	function initEventListeners() {
+		document.getElementById("link-tracker").addEventListener("click", displayTracker);
+		document.getElementById("link-progress").addEventListener("click", displayProgress);
+		document.getElementById("link-packs").addEventListener("click", displayPacks);
+		document.getElementById("link-news").addEventListener("click", displayNews);
+		document.getElementById("link-about").addEventListener("click", displayAbout);			
+		document.getElementById('link-export').addEventListener('click', exportCollection);
+		document.getElementById('link-import').addEventListener('click', function() {
+			// Check for File API support.
+			if (window.File && window.FileReader && window.FileList) {
+				var elem = document.getElementById("files");
+				elem.value = "";
+				var event = new MouseEvent('click', {
+					'view': window,
+					'bubbles': true,
+					'cancelable': true
+				});            
+				elem.dispatchEvent(event);			
+			} else {
+				alert('Importing is not supported in this browser.');
+			}
+		});		
+		document.getElementById('files').addEventListener('change', importCollection);		
+	}
+	
+    function setSelectedCardQuality(element) {
+		if (element.getAttribute("id") === "selectedQualityNormal")
+			document.getElementById("selectedQualityGolden").removeAttribute("class");
+		else document.getElementById("selectedQualityNormal").removeAttribute("class");
+		
+		selectedCardQuality = element.innerHTML.toLowerCase();
+		element.setAttribute("class", "selected");
+    }
+	
+	function loadLocalStorage() {
+		classes = JSON.parse(localStorage.getItem('classes'));
+		missingCards = JSON.parse(localStorage.getItem("missingCards"));
+		missingDust = JSON.parse(localStorage.getItem("missingDust"));
+		currentDust = parseInt(localStorage.getItem("currentDust"));
+		disenchantedDust = parseInt(localStorage.getItem("disenchantedDust"));
+		if (localStorage.getItem("settings") !== null)
+		    settings = JSON.parse(localStorage.getItem("settings"));
 	}	
 	/*********************************************************
 	**********************CARD FUNCTIONS**********************
@@ -417,95 +471,96 @@ var HSCollectionTracker = (function() {
 		}
 	}
 	
-	function updateCard(card, quality, number) {
-		card[selectedCardQuality] += number;
+	// Adds or removes copies of a card
+	function updateCard(card, quality, copies) {
+		card[quality] += copies;
+		updateMissingCards(card, quality, -copies);
 		
-		missingCards.classes[card.className][card.set][card.rarity][quality] -= number;
-		missingCards.classes[card.className][card.set].total[quality] -= number;
-		missingCards.classes[card.className].total[card.rarity][quality] -= number;
-		missingCards.classes[card.className].total.total[quality] -= number;
+		if (isCraftable(card, quality)) {
+		    var craftingCost = getCraftingCost(card, quality, copies);
 		
-		missingCards.total[card.set][card.rarity][quality] -= number;
-		missingCards.total[card.set].total[quality] -= number;
-		missingCards.total.total[card.rarity][quality] -= number;
-		missingCards.total.total.total[quality] -= number;
-		
-		if (card.soulbound !== "both" && card.soulbound !== quality) {
-		    var cost = craftingCost[card.rarity][quality];
-		
-		    updateMissingDust(card, cost * number, quality);
+		    updateMissingDust(card, quality, -craftingCost);
 		}
 	}
 	
-	function updateMissingDust(card, craftingCost, cardQuality) {		
-		if (cardQuality === "normal") {
-			missingDust.classes[card.className][card.set][card.rarity].normal -= craftingCost;
-		    missingDust.classes[card.className][card.set].total.normal -= craftingCost;
-			missingDust.classes[card.className].total[card.rarity].normal -= craftingCost;
-			missingDust.classes[card.className].total.total.normal -= craftingCost;
-			
-		    missingDust.total[card.set][card.rarity].normal -= craftingCost;
-			missingDust.total[card.set].total.normal -= craftingCost;
-			missingDust.total.total[card.rarity].normal -= craftingCost;
-		    missingDust.total.total.total.normal -= craftingCost;
-		}
-		else if (cardQuality === "golden") {
-			missingDust.classes[card.className][card.set][card.rarity].golden -= craftingCost;
-		    missingDust.classes[card.className][card.set].total.golden -= craftingCost;
-			missingDust.classes[card.className].total[card.rarity].golden -= craftingCost;
-			missingDust.classes[card.className].total.total.golden -= craftingCost;
-			
-		    missingDust.total[card.set][card.rarity].golden -= craftingCost;
-			missingDust.total[card.set].total.golden -= craftingCost;
-		    missingDust.total.total[card.rarity].golden -= craftingCost;
-			missingDust.total.total.total.golden -= craftingCost;
-		}
+	// Updates missingCards by the amount of copies specified
+	function updateMissingCards(card, quality, copies) {
+		var className = card.className, set = card.set, rarity = card.rarity;
+		
+		missingCards.classes[className][set][rarity][quality] += copies;
+		missingCards.classes[className][set].total[quality] += copies;
+		missingCards.classes[className].total[rarity][quality] += copies;
+		missingCards.classes[className].total.total[quality] += copies;
+		
+		missingCards.total[set][rarity][quality] += copies;
+		missingCards.total[set].total[quality] += copies;
+		missingCards.total.total[rarity][quality] += copies;
+		missingCards.total.total.total[quality] += copies;
 	}
 	
-	// Adds a card through clicking on an <li><a> element
-	function addCard(element, card) {
-		if (card[selectedCardQuality] < getCardCopies(card.rarity)) {
+	// Updates missingDust by the amount of dust specified
+	function updateMissingDust(card, quality, dust) {
+		var className = card.className, set = card.set, rarity = card.rarity;
+		
+		missingDust.classes[className][set][card.rarity][quality] += dust;
+		missingDust.classes[className][set].total[quality] += dust;
+		missingDust.classes[className].total[rarity][quality] += dust;
+		missingDust.classes[className].total.total[quality] += dust;
+		
+		missingDust.total[set][rarity][quality] += dust;
+		missingDust.total[set].total[quality] += dust;
+		missingDust.total.total[rarity][quality] += dust;
+		missingDust.total.total.total[quality] += dust;
+	}
+	
+	// Adds a copy of a card through clicking on an <li><a> element
+	function addCard(card) {
+		var rarity = card.rarity;
+		
+		if (card[selectedCardQuality] < getMaxCopies(rarity)) {
 			updateCard(card, selectedCardQuality, 1);
 			
-		    var re = new RegExp(selectedCardQuality + "\\d");
-		    element.setAttribute("class", element.getAttribute("class").replace(re, selectedCardQuality + card[selectedCardQuality]));			
-			
 		    updateLocalStorage();
-		    updateMissingCardsView(card.rarity, 1);
-		    updateMissingDustView(card.rarity);			
-			
-			displayCards(selectedClass);
-			
-			return true;
+		    displayTracker();
 		}
-		
-		return false;
 	}
 	
+	// Removes a copy of a card through right-clicking on an <li><a> element
+	function removeCard(card) {
+		var rarity = card.rarity;
+		
+		if (card[selectedCardQuality] > 0) {
+		    updateCard(card, selectedCardQuality, -1);
+		
+			updateLocalStorage();
+		    displayTracker();
+		}
+	}	
+	
+	// Adds max amount of copies to all cards in the column that was selected
+	// by clicking on the "apply to all" button
 	function addAll(element) {
 		var list = element.parentNode.parentNode.getElementsByTagName("a");
 		var rarity = element.parentNode.parentNode.id;		
-		rarity = rarity.slice(5, rarity.length);
-		
-		var cardCopies = getCardCopies(rarity);
+		rarity = rarity.slice(5, rarity.length); // Cut out the "list" part
 		
 		for (var i = 1, len = list.length; i < len; i++) {			
 			var card = classes[selectedClass].cards[rarity][list[i].innerHTML];
 			
-			if (card[selectedCardQuality] < getCardCopies(card.rarity))
-			    updateCard(card, selectedCardQuality, cardCopies - card[selectedCardQuality]);
+			if (card[selectedCardQuality] < getMaxCopies(rarity))
+			    updateCard(card, selectedCardQuality, getMaxCopies(rarity) - card[selectedCardQuality]);
 		}
 		
 		updateLocalStorage();
 		displayTracker();
 	}
 	
+	// Removes all copies of all cards in the column that was selected
+	// by right-clicking on the "apply to all" button
 	function removeAll(element) {
 		var list = element.parentNode.parentNode.getElementsByTagName("a");
 		var rarity = element.parentNode.parentNode.id;		
-		rarity = rarity.slice(5, rarity.length);
-		
-		var cardCopies = getCardCopies(rarity);
+		rarity = rarity.slice(5, rarity.length); // Cut out the "list" part
 		
 		for (var i = 1, len = list.length; i < len; i++) {			
 			var card = classes[selectedClass].cards[rarity][list[i].innerHTML];
@@ -518,27 +573,16 @@ var HSCollectionTracker = (function() {
 		displayTracker();
 	}
 	
-	function removeCard(element, card) {
-		if (card[selectedCardQuality] > 0) {
-		    updateCard(card, selectedCardQuality, -1);
-		
-		    var re = new RegExp(selectedCardQuality + "\\d");
-		    element.setAttribute("class", element.getAttribute("class").replace(re, selectedCardQuality + card[selectedCardQuality]));
-		
-			updateLocalStorage();
-		    updateMissingCardsView(card.rarity, -1);
-		    updateMissingDustView(card.rarity);
-		
-		    displayCards(selectedClass);
-		
-		    return false;
-		}
-		
-		return false;
+	function getMaxCopies(rarity) {
+		return rarity === "legendary" ? 1 : 2;
 	}
 	
-	function getCardCopies(rarity) {
-		return rarity === "legendary" ? 1 : 2;
+	function isCraftable(card, quality) {
+		return card.soulbound !== "both" && card.soulbound !== quality;
+	}
+	
+	function getCraftingCost(card, quality, copies) {
+		return craftingCost[card.rarity][quality] * copies;
 	}
 	/*********************************************************
 	*************************DISPLAY**************************
@@ -704,15 +748,15 @@ var HSCollectionTracker = (function() {
 				if (filterBySet === "all" || card.set === filterBySet) {
 					if (!settings.showOnlyMissingCards || 
 					(settings.showOnlyMissingCards && 
-					(!settings.excludeGoldenCards && (card.normal < getCardCopies(card.rarity) || card.golden < getCardCopies(card.rarity))) ||
-					(settings.excludeGoldenCards && (card.normal < getCardCopies(card.rarity)))
+					(!settings.excludeGoldenCards && (card.normal < getMaxCopies(card.rarity) || card.golden < getMaxCopies(card.rarity))) ||
+					(settings.excludeGoldenCards && (card.normal < getMaxCopies(card.rarity)))
 					)) {
 				        var listItem = document.createElement("li");
 				        var listItemLink = document.createElement("a");
 				        listItemLink.textContent = name;
 				        (function (card) {
-					        listItemLink.addEventListener("click", function() { addCard(this, card); });
-					        listItemLink.addEventListener("contextmenu", function() { removeCard(this, card); });
+					        listItemLink.addEventListener("click", function() { addCard(card); });
+					        listItemLink.addEventListener("contextmenu", function() { removeCard(card); });
 					        }(card))
 				        listItemLink.setAttribute("class", "normal" + cardList[rarity][name].normal + " " + "golden" + cardList[rarity][name].golden + " " + "noselect");
 			
@@ -801,83 +845,6 @@ var HSCollectionTracker = (function() {
 			td.innerHTML = dust.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
 		}
 	}	
-	/*********************************************************
-	**************************INIT****************************
-	*********************************************************/
-	function initClasses() {
-		for (var className in classesEnum)
-			classes[className] = new classHS(className);
-	}
-	
-	function initMissingData() {
-		for (var i = 0, missingData = missingCards; i < 2; i++, missingData = missingDust) {
-			missingData.classes = {};
-			for (var className in classesEnum) {
-				missingData.classes[className] = {};
-				for (var set in setsEnum)
-					missingData.classes[className][set] = getMissingDataObject();
-				missingData.classes[className].total = getMissingDataObject();
-			}
-			missingData.total = {};
-			for (var set in setsEnum) {
-				missingData.total[set] = getMissingDataObject();
-			}
-			
-			missingData.total.total = getMissingDataObject();
-		}
-	}
-
-	function initSelectedCardQuality() {		
-		var selectedQualityNormal = document.getElementById("selectedQualityNormal");
-		var selectedQualityGolden = document.getElementById("selectedQualityGolden");
-		
-		selectedQualityNormal.addEventListener("click", function() { setSelectedCardQuality(this); });
-		selectedQualityGolden.addEventListener("click", function() { setSelectedCardQuality(this); });
-    }
-
-	function initEventListeners() {
-		document.getElementById("link-tracker").addEventListener("click", displayTracker);
-		document.getElementById("link-progress").addEventListener("click", displayProgress);
-		document.getElementById("link-packs").addEventListener("click", displayPacks);
-		document.getElementById("link-news").addEventListener("click", displayNews);
-		document.getElementById("link-about").addEventListener("click", displayAbout);			
-		document.getElementById('link-export').addEventListener('click', exportCollection);
-		document.getElementById('link-import').addEventListener('click', function() {
-			// Check for File API support.
-			if (window.File && window.FileReader && window.FileList) {
-				var elem = document.getElementById("files");
-				elem.value = "";
-				var event = new MouseEvent('click', {
-					'view': window,
-					'bubbles': true,
-					'cancelable': true
-				});            
-				elem.dispatchEvent(event);			
-			} else {
-				alert('Importing is not supported in this browser.');
-			}
-		});		
-		document.getElementById('files').addEventListener('change', importCollection);		
-	}
-	
-    function setSelectedCardQuality(element) {
-		if (element.getAttribute("id") === "selectedQualityNormal")
-			document.getElementById("selectedQualityGolden").removeAttribute("class");
-		else document.getElementById("selectedQualityNormal").removeAttribute("class");
-		
-		selectedCardQuality = element.innerHTML.toLowerCase();
-		element.setAttribute("class", "selected");
-    }
-	
-	function loadLocalStorage() {
-		classes = JSON.parse(localStorage.getItem('classes'));
-		missingCards = JSON.parse(localStorage.getItem("missingCards"));
-		missingDust = JSON.parse(localStorage.getItem("missingDust"));
-		currentDust = parseInt(localStorage.getItem("currentDust"));
-		disenchantedDust = parseInt(localStorage.getItem("disenchantedDust"));
-		if (localStorage.getItem("settings") !== null)
-		    settings = JSON.parse(localStorage.getItem("settings"));
-	}
 	/*********************************************************
 	***********************PROGRESS PAGE**********************
 	*********************************************************/
