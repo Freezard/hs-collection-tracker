@@ -239,7 +239,7 @@ var HSCollectionTracker = (function() {
 	
 	// Class and card quality currently selected in the tracker
 	var selectedClass = "neutral";
-	var selectedCardQuality = "normal";
+	var selectedQuality = "normal";
 	
 	// Persistent settings
 	var settings = {
@@ -253,7 +253,7 @@ var HSCollectionTracker = (function() {
 	var currentDust = 0;
 	var disenchantedDust = 0;
 	
-	var version = 1.143;
+	var version = 1.144;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, soulbound) {
@@ -304,11 +304,11 @@ var HSCollectionTracker = (function() {
 		var rawFile;
 		var allText = "";
 		if (window.XMLHttpRequest) {
-			// code for IE7+, Firefox, Chrome, Opera, Safari
+			// Code for IE7+, Firefox, Chrome, Opera, Safari
 			rawFile = new XMLHttpRequest();
 		}
 		else {
-			// code for IE6, IE5
+			// Code for IE6, IE5
 			rawFile = new ActiveXObject("Microsoft.XMLHTTP");
 		}
 		rawFile.open("GET", "data/" + fileName, false);
@@ -339,12 +339,23 @@ var HSCollectionTracker = (function() {
 				rare:      { normal: 0, golden: 0 },
 				epic:      { normal: 0, golden: 0 },
 				legendary: { normal: 0, golden: 0 },
-				total:     { normal: 0, golden: 0 }
+				total:       { normal: 0, golden: 0 }
 			};
 	}
 	/*********************************************************
 	**************************INIT****************************
 	*********************************************************/
+	function initCollection() {
+		initMissingData();
+		initClasses();
+				
+		for (set in setsEnum)
+		    importCards(set);
+				
+		for (var className in classes)
+			sortCards(className);
+	}
+	
 	function initClasses() {
 		for (var className in classesEnum)
 			classes[className] = new classHS(className);
@@ -359,21 +370,20 @@ var HSCollectionTracker = (function() {
 					missingData.classes[className][set] = getMissingDataObject();
 				missingData.classes[className].total = getMissingDataObject();
 			}
-			missingData.total = {};
-			for (var set in setsEnum) {
-				missingData.total[set] = getMissingDataObject();
-			}
+			missingData.overall = {};
+			for (var set in setsEnum)
+				missingData.overall[set] = getMissingDataObject();
 			
-			missingData.total.total = getMissingDataObject();
+			missingData.overall.total = getMissingDataObject();
 		}
 	}
 
-	function initSelectedCardQuality() {		
+	function initSelectedQuality() {		
 		var selectedQualityNormal = document.getElementById("selectedQualityNormal");
 		var selectedQualityGolden = document.getElementById("selectedQualityGolden");
 		
-		selectedQualityNormal.addEventListener("click", function() { setSelectedCardQuality(this); });
-		selectedQualityGolden.addEventListener("click", function() { setSelectedCardQuality(this); });
+		selectedQualityNormal.addEventListener("click", function() { setSelectedQuality(this); });
+		selectedQualityGolden.addEventListener("click", function() { setSelectedQuality(this); });
     }
 
 	function initEventListeners() {
@@ -382,43 +392,41 @@ var HSCollectionTracker = (function() {
 		document.getElementById("link-packs").addEventListener("click", displayPacks);
 		document.getElementById("link-news").addEventListener("click", displayNews);
 		document.getElementById("link-about").addEventListener("click", displayAbout);			
-		document.getElementById('link-export').addEventListener('click', exportCollection);
-		document.getElementById('link-import').addEventListener('click', function() {
-			// Check for File API support.
+		document.getElementById("link-export").addEventListener("click", exportCollection);
+		document.getElementById("link-import").addEventListener("click", function() {
+			// Check for File API support
 			if (window.File && window.FileReader && window.FileList) {
 				var elem = document.getElementById("files");
-				elem.value = "";
+				elem.value = ""; // Allows multiple imports
 				var event = new MouseEvent('click', {
 					'view': window,
 					'bubbles': true,
 					'cancelable': true
-				});            
-				elem.dispatchEvent(event);			
-			} else {
-				alert('Importing is not supported in this browser.');
-			}
+				});
+				elem.dispatchEvent(event); // Manually trigger the file input
+			} else alert('Importing is not supported in this browser.');
 		});		
-		document.getElementById('files').addEventListener('change', importCollection);		
+		document.getElementById("files").addEventListener("change", importCollection);
 	}
-	
-    function setSelectedCardQuality(element) {
-		if (element.getAttribute("id") === "selectedQualityNormal")
-			document.getElementById("selectedQualityGolden").removeAttribute("class");
-		else document.getElementById("selectedQualityNormal").removeAttribute("class");
-		
-		selectedCardQuality = element.innerHTML.toLowerCase();
-		element.setAttribute("class", "selected");
-    }
-	
+	/*********************************************************
+	**********************LOCAL STORAGE***********************
+	*********************************************************/
 	function loadLocalStorage() {
 		classes = JSON.parse(localStorage.getItem('classes'));
 		missingCards = JSON.parse(localStorage.getItem("missingCards"));
 		missingDust = JSON.parse(localStorage.getItem("missingDust"));
 		currentDust = parseInt(localStorage.getItem("currentDust"));
 		disenchantedDust = parseInt(localStorage.getItem("disenchantedDust"));
+		// In case user has never changed a setting
 		if (localStorage.getItem("settings") !== null)
 		    settings = JSON.parse(localStorage.getItem("settings"));
-	}	
+	}
+	
+	function updateLocalStorage() {
+		localStorage.setItem('classes', JSON.stringify(classes));
+		localStorage.setItem('missingCards', JSON.stringify(missingCards));
+		localStorage.setItem('missingDust', JSON.stringify(missingDust));
+	}
 	/*********************************************************
 	**********************CARD FUNCTIONS**********************
 	*********************************************************/
@@ -492,10 +500,10 @@ var HSCollectionTracker = (function() {
 		missingCards.classes[className].total[rarity][quality] += copies;
 		missingCards.classes[className].total.total[quality] += copies;
 		
-		missingCards.total[set][rarity][quality] += copies;
-		missingCards.total[set].total[quality] += copies;
-		missingCards.total.total[rarity][quality] += copies;
-		missingCards.total.total.total[quality] += copies;
+		missingCards.overall[set][rarity][quality] += copies;
+		missingCards.overall[set].total[quality] += copies;
+		missingCards.overall.total[rarity][quality] += copies;
+		missingCards.overall.total.total[quality] += copies;
 	}
 	
 	// Updates missingDust by the amount of dust specified
@@ -507,21 +515,25 @@ var HSCollectionTracker = (function() {
 		missingDust.classes[className].total[rarity][quality] += dust;
 		missingDust.classes[className].total.total[quality] += dust;
 		
-		missingDust.total[set][rarity][quality] += dust;
-		missingDust.total[set].total[quality] += dust;
-		missingDust.total.total[rarity][quality] += dust;
-		missingDust.total.total.total[quality] += dust;
+		missingDust.overall[set][rarity][quality] += dust;
+		missingDust.overall[set].total[quality] += dust;
+		missingDust.overall.total[rarity][quality] += dust;
+		missingDust.overall.total.total[quality] += dust;
 	}
 	
 	// Adds a copy of a card through clicking on an <li><a> element
 	function addCard(card) {
 		var rarity = card.rarity;
 		
-		if (card[selectedCardQuality] < getMaxCopies(rarity)) {
-			updateCard(card, selectedCardQuality, 1);
+		if (card[selectedQuality] < getMaxCopies(rarity)) {
+			updateCard(card, selectedQuality, 1);
 			
 		    updateLocalStorage();
-		    displayTracker();
+			displayCards(selectedClass);
+			displayMissingCards();
+			displayMissingCardsOverall();
+			displayMissingDust();
+			displayMissingDustOverall();
 		}
 	}
 	
@@ -529,11 +541,15 @@ var HSCollectionTracker = (function() {
 	function removeCard(card) {
 		var rarity = card.rarity;
 		
-		if (card[selectedCardQuality] > 0) {
-		    updateCard(card, selectedCardQuality, -1);
+		if (card[selectedQuality] > 0) {
+		    updateCard(card, selectedQuality, -1);
 		
 			updateLocalStorage();
-		    displayTracker();
+			displayCards(selectedClass);
+			displayMissingCards();
+			displayMissingCardsOverall();
+			displayMissingDust();
+			displayMissingDustOverall();
 		}
 	}	
 	
@@ -547,12 +563,16 @@ var HSCollectionTracker = (function() {
 		for (var i = 1, len = list.length; i < len; i++) {			
 			var card = classes[selectedClass].cards[rarity][list[i].innerHTML];
 			
-			if (card[selectedCardQuality] < getMaxCopies(rarity))
-			    updateCard(card, selectedCardQuality, getMaxCopies(rarity) - card[selectedCardQuality]);
+			if (card[selectedQuality] < getMaxCopies(rarity))
+			    updateCard(card, selectedQuality, getMaxCopies(rarity) - card[selectedQuality]);
 		}
 		
 		updateLocalStorage();
-		displayTracker();
+		displayCards(selectedClass);
+		displayMissingCards();
+		displayMissingCardsOverall();
+		displayMissingDust();
+		displayMissingDustOverall();
 	}
 	
 	// Removes all copies of all cards in the column that was selected
@@ -565,13 +585,27 @@ var HSCollectionTracker = (function() {
 		for (var i = 1, len = list.length; i < len; i++) {			
 			var card = classes[selectedClass].cards[rarity][list[i].innerHTML];
 			
-			if (card[selectedCardQuality] > 0)
-			    updateCard(card, selectedCardQuality, -card[selectedCardQuality]);
+			if (card[selectedQuality] > 0)
+			    updateCard(card, selectedQuality, -card[selectedQuality]);
 		}
 		
 		updateLocalStorage();
-		displayTracker();
+		displayCards(selectedClass);
+		displayMissingCards();
+		displayMissingCardsOverall();
+		displayMissingDust();
+		displayMissingDustOverall();
 	}
+	
+	// Changes the selected quality through clicking on the top buttons
+	function setSelectedQuality(element) {
+		if (element.getAttribute("id") === "selectedQualityNormal")
+			document.getElementById("selectedQualityGolden").removeAttribute("class");
+		else document.getElementById("selectedQualityNormal").removeAttribute("class");
+		
+		selectedQuality = element.innerHTML.toLowerCase();
+		element.setAttribute("class", "selected");
+    }
 	
 	function getMaxCopies(rarity) {
 		return rarity === "legendary" ? 1 : 2;
@@ -587,169 +621,150 @@ var HSCollectionTracker = (function() {
 	/*********************************************************
 	*************************DISPLAY**************************
 	*********************************************************/
-	function updateLocalStorage() {
-		localStorage.setItem('classes', JSON.stringify(classes));
-		localStorage.setItem('missingCards', JSON.stringify(missingCards));
-		localStorage.setItem('missingDust', JSON.stringify(missingDust));
-	}
-	
-	function updateMissingCardsView(rarity, number) {
-		if (settings.excludeGoldenCards && selectedCardQuality === "golden")
-			return;
-		
-		var rarityCapitalized = capitalizeFirstLetter(rarity);
-		var cardQualityCapitalized = capitalizeFirstLetter(selectedCardQuality);
-		
-		document.getElementById("classMissing" + rarityCapitalized + cardQualityCapitalized).innerHTML -= number;
-		document.getElementById("classMissingTotal" + cardQualityCapitalized).innerHTML -= number;
-		
-		document.getElementById("totalMissing" + rarityCapitalized + cardQualityCapitalized).innerHTML -= number;
-		document.getElementById("totalMissingTotal" + cardQualityCapitalized).innerHTML -= number;
-	}
-	
-	function updateMissingDustView(rarity) {
-		var rarityCapitalized = capitalizeFirstLetter(rarity);
-		var cardQualityCapitalized = capitalizeFirstLetter(selectedCardQuality);
-		
-		var td = document.getElementById("classMissingDust" + rarityCapitalized);
-		var td2 = document.getElementById("classMissingDustTotal");
-		
-		if (settings.excludeGoldenCards) {
-		    td.innerHTML = addThousandSeparator(missingDust.classes[selectedClass].total[rarity].normal);
-			td2.innerHTML = addThousandSeparator(missingDust.classes[selectedClass].total.total.normal);
-		}
-		else {
-		    td.innerHTML = addThousandSeparator(missingDust.classes[selectedClass].total[rarity].normal + missingDust.classes[selectedClass].total[rarity].golden);
-			td2.innerHTML = addThousandSeparator(missingDust.classes[selectedClass].total.total.normal + missingDust.classes[selectedClass].total.total.golden);
-		}
-		
-		td = document.getElementById("totalMissingDust" + rarityCapitalized);
-		td2 = document.getElementById("totalMissingDustTotal");
-		
-		if (settings.excludeGoldenCards) {
-		    td.innerHTML = addThousandSeparator(missingDust.total.total[rarity].normal);
-			td2.innerHTML = addThousandSeparator(missingDust.total.total.total.normal);
-		}
-		else {
-			td.innerHTML = addThousandSeparator(missingDust.total.total[rarity].normal + missingDust.total.total[rarity].golden);
-			td2.innerHTML = addThousandSeparator(missingDust.total.total.total.normal + missingDust.total.total.total.golden);
-		}
-	}
-	
+	// Displays the class tabs and the class tabs bar.
+	// Created dynamically except filter options
 	function displayClassTabs() {
 		var div = document.getElementById("classTabs");
 		var list = document.createElement("ul");
-		var attrClass = document.getElementById("classTabsBar").getAttribute("class");
-		document.getElementById("classTabsBar").setAttribute("class", attrClass + " " + selectedClass);
+		// Set the CSS color of the class tabs bar (default neutral)
+		var classTabsClass = document.getElementById("classTabsBar").getAttribute("class");		
+		document.getElementById("classTabsBar").setAttribute("class", classTabsClass + " " + selectedClass);
 		
+		// Create the class tabs
 		for (var className in classes) {
 			var listItem = document.createElement("li");
 			listItem.setAttribute("class", "col-xs-10ths nopadding");
 			var listItemLink = document.createElement("a");
 			var span = document.createElement("span");
-			span.innerHTML = classes[className].level;
-				
-			//span.setAttribute("contenteditable", true);
-			/* BECAUSE EVENT LISTENERS NO WORKY ON THIS SPAN.
-			   USE FORM INSTEAD? */
-			span.setAttribute("onkeypress", "return handleKey(this, event)");
-			span.setAttribute("onblur", "lol(this)");
-			span.setAttribute("onpaste", "return false");
-			span.setAttribute("ondrop", "return false");
+			span.innerHTML = classes[className].level; // Always level 1 for now				
+			/* ---------------------------------------------
+			 To enable users to manually enter class levels.
+			 Not yet implemented
+			 
+				//span.setAttribute("contenteditable", true);
+				/* BECAUSE EVENT LISTENERS NO WORKY ON THIS SPAN.
+				USE FORM INSTEAD? */
+				/*span.setAttribute("onkeypress", "return handleKey(this, event)");
+				span.setAttribute("onblur", "lol(this)");
+				span.setAttribute("onpaste", "return false");
+				span.setAttribute("ondrop", "return false");*
 			/* --------------------------------------------- */
 			listItemLink.appendChild(span);
 			
-			if (className === "neutral")
+			// Displays the class levels, but it's pointless for now
+			//if (className === "neutral")
 				listItemLink.innerHTML = className;
-			else {
-				listItemLink.innerHTML = className + "<br>(" + listItemLink.innerHTML;
-				listItemLink.innerHTML += ")";
-			}
+			//else {
+			//	listItemLink.innerHTML = className + "<br>(" + listItemLink.innerHTML;
+			//	listItemLink.innerHTML += ")";
+			//}
 			
+			// Closure function for when clicking on a class tab
 			(function (className) {
 				listItemLink.addEventListener("click", function() {
-					document.getElementById("classTabsBar").setAttribute("class", attrClass + " " + className);
+					// Switch class tabs color and selected class
+					document.getElementById("classTabsBar").setAttribute("class",
+						classTabsClass + " " + className);
 					selectedClass = className;
+					
+					// No need to re-display the class tabs
 					displayCards(className);
 					displayMissingCards();
 					displayMissingDust();
 				});
 			}(className))
 			
+			// Prevent users from selecting class tabs text
 			listItemLink.setAttribute("class", className + " " + "noselect");
-				
+			
 			listItem.appendChild(listItemLink);
 			list.appendChild(listItem);
 		}
 		div.appendChild(list);
 		
-		var filterList = document.getElementById("filtersLeft").getElementsByTagName("a");
-		for (var i = 0; i < filterList.length; i++) {
-			var filterListItem = filterList[i];
+		// Init left filter list (filter sets described in HTML)
+		var filterListLeft = document.getElementById("filtersLeft").getElementsByTagName("a");
+		for (var i = 0; i < filterListLeft.length; i++) {
+			var filterListItem = filterListLeft[i];
+			// Set the initial filter as selected
 			if (filterBySet === filterListItem.innerHTML.toLowerCase())
 				filterListItem.setAttribute("class", "selected");
-	        (function (filterListItem) {				
+			// Closure function for when clicking on a filter
+	        (function (filterListItem) {
 			    filterListItem.addEventListener("click", function() {
+					// Switch selected filter
 					filterBySet = filterListItem.innerHTML.toLowerCase();
-					var c = document.getElementById("classTabsBar").getElementsByTagName("a");
-					for (var i = 0; i < c.length; i++)
-                      c[i].removeAttribute("class");
-				    filterListItem.setAttribute("class", "selected");
-					displayCards(selectedClass);
 					
-					var filterListRight = document.getElementById("filtersRight").getElementsByTagName("a")[0];
-		            if (settings.showOnlyMissingCards)
-			            filterListRight.setAttribute("class", "selected");
+					// Deselect all other filters
+					var filterListLeft = document.getElementById("filtersLeft").getElementsByTagName("a");
+					for (var i = 0; i < filterListLeft.length; i++)
+                      filterListLeft[i].removeAttribute("class");
+				    filterListItem.setAttribute("class", "selected");
+					
+					// Display the cards with the new filter
+					displayCards(selectedClass);
 					});
 			}(filterListItem))
 		}
 		
+		// Init right filter list. Currently only one button
 		var filterListRight = document.getElementById("filtersRight").getElementsByTagName("a")[0];
+		// Set the button as selected if the setting is turned on
 		if (settings.showOnlyMissingCards)
 			filterListRight.setAttribute("class", "selected");
 		
+		// Function for when clicking the showOnlyMissingCards button
 	    filterListRight.addEventListener("click", function() {
+			// Switch the setting and save the change locally
 			settings.showOnlyMissingCards = !settings.showOnlyMissingCards;
 			localStorage.setItem("settings", JSON.stringify(settings));
 			
+			// Display the new change in the CSS
 			if (settings.showOnlyMissingCards)
 			    filterListRight.setAttribute("class", "selected");
 			else filterListRight.removeAttribute("class");
+			
+			// Display the cards with the new setting
 			displayCards(selectedClass);
 			});
 	}
 	
+	// Displays the card lists for the specified class.
+	// Created dynamically except for the list names
 	function displayCards(className) {
 		var cardList = classes[className].cards;
-			
-		for (var className in raritiesEnum) {
-			var list = document.getElementById("list_" + className);
-			while (list.firstChild) {
+		
+		// One list for each rarity in the game
+		for (var rarity in raritiesEnum) {
+			// Empty the HTML lists
+			var list = document.getElementById("list_" + rarity);
+			while (list.firstChild)
 				list.removeChild(list.firstChild);
-			}
 			// TEMPORARY TO MAKE LISTS FIXED WIDTH WHEN EMPTY
 			//list.innerHTML="&nbsp";
-		}
-		
-		for (var rarity in cardList) {
-			var list = document.getElementById("list_" + rarity);
 			
-			var li = document.createElement("li");
-			var link = document.createElement("a");
-			link.textContent = "Apply to all";
-			link.setAttribute("class", "buttonAll");
-			link.addEventListener("click", function() { addAll(this); });
-			link.addEventListener("contextmenu", function() { removeAll(this); });
-			li.appendChild(link);
-			list.appendChild(li);
+			// Init the "apply to all" button
+			var listItem = document.createElement("li");
+			var linkItemLink = document.createElement("a");
+			linkItemLink.textContent = "Apply to all";
+			linkItemLink.setAttribute("class", "buttonAll");
+			linkItemLink.addEventListener("click", function() { addAll(this); });
+			linkItemLink.addEventListener("contextmenu", function() { removeAll(this); });
+			listItem.appendChild(linkItemLink);
+			list.appendChild(listItem);
 			
+			// Loop through all cards in the collection of the selected class.
+			// List is already sorted
 			for (var name in cardList[rarity]) {
 				var card = cardList[rarity][name];
+				
+				// Only display the card if it isn't filtered out
 				if (filterBySet === "all" || card.set === filterBySet) {
-					if (!settings.showOnlyMissingCards || 
-					(settings.showOnlyMissingCards && 
-					(!settings.excludeGoldenCards && (card.normal < getMaxCopies(card.rarity) || card.golden < getMaxCopies(card.rarity))) ||
-					(settings.excludeGoldenCards && (card.normal < getMaxCopies(card.rarity)))
+					// Only display the card if show missing cards is off,
+					// or the card is actually missing from your collection
+					if (!settings.showOnlyMissingCards || (settings.showOnlyMissingCards && 
+					(!settings.excludeGoldenCards && (card.normal < getMaxCopies(rarity) || card.golden < getMaxCopies(rarity))) ||
+					(settings.excludeGoldenCards && (card.normal < getMaxCopies(rarity)))
 					)) {
 				        var listItem = document.createElement("li");
 				        var listItemLink = document.createElement("a");
@@ -758,7 +773,9 @@ var HSCollectionTracker = (function() {
 					        listItemLink.addEventListener("click", function() { addCard(card); });
 					        listItemLink.addEventListener("contextmenu", function() { removeCard(card); });
 					        }(card))
-				        listItemLink.setAttribute("class", "normal" + cardList[rarity][name].normal + " " + "golden" + cardList[rarity][name].golden + " " + "noselect");
+						// Set the CSS for the card depending on how many copies in the collection
+				        listItemLink.setAttribute("class", "normal" + cardList[rarity][name].normal + " " +
+							"golden" + cardList[rarity][name].golden + " " + "noselect");
 			
 				        listItem.appendChild(listItemLink);
 				        list.appendChild(listItem);
@@ -767,104 +784,85 @@ var HSCollectionTracker = (function() {
 			}
 		}
 	}
-	
+		
+	// Displays the missing cards data for the selected class
 	function displayMissingCards() {
 		document.getElementById("missingCardsClassTitle").innerHTML = selectedClass.toUpperCase();
 		
-		var missing = getMissingDataObject();
-		
-		for (var set in missingCards.classes[selectedClass]) {
-			if (set === "total")				
-				missing[set] = missingCards.classes[selectedClass].total;
-			else {
-			    for (var rarity in missingCards.classes[selectedClass][set]) {
-				    missing[rarity].normal += missingCards.classes[selectedClass][set][rarity].normal;
-				    missing[rarity].golden += missingCards.classes[selectedClass][set][rarity].golden;
-			    }
-			}
-		}
-		
-		for (var rarity in missing) {
-			var rarityCapitalized = rarity.charAt(0).toUpperCase() + rarity.slice(1);
+		for (var rarity in missingCards.classes[selectedClass].total) {
+			var rarityCapitalized = capitalizeFirstLetter(rarity);
 			var td = document.getElementById("classMissing" + rarityCapitalized + "Normal");
 			var normal = missingCards.classes[selectedClass].total[rarity].normal;
 			td.innerHTML = normal;
 			td = document.getElementById("classMissing" + rarityCapitalized + "Golden");
+			// Don't show golden data if exclude golden cards is on
 			if (settings.excludeGoldenCards)
 			    td.innerHTML = "";
 			else td.innerHTML = missingCards.classes[selectedClass].total[rarity].golden;
 		}
 	}
 	
-	function displayMissingCardsTotal() {
-		var missing = getMissingDataObject();
-		
-		for (var set in missingCards.total) {
-			if (set === "total")
-				missing[set] = missingCards.total[set];
-			else {
-			    for (var rarity in missingCards.total[set]) {
-				    missing[rarity].normal += missingCards.total[set][rarity].normal;
-				    missing[rarity].golden += missingCards.total[set][rarity].golden;
-			    }
-			}
-		}
-		
-		for (var rarity in missing) {
-			var rarityCapitalized = rarity.charAt(0).toUpperCase() + rarity.slice(1);
-			var td = document.getElementById("totalMissing" + rarityCapitalized + "Normal");
-			var normal = missingCards.total.total[rarity].normal;
+	// Displays the missing cards data overall
+	function displayMissingCardsOverall() {
+		for (var rarity in missingCards.overall.total) {
+			var rarityCapitalized = capitalizeFirstLetter(rarity);
+			var td = document.getElementById("overallMissing" + rarityCapitalized + "Normal");
+			var normal = missingCards.overall.total[rarity].normal;
 			td.innerHTML = normal;
-			td = document.getElementById("totalMissing" + rarityCapitalized + "Golden");
+			td = document.getElementById("overallMissing" + rarityCapitalized + "Golden");
+			// Don't show golden data if exclude golden cards is on
 			if (settings.excludeGoldenCards)
 			    td.innerHTML = "";
-			else td.innerHTML = missingCards.total.total[rarity].golden;
+			else td.innerHTML = missingCards.overall.total[rarity].golden;
 		}
 	}
 	
+	// Displays the missing dust data for the selected class
 	function displayMissingDust() {
 		for (var rarity in missingDust.classes[selectedClass].total) {
-			var rarityCapitalized = rarity.charAt(0).toUpperCase() + rarity.slice(1);
+			var rarityCapitalized = capitalizeFirstLetter(rarity);
 			var td = document.getElementById("classMissingDust" + rarityCapitalized);
 			var dust = 0;
+			// Don't show golden data if exclude golden cards is on
 			if (settings.excludeGoldenCards)
 				dust = missingDust.classes[selectedClass].total[rarity].normal;
-			else dust = missingDust.classes[selectedClass].total[rarity].normal + missingDust.classes[selectedClass].total[rarity].golden;
-			td.innerHTML = dust.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+			else dust = missingDust.classes[selectedClass].total[rarity].normal +
+				missingDust.classes[selectedClass].total[rarity].golden;
+			td.innerHTML = addThousandSeparator(dust);
 		}
 	}
 	
-	function displayMissingDustTotal() {
-		for (var rarity in missingDust.total.total) {
-			var rarityCapitalized = rarity.charAt(0).toUpperCase() + rarity.slice(1);
-			var td = document.getElementById("totalMissingDust" + rarityCapitalized);
+	// Displays the missing dust data overall
+	function displayMissingDustOverall() {
+		for (var rarity in missingDust.overall.total) {
+			var rarityCapitalized = capitalizeFirstLetter(rarity);
+			var td = document.getElementById("overallMissingDust" + rarityCapitalized);
 			var dust = 0;
+			// Don't show golden data if exclude golden cards is on
 			if (settings.excludeGoldenCards)
-				dust = missingDust.total.total[rarity].normal;
-			else dust = missingDust.total.total[rarity].normal + missingDust.total.total[rarity].golden;
-			td.innerHTML = dust.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ");
+				dust = missingDust.overall.total[rarity].normal;
+			else dust = missingDust.overall.total[rarity].normal +
+				missingDust.overall.total[rarity].golden;
+			td.innerHTML = addThousandSeparator(dust);
 		}
-	}	
+	}
+	
+	// Toggles the exclude golden cards setting and updates view
+	function toggleGoldenCards() {
+		settings.excludeGoldenCards = !settings.excludeGoldenCards;
+		localStorage.setItem("settings", JSON.stringify(settings));
+		displayMissingDust();
+		displayMissingDustOverall();
+		displayMissingCards();
+		displayMissingCardsOverall();
+		displayCards(selectedClass);
+	}
 	/*********************************************************
 	***********************PROGRESS PAGE**********************
 	*********************************************************/
-	function displayProgress() {
-		var template = document.getElementById("template-progress");
-		document.getElementById("containerRow").innerHTML = template.innerHTML;
-		
-		document.getElementById("header-center").style.visibility = "hidden";
-		
-		document.oncontextmenu = function() {
-            return true;
-        }
-		
-		document.getElementById('select').addEventListener('change', displayProgressTable);
-		
-	//	for (set in setsEnum)
-	//	    buildProgressTable(set);
-	}
-	
+	// Displays a progress table for the selected set in the drop-down list
 	function displayProgressTable(evt) {
+		// Only display one table at all times
 		document.getElementById("containerRow").childNodes[1].removeChild(
 		    document.getElementById("containerRow").childNodes[1].lastChild);		
 		buildProgressTable(evt.target.value);
@@ -876,7 +874,7 @@ var HSCollectionTracker = (function() {
 		var tr = document.createElement("tr");
 		var td = document.createElement("th");
 		
-		//console.log(missingCards.total[set].total);
+		//console.log(missingCards.overall[set].total);
 		
 		td.innerHTML = set.toUpperCase();
 		td.setAttribute("colspan", 11);
@@ -947,7 +945,7 @@ var HSCollectionTracker = (function() {
 				var missing;
 				if (className != "total")
 			        missing = missingCards.classes[className][set][rarity][i];
-				else missing = missingCards.total[set][rarity][i];
+				else missing = missingCards.overall[set][rarity][i];
 				text = total - missing + "/" + total +
 				   	   " (" + Math.round(((total - missing) / total) * 100) + "%)";
 			}
@@ -994,7 +992,7 @@ var HSCollectionTracker = (function() {
 			var missing;
 			if (className != "total")
 				missing = missingCards.classes[className][set].total[i];
-			else missing = missingCards.total[set].total[i];
+			else missing = missingCards.overall[set].total[i];
 			text = total - missing + "/" + total +
 				   " (" + Math.round(((total - missing) / total) * 100) + "%)";
 		}
@@ -1018,7 +1016,7 @@ var HSCollectionTracker = (function() {
 			var currDust = 0;
 			if (className != "total")
 			    currDust = totalDust - missingDust.classes[className][set].total[i];
-			else currDust = totalDust - missingDust.total[set].total[i];
+			else currDust = totalDust - missingDust.overall[set].total[i];
 			text = " " + currDust + "/" + totalDust +
 				   " (" + Math.round((currDust / totalDust) * 100) + "%)";
 		}
@@ -1027,6 +1025,28 @@ var HSCollectionTracker = (function() {
 		
 		return tr;
 	}
+	/*********************************************************
+	************************PACK GUIDE************************
+	*********************************************************/
+	// Calculates and displays the dust values.
+	// Needs more commenting
+	function updatePackGuide() {
+		var averageValue = 0;
+		for (set in packsEnum) {
+		    for (rarity in raritiesEnum)
+			    if (rarity !== "free") {
+		            averageValue += chanceOfGetting[rarity].normal * (((setsEnum[set][rarity].total - missingCards.overall[set][rarity].normal) / setsEnum[set][rarity].total) * disenchantmentValue[rarity].normal
+		                + (missingCards.overall[set][rarity].normal / setsEnum[set][rarity].total) * craftingCost[rarity].normal);
+					if (!settings.excludeGoldenCards)
+					    averageValue += chanceOfGetting[rarity].golden * (((setsEnum[set][rarity].total - missingCards.overall[set][rarity].golden) / setsEnum[set][rarity].total) * disenchantmentValue[rarity].golden
+		                    + (missingCards.overall[set][rarity].golden / setsEnum[set][rarity].total) * craftingCost[rarity].golden);
+					else averageValue += chanceOfGetting[rarity].golden * disenchantmentValue[rarity].golden;
+				}
+		
+		    document.getElementById(set + "AverageValue").innerHTML = (averageValue * 5).toFixed(1);
+			averageValue = 0;
+		}
+	}		
 	/*********************************************************
 	**********************HTML TEMPLATES**********************
 	*********************************************************/
@@ -1045,6 +1065,7 @@ var HSCollectionTracker = (function() {
 		var template = document.getElementById("template-news").innerHTML;
 		document.getElementById("containerRow").innerHTML = template;
 		
+		// If news page was updated, remove the news highlight when clicking on the button
 	    var news = document.getElementById("link-news");
 		news.className = news.className.replace(" news", "");
 		
@@ -1068,25 +1089,6 @@ var HSCollectionTracker = (function() {
         }
 	}
 	
-	function updatePackGuide() {		
-		var averageValue = 0;
-		for (set in packsEnum) {
-		    for (rarity in raritiesEnum) {
-			    if (rarity !== "free") {
-		            averageValue += chanceOfGetting[rarity].normal * (((setsEnum[set][rarity].total - missingCards.total[set][rarity].normal) / setsEnum[set][rarity].total) * disenchantmentValue[rarity].normal
-		                + (missingCards.total[set][rarity].normal / setsEnum[set][rarity].total) * craftingCost[rarity].normal);
-					if (!settings.excludeGoldenCards)
-					    averageValue += chanceOfGetting[rarity].golden * (((setsEnum[set][rarity].total - missingCards.total[set][rarity].golden) / setsEnum[set][rarity].total) * disenchantmentValue[rarity].golden
-		                    + (missingCards.total[set][rarity].golden / setsEnum[set][rarity].total) * craftingCost[rarity].golden);
-					else averageValue += chanceOfGetting[rarity].golden * disenchantmentValue[rarity].golden;
-				}
-		    }
-		
-		    document.getElementById(set + "AverageValue").innerHTML = (averageValue * 5).toFixed(1);
-			averageValue = 0;
-		}
-	}	
-	
 	function displayTracker() {
 		var template = document.getElementById("template-tracker").innerHTML;
 		document.getElementById("containerRow").innerHTML = template;
@@ -1094,96 +1096,102 @@ var HSCollectionTracker = (function() {
 		displayClassTabs();
 		displayCards(selectedClass);
 		displayMissingCards();
-		displayMissingCardsTotal();
+		displayMissingCardsOverall();
 		displayMissingDust();
-		displayMissingDustTotal();
+		displayMissingDustOverall();
 		
+		document.getElementById("checkboxGolden").addEventListener("change", toggleGoldenCards);
 		document.getElementById("checkboxGolden").checked = settings.excludeGoldenCards;
 		
+		// Make sure the quality buttons are visible while on the tracker
 		document.getElementById("header-center").style.visibility = "visible";
 		
+		// Disable the context menu when right-clicking while on the tracker
 		document.oncontextmenu = function() {
             return false;
         }
 	}
+	
+	function displayProgress() {
+		var template = document.getElementById("template-progress");
+		document.getElementById("containerRow").innerHTML = template.innerHTML;
+		
+		document.getElementById("header-center").style.visibility = "hidden";
+		
+		document.oncontextmenu = function() {
+            return true;
+        }
+		
+		// Add an event listener to the drop-down list that will display a table
+		document.getElementById('select').addEventListener('change', displayProgressTable);
+	}
 	/*********************************************************
 	************************COLLECTION************************
 	*********************************************************/
+	// Loads data from a collection. Make sure it's the right
+	// format, else handle potential errors
 	function loadCollection(collection) {
-		console.log("BACKING UP");
-		for (var className in collection) {
-			// level
-			for (var rarity in collection[className].cards) {
+		console.log("Loading collection...");
+		for (var className in collection)
+			// level here
+			for (var rarity in collection[className].cards)
 				for (var cardName in collection[className].cards[rarity]) {
-					var card = collection[className].cards[rarity][cardName];
-					if (classes[className].cards[rarity][cardName] !== undefined) {
-						classes[className].cards[rarity][cardName].normal = card.normal;
-						classes[className].cards[rarity][cardName].golden = card.golden;
-						
-						updateCard(card, "normal", card.normal);
-						updateCard(card, "golden", card.golden);
-					}
+					var cardCollection = classes[className].cards[rarity][cardName];
+					var cardLoaded = collection[className].cards[rarity][cardName];
+					
+					// Ignore loaded cards that do not exist in the collection
+					if (cardCollection !== undefined)
+						for (var i = 0, quality = "normal"; i < 2; i++, quality = "golden")
+						    updateCard(cardCollection, quality, cardLoaded[quality]);
 				}
-			}
-		}
 	}
-		
+	
+	// Imports a collection from a JSON file
 	function importCollection(event) {
 	    var files = event.target.files; // FileList object
 
-        var f = files[0];
+        var file = files[0]; // Selected file
         // Only process JSON files.
-        if (!f.name.match(/[^\\]*\.(json)$/i)) {
+        if (!file.name.match(/[^\\]*\.(json)$/i)) {
 			alert("Not a JSON file.");
             return;
-        }		
+        }
 
         var reader = new FileReader();
 
-        // Closure to capture the file information.
+        // Closure to capture the file information
         reader.onload = (function(event) {
 	        try {
 			    var collection = JSON.parse(event.target.result);
+				// Reset and load the collection
 				initCollection();
 			    loadCollection(collection);
 				updateLocalStorage();
 				displayTracker();
 		    }
 		    catch(e) {
-				if (e instanceof SyntaxError) {
+				if (e instanceof SyntaxError)
 					alert("Invalid JSON file.");
-				}
-				else if (e instanceof TypeError) {
+				else if (e instanceof TypeError)
 			        alert("Invalid HSCT file");
-				}
 				else alert(e);
-				return;
+				
+				return; // Abort import
 		    }
         });
 
-        // Read in the JSON file as text.
-		reader.readAsText(f);
+        // Read in the JSON file as text
+		reader.readAsText(file);
 	}
 	
+	// Exports the collection to a JSON file
 	function exportCollection() {
-		// Check for File API support.
+		// Check for File API support
         if (window.Blob) {
-		    var blob = new Blob([JSON.stringify(classes)], { type: "text/plain;charset=utf-8;"} );
+		    var blob = new Blob([JSON.stringify(classes)],
+				{ type: "text/plain;charset=utf-8;"} );
             saveAs(blob, "HSCT.json");
-		} else {
-            alert('Exporting is not supported in this browser.');
-        }
-	}
-	
-	function initCollection() {
-		initMissingData();
-		initClasses();
-				
-		for (set in setsEnum)
-		    importCards(set);
-				
-		for (var className in classes)
-			sortCards(className);		
+		} else alert('Exporting is not supported in this browser.');
 	}
 	/*********************************************************
 	***********************MAIN FUNCTION**********************
@@ -1191,49 +1199,41 @@ var HSCollectionTracker = (function() {
 	return {
 		init: function() {
 		//	console.log(JSON.stringify(localStorage).length);
-
+			// Check for HTML5 storage support
 			if (typeof(Storage) !== "undefined") {
 				var storedVersion = localStorage.getItem("version");
 				
+				// If first visit or new version
 				if (storedVersion != version) {
-					initCollection()
+					initCollection();
 					
+					// If new version, restore saved collection/settings
 					if (parseFloat(storedVersion) < parseFloat(version)) {
 						var storedCollection = JSON.parse(localStorage.getItem('classes'));
-						loadCollection(storedCollection);
 						var storedSettings = JSON.parse(localStorage.getItem('settings'));
+						
+						loadCollection(storedCollection);
+						
 						for (var setting in storedSettings)
 						    settings[setting] = storedSettings[setting];
 						
+						// Highlight the news button
 						var news = document.getElementById("link-news");
 						//news.className = news.className + " news";
 					}
-
+					
 				    updateLocalStorage();
 					localStorage.setItem("currentDust", currentDust);
 					localStorage.setItem("disenchantedDust", disenchantedDust);
 					localStorage.setItem("version", version);
 				}
-				else {					
-				    loadLocalStorage();
-				}
+				else loadLocalStorage();
 			}
-						
-			initSelectedCardQuality();
-			initEventListeners();
 			
+			initSelectedQuality();
+			initEventListeners();
 			displayTracker();
-		},
-		
-		toggleGoldenCards: function() {
-		    settings.excludeGoldenCards = !settings.excludeGoldenCards;
-		    localStorage.setItem("settings", JSON.stringify(settings));
-			displayMissingDust();
-			displayMissingDustTotal();
-			displayMissingCards();
-			displayMissingCardsTotal();
-			displayCards(selectedClass);
-	    }
+		}
 	};
 })();
 
