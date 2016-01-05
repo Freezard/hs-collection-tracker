@@ -140,7 +140,7 @@ body {
 #classTabs .warrior, #classTabsBar.warrior {
   background-color: #6B0000;
   border-color: #8B2020;
-  color: #C59C73;  
+  color: #C59C73;
 }
 #classTabsBar {
   height: 25px;
@@ -501,22 +501,68 @@ h2 {
 .side-page #progressTable {
   font-size: 10px;
 }
+#progressTable .neutral td {
+  background-color: #736358;
+  border-bottom: 1px solid #635348;
+}
+#progressTable .druid td {
+  background-color: #855C33;
+  border-bottom: 1px solid #754C23;
+}
+#progressTable .hunter td {
+  background-color: #709020;
+  border-bottom: 1px solid #607010;
+}
+#progressTable .mage td {
+  background-color: #80B2FF;
+  border-bottom: 1px solid #70A2EF;
+}
+#progressTable .paladin td {
+  background-color: #EBC84D;
+  border-bottom: 1px solid #DBB83D;
+}
+#progressTable .priest td {
+  background-color: #F7FAFA;
+  border-bottom: 1px solid #E7EAEA;
+}
+#progressTable .rogue td {
+  background-color: #1C1C1C;
+  color: #C59C73;
+  border-bottom: 1px solid #0C0C0C;
+}
+#progressTable .shaman td {
+  background-color: #191987;
+  color: #C59C73;
+  border-bottom: 1px solid #090977;
+}
+#progressTable .warlock td {
+  background-color: #470047;
+  color: #C59C73;
+  border-bottom: 1px solid #370037;
+}
+#progressTable .warrior td {
+  background-color: #6B0000;
+  color: #C59C73;
+  border-bottom: 1px solid #5B0000;
+}
+#progressTable .total td {
+	border-bottom: 1px solid #B57C63;
+}
 .side-page #select {
   margin-bottom: 10px;
 }
 .side-page tr.normal td {
-  background-color: #C59C73;
-  color: #000000;
+  /*background-color: #C59C73;
+  color: #000000;*/
 }
 .side-page tr.golden td {
-  background-color: #736358;
-  color: rgba(200, 150, 0, 1.0);
+  /*background-color: #736358;
+  color: rgba(200, 150, 0, 1.0);*/
 }
 .side-page td, .side-page th {
   background-color: #C59C73;
   color: #000000;
-  /*border: 1px solid #B8BF21;*/
-  padding: 3px 5px;
+  padding: 5px 5px;
 }
 .side-page th {
   text-align: center;
