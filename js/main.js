@@ -38,7 +38,7 @@ var HSCollectionTracker = (function() {
 		loe: "loe"
 	};
 	
-	// The number of cards in each set for each rarity.
+	// The number of cards and craftable cards in each set.
 	// Created dynamically when visiting progress page/pack guide
 	var setsCards;
 	
@@ -110,7 +110,7 @@ var HSCollectionTracker = (function() {
 	var currentDust = 0;
 	var disenchantedDust = 0;
 	
-	var version = 1.144;
+	var version = 1.145;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, soulbound) {
@@ -205,10 +205,10 @@ var HSCollectionTracker = (function() {
 	function initCollection() {
 		initMissingData();
 		initClasses();
-				
+		
 		for (set in setsEnum)
 		    importCards(set);
-				
+		
 		for (var className in classes)
 			sortCards(className);
 	}
@@ -266,12 +266,17 @@ var HSCollectionTracker = (function() {
 		document.getElementById("files").addEventListener("change", importCollection);
 	}
 	
+	// Initializes setsCards.
+	// setsCards[set][rarity][className].cards = total cards
+	// setsCards[set][rarity][className][quality] = craftable cards
 	function initSetsCards() {
-		setsCards = {};
+		setsCards = {};		
 		
-		for (var sets in setsEnum)
-			setsCards[sets] = {};
+		for (var set in setsEnum)
+			setsCards[set] = {};
 		
+		// Loop through every card in the collection and add
+		// the card's copies to its correct places
 		for (var className in classes)
 			for (var rarity in classes[className].cards)
 				for (var cardName in classes[className].cards[rarity]) {
@@ -284,16 +289,67 @@ var HSCollectionTracker = (function() {
 					
 					// Add the class to the rarity group if it doesn't exist
 					if (setsCards[set][rarity][className] === undefined)
-						setsCards[set][rarity][className] = 0;
+						setsCards[set][rarity][className] = {};
 					
-					setsCards[set][rarity][className] += getMaxCopies(rarity);
+					if (setsCards[set][rarity][className].cards === undefined)
+						setsCards[set][rarity][className].cards = 0;
+					
+					setsCards[set][rarity][className].cards += getMaxCopies(rarity);
+
+					for (var i = 0, quality = "normal"; i < 2; i++, quality = "golden") {					
+						if (setsCards[set][rarity][className][quality] === undefined)
+							setsCards[set][rarity][className][quality] = 0;
+						
+						if (isCraftable(card, quality))
+							setsCards[set][rarity][className][quality] += getMaxCopies(rarity);
+					}
 					
 					// Add total to the rarity group if it doesn't exist
 					if (setsCards[set][rarity].total === undefined)
-						setsCards[set][rarity].total = 0;
+						setsCards[set][rarity].total = {};
 					
-					setsCards[set][rarity].total += getMaxCopies(rarity);
+					if (setsCards[set][rarity].total.cards === undefined)
+						setsCards[set][rarity].total.cards = 0;
+					
+					setsCards[set][rarity].total.cards += getMaxCopies(rarity);
+					
+					// Not used right now
+					for (var i = 0, quality = "normal"; i < 2; i++, quality = "golden") {
+						if (setsCards[set][rarity].total[quality] === undefined)
+							setsCards[set][rarity].total[quality] = 0;
+						
+						if (isCraftable(card, quality))
+							setsCards[set][rarity].total[quality] += getMaxCopies(rarity);
+					}
 				}
+		
+		// Overall for all sets
+		setsCards.total = {};
+		for (var set in setsCards) {
+			if (set === "total") break;
+			for (var rarity in setsCards[set])
+				for (var className in setsCards[set][rarity]) {
+					// Add the rarity to the set if it doesn't exist
+					if (setsCards.total[rarity] === undefined)
+						setsCards.total[rarity] = {};
+					
+					// Add the class to the rarity group if it doesn't exist
+					if (setsCards.total[rarity][className] === undefined)
+						setsCards.total[rarity][className] = {};
+					
+					if (setsCards.total[rarity][className].cards === undefined)
+						setsCards.total[rarity][className].cards = 0;
+					
+					setsCards.total[rarity][className].cards += setsCards[set][rarity][className].cards;
+					
+					for (var i = 0, quality = "normal"; i < 2; i++, quality = "golden") {
+						if (setsCards.total[rarity][className][quality] === undefined)
+							setsCards.total[rarity][className][quality] = 0;
+						
+						setsCards.total[rarity][className][quality] += setsCards[set][rarity][className][quality];
+					}					
+				}
+		}		
 	}
 	/*********************************************************
 	**********************LOCAL STORAGE***********************
@@ -752,7 +808,7 @@ var HSCollectionTracker = (function() {
 		// Only display one table at all times
 		document.getElementById("containerRow").childNodes[1].removeChild(
 		    document.getElementById("containerRow").childNodes[1].lastChild);
-			
+		
 		var table = createProgressTable(evt.target.value);
 		document.getElementById("containerRow").childNodes[1].appendChild(table);
 	}
@@ -765,8 +821,10 @@ var HSCollectionTracker = (function() {
 		// Create the header
 		var tr = document.createElement("tr");
 		var td = document.createElement("th");
-		td.innerHTML = set.toUpperCase();
-		td.setAttribute("colspan", 11);
+		// Set the selected set as the header text
+		td.innerHTML = document.getElementById('select').
+			options[document.getElementById('select').selectedIndex].text.toUpperCase();
+		td.setAttribute("colspan", 13);
 		tr.appendChild(td);
 		table.appendChild(tr);
 		
@@ -818,10 +876,13 @@ var HSCollectionTracker = (function() {
 			// Create the cards table data
 		    var td = document.createElement("td");
 			var text;
-			var total = setsCards[set][rarity][className];
+			var total = 0;
+
+			if (setsCards[set][rarity][className] != undefined)
+				total = setsCards[set][rarity][className].cards;
 			
 			// If no collectible cards for this class/set/rarity
-			if (isNaN(total))
+			if (total == 0)
 				text = "-";
 			else {
 				var missing;
@@ -831,7 +892,7 @@ var HSCollectionTracker = (function() {
 				else missing = missingCards.overall[set][rarity][quality];
 				// Example: 0/50 (0%)
 				text = total - missing + "/" + total +
-				   	   " (" + Math.round(((total - missing) / total) * 100) + "%)";
+				   	   " (" + Math.floor(((total - missing) / total) * 100) + "%)";
 			
 			}
 		    td.innerHTML = text;
@@ -841,13 +902,18 @@ var HSCollectionTracker = (function() {
 			td = document.createElement("td");
 			
 			// If no collectible cards for this class/set/rarity or if they're uncraftable
-			if (isNaN(total) || setsSoulbound[set] == "both" || setsSoulbound[set] == quality)
+			if (total == 0 || setsSoulbound[set] == "both" || setsSoulbound[set] == quality)
 					text = "-";
 			else {
-			    var totalDust = total * craftingCost[rarity][quality];
-			    var currDust = (total - missing) * craftingCost[rarity][quality];
+			    var totalDust = setsCards[set][rarity][className][quality] * craftingCost[rarity][quality];
+				var currDust = 0;
+				if (className != "total")
+			        currDust = totalDust - missingDust.classes[className][set][rarity][quality];
+				else currDust = totalDust - missingDust.overall[set][rarity][quality];
 				// No need to print out % here as it's the same as the card data %
-			    text = " " + currDust + "/" + totalDust;
+				if (totalDust == 0)
+					text = "-";
+				else text = " " + currDust + "/" + totalDust;
 			}
 			td.innerHTML = text;
 			tr.appendChild(td);
@@ -859,21 +925,18 @@ var HSCollectionTracker = (function() {
 		var total = 0;
 	
 		for (rarity in setsCards[set])
-			if (!isNaN(setsCards[set][rarity][className]))
-				total += setsCards[set][rarity][className];
+			if (setsCards[set][rarity][className] != undefined)
+				total += setsCards[set][rarity][className].cards;
 		
-		if (total == 0) {
+		if (total == 0)
 			text = "-";
-			if (set === "naxxramas")
-				console.log(total);
-		}
 		else {
 			var missing;
 			if (className != "total")
 				missing = missingCards.classes[className][set].total[quality];
 			else missing = missingCards.overall[set].total[quality];
 			text = total - missing + "/" + total +
-				   " (" + Math.round(((total - missing) / total) * 100) + "%)";
+				   " (" + Math.floor(((total - missing) / total) * 100) + "%)";
 		}
 		td.innerHTML = text;
 		tr.appendChild(td);
@@ -885,14 +948,15 @@ var HSCollectionTracker = (function() {
 		else {
 			var totalDust = 0;
 			for (rarity in setsCards[set])
-				if (!isNaN(setsCards[set][rarity][className]))
-					totalDust += setsCards[set][rarity][className] * craftingCost[rarity][quality];
+				if (setsCards[set][rarity][className] != undefined)
+					totalDust += setsCards[set][rarity][className][quality] * craftingCost[rarity][quality];
 			var currDust = 0;
+			
 			if (className != "total")
 			    currDust = totalDust - missingDust.classes[className][set].total[quality];
 			else currDust = totalDust - missingDust.overall[set].total[quality];
 			text = " " + currDust + "/" + totalDust +
-				   " (" + Math.round((currDust / totalDust) * 100) + "%)";
+				   " (" + Math.floor((currDust / totalDust) * 100) + "%)";
 		}
 		td.innerHTML = text;
 		tr.appendChild(td);
@@ -909,11 +973,11 @@ var HSCollectionTracker = (function() {
 		for (set in packsEnum) {
 		    for (rarity in raritiesEnum)
 			    if (rarity !== "free") {
-		            averageValue += chanceOfGetting[rarity].normal * (((setsCards[set][rarity].total - missingCards.overall[set][rarity].normal) / setsCards[set][rarity].total) * disenchantmentValue[rarity].normal
-		                + (missingCards.overall[set][rarity].normal / setsCards[set][rarity].total) * craftingCost[rarity].normal);
+		            averageValue += chanceOfGetting[rarity].normal * (((setsCards[set][rarity].total.cards - missingCards.overall[set][rarity].normal) / setsCards[set][rarity].total.cards) * disenchantmentValue[rarity].normal
+		                + (missingCards.overall[set][rarity].normal / setsCards[set][rarity].total.cards) * craftingCost[rarity].normal);
 					if (!settings.excludeGoldenCards)
-					    averageValue += chanceOfGetting[rarity].golden * (((setsCards[set][rarity].total - missingCards.overall[set][rarity].golden) / setsCards[set][rarity].total) * disenchantmentValue[rarity].golden
-		                    + (missingCards.overall[set][rarity].golden / setsCards[set][rarity].total) * craftingCost[rarity].golden);
+					    averageValue += chanceOfGetting[rarity].golden * (((setsCards[set][rarity].total.cards - missingCards.overall[set][rarity].golden) / setsCards[set][rarity].total.cards) * disenchantmentValue[rarity].golden
+		                    + (missingCards.overall[set][rarity].golden / setsCards[set][rarity].total.cards) * craftingCost[rarity].golden);
 					else averageValue += chanceOfGetting[rarity].golden * disenchantmentValue[rarity].golden;
 				}
 		
@@ -1099,7 +1163,7 @@ var HSCollectionTracker = (function() {
 						
 						// Highlight the news button
 						var news = document.getElementById("link-news");
-						//news.className = news.className + " news";
+						news.className = news.className + " news";
 					}
 					
 				    updateLocalStorage();

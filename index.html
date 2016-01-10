@@ -16,7 +16,7 @@
 
   ga('create', 'UA-62707621-1', 'auto');
   ga('send', 'pageview');
-</script> 
+</script>
 </head>
 <body>
 
@@ -186,6 +186,7 @@
   <p>The first column for each rarity displays how many cards you have collected, and the second column displays the dust (if the cards are craftable).
   For each class there are two rows, one that displays normal cards and another that displays golden. If you have ticked the "I don't care about golden cards" box, golden data will not be displayed.</p>
   <select id="select">
+    <option selected disabled>---</option>
     <option value="basic">Basic</option>
     <option value="classic">Classic</option>
     <option value="reward">Reward</option>
@@ -195,6 +196,7 @@
 	<option value="blackrock">Blackrock Mountain</option>
 	<option value="tgt">The Grand Tournament</option>
 	<option value="loe">League of Explorers</option>
+	<option value="total">Overall</option>
   </select>
 </div>
 </script>
@@ -214,6 +216,7 @@
 <script id="template-news" type="text/html">
 <div class="col-xs-12 side-page">
   <h2>News</h2>
+  <p><span class="special2">10-01-16</span> - Added an overall progress table for all sets combined. It's now possible to see your total progress of every card in the game.</p>
   <p><span class="special2">21-12-15</span> - Updated the progress page to display card and dust progress for all rarities combined. For example, it's now possible to see your total progress for a set.</p>
   <p><span class="special2">11-12-15</span> - Added cards from the fourth wing of League of Explorers.</p>
   <p><span class="special2">04-12-15</span> - Added cards from the third wing of League of Explorers.</p>
