@@ -105,6 +105,7 @@ var HSCollectionTracker = (function() {
 	};
 	
 	var filterBySet = "all";
+	var progressSet = ""; // Chosen set for the progress table
 	
 	// Currently unused
 	var currentDust = 0;
@@ -805,11 +806,20 @@ var HSCollectionTracker = (function() {
 	*********************************************************/
 	// Displays a progress table for the selected set in the drop-down list
 	function displayProgressTable(evt) {
-		// Only display one table at all times
-		document.getElementById("containerRow").childNodes[1].removeChild(
-		    document.getElementById("containerRow").childNodes[1].lastChild);
+		// Function is invoked by code when accessing the progress page,
+		// which means evt is undefined and that the last selected table
+		// should be displayed.
+		if (evt != undefined) {
+		    // Only display one table at all times
+		    document.getElementById("containerRow").childNodes[1].removeChild(
+		        document.getElementById("containerRow").childNodes[1].lastChild);
 		
-		var table = createProgressTable(evt.target.value);
+		    progressSet = evt.target.value;
+		}
+		else document.getElementById('select').value = progressSet;
+		
+		var table = createProgressTable(progressSet);
+		
 		document.getElementById("containerRow").childNodes[1].appendChild(table);
 	}
 	
@@ -1063,6 +1073,9 @@ var HSCollectionTracker = (function() {
 		// Add an event listener to the drop-down list that will display a table
 		document.getElementById('select').addEventListener('change', displayProgressTable);
 		
+		if (progressSet != "")
+		    displayProgressTable();
+		
 		document.getElementById("header-center").style.visibility = "hidden";
 		
 		document.oncontextmenu = function() {
@@ -1163,7 +1176,7 @@ var HSCollectionTracker = (function() {
 						
 						// Highlight the news button
 						var news = document.getElementById("link-news");
-						news.className = news.className + " news";
+						//news.className = news.className + " news";
 					}
 					
 				    updateLocalStorage();
