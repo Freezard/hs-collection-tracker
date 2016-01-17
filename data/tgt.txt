@@ -77,7 +77,7 @@ mage
 Spellslinger,common,3,minion
 Dalaran Aspirant,common,4,minion
 Flame Lance,common,5,spell
-Fallen Hero,rare,3,minion
+Fallen Hero,rare,2,minion
 Effigy,rare,3,spell
 Polymorph: Boar,rare,3,spell
 Arcane Blast,epic,1,spell
