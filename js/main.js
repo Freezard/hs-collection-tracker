@@ -157,31 +157,6 @@ var HSCollectionTracker = (function() {
 	/*********************************************************
 	**************************UTILS***************************
 	*********************************************************/	
-	// Reads a text file and returns the content
-	function readTextFile(fileName) {
-		var rawFile;
-		var allText = "";
-		if (window.XMLHttpRequest) {
-			// Code for IE7+, Firefox, Chrome, Opera, Safari
-			rawFile = new XMLHttpRequest();
-		}
-		else {
-			// Code for IE6, IE5
-			rawFile = new ActiveXObject("Microsoft.XMLHTTP");
-		}
-		rawFile.open("GET", "data/" + fileName, false);
-		rawFile.onreadystatechange = function () {
-			if(rawFile.readyState === 4) {
-				if(rawFile.status === 200 || rawFile.status == 0) {
-					allText = rawFile.responseText;
-				}
-			}
-		}
-		rawFile.send(null);
-			
-		return allText;
-	}
-	
 	function capitalizeFirstLetter(string) {
 		return string.charAt(0).toUpperCase() + string.slice(1);
 	}
@@ -207,8 +182,7 @@ var HSCollectionTracker = (function() {
 		initMissingData();
 		initClasses();
 		
-		for (set in setsEnum)
-		    importCards(set);
+	    importCards();
 		
 		for (var className in classes)
 			sortCards(className);
@@ -374,22 +348,48 @@ var HSCollectionTracker = (function() {
 	/*********************************************************
 	**********************CARD FUNCTIONS**********************
 	*********************************************************/
-	// Imports cards from the given set name to the collection.
-	// Card data is stored in text files
-	function importCards(set) {
-		var cardData = readTextFile(set + ".txt");
-		cardData = cardData.replace(/(\r)/gm, "");
-		var cardLines = cardData.split("\n");
-		var cardClass;
-		for (var i = 0; i < cardLines.length; i++) {
-			var cardLine = cardLines[i].split(",");
-			
-			if (cardLine.length == 1 && cardLine != "")
-				cardClass = cardLine[0];			
-			else if (cardLine != "")
-				classes[cardClass].addCard(new card(cardLine[0], cardLine[1], cardLine[2],
-				cardLine[3], cardClass, set, setsSoulbound[set]));
-		}
+	// Imports cards from the Hearthstone API.
+	function importCards() {
+		// maps Hearthstone API set names to HCT setsEnum
+		var setMap = {
+			"Basic": setsEnum.basic,
+			"Classic": setsEnum.classic,
+			"Reward": setsEnum.reward,
+			"Promotion": setsEnum.promo,
+			"Naxxramas": setsEnum.naxxramas,
+			"Goblins vs Gnomes": setsEnum.gvg,
+			"Blackrock Mountain": setsEnum.blackrock,
+			"The Grand Tournament": setsEnum.tgt,
+			"The League of Explorers": setsEnum.loe
+		};
+		
+		var importCardData = function (cards, set) {
+			cards.forEach(function (newCard) {
+				if (newCard.type != 'Hero') {
+					var className = newCard.playerClass ? newCard.playerClass.toLowerCase() : classesEnum.neutral;
+					// cards like Elven Archer are in the basic set with Common rarity, but setting these to free to preserve previous HCT behavior
+					var rarity = set == setsEnum.basic ? raritiesEnum.free : newCard.rarity.toLowerCase();
+					classes[className].addCard(new card(newCard.name, rarity, newCard.cost, newCard.type.toLowerCase(), className, set, setsSoulbound[set]));
+				}
+			});
+		};
+		
+		$.ajax({
+			url: "https://omgvamp-hearthstone-v1.p.mashape.com/cards?collectible=1",
+			headers: {
+				"X-Mashape-Key": "VzmtuqVrkimshv2u8P4w9f9DUFtgp1SOM1ejsneCCd1lVJuVEM"
+			},
+			async: false
+		}).done(function (response) {
+			Object.keys(setMap).forEach (function (apiSet) {
+				var set = setMap[apiSet];
+				if (set) {
+					importCardData(response[apiSet], set);
+				} else {
+					console.log("ERROR: Unrecognized card set " + newCard.cardSet + ", skipping card " + newCard.name);
+				}
+			});
+		});
 	}	
 	
 	// Sorts all the card lists for the specified class.
