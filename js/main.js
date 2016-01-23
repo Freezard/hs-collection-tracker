@@ -111,7 +111,7 @@ var HSCollectionTracker = (function() {
 	var currentDust = 0;
 	var disenchantedDust = 0;
 	
-	var version = 1.146;
+	var version = 1.147;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, soulbound) {
@@ -348,9 +348,9 @@ var HSCollectionTracker = (function() {
 	/*********************************************************
 	**********************CARD FUNCTIONS**********************
 	*********************************************************/
-	// Imports cards from the Hearthstone API.
+	// Imports cards from the Hearthstone API
 	function importCards() {
-		// maps Hearthstone API set names to HCT setsEnum
+		// Maps Hearthstone API set names to HCT setsEnum
 		var setMap = {
 			"Basic": setsEnum.basic,
 			"Classic": setsEnum.classic,
@@ -367,7 +367,7 @@ var HSCollectionTracker = (function() {
 			cards.forEach(function (newCard) {
 				if (newCard.type != 'Hero') {
 					var className = newCard.playerClass ? newCard.playerClass.toLowerCase() : classesEnum.neutral;
-					// cards like Elven Archer are in the basic set with Common rarity, but setting these to free to preserve previous HCT behavior
+					// Cards like Elven Archer are in the basic set with common rarity, but setting these to free to preserve HCT behavior
 					var rarity = set == setsEnum.basic ? raritiesEnum.free : newCard.rarity.toLowerCase();
 					classes[className].addCard(new card(newCard.name, rarity, newCard.cost, newCard.type.toLowerCase(), className, set, setsSoulbound[set]));
 				}
@@ -389,8 +389,34 @@ var HSCollectionTracker = (function() {
 					console.log("ERROR: Unrecognized card set " + newCard.cardSet + ", skipping card " + newCard.name);
 				}
 			});
+		}).fail(function() {
+			importCardsOffline();
 		});
-	}	
+	}
+	
+	// Imports cards from a local JSON-file
+	function importCardsOffline() {
+		var cardData;
+		var request = new XMLHttpRequest();
+		request.open("GET", "data/all-collectibles.json", false);
+		request.onreadystatechange = function () {
+			if(request.readyState === 4) {
+				if(request.status === 200 || request.status == 0) {
+					cardData = JSON.parse(request.responseText);
+				}
+			}
+		}
+		request.send(null);
+		
+		for (var i = 0, l = cardData.cards.length; i < l; i++) {
+			var c = cardData.cards[i];
+			var rarity = c.set === "basic" ? "free" : c.quality;
+			var type = c.type === undefined ? c.category : c.type;
+			
+			classes[c.hero].addCard(new card(c.name, rarity, c.mana,
+				type, c.hero, c.set, setsSoulbound[c.set]));
+		}	
+	}
 	
 	// Sorts all the card lists for the specified class.
 	// Sorting order:
@@ -1176,7 +1202,7 @@ var HSCollectionTracker = (function() {
 						
 						// Highlight the news button
 						var news = document.getElementById("link-news");
-						//news.className = news.className + " news";
+						news.className = news.className + " news";
 					}
 					
 				    updateLocalStorage();
