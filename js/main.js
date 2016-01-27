@@ -78,13 +78,13 @@ var HSCollectionTracker = (function() {
 	};
 	
 	// Chance of getting a card of a specific quality when opening packs.
-	// For each card, not in total
+	// For each card, not in total.
+	// Source: http://hearthstone.gamepedia.com/Card_pack_statistics#Golden_cards
 	var chanceOfGetting = {
-		free:      { normal: 0, golden: 0 },
-		common:    { normal: 0.7, golden: 0.0147 },
-		rare:      { normal: 0.214, golden: 0.0137 },
-		epic:      { normal: 0.0428, golden: 0.003 },
-		legendary: { normal: 0.0108, golden: 0.001 }
+		common:    { normal: 0.7037, golden: 0.0148 },
+		rare:      { normal: 0.216, golden: 0.0127 },
+		epic:      { normal: 0.0408, golden: 0.0019 },
+		legendary: { normal: 0.0094, golden: 0.0007 }
 	};
 
 	// Keeps track of how many cards and how much dust is missing
@@ -1007,8 +1007,7 @@ var HSCollectionTracker = (function() {
 	function updatePackGuide() {
 		var averageValue = 0;
 		for (set in packsEnum) {
-		    for (rarity in raritiesEnum)
-			    if (rarity !== "free") {
+		    for (rarity in chanceOfGetting) {
 		            averageValue += chanceOfGetting[rarity].normal * (((setsCards[set][rarity].total.cards - missingCards.overall[set][rarity].normal) / setsCards[set][rarity].total.cards) * disenchantmentValue[rarity].normal
 		                + (missingCards.overall[set][rarity].normal / setsCards[set][rarity].total.cards) * craftingCost[rarity].normal);
 					if (!settings.excludeGoldenCards)
