@@ -43,7 +43,7 @@ var HSCollectionTracker = (function() {
 	var setsCards;
 	
 	// Lists which card qualities are uncraftable for each set
-	var setsSoulbound = {
+	var setsUncraftable = {
 		basic: "both",
 		classic: "none",
 		reward: "both",
@@ -111,17 +111,17 @@ var HSCollectionTracker = (function() {
 	var currentDust = 0;
 	var disenchantedDust = 0;
 	
-	var version = 1.147;
+	var version = 1.148;
 	
 	// Card object
-	function card(name, rarity, mana, type, className, set, soulbound) {
+	function card(name, rarity, mana, type, className, set, uncraftable) {
 		this.name = name;
 		this.rarity = rarity;
 		this.mana = mana;
 		this.type = type;
 		this.className = className;
 		this.set = set;
-		this.soulbound = soulbound;
+		this.uncraftable = uncraftable;
 		this.normal = 0;
 		this.golden = 0;
 	}
@@ -369,7 +369,7 @@ var HSCollectionTracker = (function() {
 					var className = newCard.playerClass ? newCard.playerClass.toLowerCase() : classesEnum.neutral;
 					// Cards like Elven Archer are in the basic set with common rarity, but setting these to free to preserve HCT behavior
 					var rarity = set == setsEnum.basic ? raritiesEnum.free : newCard.rarity.toLowerCase();
-					classes[className].addCard(new card(newCard.name, rarity, newCard.cost, newCard.type.toLowerCase(), className, set, setsSoulbound[set]));
+					classes[className].addCard(new card(newCard.name, rarity, newCard.cost, newCard.type.toLowerCase(), className, set, setsUncraftable[set]));
 				}
 			});
 		};
@@ -414,7 +414,7 @@ var HSCollectionTracker = (function() {
 			var type = c.type === undefined ? c.category : c.type;
 			
 			classes[c.hero].addCard(new card(c.name, rarity, c.mana,
-				type, c.hero, c.set, setsSoulbound[c.set]));
+				type, c.hero, c.set, setsUncraftable[c.set]));
 		}	
 	}
 	
@@ -582,7 +582,7 @@ var HSCollectionTracker = (function() {
 	}
 	
 	function isCraftable(card, quality) {
-		return card.soulbound !== "both" && card.soulbound !== quality;
+		return card.uncraftable !== "both" && card.uncraftable !== quality;
 	}
 	
 	function getCraftingCost(card, quality, copies) {
@@ -938,7 +938,7 @@ var HSCollectionTracker = (function() {
 			td = document.createElement("td");
 			
 			// If no collectible cards for this class/set/rarity or if they're uncraftable
-			if (total == 0 || setsSoulbound[set] == "both" || setsSoulbound[set] == quality)
+			if (total == 0 || setsUncraftable[set] == "both" || setsUncraftable[set] == quality)
 					text = "-";
 			else {
 			    var totalDust = setsCards[set][rarity][className][quality] * craftingCost[rarity][quality];
@@ -979,7 +979,7 @@ var HSCollectionTracker = (function() {
 		
 		td = document.createElement("td");
 		
-		if (total == 0 || setsSoulbound[set] == "both" || setsSoulbound[set] == quality)
+		if (total == 0 || setsUncraftable[set] == "both" || setsUncraftable[set] == quality)
 				text = "-";
 		else {
 			var totalDust = 0;
@@ -1201,7 +1201,7 @@ var HSCollectionTracker = (function() {
 						
 						// Highlight the news button
 						var news = document.getElementById("link-news");
-						news.className = news.className + " news";
+						//news.className = news.className + " news";
 					}
 					
 				    updateLocalStorage();
