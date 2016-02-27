@@ -111,7 +111,7 @@ var HSCollectionTracker = (function() {
 	var currentDust = 0;
 	var disenchantedDust = 0;
 	
-	var version = 1.148;
+	var version = 1.149;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, uncraftable) {
@@ -671,8 +671,12 @@ var HSCollectionTracker = (function() {
                       filterListLeft[i].removeAttribute("class");
 				    filterListItem.setAttribute("class", "selected");
 					
-					// Display the cards with the new filter
+					// Display the cards and missing data with the new filter
 					displayCards(selectedClass);
+					displayMissingCards();
+					displayMissingCardsOverall();
+					displayMissingDust();
+					displayMissingDustOverall();
 					});
 			}(filterListItem))
 		}
@@ -759,60 +763,76 @@ var HSCollectionTracker = (function() {
 	function displayMissingCards() {
 		document.getElementById("missingCardsClassTitle").innerHTML = selectedClass.toUpperCase();
 		
-		for (var rarity in missingCards.classes[selectedClass].total) {
+		if (filterBySet === "all")
+			missingData = missingCards.classes[selectedClass].total;
+		else missingData = missingCards.classes[selectedClass][filterBySet];
+		
+		for (var rarity in missingData) {
 			var rarityCapitalized = capitalizeFirstLetter(rarity);
 			var td = document.getElementById("classMissing" + rarityCapitalized + "Normal");
-			var normal = missingCards.classes[selectedClass].total[rarity].normal;
+			var normal = missingData[rarity].normal;
 			td.innerHTML = normal;
 			td = document.getElementById("classMissing" + rarityCapitalized + "Golden");
 			// Don't show golden data if exclude golden cards is on
 			if (settings.excludeGoldenCards)
 			    td.innerHTML = "";
-			else td.innerHTML = missingCards.classes[selectedClass].total[rarity].golden;
+			else td.innerHTML = missingData[rarity].golden;
 		}
 	}
 	
 	// Displays the missing cards data overall
 	function displayMissingCardsOverall() {
-		for (var rarity in missingCards.overall.total) {
+		if (filterBySet === "all")
+			missingData = missingCards.overall.total;
+		else missingData = missingCards.overall[filterBySet];
+		
+		for (var rarity in missingData) {
 			var rarityCapitalized = capitalizeFirstLetter(rarity);
 			var td = document.getElementById("overallMissing" + rarityCapitalized + "Normal");
-			var normal = missingCards.overall.total[rarity].normal;
+			var normal = missingData[rarity].normal;
 			td.innerHTML = normal;
 			td = document.getElementById("overallMissing" + rarityCapitalized + "Golden");
 			// Don't show golden data if exclude golden cards is on
 			if (settings.excludeGoldenCards)
 			    td.innerHTML = "";
-			else td.innerHTML = missingCards.overall.total[rarity].golden;
+			else td.innerHTML = missingData[rarity].golden;
 		}
 	}
 	
 	// Displays the missing dust data for the selected class
 	function displayMissingDust() {
-		for (var rarity in missingDust.classes[selectedClass].total) {
+		if (filterBySet === "all")
+			missingData = missingDust.classes[selectedClass].total;
+		else missingData = missingDust.classes[selectedClass][filterBySet];
+		
+		for (var rarity in missingData) {
 			var rarityCapitalized = capitalizeFirstLetter(rarity);
 			var td = document.getElementById("classMissingDust" + rarityCapitalized);
 			var dust = 0;
 			// Don't show golden data if exclude golden cards is on
 			if (settings.excludeGoldenCards)
-				dust = missingDust.classes[selectedClass].total[rarity].normal;
-			else dust = missingDust.classes[selectedClass].total[rarity].normal +
-				missingDust.classes[selectedClass].total[rarity].golden;
+				dust = missingData[rarity].normal;
+			else dust = missingData[rarity].normal +
+				missingData[rarity].golden;
 			td.innerHTML = addThousandSeparator(dust);
 		}
 	}
 	
 	// Displays the missing dust data overall
 	function displayMissingDustOverall() {
-		for (var rarity in missingDust.overall.total) {
+		if (filterBySet === "all")
+			missingData = missingDust.overall.total;
+		else missingData = missingDust.overall[filterBySet];
+		
+		for (var rarity in missingData) {
 			var rarityCapitalized = capitalizeFirstLetter(rarity);
 			var td = document.getElementById("overallMissingDust" + rarityCapitalized);
 			var dust = 0;
 			// Don't show golden data if exclude golden cards is on
 			if (settings.excludeGoldenCards)
-				dust = missingDust.overall.total[rarity].normal;
-			else dust = missingDust.overall.total[rarity].normal +
-				missingDust.overall.total[rarity].golden;
+				dust = missingData[rarity].normal;
+			else dust = missingData[rarity].normal +
+				missingData[rarity].golden;
 			td.innerHTML = addThousandSeparator(dust);
 		}
 	}
@@ -1201,7 +1221,7 @@ var HSCollectionTracker = (function() {
 						
 						// Highlight the news button
 						var news = document.getElementById("link-news");
-						//news.className = news.className + " news";
+						news.className = news.className + " news";
 					}
 					
 				    updateLocalStorage();
