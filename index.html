@@ -16,7 +16,7 @@
 
   ga('create', 'UA-62707621-1', 'auto');
   ga('send', 'pageview'); 
-</script> 
+</script>
 </head>
 <body>
 
@@ -41,7 +41,7 @@
         <ul class="nav navbar-nav navbar-right">		  
 		  <li><a id="link-tracker" class="title">Tracker</a></li>
 		  <li><a id="link-progress" class="title">Progress</a></li>
-		  <li><a id="link-packs" class="title">Pack Guide</a></li>
+		  <li><a id="link-packs" class="title">Pack & Chest Guide</a></li>
 		  <li class="dropdown">
 		    <a class="dropdown-toggle title" data-toggle="dropdown">Options
 		    <span class="caret"></span></a>
@@ -216,6 +216,7 @@
 <script id="template-news" type="text/html">
 <div class="col-xs-12 side-page">
   <h2>News</h2>
+  <p><span class="special2">21-03-16</span> - Updated the Pack Guide to include average dust received from ranked chest rewards.</p>
   <p><span class="special2">27-02-16</span> - Infobox now displays missing data for the selected set in the filtering bar.</p>
   <p><span class="special2">23-01-16</span> - Card data is now synced with game data instead of managed manually. Unfortunately due to typos, some cards have had their normal and golden copies reset,
 							which means you need to add those cards again. These cards are: <b>Webspinner (Hunter)</b>, <b>Scavenging Hyena (Hunter)</b> and <b>Dark Wispers (Druid)</b>.</p>
@@ -246,18 +247,20 @@
 </script>
 <script id="template-packs" type="text/html">
 <div class="col-xs-12 side-page">
-  <h2>Pack Guide</h2>
-  <p>This guide will help you determine which pack you should buy based on your collection.</p>
-  <p>It calculates the average amount of dust that you will receive from each pack.
-	 The dust value is based on dust received from disenchanting duplicate cards and the amount of dust required to craft new cards.
-	 Since there are no official stats about card rarities, the stats have been approximated from a large number of pack openings.</p>
+  <h2>Pack & Chest Guide</h2>
+  <p>This guide will help you determine which pack you should buy based on your collection, as well as which ranked chest to aim for.</p>
+  <p>The average amount of dust that you will receive from each pack and ranked chest is listed below.
+	 The value is based on dust received from disenchanting duplicate cards and the amount of dust required to craft new cards.
+	 
   <p>If you have ticked the "I don't care about golden cards" box, it is assumed that every golden card will be disenchanted.</p>
+  <div class="mainDiv">
+  <div class="row">
   <div class="col-xs-4">
     <img src="images/pack_classic.png" alt="Classic pack" width="160" height="216">
 	<table class="tablePack">
 	  <tr>
-	    <td>Average pack value</td>
-		<td id="classicAverageValue"></td>
+	    <td>Average dust =</td>
+		<td id="classicAverageDust"></td>
 	  </tr>
 	</table>  
   </div>
@@ -265,8 +268,8 @@
     <img src="images/pack_gvg.png" alt="GvG pack" width="160" height="216">
 	<table class="tablePack">
 	  <tr>
-	    <td>Average pack value</td>
-		<td id="gvgAverageValue"></td>
+	    <td>Average dust =</td>
+		<td id="gvgAverageDust"></td>
 	  </tr>
 	</table>
   </div>
@@ -274,10 +277,62 @@
     <img src="images/pack_tgt.png" alt="TGT pack" width="160" height="216">
 	<table class="tablePack">
 	  <tr>
-	    <td>Average pack value</td>
-		<td id="tgtAverageValue"></td>
+	    <td>Average dust =</td>
+		<td id="tgtAverageDust"></td>
 	  </tr>
 	</table>
+  </div>
+  </div>
+  <hr>
+  <div class="row">
+    <div class="col-xs-4">
+    <img src="images/chest_20.png" alt="Rank 20 chest" width="130" height="91">
+	<table class="tablePack">
+	  <tr>
+	    <td>Average dust =</td>
+		<td id="chest20AverageDust"></td>
+	  </tr>
+	</table>  
+  </div>
+  <div class="col-xs-4">
+    <img src="images/chest_15.png" alt="Rank 15 chest" width="130" height="91">
+	<table class="tablePack">
+	  <tr>
+	    <td>Average dust =</td>
+		<td id="chest15AverageDust"></td>
+	  </tr>
+	</table>
+  </div>
+  <div class="col-xs-4">
+    <img src="images/chest_10.png" alt="Rank 10 chest" width="130" height="91">
+	<table class="tablePack">
+	  <tr>
+	    <td>Average dust =</td>
+		<td id="chest10AverageDust"></td>
+	  </tr>
+	</table>
+  </div>
+  </div>
+  <div class="row">
+  <div class="col-xs-6">
+    <img src="images/chest_5.png" alt="Rank 5 chest" width="131" height="110">
+	<table class="tablePack">
+	  <tr>
+	    <td>Average dust =</td>
+		<td id="chest5AverageDust">235.0</td>
+	  </tr>
+	</table>
+  </div>
+  <div class="col-xs-6">
+    <img src="images/chest_legendary.png" alt="Legendary rank chest" width="131" height="110">
+	<table class="tablePack">
+	  <tr>
+	    <td>Average dust =</td>
+		<td id="chestLegendaryAverageDust"></td>
+	  </tr>
+	</table>
+  </div>
+  </div>
   </div>
 </div>
 </script>

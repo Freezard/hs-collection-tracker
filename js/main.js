@@ -111,7 +111,7 @@ var HSCollectionTracker = (function() {
 	var currentDust = 0;
 	var disenchantedDust = 0;
 	
-	var version = 1.149;
+	var version = 1.150;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, uncraftable) {
@@ -1036,10 +1036,50 @@ var HSCollectionTracker = (function() {
 					else averageValue += chanceOfGetting[rarity].golden * disenchantmentValue[rarity].golden;
 				}
 		
-		    document.getElementById(set + "AverageValue").innerHTML = (averageValue * 5).toFixed(1);
+		    document.getElementById(set + "AverageDust").innerHTML = (averageValue * 5).toFixed(1);
 			averageValue = 0;
 		}
-	}		
+	}
+	
+	function updateChestGuide() {
+		var averageDust = {
+			common: 0,
+			rare: 0,
+			epic: 0
+		};
+		
+		var total = {
+			common: 0,
+			rare: 0,
+			epic: 0
+		};
+		
+		var missing = {
+			common: 0,
+			rare: 0,
+			epic: 0
+		};
+		
+		for (set in packsEnum) {
+		    for (rarity in averageDust) {
+				total[rarity] += setsCards[set][rarity].total.cards;
+				missing[rarity] += missingCards.overall[set][rarity].golden;
+			}
+		}
+		
+		for (rarity in averageDust) {
+		    if (!settings.excludeGoldenCards)
+			    averageDust[rarity] += ((total[rarity] - missing[rarity]) / total[rarity]) * disenchantmentValue[rarity].golden
+		            + (missing[rarity] / total[rarity]) * craftingCost[rarity].golden;
+		    else averageDust[rarity] = disenchantmentValue[rarity].golden;
+		}
+		
+		document.getElementById("chest20AverageDust").innerHTML = (averageDust.common + 5).toFixed(1);
+		document.getElementById("chest15AverageDust").innerHTML = (averageDust.common + averageDust.rare + 5).toFixed(1);
+		document.getElementById("chest10AverageDust").innerHTML = (averageDust.common * 2 + averageDust.rare + 5).toFixed(1);
+		document.getElementById("chest5AverageDust").innerHTML = (averageDust.common * 2 + averageDust.epic + 5).toFixed(1);
+		document.getElementById("chestLegendaryAverageDust").innerHTML = (averageDust.common * 3 + averageDust.epic).toFixed(1);
+	}
 	/*********************************************************
 	**********************HTML TEMPLATES**********************
 	*********************************************************/
@@ -1077,6 +1117,7 @@ var HSCollectionTracker = (function() {
 			initSetsCards();
 		
 		updatePackGuide();
+		updateChestGuide();
 		
 		document.getElementById("header-center").style.visibility = "hidden";
 		
