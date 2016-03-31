@@ -388,7 +388,7 @@ var HSCollectionTracker = (function() {
 			var href_tmpl = 'http://www.hearthpwn.com/cards/%d';
 
 			// When list of cards changes, reinit the tooltips
-			$('#classCards').on('change', function() {
+			$('#classCards').on('listchange', function() {
 				CurseTips['hearth-tooltip'].watchElements($('#classCards li a:not(.buttonAll)').map(function(a) {
 					var $a = $(this);
 					var card_name = $a.text();
@@ -399,7 +399,7 @@ var HSCollectionTracker = (function() {
 					$li.attr('data-tooltip-href', href_tmpl.replace('%d', card_ids[card_name]));
 					return $li[0];
 				}).get());
-			}).change();
+			}).trigger('listchange');
 		});
 	}
 
