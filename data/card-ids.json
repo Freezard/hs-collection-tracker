@@ -151,7 +151,7 @@
 {"name":"Mind Blast","hpid":415,"whid":545},
 {"name":"Steady Shot","hpid":481,"whid":229},
 {"name":"Lightwarden","hpid":436,"whid":1655},
-{"name":"Black Knight","hpid":396,"whid":1656},
+{"name":"The Black Knight","hpid":396,"whid":1656},
 {"name":"Young Priestess","hpid":123,"whid":1634},
 {"name":"Big Game Hunter","hpid":73,"whid":1657},
 {"name":"Alarm-o-Bot","hpid":425,"whid":1658},
@@ -841,6 +841,7 @@
 
 
 
+{"name":"Black Knight","hpid":396,"whid":1656},
 {"name":"Ragnaros","hpid":503,"whid":374},
 {"name":"Shieldmasta","hpid":326,"whid":635},
 {"name":"Defias","hpid":417,"whid":201},
