@@ -326,6 +326,125 @@ var HSCollectionTracker = (function() {
 				}
 		}		
 	}
+
+	function initHearthpwnTooltips() {
+		var deferreds = [];
+
+		// List of hearthstone cards grabbed 2016-03-31 from this chrome extension:
+		// https://chrome.google.com/webstore/detail/hearthstone-linkifier/hgfciolhdhbagnccplcficnahgleflam
+		//
+		// Most valuable here are IDs in hearthpwn.com and wowhead.com databases.
+		if (!window.HS_CardData) {
+			var promise = (function() {
+				var deferred = jQuery.Deferred();
+				var request = new XMLHttpRequest();
+				request.open("GET", "data/card-ids.json");
+				request.onreadystatechange = function () {
+					if(request.readyState === 4) {
+						if(request.status === 200 || request.status == 0) {
+							try {
+								deferred.resolve(JSON.parse(request.responseText));
+								return;
+							} catch (e) {
+								console.log('Error getting card IDs');
+								console.log(e);
+							}
+						}
+						deferred.reject();
+					}
+				}
+				try {
+					request.send(null);
+				} catch(e) {
+					console.log('Error getting card IDs');
+					console.log(e);
+					deferred.reject();
+				}
+				return deferred.promise();
+			})();
+			deferreds.push(promise.then(function(data) {
+				window.HS_CardData = data;
+			}));
+		}
+
+		// HearthPwn tooltip script
+		// http://www.hearthpwn.com/tooltips
+		if (!window.CurseTips) {
+			var tt_url = '//static-hearth.cursecdn.com/current/js/syndication/tt.js';
+			if (location.protocol == 'file:') {
+				tt_url = 'http:' + tt_url;
+			}
+			deferreds.push($.getScript(tt_url));
+		}
+
+		// Init tooltips when dependencies are loaded
+		return $.when.apply($, deferreds).then(function() {
+
+			initTooltipDelay();
+
+			// maps card name to hearthpwn id
+			var card_ids = {};
+			HS_CardData.forEach(function(card) {
+				card_ids[card.name] = card.hpid;
+			});
+			var href_tmpl = 'http://www.hearthpwn.com/cards/%d';
+
+			// When list of cards changes, reinit the tooltips
+			$(document).on('listchange listinit', '#classCards', applyTooltips);
+			applyTooltips();
+
+			function applyTooltips() {
+				CurseTips['hearth-tooltip'].watchElements($('#classCards li a:not(.buttonAll)').map(function(a) {
+					var $a = $(this);
+					var card_name = $a.text();
+					if (!card_ids[card_name]) {
+						return;
+					}
+					var $li = $a.closest('li');
+					$li.attr('data-tooltip-href', href_tmpl.replace('%d', card_ids[card_name]));
+					return $li[0];
+				}).get());
+			}
+
+			// Monkey-patch to delay showing tooltip
+			function initTooltipDelay() {
+				var mouseenter_ts = 0;
+				var last_card_id = null;
+				var self = CurseTips['hearth-tooltip'];
+
+				// 100ms delay between mouseenter and requesting data
+				var origCreateTooltip = self.createTooltip;
+				self.createTooltip = function(q) {
+					mouseenter_ts = Date.now();
+					var card_id = last_card_id = (q.currentTarget.getAttribute("data-tooltip-href")||'').split('/').pop();
+					if (last_card_id) {
+						q = $.extend({}, q);
+						setTimeout(function() {
+							if (card_id == last_card_id) {
+								origCreateTooltip.call(self, q);
+							}
+						}, 100);
+					}
+				};
+
+				// 500ms delay between mouseenter and showing tooltip
+				var origHandleTooltipData = self.handleTooltipData;
+				self.handleTooltipData = function(p) {
+					var args = arguments;
+					if (!p) {
+						last_card_id = null;
+						return origHandleTooltipData.apply(self, args);
+					}
+					setTimeout(function() {
+						if (p.Id == last_card_id) {
+							origHandleTooltipData.apply(self, args);
+						}
+					}, Math.max(0, 500 - (Date.now() - mouseenter_ts)));
+				};
+			}
+		});
+	}
+
 	/*********************************************************
 	**********************LOCAL STORAGE***********************
 	*********************************************************/
@@ -757,6 +876,8 @@ var HSCollectionTracker = (function() {
 				}
 			}
 		}
+
+		$('#classCards').trigger('listchange');
 	}
 		
 	// Displays the missing cards data for the selected class
@@ -1273,6 +1394,7 @@ var HSCollectionTracker = (function() {
 				else loadLocalStorage();
 			}
 			
+			initHearthpwnTooltips();
 			initSelectedQuality();
 			initEventListeners();
 			displayTracker();
