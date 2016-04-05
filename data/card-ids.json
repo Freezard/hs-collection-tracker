@@ -321,7 +321,7 @@
 {"name":"Shieldbearer","hpid":24,"whid":866},
 {"name":"Brawl","hpid":297,"whid":75},
 {"name":"Mortal Strike","hpid":345,"whid":804},
-{"name":"Upgrade","hpid":638,"whid":511},
+{"name":"Upgrade!","hpid":638,"whid":511},
 {"name":"Heavy Axe","hpid":583,"whid":1661},
 {"name":"Gorehowl","hpid":96,"whid":810},
 {"name":"Raging Worgen","hpid":95,"whid":1155},
@@ -489,7 +489,7 @@
 {"name":"Voidcaller","hpid":7733,"whid":1806,"set":"naxx"},
 {"name":"Wailing Soul","hpid":7758,"whid":1799,"set":"naxx"},
 {"name":"Webspinner","hpid":7741,"whid":1860,"set":"naxx"},
-{"name":"Zombie Chow","hpid":7752,"whid":1753,"set":"naxx"},
+{"name":"Zombie Chow","hpid":683,"whid":1753,"set":"naxx"},
 {"name":"Thaddius","hpid":7759,"whid":1798,"set":"naxx"},
 {"name":"Elite Tauren Chieftain","hpid":682,"whid":1754,"set":"promo"},
 {"name":"I Am Murloc","hpid":714,"whid":1843,"set":"promo"},
@@ -528,7 +528,7 @@
 {"name":"Dunemaul Shaman","hpid":12234,"whid":2034,"set":"gvg"},
 {"name":"Echo of Medivh","hpid":12300,"whid":1941,"set":"gvg"},
 {"name":"Emergency Coolant","hpid":12372,"whid":2155,"set":"gvg"},
-{"name":"Enhance-o-Mechano","hpid":12176,"whid":2075,"set":"gvg"},
+{"name":"Enhance-o Mechano","hpid":12176,"whid":2075,"set":"gvg"},
 {"name":"Feign Death","hpid":12238,"whid":1991,"set":"gvg"},
 {"name":"Fel Cannon","hpid":12221,"whid":1997,"set":"gvg"},
 {"name":"Fel Reaver","hpid":12264,"whid":1982,"set":"gvg"},
@@ -841,6 +841,8 @@
 
 
 
+{"name":"Upgrade","hpid":638,"whid":511},
+{"name":"Enhance-o-Mechano","hpid":12176,"whid":2075,"set":"gvg"},
 {"name":"Black Knight","hpid":396,"whid":1656},
 {"name":"Ragnaros","hpid":503,"whid":374},
 {"name":"Shieldmasta","hpid":326,"whid":635},
