@@ -877,7 +877,7 @@ var HSCollectionTracker = (function() {
 			}
 		}
 
-		$('#classCards').trigger('listchange');
+		//$('#classCards').trigger('listchange');
 	}
 		
 	// Displays the missing cards data for the selected class
@@ -1394,7 +1394,7 @@ var HSCollectionTracker = (function() {
 				else loadLocalStorage();
 			}
 			
-			initHearthpwnTooltips();
+			//initHearthpwnTooltips();
 			initSelectedQuality();
 			initEventListeners();
 			displayTracker();
