@@ -374,7 +374,22 @@ var HSCollectionTracker = (function() {
 			if (location.protocol == 'file:') {
 				tt_url = 'http:' + tt_url;
 			}
-			deferreds.push($.getScript(tt_url));
+
+			// HearthPwn's tooltip script does not like being $.getScript()'ed.
+			// It errs when it can't find its <script>. So, we have to include it by hand.
+			var promise = (function() {
+				var deferred = jQuery.Deferred();
+				var $script = $('<script>').prop('src', tt_url).on("load error", function(e) {
+					if (e.type === "error") {
+						deferred.reject();
+					} else {
+						deferred.resolve();
+					}
+				});
+				document.head.appendChild($script[0]);
+				return deferred.promise();
+			})();
+			deferreds.push(promise);
 		}
 
 		// Init tooltips when dependencies are loaded
@@ -389,22 +404,20 @@ var HSCollectionTracker = (function() {
 			});
 			var href_tmpl = 'http://www.hearthpwn.com/cards/%d';
 
-			// When list of cards changes, reinit the tooltips
-			$(document).on('listchange listinit', '#classCards', applyTooltips);
-			applyTooltips();
-
-			function applyTooltips() {
-				CurseTips['hearth-tooltip'].watchElements($('#classCards li a:not(.buttonAll)').map(function(a) {
-					var $a = $(this);
-					var card_name = $a.text();
-					if (!card_ids[card_name]) {
-						return;
-					}
-					var $li = $a.closest('li');
-					$li.attr('data-tooltip-href', href_tmpl.replace('%d', card_ids[card_name]));
-					return $li[0];
-				}).get());
-			}
+			// Listen to mouse events and init tooltips on the fly
+			$(document.body).on('mouseover', '#classCards li a', function(evt) {
+				var $a = $(this);
+				if ($a.hasClass('buttonAll') || $a.attr('data-tooltip-href')) {
+					return;
+				}
+				var card_name = $a.text();
+				if (!card_ids[card_name]) {
+					return;
+				}
+				$a.attr('data-tooltip-href', href_tmpl.replace('%d', card_ids[card_name]));
+				CurseTips['hearth-tooltip'].watchElements([$a[0]]);
+				CurseTips['hearth-tooltip'].createTooltip(evt);
+			});
 
 			// Monkey-patch to delay showing tooltip
 			function initTooltipDelay() {
@@ -416,7 +429,7 @@ var HSCollectionTracker = (function() {
 				var origCreateTooltip = self.createTooltip;
 				self.createTooltip = function(q) {
 					mouseenter_ts = Date.now();
-					var card_id = last_card_id = (q.currentTarget.getAttribute("data-tooltip-href")||'').split('/').pop();
+					var card_id = last_card_id = (q.currentTarget.getAttribute("data-tooltip-href")||'').split('/').pop().split('?')[0];
 					if (last_card_id) {
 						q = $.extend({}, q);
 						setTimeout(function() {
@@ -876,8 +889,6 @@ var HSCollectionTracker = (function() {
 				}
 			}
 		}
-
-		//$('#classCards').trigger('listchange');
 	}
 		
 	// Displays the missing cards data for the selected class
@@ -1394,7 +1405,7 @@ var HSCollectionTracker = (function() {
 				else loadLocalStorage();
 			}
 			
-			//initHearthpwnTooltips();
+			initHearthpwnTooltips();
 			initSelectedQuality();
 			initEventListeners();
 			displayTracker();
