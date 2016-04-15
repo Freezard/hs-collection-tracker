@@ -56,11 +56,11 @@ var HSCollectionTracker = (function() {
 		classic: "none",
 		reward: "both",
 		promo: "golden",
-		naxxramas: "normal",
+		naxxramas: "none",
 		gvg: "none",
-		blackrock: "normal",
+		blackrock: "none",
 		tgt: "none",
-		loe: "normal"
+		loe: "none"
 	};
 	
 	var packsEnum = {
@@ -119,7 +119,7 @@ var HSCollectionTracker = (function() {
 	var currentDust = 0;
 	var disenchantedDust = 0;
 	
-	var version = 1.151;
+	var version = 1.152;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, uncraftable) {
