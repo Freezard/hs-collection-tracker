@@ -37,7 +37,15 @@ var HSCollectionTracker = (function() {
 		tgt: "tgt",
 		loe: "loe"
 	};
-	
+
+	var standardSetsEnum = {
+		basic: "basic",
+		classic: "classic",
+		blackrock: "blackrock",
+		tgt: "tgt",
+		loe: "loe"
+	};
+
 	// The number of cards and craftable cards in each set.
 	// Created dynamically when visiting progress page/pack guide
 	var setsCards;
@@ -865,39 +873,77 @@ var HSCollectionTracker = (function() {
 				var card = cardList[rarity][name];
 				
 				// Only display the card if it isn't filtered out
-				if (filterBySet === "all" || card.set === filterBySet) {
-					// Only display the card if show missing cards is off,
-					// or the card is actually missing from your collection
-					if (!settings.showOnlyMissingCards || (settings.showOnlyMissingCards && 
-					(!settings.excludeGoldenCards && (card.normal < getMaxCopies(rarity) || card.golden < getMaxCopies(rarity))) ||
-					(settings.excludeGoldenCards && (card.normal < getMaxCopies(rarity)))
-					)) {
-				        var listItem = document.createElement("li");
-				        var listItemLink = document.createElement("a");
-				        listItemLink.textContent = name;
-				        (function (card) {
-					        listItemLink.addEventListener("click", function() { addCard(card); });
-					        listItemLink.addEventListener("contextmenu", function() { removeCard(card); });
-					        }(card))
-						// Set the CSS for the card depending on how many copies in the collection
-				        listItemLink.setAttribute("class", "normal" + cardList[rarity][name].normal + " " +
-							"golden" + cardList[rarity][name].golden + " " + "noselect");
-			
-				        listItem.appendChild(listItemLink);
-				        list.appendChild(listItem);
-					}
+				if (isVisible(card, filterBySet, settings)) {
+					var listItem = document.createElement("li");
+					var listItemLink = document.createElement("a");
+					listItemLink.textContent = name;
+					(function (card) {
+						listItemLink.addEventListener("click", function() { addCard(card); });
+						listItemLink.addEventListener("contextmenu", function() { removeCard(card); });
+						}(card))
+					// Set the CSS for the card depending on how many copies in the collection
+					listItemLink.setAttribute("class", "normal" + cardList[rarity][name].normal + " " +
+						"golden" + cardList[rarity][name].golden + " " + "noselect");
+
+					listItem.appendChild(listItemLink);
+					list.appendChild(listItem);
 				}
 			}
 		}
+
+		function isVisible(card, filterBySet, settings) {
+			// Only display the card if show missing cards is off,
+			// or the card is actually missing from your collection
+			if (settings.showOnlyMissingCards) {
+				if (settings.excludeGoldenCards) {
+					if (card.normal >= getMaxCopies(rarity)) {
+						return false;
+					}
+				} else {
+					if (card.normal >= getMaxCopies(rarity) && card.golden >= getMaxCopies(rarity)) {
+						return false;
+					}
+				}
+			}
+			if (filterBySet === "all") {
+				return true;
+			}
+			if (filterBySet === "standard") {
+				return !!standardSetsEnum[card.set];
+			}
+			return card.set === filterBySet;
+		}
 	}
-		
+
+	function getMissingDataFiltered(classData) {
+		if (filterBySet === "all") {
+			return classData.total;
+		} else if (filterBySet === "standard") {
+			var missingData = {};
+			for (var set in standardSetsEnum) {
+				var setData = classData[set];
+				for (var rarity in setData) {
+					if (!missingData[rarity]) {
+						missingData[rarity] = {
+							normal: 0,
+							golden: 0
+						};
+					}
+					missingData[rarity].normal += setData[rarity].normal;
+					missingData[rarity].golden += setData[rarity].golden;
+				}
+			}
+			return missingData;
+		} else {
+			return classData[filterBySet];
+		}
+	}
+
 	// Displays the missing cards data for the selected class
 	function displayMissingCards() {
 		document.getElementById("missingCardsClassTitle").innerHTML = selectedClass.toUpperCase();
 		
-		if (filterBySet === "all")
-			missingData = missingCards.classes[selectedClass].total;
-		else missingData = missingCards.classes[selectedClass][filterBySet];
+		var missingData = getMissingDataFiltered(missingCards.classes[selectedClass]);
 		
 		for (var rarity in missingData) {
 			var rarityCapitalized = capitalizeFirstLetter(rarity);
@@ -914,9 +960,7 @@ var HSCollectionTracker = (function() {
 	
 	// Displays the missing cards data overall
 	function displayMissingCardsOverall() {
-		if (filterBySet === "all")
-			missingData = missingCards.overall.total;
-		else missingData = missingCards.overall[filterBySet];
+		var missingData = getMissingDataFiltered(missingCards.overall);
 		
 		for (var rarity in missingData) {
 			var rarityCapitalized = capitalizeFirstLetter(rarity);
@@ -933,9 +977,7 @@ var HSCollectionTracker = (function() {
 	
 	// Displays the missing dust data for the selected class
 	function displayMissingDust() {
-		if (filterBySet === "all")
-			missingData = missingDust.classes[selectedClass].total;
-		else missingData = missingDust.classes[selectedClass][filterBySet];
+		var missingData = getMissingDataFiltered(missingDust.classes[selectedClass]);
 		
 		for (var rarity in missingData) {
 			var rarityCapitalized = capitalizeFirstLetter(rarity);
@@ -952,9 +994,7 @@ var HSCollectionTracker = (function() {
 	
 	// Displays the missing dust data overall
 	function displayMissingDustOverall() {
-		if (filterBySet === "all")
-			missingData = missingDust.overall.total;
-		else missingData = missingDust.overall[filterBySet];
+		var missingData = getMissingDataFiltered(missingDust.overall);
 		
 		for (var rarity in missingData) {
 			var rarityCapitalized = capitalizeFirstLetter(rarity);
