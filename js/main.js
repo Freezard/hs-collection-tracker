@@ -119,7 +119,7 @@ var HSCollectionTracker = (function() {
 	var currentDust = 0;
 	var disenchantedDust = 0;
 	
-	var version = 1.152;
+	var version = 1.153;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, uncraftable) {
@@ -1114,7 +1114,7 @@ var HSCollectionTracker = (function() {
 				text = "-";
 			else {
 				var missing;
-				// Total row have its own data
+				// Total row has its own data
 				if (className != "total")
 			        missing = missingCards.classes[className][set][rarity][quality];
 				else missing = missingCards.overall[set][rarity][quality];
