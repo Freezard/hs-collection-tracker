@@ -77,6 +77,7 @@
 	    <li><a>Blackrock</a></li>
 		<li><a>TGT</a></li>
 		<li><a>LoE</a></li>
+		<li><a>WotOG</a></li>
 	  </ul>
     </div>
 	<div class="col-xs-4">
@@ -197,6 +198,7 @@
 	<option value="blackrock">Blackrock Mountain</option>
 	<option value="tgt">The Grand Tournament</option>
 	<option value="loe">League of Explorers</option>
+	<option value="wotog">Whispers of the Old Gods</option>
 	<option value="total">Overall</option>
   </select>
 </div>
@@ -217,14 +219,16 @@
 <script id="template-news" type="text/html">
 <div class="col-xs-12 side-page">
   <h2>News</h2>
-  <p><span class="special2">15-04-25</span> - Tracker updated to the latest patch, which changed mana costs of a few cards.</p>
+  <p><span class="special2">15-04-25</span> - Added cards from Whispers of the Old Gods.</p>
+              <p style="margin-left: 62px"> - Changed Reward cards to be craftable.</p>
+			  <p style="margin-left: 62px"> - Updated Classic cards which were changed to their new mana costs.</p>
+              <p style="margin-left: 62px"> - Updated the Pack & Chest Guide with the new card sets rotation.</p>              
   <p><span class="special2">15-04-16</span> - Added a Standard filter that only includes sets from the upcoming format. Thanks to Leonix.</p>
-                                        <p style="margin-left: 62px"> - Changed normal cards of adventure sets to be craftable.</p>
+              <p style="margin-left: 62px"> - Changed normal cards from adventure sets to be craftable.</p>
   <p><span class="special2">06-04-16</span> - Added card tooltips by HearthPwn when hovering over cards. Thanks to Leonix.</p>
   <p><span class="special2">21-03-16</span> - Updated the Pack Guide to include average dust received from ranked chest rewards.</p>
   <p><span class="special2">27-02-16</span> - Infobox now displays missing data for the selected set in the filtering bar.</p>
-  <p><span class="special2">23-01-16</span> - Card data is now synced with game data instead of managed manually. Unfortunately due to typos, some cards have had their normal and golden copies reset,
-							which means you need to add those cards again. These cards are: <b>Webspinner (Hunter)</b>, <b>Scavenging Hyena (Hunter)</b> and <b>Dark Wispers (Druid)</b>.</p>
+  <p><span class="special2">23-01-16</span> - Card data is now synced with game data instead of managed manually.</p>
   <p><span class="special2">10-01-16</span> - Added an overall progress table for all sets combined. It's now possible to see your total progress of every card in the game.</p>
   <p><span class="special2">21-12-15</span> - Updated the progress page to display card and dust progress for all rarities combined. For example, it's now possible to see your total progress for a set.</p>
   <p><span class="special2">11-12-15</span> - Added cards from the fourth wing of League of Explorers.</p>
@@ -270,20 +274,20 @@
 	</table>  
   </div>
   <div class="col-xs-4">
-    <img src="images/pack_gvg.png" alt="GvG pack" width="160" height="216">
-	<table class="tablePack">
-	  <tr>
-	    <td>Average dust =</td>
-		<td id="gvgAverageDust"></td>
-	  </tr>
-	</table>
-  </div>
-  <div class="col-xs-4">
     <img src="images/pack_tgt.png" alt="TGT pack" width="160" height="216">
 	<table class="tablePack">
 	  <tr>
 	    <td>Average dust =</td>
 		<td id="tgtAverageDust"></td>
+	  </tr>
+	</table>
+  </div>
+    <div class="col-xs-4">
+    <img src="images/pack_wotog.png" alt="WotOG pack" width="160" height="216">
+	<table class="tablePack">
+	  <tr>
+	    <td>Average dust =</td>
+		<td id="wotogAverageDust"></td>
 	  </tr>
 	</table>
   </div>

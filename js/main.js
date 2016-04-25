@@ -35,7 +35,8 @@ var HSCollectionTracker = (function() {
 		gvg: "gvg",
 		blackrock: "blackrock",
 		tgt: "tgt",
-		loe: "loe"
+		loe: "loe",
+		wotog: "wotog"
 	};
 
 	var standardSetsEnum = {
@@ -43,7 +44,8 @@ var HSCollectionTracker = (function() {
 		classic: "classic",
 		blackrock: "blackrock",
 		tgt: "tgt",
-		loe: "loe"
+		loe: "loe",
+		wotog: "wotog"
 	};
 
 	// The number of cards and craftable cards in each set.
@@ -54,19 +56,20 @@ var HSCollectionTracker = (function() {
 	var setsUncraftable = {
 		basic: "both",
 		classic: "none",
-		reward: "both",
+		reward: "none",
 		promo: "golden",
 		naxxramas: "none",
 		gvg: "none",
 		blackrock: "none",
 		tgt: "none",
-		loe: "none"
+		loe: "none",
+		wotog: "none"
 	};
 	
 	var packsEnum = {
 		classic: "classic",
-		gvg: "gvg",
-		tgt: "tgt"
+		tgt: "tgt",
+		wotog: "wotog"
 	};
 	
 	var craftingCost = {
@@ -119,7 +122,7 @@ var HSCollectionTracker = (function() {
 	var currentDust = 0;
 	var disenchantedDust = 0;
 	
-	var version = 1.153;
+	var version = 1.154;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, uncraftable) {
@@ -500,7 +503,8 @@ var HSCollectionTracker = (function() {
 			"Goblins vs Gnomes": setsEnum.gvg,
 			"Blackrock Mountain": setsEnum.blackrock,
 			"The Grand Tournament": setsEnum.tgt,
-			"The League of Explorers": setsEnum.loe
+			"The League of Explorers": setsEnum.loe,
+			"Whispers of the Old Gods": setsEnum.wotog
 		};
 		
 		var importCardData = function (cards, set) {
@@ -525,7 +529,7 @@ var HSCollectionTracker = (function() {
 				var set = setMap[apiSet];
 				if (set) {
 					importCardData(response[apiSet], set);
-				} else {
+				} else { // Does not work
 					console.log("ERROR: Unrecognized card set " + newCard.cardSet + ", skipping card " + newCard.name);
 				}
 			});
