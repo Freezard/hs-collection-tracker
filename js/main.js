@@ -186,6 +186,61 @@ var HSCollectionTracker = (function() {
 				total:       { normal: 0, golden: 0 }
 			};
 	}
+	
+	function getProgressDataObject() {
+		return {
+				free:      0,
+				common:    0,
+				rare:      0,
+				epic:      0,
+				legendary: 0,
+				total:     0,
+				all:       0
+			};
+	}
+	
+	function createProgressData(quality, sets, className) {
+		var data = {
+			totalCards: getProgressDataObject(),
+			missingCards: getProgressDataObject(),
+			totalDust: getProgressDataObject(),
+			missingDust: getProgressDataObject()
+		};
+		
+		for (set in sets)
+			for (rarity in setsCards[set]) {
+				if (setsCards[set][rarity][className] != undefined) {
+				    data.totalCards[rarity] += setsCards[set][rarity][className].cards;
+					data.totalCards.all += setsCards[set][rarity][className].cards;
+				}
+				// Total row has its own data
+				if (className != "total") {
+			        data.missingCards[rarity] += missingCards.classes[className][set][rarity][quality];
+					data.missingCards.all += missingCards.classes[className][set][rarity][quality];
+				}
+				else {
+					data.missingCards[rarity] += missingCards.overall[set][rarity][quality];
+					data.missingCards.all += missingCards.overall[set][rarity][quality];
+				}
+				
+				if(setsUncraftable[set] != "both" && setsUncraftable[set] != quality && setsCards[set][rarity][className] != undefined) {
+				    data.totalDust[rarity] += setsCards[set][rarity][className][quality] * craftingCost[rarity][quality];
+					data.totalDust.all += setsCards[set][rarity][className][quality] * craftingCost[rarity][quality];
+					
+					if (className != "total") {
+			            data.missingDust[rarity] += missingDust.classes[className][set][rarity][quality];
+						data.missingDust.all += missingDust.classes[className][set][rarity][quality];
+					}
+				    else {
+						data.missingDust[rarity] += missingDust.overall[set][rarity][quality];
+						data.missingDust.all += missingDust.overall[set][rarity][quality];
+					}
+				}
+			}
+			
+		return data;
+	}
+	
 	/*********************************************************
 	**************************INIT****************************
 	*********************************************************/
@@ -1047,6 +1102,18 @@ var HSCollectionTracker = (function() {
 	
 	// Creates and returns a progress table of the specified set
 	function createProgressTable(set) {
+		var setList = {};
+		if (set !== "standard")
+	        setList[set] = set;
+		else setList = standardSetsEnum;
+		
+		var rarities = {};
+		for (set in setList)
+			for (rarity in setsCards[set])
+			    if (rarities[rarity] == undefined)
+					rarities[rarity] = rarity;
+		rarities.all = "all";
+		
 		var table = document.createElement("table");
 		table.setAttribute("id", "progressTable");
 		
@@ -1063,135 +1130,81 @@ var HSCollectionTracker = (function() {
 		// Create rarities row
 		tr = document.createElement("tr");
 		tr.appendChild(document.createElement("td"));
-		for (rarity in setsCards[set]) {
+		for (rarity in rarities) {
 		    td = document.createElement("td");
 		    td.innerHTML = capitalizeFirstLetter(rarity);
 		    tr.appendChild(td);
 		    tr.appendChild(document.createElement("td"));
 		}
-		td = document.createElement("td");
-		td.innerHTML = "All";
-		tr.appendChild(td);
-		tr.appendChild(document.createElement("td"));		
 		
 		table.appendChild(tr);
 		
 		// Create the class rows
 		for (className in classesEnum) {
-			table.appendChild(createProgressTableRow("normal", set, className));
+			table.appendChild(createProgressTableRow("normal", setList, rarities, className));
 			// Exclude golden data if the setting is on
 			if (!settings.excludeGoldenCards)
-			    table.appendChild(createProgressTableRow("golden", set, className));
+			    table.appendChild(createProgressTableRow("golden", setList, rarities, className));
 		}
 		// Create the total rows
-		table.appendChild(createProgressTableRow("normal", set, "total"));
+		table.appendChild(createProgressTableRow("normal", setList, rarities, "total"));
 		if (!settings.excludeGoldenCards)
-		    table.appendChild(createProgressTableRow("golden", set, "total"));
+		    table.appendChild(createProgressTableRow("golden", setList, rarities, "total"));
 		
 		return table;
 	}
 	
 	// Creates and returns a progress table row
-	function createProgressTableRow(quality, set, className) {
+	function createProgressTableRow(quality, sets, rarities, className) {
+		var data = createProgressData(quality, sets, className);
+		
 		var tr = document.createElement("tr");
 		tr.setAttribute("class", className);
 		var td = document.createElement("td");
 		
-		// Only print out the class name on the first row
+		// Only display the class name on the first (normal) row
 		if (quality == "normal")
 		    td.innerHTML = capitalizeFirstLetter(className);
 		
 		tr.appendChild(td);
 		
-		// Create table data for all rarities
-		for (rarity in setsCards[set]) {
-			// Create the cards table data
+		// Create data for all rarities
+		for (rarity in rarities) {
+			// Create the card data
 		    var td = document.createElement("td");
-			var text;
-			var total = 0;
+			var text = "-";
+			var totalCards = data.totalCards[rarity];
+			var missingCards = data.missingCards[rarity];
 
-			if (setsCards[set][rarity][className] != undefined)
-				total = setsCards[set][rarity][className].cards;
-			
-			// If no collectible cards for this class/set/rarity
-			if (total == 0)
-				text = "-";
-			else {
-				var missing;
-				// Total row has its own data
-				if (className != "total")
-			        missing = missingCards.classes[className][set][rarity][quality];
-				else missing = missingCards.overall[set][rarity][quality];
+			// If collectible cards for this class/set/rarity
+			if (totalCards != 0) {
 				// Example: 0/50 (0%)
-				text = total - missing + "/" + total +
-				   	   " (" + Math.floor(((total - missing) / total) * 100) + "%)";
+				text = totalCards - missingCards + "/" + totalCards +
+				   	   " (" + Math.floor(((totalCards - missingCards) / totalCards) * 100) + "%)";
 			
 			}
 		    td.innerHTML = text;
 			tr.appendChild(td);
 			
-			// Create the dust table data
+			// Create the dust data
 			td = document.createElement("td");
 			
 			// If no collectible cards for this class/set/rarity or if they're uncraftable
-			if (total == 0 || setsUncraftable[set] == "both" || setsUncraftable[set] == quality)
+			if (data.totalDust[rarity] == 0)
 					text = "-";
 			else {
-			    var totalDust = setsCards[set][rarity][className][quality] * craftingCost[rarity][quality];
-				var currDust = 0;
-				if (className != "total")
-			        currDust = totalDust - missingDust.classes[className][set][rarity][quality];
-				else currDust = totalDust - missingDust.overall[set][rarity][quality];
-				// No need to print out % here as it's the same as the card data %
-				if (totalDust == 0)
-					text = "-";
-				else text = " " + currDust + "/" + totalDust;
+				var totalDust = data.totalDust[rarity];
+				var currentDust = totalDust - data.missingDust[rarity];
+				// No need to display % here as it's the same as the card data %
+				if (rarity !== "all")
+                    text = " " + currentDust + "/" + totalDust;
+				// But when combining rarities, display the %
+				else text = " " + currentDust + "/" + totalDust +
+				   " (" + Math.floor((currentDust / totalDust) * 100) + "%)";
 			}
 			td.innerHTML = text;
 			tr.appendChild(td);
 		}
-		
-		// All rarities combined
-		var td = document.createElement("td");
-		var text;
-		var total = 0;
-	
-		for (rarity in setsCards[set])
-			if (setsCards[set][rarity][className] != undefined)
-				total += setsCards[set][rarity][className].cards;
-		
-		if (total == 0)
-			text = "-";
-		else {
-			var missing;
-			if (className != "total")
-				missing = missingCards.classes[className][set].total[quality];
-			else missing = missingCards.overall[set].total[quality];
-			text = total - missing + "/" + total +
-				   " (" + Math.floor(((total - missing) / total) * 100) + "%)";
-		}
-		td.innerHTML = text;
-		tr.appendChild(td);
-		
-		td = document.createElement("td");
-		
-		if (total == 0 || setsUncraftable[set] == "both" || setsUncraftable[set] == quality)
-				text = "-";
-		else {
-			var totalDust = 0;
-			for (rarity in setsCards[set])
-				if (setsCards[set][rarity][className] != undefined)
-					totalDust += setsCards[set][rarity][className][quality] * craftingCost[rarity][quality];
-			var currDust = 0;
-			
-			if (className != "total")
-			    currDust = totalDust - missingDust.classes[className][set].total[quality];
-			else currDust = totalDust - missingDust.overall[set].total[quality];
-			text = " " + currDust + "/" + totalDust +
-				   " (" + Math.floor((currDust / totalDust) * 100) + "%)";
-		}
-		td.innerHTML = text;
-		tr.appendChild(td);
 		
 		return tr;
 	}
