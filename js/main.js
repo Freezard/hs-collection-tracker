@@ -1112,7 +1112,9 @@ var HSCollectionTracker = (function() {
 			for (rarity in setsCards[set])
 			    if (rarities[rarity] == undefined)
 					rarities[rarity] = rarity;
-		rarities.all = "all";
+		// Don't display an "all" column for sets only containing one rarity
+		if (Object.keys(rarities).length != 1)
+		    rarities.all = "all";
 		
 		var table = document.createElement("table");
 		table.setAttribute("id", "progressTable");
