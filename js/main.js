@@ -1447,8 +1447,8 @@ var HSCollectionTracker = (function() {
 						    settings[setting] = storedSettings[setting];
 						
 						// Highlight the news button
-						var news = document.getElementById("link-news");
-						news.className = news.className + " news";
+						//var news = document.getElementById("link-news");
+						//news.className = news.className + " news";
 					}
 					
 				    updateLocalStorage();
