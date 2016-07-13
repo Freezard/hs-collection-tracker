@@ -122,7 +122,7 @@ var HSCollectionTracker = (function() {
 	var currentDust = 0;
 	var disenchantedDust = 0;
 	
-	var version = 1.154;
+	var version = 1.155;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, uncraftable) {
@@ -553,7 +553,7 @@ var HSCollectionTracker = (function() {
 			"Basic": setsEnum.basic,
 			"Classic": setsEnum.classic,
 			"Reward": setsEnum.reward,
-			"Promotion": setsEnum.promo,
+			"Promo": setsEnum.promo,
 			"Naxxramas": setsEnum.naxxramas,
 			"Goblins vs Gnomes": setsEnum.gvg,
 			"Blackrock Mountain": setsEnum.blackrock,
@@ -620,7 +620,6 @@ var HSCollectionTracker = (function() {
 	// Sorts all the card lists for the specified class.
 	// Sorting order:
 	// Mana cost: Lower > higher
-	// Type: Weapon > spell > minion
 	// Name: Lexicographical order
 	function sortCards(className) {
 		var cardList = classes[className].cards;
@@ -631,12 +630,8 @@ var HSCollectionTracker = (function() {
 				sortedArray.push([name, cardList[rarity][name]]);
 			sortedArray.sort(function(a, b) {
 			    return a[1].mana == b[1].mana ?
-				a[1].type === b[1].type ?
 				a[1].name.localeCompare(b[1].name) :
-				a[1].type === "weapon" ? -1 :
-				b[1].type === "weapon" ? 1 :
-				a[1].type === "spell" ? -1 :
-				1 :	a[1].mana - b[1].mana;
+				a[1].mana - b[1].mana;
 				});
 			
 			var sortedList = {};
