@@ -273,6 +273,7 @@ body {
   cursor: pointer;
 }
 #classCards li a.buttonAll {
+  box-shadow: inset 0px 0px 0px 1px #DDDDDD;
   margin-bottom: 0px;
   padding: 0;
   border-radius: 0;
