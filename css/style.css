@@ -279,28 +279,10 @@ body {
   background-color: rgba(150, 200, 255, 1);
   transition: padding 0.5s, color 1s;  
   color: transparent;
+  border: 0px;
+  margin: 0px 1px;
 }
-#classCards #list_free li a.buttonAll:hover {
-  background-color: rgba(200, 230, 255, 1);
-  padding: 10px 0px;
-  color: black;
-}
-#classCards #list_common li a.buttonAll:hover {
-  background-color: rgba(200, 230, 255, 1);
-  padding: 10px 0px;
-  color: black;
-}
-#classCards #list_rare li a.buttonAll:hover {
-  background-color: rgba(200, 230, 255, 1);
-  padding: 10px 0px;
-  color: black;
-}
-#classCards #list_epic li a.buttonAll:hover {
-  background-color: rgba(200, 230, 255, 1);
-  padding: 10px 0px;
-  color: black;
-}
-#classCards #list_legendary li a.buttonAll:hover {
+#classCards li a.buttonAll:hover {
   background-color: rgba(200, 230, 255, 1);
   padding: 10px 0px;
   color: black;
