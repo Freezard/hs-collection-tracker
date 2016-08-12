@@ -36,7 +36,8 @@ var HSCollectionTracker = (function() {
 		blackrock: "blackrock",
 		tgt: "tgt",
 		loe: "loe",
-		wotog: "wotog"
+		wotog: "wotog",
+		onik: "onik"
 	};
 
 	var standardSetsEnum = {
@@ -45,7 +46,8 @@ var HSCollectionTracker = (function() {
 		blackrock: "blackrock",
 		tgt: "tgt",
 		loe: "loe",
-		wotog: "wotog"
+		wotog: "wotog",
+		onik: "onik"
 	};
 
 	// The number of cards and craftable cards in each set.
@@ -122,7 +124,7 @@ var HSCollectionTracker = (function() {
 	var currentDust = 0;
 	var disenchantedDust = 0;
 	
-	var version = 1.155;
+	var version = 1.156;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, uncraftable) {
@@ -559,7 +561,8 @@ var HSCollectionTracker = (function() {
 			"Blackrock Mountain": setsEnum.blackrock,
 			"The Grand Tournament": setsEnum.tgt,
 			"The League of Explorers": setsEnum.loe,
-			"Whispers of the Old Gods": setsEnum.wotog
+			"Whispers of the Old Gods": setsEnum.wotog,
+			"Karazhan": setsEnum.onik,
 		};
 		
 		var importCardData = function (cards, set) {
@@ -1447,8 +1450,8 @@ var HSCollectionTracker = (function() {
 						    settings[setting] = storedSettings[setting];
 						
 						// Highlight the news button
-						//var news = document.getElementById("link-news");
-						//news.className = news.className + " news";
+						var news = document.getElementById("link-news");
+						news.className = news.className + " news";
 					}
 					
 				    updateLocalStorage();
