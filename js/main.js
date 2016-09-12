@@ -1296,6 +1296,9 @@ var HSCollectionTracker = (function() {
 		document.oncontextmenu = function() {
             return true;
         }
+		
+		var test = document.getElementById("testpwn");
+		test.addEventListener("click", hrtpwn);
 	}
 	
 	function displayPacks() {
@@ -1424,6 +1427,83 @@ var HSCollectionTracker = (function() {
 				{ type: "text/plain;charset=utf-8;"} );
             saveAs(blob, "HSCT.json");
 		} else alert('Exporting is not supported in this browser.');
+	}
+	
+	function hrtpwn() {
+		var ids;
+		var cardData;
+		
+		var request = new XMLHttpRequest();
+		request.open("GET", "data/cards-ids.json", false);
+		request.onreadystatechange = function () {
+			if(request.readyState === 4) {
+				if(request.status === 200 || request.status == 0) {
+					ids = JSON.parse(request.responseText);
+				}
+			}
+		}
+		request.send(null);
+		
+		request = new XMLHttpRequest();
+		request.open("GET", "data/all-collectibles.json", false);
+		request.onreadystatechange = function () {
+			if(request.readyState === 4) {
+				if(request.status === 200 || request.status == 0) {
+					cardData = JSON.parse(request.responseText);
+				}
+			}
+		}
+		request.send(null);
+		
+		//initCollection();
+		console.log("YES");
+		
+		YUI().use('yql', function(Y) {
+			Y.YQL('select * from html where url="http://www.hearthpwn.com/members/Freezard/collection" and xpath="//div[contains(@class, \'owns-card\')]"', function(r) {
+				var results = r.query.results.div;
+			
+				for (var i = 0; i < results.length; i++) {
+					var externalID = results[i]["data-id"];
+					var copies = 0;
+					var quality = "";
+					if (results[i]["data-is-gold"] == "False") {
+						quality = "normal";
+						copies = results[i].a.span["data-card-count"];
+					}
+					else {
+						quality = "golden";
+						copies = results[i].a.span[1]["data-card-count"];
+					}
+					var name = "";
+					var className = "";
+					var set = "";
+					var rarity = "";
+				
+					for (var j = 0; j < ids.length; j++) {
+						if (externalID == ids[j].hpid) {
+							name = ids[j].name;
+							break;
+						}
+					}
+				
+					for (var k = 0; k < cardData.cards.length; k++) {
+						if (name == cardData.cards[k].name) {
+							className = cardData.cards[k].hero;
+							set = cardData.cards[k].set;
+							rarity = cardData.cards[k].quality;
+							break;
+						}
+					}
+				
+				copies = Math.min(copies, getMaxCopies(rarity));
+				
+				var card = classes[className].cards[rarity][name];
+				updateCard(card, quality, copies);
+				}
+				
+				displayTracker();
+			});
+		});
 	}
 	/*********************************************************
 	***********************MAIN FUNCTION**********************
