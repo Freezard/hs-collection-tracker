@@ -1434,7 +1434,7 @@ var HSCollectionTracker = (function() {
 		var cardData = {};		
 		
 		var request = new XMLHttpRequest();
-		request.open("GET", "data/cards-ids.json", false);
+		request.open("GET", "data/card-ids.json", false);
 		request.onreadystatechange = function () {
 			if(request.readyState === 4) {
 				if(request.status === 200 || request.status == 0) {
