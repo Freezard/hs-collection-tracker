@@ -1431,7 +1431,7 @@ var HSCollectionTracker = (function() {
 	
 	function hrtpwn() {
 		var ids = {};
-		var cardData = {};
+		var cardData = {};		
 		
 		var request = new XMLHttpRequest();
 		request.open("GET", "data/cards-ids.json", false);
@@ -1455,15 +1455,18 @@ var HSCollectionTracker = (function() {
 		}
 		request.send(null);
 		
+		console.log(ids);
+		console.log(cardData);
+		
 		//initCollection();
-		console.log("YES");
 		
 		YUI().use('yql', function(Y) {
 			Y.YQL('select * from html where url="http://www.hearthpwn.com/members/Freezard/collection" and xpath="//div[contains(@class, \'owns-card\')]"', function(r) {
 				var results = r.query.results.div;
-			
+
 				for (var i = 0; i < results.length; i++) {
 					var externalID = results[i]["data-id"];
+					
 					var copies = 0;
 					var quality = "";
 					if (results[i]["data-is-gold"] == "False") {
@@ -1474,6 +1477,7 @@ var HSCollectionTracker = (function() {
 						quality = "golden";
 						copies = results[i].a.span[1]["data-card-count"];
 					}
+
 					var name = "";
 					var className = "";
 					var set = "";
@@ -1496,9 +1500,11 @@ var HSCollectionTracker = (function() {
 					}
 				
 				copies = Math.min(copies, getMaxCopies(rarity));
-				console.log(name, className, set, rarity);
-				var card = classes[className].cards[rarity][name];
-				updateCard(card, quality, copies);
+				console.log(name, className, set, rarity, copies, quality);
+				if (name != "" && className != "") {
+					var card = classes[className].cards[rarity][name];
+					updateCard(card, quality, copies);
+					}
 				}
 				
 				displayTracker();
