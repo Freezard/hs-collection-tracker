@@ -124,7 +124,7 @@ var HSCollectionTracker = (function() {
 	var currentDust = 0;
 	var disenchantedDust = 0;
 	
-	var version = 1.156;
+	var version = 1.157;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, uncraftable) {
@@ -291,7 +291,8 @@ var HSCollectionTracker = (function() {
 		document.getElementById("link-progress").addEventListener("click", displayProgress);
 		document.getElementById("link-packs").addEventListener("click", displayPacks);
 		document.getElementById("link-news").addEventListener("click", displayNews);
-		document.getElementById("link-about").addEventListener("click", displayAbout);			
+		document.getElementById("link-about").addEventListener("click", displayAbout);
+		document.getElementById("link-importHearthPwn").addEventListener("click", displayImportHearthPwn);
 		document.getElementById("link-export").addEventListener("click", exportCollection);
 		document.getElementById("link-import").addEventListener("click", function() {
 			// Check for File API support
@@ -1360,6 +1361,20 @@ var HSCollectionTracker = (function() {
             return true;
         }
 	}
+	
+	function displayImportHearthPwn() {
+		var template = document.getElementById("template-importHearthPwn").innerHTML;
+		document.getElementById("containerRow").innerHTML = template;
+		
+		// Add an event listener to the submit form
+		document.getElementById('formHearthPwn').addEventListener('submit', importHearthPwn);
+		
+		document.getElementById("header-center").style.visibility = "hidden";
+		
+		document.oncontextmenu = function() {
+            return true;
+        }
+	}
 	/*********************************************************
 	************************COLLECTION************************
 	*********************************************************/
@@ -1429,11 +1444,15 @@ var HSCollectionTracker = (function() {
 		} else alert('Exporting is not supported in this browser.');
 	}
 	
-	function hrtpwn() {
-		var ids = {};
-		var cardData = {};		
+	// Imports a collection from HearthPwn
+	function importHearthPwn(evt) {
+		evt.preventDefault();
 		
-		var request = new XMLHttpRequest();
+		var username = evt.target["username"].value;
+		var ids = {};
+		var cardData = {};
+		
+	/*    var request = new XMLHttpRequest();
 		request.open("GET", "data/card-ids.json", false);
 		request.onreadystatechange = function () {
 			if(request.readyState === 4) {
@@ -1453,22 +1472,32 @@ var HSCollectionTracker = (function() {
 				}
 			}
 		}
-		request.send(null);
+		request.send(null);*/
 		
-		console.log(ids);
-		console.log(cardData);
-		
-		//initCollection();
-		
+		// Get the collection data
 		YUI().use('yql', function(Y) {
-			Y.YQL('select * from html where url="http://www.hearthpwn.com/members/Freezard/collection" and xpath="//div[contains(@class, \'owns-card\')]"', function(r) {
-				var results = r.query.results.div;
+			Y.YQL('select * from html where ' +
+			    'url="http://www.hearthpwn.com/members/' + username + '/collection" ' +
+			    'and xpath="//div[contains(@class, \'owns-card\')]"', function(r) {
+				// Error finding collection
+				if (r.query.results == null) {
+					document.getElementById('formHearthPwnError').innerHTML =
+					    "Wrong username or collection set to private";
+					return;
+				}
+				initCollection();
+				
+				var results = r.query.results.div; // Array of collection
 
 				for (var i = 0; i < results.length; i++) {
 					var externalID = results[i]["data-id"];
-					
+					var name = "";
+					var className = "";
+					var set = "";
+					var rarity = "";
 					var copies = 0;
 					var quality = "";
+					
 					if (results[i]["data-is-gold"] == "False") {
 						quality = "normal";
 						copies = results[i].a.span["data-card-count"];
@@ -1477,11 +1506,6 @@ var HSCollectionTracker = (function() {
 						quality = "golden";
 						copies = results[i].a.span[1]["data-card-count"];
 					}
-
-					var name = "";
-					var className = "";
-					var set = "";
-					var rarity = "";
 				
 					for (var j = 0; j < ids.length; j++) {
 						if (externalID == ids[j].hpid) {
@@ -1507,7 +1531,8 @@ var HSCollectionTracker = (function() {
 					}
 				}
 				
-				displayTracker();
+				document.getElementById('formHearthPwnError').innerHTML =
+				    "Collection imported successfully";
 			});
 		});
 	}

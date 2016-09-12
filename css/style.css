@@ -278,7 +278,7 @@ body {
   padding: 0;
   border-radius: 0;
   background-color: rgba(150, 200, 255, 1);
-  transition: padding 0.5s, color 1s;  
+  transition: padding 0.5s, color 1s;
   color: transparent;
   border: 0px;
   margin: 0px 1px;
@@ -440,6 +440,7 @@ h2 {
 .side-page {
   border: 1px solid;
   background-color: #E3D3C8;
+  padding-bottom: 10px;
 }
 .side-page .mainDiv {
   margin-top: 30px;
@@ -452,7 +453,6 @@ h2 {
 .side-page table {
   font-family: "Comic Sans MS", "Palatino Linotype", "Times", serif;
   width: 100%;
-  margin-bottom: 10px;
   font-size: 12px;
   outline: solid 1px;
 }
@@ -521,9 +521,6 @@ h2 {
 #progressTable .total td {
   border-bottom: 1px solid #B57C63;
 }
-.side-page #select {
-  margin-bottom: 10px;
-}
 .side-page tr.normal td {
   /*background-color: #C59C73;
   color: #000000;*/
@@ -543,8 +540,7 @@ h2 {
 .side-page hr {
   border-top: 2px dotted #736358;
 }
-.side-page div.center {  
-  margin-bottom: 10px;
+.side-page div.center {
   text-align: center;
 }
 #footer {
