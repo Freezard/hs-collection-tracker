@@ -1452,7 +1452,7 @@ var HSCollectionTracker = (function() {
 		var ids = {};
 		var cardData = {};
 		
-	/*    var request = new XMLHttpRequest();
+	    var request = new XMLHttpRequest();
 		request.open("GET", "data/card-ids.json", false);
 		request.onreadystatechange = function () {
 			if(request.readyState === 4) {
@@ -1472,7 +1472,7 @@ var HSCollectionTracker = (function() {
 				}
 			}
 		}
-		request.send(null);*/
+		request.send(null);
 		
 		// Get the collection data
 		YUI().use('yql', function(Y) {
