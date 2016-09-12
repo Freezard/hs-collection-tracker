@@ -1496,7 +1496,7 @@ var HSCollectionTracker = (function() {
 					}
 				
 				copies = Math.min(copies, getMaxCopies(rarity));
-				
+				console.log(name, className, set, rarity);
 				var card = classes[className].cards[rarity][name];
 				updateCard(card, quality, copies);
 				}
