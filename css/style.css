@@ -42,11 +42,6 @@ body {
   background-color: #FFFFFF;
   cursor: pointer;
 }
-.test {
-  cursor: pointer;
-  color: black;
-  
-}
 #files {
   display: none;
 }
