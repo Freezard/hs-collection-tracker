@@ -1297,9 +1297,6 @@ var HSCollectionTracker = (function() {
 		document.oncontextmenu = function() {
             return true;
         }
-		
-		var test = document.getElementById("testpwn");
-		test.addEventListener("click", hrtpwn);
 	}
 	
 	function displayPacks() {

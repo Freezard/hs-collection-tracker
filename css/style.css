@@ -474,6 +474,9 @@ h2 {
 .side-page #progressTable {
   font-size: 10px;
 }
+.side-page #select {
+  margin-bottom: 10px;
+}
 #progressTable .neutral td {
   background-color: #736358;
   border-bottom: 1px solid #635348;
