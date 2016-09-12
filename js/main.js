@@ -1430,8 +1430,8 @@ var HSCollectionTracker = (function() {
 	}
 	
 	function hrtpwn() {
-		var ids;
-		var cardData;
+		var ids = {};
+		var cardData = {};
 		
 		var request = new XMLHttpRequest();
 		request.open("GET", "data/cards-ids.json", false);
