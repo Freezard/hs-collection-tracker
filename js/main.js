@@ -1448,6 +1448,9 @@ var HSCollectionTracker = (function() {
 	function importHearthPwn(evt) {
 		evt.preventDefault();
 		
+		document.getElementById('formHearthPwnError').innerHTML =
+		    "Please wait...";
+		
 		var username = evt.target["username"].value;
 		var ids = {};
 		var cardData = {};
@@ -1485,6 +1488,7 @@ var HSCollectionTracker = (function() {
 					    "Wrong username or collection set to private";
 					return;
 				}
+				
 				initCollection();
 				
 				var results = r.query.results.div; // Array of collection
@@ -1524,7 +1528,7 @@ var HSCollectionTracker = (function() {
 					}
 				
 				copies = Math.min(copies, getMaxCopies(rarity));
-				console.log(name, className, set, rarity, copies, quality);
+
 				if (name != "" && className != "") {
 					var card = classes[className].cards[rarity][name];
 					updateCard(card, quality, copies);
@@ -1533,6 +1537,8 @@ var HSCollectionTracker = (function() {
 				
 				document.getElementById('formHearthPwnError').innerHTML =
 				    "Collection imported successfully";
+					
+				updateLocalStorage();
 			});
 		});
 	}
