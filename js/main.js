@@ -109,7 +109,7 @@ var HSCollectionTracker = (function() {
 	var class_all;
 
 	// Class and card quality currently selected in the tracker
-	var selectedClass = "neutral";
+	var selectedClass = "all";
 	var selectedQuality = "normal";
 	
 	// Persistent settings
@@ -257,12 +257,29 @@ var HSCollectionTracker = (function() {
 		
 		for (var className in classes)
 			sortCards(className);
+
+		initClassAll();
+	}
+
+	function initClassAll() {
+
+		class_all = new classHS('all');
+
+		for (className in classes) {
+			for (rarity in classes[className].cards) {
+				var cards = classes[className].cards[rarity];
+				for (cardName in cards) {
+					class_all.addCard(cards[cardName]);
+				}
+			}
+		}
+
+		sortCards('all');
 	}
 	
 	function initClasses() {
 		for (var className in classesEnum)
 			classes[className] = new classHS(className);
-		class_all = new classHS('all');
 	}
 	
 	function initMissingData() {
@@ -577,7 +594,6 @@ var HSCollectionTracker = (function() {
 					// Cards like Elven Archer are in the basic set with common rarity, but setting these to free to preserve HCT behavior
 					var rarity = set == setsEnum.basic ? raritiesEnum.free : newCard.rarity.toLowerCase();
 					classes[className].addCard(new card(newCard.name, rarity, newCard.cost, newCard.type.toLowerCase(), className, set, setsUncraftable[set]));
-					class_all.addCard(classes[className].cards[rarity][newCard.name]);
 				}
 			});
 		};
@@ -631,7 +647,11 @@ var HSCollectionTracker = (function() {
 	// Mana cost: Lower > higher
 	// Name: Lexicographical order
 	function sortCards(className) {
-		var cardList = classes[className].cards;
+		if (className == 'all') {
+			var cardList = class_all.cards;
+		} else {
+			var cardList = classes[className].cards;
+		}
 		
 		for (var rarity in cardList) {
 			var sortedArray = [];
@@ -1601,7 +1621,10 @@ var HSCollectionTracker = (function() {
 					localStorage.setItem("disenchantedDust", disenchantedDust);
 					localStorage.setItem("version", version);
 				}
-				else loadLocalStorage();
+				else {
+					loadLocalStorage();
+					initClassAll();
+				}
 			}
 			
 			initHearthpwnTooltips();
