@@ -106,7 +106,7 @@ var HSCollectionTracker = (function() {
 
 	// The collection of cards, divided by classes
 	var classes = {};
-	var class_all;
+	var class_all = {};
 
 	// Class and card quality currently selected in the tracker
 	var selectedClass = "all";
@@ -753,8 +753,12 @@ var HSCollectionTracker = (function() {
 		var rarity = element.parentNode.parentNode.id;		
 		rarity = rarity.slice(5, rarity.length); // Cut out the "list" part
 		
-		for (var i = 1, len = list.length; i < len; i++) {			
-			var card = classes[selectedClass].cards[rarity][list[i].innerHTML];
+		for (var i = 1, len = list.length; i < len; i++) {
+			var card;
+
+			if (selectedClass == "all")
+				card = class_all.cards[rarity][list[i].innerHTML];
+			else card = classes[selectedClass].cards[rarity][list[i].innerHTML];
 			
 			if (card[selectedQuality] < getMaxCopies(rarity))
 			    updateCard(card, selectedQuality, getMaxCopies(rarity) - card[selectedQuality]);
@@ -775,8 +779,12 @@ var HSCollectionTracker = (function() {
 		var rarity = element.parentNode.parentNode.id;		
 		rarity = rarity.slice(5, rarity.length); // Cut out the "list" part
 		
-		for (var i = 1, len = list.length; i < len; i++) {			
-			var card = classes[selectedClass].cards[rarity][list[i].innerHTML];
+		for (var i = 1, len = list.length; i < len; i++) {
+			var card;
+
+			if (selectedClass == "all")
+				card = class_all.cards[rarity][list[i].innerHTML];
+			else card = classes[selectedClass].cards[rarity][list[i].innerHTML];
 			
 			if (card[selectedQuality] > 0)
 			    updateCard(card, selectedQuality, -card[selectedQuality]);
@@ -827,7 +835,7 @@ var HSCollectionTracker = (function() {
 
 		createClassTab = function (className) {
 			var listItem = document.createElement("li");
-			listItem.setAttribute("class", "col-xs-10ths nopadding");
+			listItem.setAttribute("class", "col-xs-11ths nopadding");
 			var listItemLink = document.createElement("a");
 			var span = document.createElement("span");
 			if (className in classes) {

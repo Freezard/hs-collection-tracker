@@ -627,37 +627,37 @@ h2 {
         float: left;
     }
 }
-.col-xs-10ths,
-.col-sm-10ths,
-.col-md-10ths,
-.col-lg-10ths {
+.col-xs-11ths,
+.col-sm-11ths,
+.col-md-11ths,
+.col-lg-11ths {
     position: relative;
     min-height: 1px;
     padding-right: 10px;
     padding-left: 10px;
 }
 
-.col-xs-10ths {
+.col-xs-11ths {
     width: calc(100%/11);
     float: left;
 }
 
 @media (min-width: 768px) {
-    .col-sm-10ths {
+    .col-sm-11ths {
         width: calc(100%/11);
         float: left;
     }
 }
 
 @media (min-width: 992px) {
-    .col-md-10ths {
+    .col-md-11ths {
         width: calc(100%/11);
         float: left;
     }
 }
 
 @media (min-width: 1200px) {
-    .col-lg-10ths {
+    .col-lg-11ths {
         width: calc(100%/11);
         float: left;
     }
