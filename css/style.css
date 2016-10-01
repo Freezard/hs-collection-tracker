@@ -97,6 +97,11 @@ body {
   background-color: white;
   cursor: pointer;
 }
+#classTabs .all, #classTabsBar.all {
+  background-color: #938378;
+  border-color: #B3A398;
+}
+
 #classTabs .neutral, #classTabsBar.neutral {
   background-color: #736358;
   border-color: #938378;
@@ -172,6 +177,13 @@ body {
 }
 #classTabsBar #filtersRight li a {
   float: right;
+}
+#classTabsBar.all li a {
+  background-color: #938378;
+  box-shadow: inset 0px 0px 2px 1px #B3A398;
+}
+#classTabsBar.all li a:hover, #classTabsBar.all li a.selected {
+  background-color: #B3A398;
 }
 #classTabsBar.neutral li a {
   background-color: #736358;
@@ -626,27 +638,27 @@ h2 {
 }
 
 .col-xs-10ths {
-    width: 10%;
+    width: calc(100%/11);
     float: left;
 }
 
 @media (min-width: 768px) {
     .col-sm-10ths {
-        width: 10%;
+        width: calc(100%/11);
         float: left;
     }
 }
 
 @media (min-width: 992px) {
     .col-md-10ths {
-        width: 10%;
+        width: calc(100%/11);
         float: left;
     }
 }
 
 @media (min-width: 1200px) {
     .col-lg-10ths {
-        width: 10%;
+        width: calc(100%/11);
         float: left;
     }
 }
