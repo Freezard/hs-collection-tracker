@@ -98,8 +98,8 @@ body {
   cursor: pointer;
 }
 #classTabs .all, #classTabsBar.all {
-  background-color: #938378;
-  border-color: #B3A398;
+  background-color: #bdbdbd;
+  border-color: #939393;
 }
 
 #classTabs .neutral, #classTabsBar.neutral {
@@ -179,11 +179,11 @@ body {
   float: right;
 }
 #classTabsBar.all li a {
-  background-color: #938378;
-  box-shadow: inset 0px 0px 2px 1px #B3A398;
+  background-color: #bdbdbd;
+  box-shadow: inset 0px 0px 2px 1px #939393;
 }
 #classTabsBar.all li a:hover, #classTabsBar.all li a.selected {
-  background-color: #B3A398;
+  background-color: #939393;
 }
 #classTabsBar.neutral li a {
   background-color: #736358;
