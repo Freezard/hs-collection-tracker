@@ -46,7 +46,8 @@
 		    <a class="dropdown-toggle title" data-toggle="dropdown">Options
 		    <span class="caret"></span></a>
 		    <ul class="dropdown-menu">
-			  <li><a id="link-importHearthPwn" class="title">Import from HearthPwn</a><hr></li>
+			  <li><a id="link-importHearthPwn" class="title">Import from HearthPwn</a></li>
+			  <li role="separator" class="divider"></li>
 			  <li><input type="file" id="files" name="files[]"><a id="link-import" class="title">Import from file</a></li>
 			  <li><a id="link-export" class="title">Export to file</a></li>
 		    </ul>
@@ -213,13 +214,12 @@
   <p>Here you can import a collection from <a href="http://www.hearthpwn.com/" target="_blank">HearthPwn</a>. Be sure to have your collection set to public.</p>
   <p>Note: Whenever you switch visibility of your collection, golden cards will be removed, 
      so you'll have to use Innkeeper to sync golden cards again.</p>
-
-  <form id="formHearthPwn">
+  <form id="formImportHearthPwn">
     HearthPwn username:
     <input type="text" name="username" value="">
     <input type="submit" value="Import">
   </form><br>
-  <span id="formHearthPwnError" class="special2"></span>
+  <span id="importHearthPwnStatus" class="special2"></span>
 </div>
 </script>
 <script id="template-about" type="text/html">

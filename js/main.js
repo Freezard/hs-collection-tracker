@@ -1364,7 +1364,7 @@ var HSCollectionTracker = (function() {
 		document.getElementById("containerRow").innerHTML = template;
 		
 		// Add an event listener to the submit form
-		document.getElementById('formHearthPwn').addEventListener('submit', importHearthPwn);
+		document.getElementById('formImportHearthPwn').addEventListener('submit', importHearthPwn);
 		
 		document.getElementById("header-center").style.visibility = "hidden";
 		
@@ -1441,15 +1441,16 @@ var HSCollectionTracker = (function() {
 		} else alert('Exporting is not supported in this browser.');
 	}
 	
-	// Imports a collection from HearthPwn
+	// Imports a collection from HearthPwn.
+	// Event = formImportHearthPwn onsubmit
 	function importHearthPwn(evt) {
 		evt.preventDefault();
 		
-		document.getElementById('formHearthPwnError').innerHTML =
+		document.getElementById('importHearthPwnStatus').innerHTML =
 		    "Please wait...";
 		
 		var username = evt.target["username"].value;
-		var ids = {};
+		var cardIds = {};
 		var cardData = {};
 		
 	    var request = new XMLHttpRequest();
@@ -1457,7 +1458,7 @@ var HSCollectionTracker = (function() {
 		request.onreadystatechange = function () {
 			if(request.readyState === 4) {
 				if(request.status === 200 || request.status == 0) {
-					ids = JSON.parse(request.responseText);
+					cardIds = JSON.parse(request.responseText);
 				}
 			}
 		}
@@ -1481,7 +1482,7 @@ var HSCollectionTracker = (function() {
 			    'and xpath="//div[contains(@class, \'owns-card\')]"', function(r) {
 				// Error finding collection
 				if (r.query.results == null) {
-					document.getElementById('formHearthPwnError').innerHTML =
+					document.getElementById('importHearthPwnStatus').innerHTML =
 					    "Wrong username or collection set to private";
 					return;
 				}
@@ -1490,6 +1491,7 @@ var HSCollectionTracker = (function() {
 				
 				var results = r.query.results.div; // Array of collection
 
+				// Loop through the collection
 				for (var i = 0; i < results.length; i++) {
 					var externalID = results[i]["data-id"];
 					var name = "";
@@ -1498,41 +1500,44 @@ var HSCollectionTracker = (function() {
 					var rarity = "";
 					var copies = 0;
 					var quality = "";
-					
-					if (results[i]["data-is-gold"] == "False") {
-						quality = "normal";
-						copies = results[i].a.span["data-card-count"];
-					}
-					else {
-						quality = "golden";
-						copies = results[i].a.span[1]["data-card-count"];
-					}
 				
-					for (var j = 0; j < ids.length; j++) {
-						if (externalID == ids[j].hpid) {
-							name = ids[j].name;
+					// Get the name of the card by matching HearthPwn ids.
+					// Can grab name from HTML, but may contain odd symbols
+					for (var j = 0; j < cardIds.length; j++)
+						if (externalID == cardIds[j].hpid) {
+							name = cardIds[j].name;
 							break;
 						}
-					}
 				
-					for (var k = 0; k < cardData.cards.length; k++) {
+					// Get other necessary card data
+					for (var k = 0; k < cardData.cards.length; k++)
 						if (name == cardData.cards[k].name) {
 							className = cardData.cards[k].hero;
 							set = cardData.cards[k].set;
 							rarity = cardData.cards[k].quality;
 							break;
 						}
-					}
 				
-				copies = Math.min(copies, getMaxCopies(rarity));
+					// Get the quality and the amount of copies
+					if (results[i]["data-is-gold"] == "False") {
+						quality = "normal";
+						copies = Math.min(results[i].a.span["data-card-count"],
+						    getMaxCopies(rarity));
+					}
+					else {
+						quality = "golden";
+						copies = Math.min(results[i].a.span[1]["data-card-count"],
+						    getMaxCopies(rarity));
+					}
 
-				if (name != "" && className != "") {
-					var card = classes[className].cards[rarity][name];
-					updateCard(card, quality, copies);
+					// Add the card info to HSCT
+				    if (name != "" && className != "") {
+					    var card = classes[className].cards[rarity][name];
+					    updateCard(card, quality, copies);
 					}
 				}
 				
-				document.getElementById('formHearthPwnError').innerHTML =
+				document.getElementById('importHearthPwnStatus').innerHTML =
 				    "Collection imported successfully";
 					
 				updateLocalStorage();
