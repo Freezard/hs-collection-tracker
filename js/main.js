@@ -106,9 +106,10 @@ var HSCollectionTracker = (function() {
 
 	// The collection of cards, divided by classes
 	var classes = {};
-	
+	var class_all;
+
 	// Class and card quality currently selected in the tracker
-	var selectedClass = "neutral";
+	var selectedClass = "all";
 	var selectedQuality = "normal";
 	
 	// Persistent settings
@@ -124,7 +125,7 @@ var HSCollectionTracker = (function() {
 	var currentDust = 0;
 	var disenchantedDust = 0;
 	
-	var version = 1.157;
+	var version = 2.160;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, uncraftable) {
@@ -155,7 +156,9 @@ var HSCollectionTracker = (function() {
 			var rarity = card.rarity, set = card.set;
 			var copies = getMaxCopies(rarity);
 			this.cards[rarity][card.name] = card;
-			
+
+			if (this.name == 'all') {return;}
+
 			for (var i = 0, quality = "normal"; i < 2; i++, quality = "golden") {
 				updateMissingCards(card, quality, copies);
 				
@@ -254,6 +257,24 @@ var HSCollectionTracker = (function() {
 		
 		for (var className in classes)
 			sortCards(className);
+
+		initClassAll();
+	}
+
+	function initClassAll() {
+
+		class_all = new classHS('all');
+
+		for (className in classes) {
+			for (rarity in classes[className].cards) {
+				var cards = classes[className].cards[rarity];
+				for (cardName in cards) {
+					class_all.addCard(cards[cardName]);
+				}
+			}
+		}
+
+		sortCards('all');
 	}
 	
 	function initClasses() {
@@ -626,7 +647,11 @@ var HSCollectionTracker = (function() {
 	// Mana cost: Lower > higher
 	// Name: Lexicographical order
 	function sortCards(className) {
-		var cardList = classes[className].cards;
+		if (className == 'all') {
+			var cardList = class_all.cards;
+		} else {
+			var cardList = classes[className].cards;
+		}
 		
 		for (var rarity in cardList) {
 			var sortedArray = [];
@@ -667,7 +692,7 @@ var HSCollectionTracker = (function() {
 		missingCards.classes[className][set].total[quality] += copies;
 		missingCards.classes[className].total[rarity][quality] += copies;
 		missingCards.classes[className].total.total[quality] += copies;
-		
+
 		missingCards.overall[set][rarity][quality] += copies;
 		missingCards.overall[set].total[quality] += copies;
 		missingCards.overall.total[rarity][quality] += copies;
@@ -682,7 +707,7 @@ var HSCollectionTracker = (function() {
 		missingDust.classes[className][set].total[quality] += dust;
 		missingDust.classes[className].total[rarity][quality] += dust;
 		missingDust.classes[className].total.total[quality] += dust;
-		
+
 		missingDust.overall[set][rarity][quality] += dust;
 		missingDust.overall[set].total[quality] += dust;
 		missingDust.overall.total[rarity][quality] += dust;
@@ -799,34 +824,39 @@ var HSCollectionTracker = (function() {
 		document.getElementById("classTabsBar").setAttribute("class", classTabsClass + " " + selectedClass);
 		
 		// Create the class tabs
-		for (var className in classes) {
+
+		createClassTab = function (className) {
 			var listItem = document.createElement("li");
 			listItem.setAttribute("class", "col-xs-10ths nopadding");
 			var listItemLink = document.createElement("a");
 			var span = document.createElement("span");
-			span.innerHTML = classes[className].level; // Always level 1 for now				
+			if (className in classes) {
+				span.innerHTML = classes[className].level; // Always level 1 for now
+			} else {
+				span.innerHTML = 1;
+			}
 			/* ---------------------------------------------
 			 To enable users to manually enter class levels.
 			 Not yet implemented
-			 
-				//span.setAttribute("contenteditable", true);
-				/* BECAUSE EVENT LISTENERS NO WORKY ON THIS SPAN.
-				USE FORM INSTEAD? */
-				/*span.setAttribute("onkeypress", "return handleKey(this, event)");
-				span.setAttribute("onblur", "lol(this)");
-				span.setAttribute("onpaste", "return false");
-				span.setAttribute("ondrop", "return false");*
-			/* --------------------------------------------- */
+
+			 //span.setAttribute("contenteditable", true);
+			 /* BECAUSE EVENT LISTENERS NO WORKY ON THIS SPAN.
+			 USE FORM INSTEAD? */
+			/*span.setAttribute("onkeypress", "return handleKey(this, event)");
+			 span.setAttribute("onblur", "lol(this)");
+			 span.setAttribute("onpaste", "return false");
+			 span.setAttribute("ondrop", "return false");*
+			 /* --------------------------------------------- */
 			listItemLink.appendChild(span);
-			
+
 			// Displays the class levels, but it's pointless for now
 			//if (className === "neutral")
-				listItemLink.innerHTML = className;
+			listItemLink.innerHTML = className;
 			//else {
 			//	listItemLink.innerHTML = className + "<br>(" + listItemLink.innerHTML;
 			//	listItemLink.innerHTML += ")";
 			//}
-			
+
 			// Closure function for when clicking on a class tab
 			(function (className) {
 				listItemLink.addEventListener("click", function() {
@@ -834,20 +864,26 @@ var HSCollectionTracker = (function() {
 					document.getElementById("classTabsBar").setAttribute("class",
 						classTabsClass + " " + className);
 					selectedClass = className;
-					
+
 					// No need to re-display the class tabs
 					displayCards(className);
 					displayMissingCards();
 					displayMissingDust();
 				});
 			}(className))
-			
+
 			// Prevent users from selecting class tabs text
 			listItemLink.setAttribute("class", className + " " + "noselect");
-			
+
 			listItem.appendChild(listItemLink);
 			list.appendChild(listItem);
 		}
+
+		createClassTab('all');
+		for (var className in classes) {
+			createClassTab(className)
+		}
+
 		div.appendChild(list);
 		
 		// Init left filter list (filter sets described in HTML)
@@ -862,7 +898,7 @@ var HSCollectionTracker = (function() {
 			    filterListItem.addEventListener("click", function() {
 					// Switch selected filter
 					filterBySet = filterListItem.innerHTML.toLowerCase();
-					
+
 					// Deselect all other filters
 					var filterListLeft = document.getElementById("filtersLeft").getElementsByTagName("a");
 					for (var i = 0; i < filterListLeft.length; i++)
@@ -904,7 +940,11 @@ var HSCollectionTracker = (function() {
 	// Displays the card lists for the specified class.
 	// Created dynamically except for the list names
 	function displayCards(className) {
-		var cardList = classes[className].cards;
+		if (className == 'all') {
+			var cardList = class_all.cards;
+		} else {
+			var cardList = classes[className].cards;
+		}
 		
 		// One list for each rarity in the game
 		for (var rarity in raritiesEnum) {
@@ -1001,8 +1041,12 @@ var HSCollectionTracker = (function() {
 	function displayMissingCards() {
 		document.getElementById("missingCardsClassTitle").innerHTML = selectedClass.toUpperCase();
 		
-		var missingData = getMissingDataFiltered(missingCards.classes[selectedClass]);
-		
+		if (selectedClass == 'all') {
+			var missingData = getMissingDataFiltered(missingCards.overall);
+		} else {
+			var missingData = getMissingDataFiltered(missingCards.classes[selectedClass]);
+		}
+
 		for (var rarity in missingData) {
 			var rarityCapitalized = capitalizeFirstLetter(rarity);
 			var td = document.getElementById("classMissing" + rarityCapitalized + "Normal");
@@ -1035,8 +1079,12 @@ var HSCollectionTracker = (function() {
 	
 	// Displays the missing dust data for the selected class
 	function displayMissingDust() {
-		var missingData = getMissingDataFiltered(missingDust.classes[selectedClass]);
-		
+		if (selectedClass == 'all') {
+			var missingData = getMissingDataFiltered(missingDust.overall);
+		} else {
+			var missingData = getMissingDataFiltered(missingDust.classes[selectedClass]);
+		}
+
 		for (var rarity in missingData) {
 			var rarityCapitalized = capitalizeFirstLetter(rarity);
 			var td = document.getElementById("classMissingDust" + rarityCapitalized);
@@ -1578,7 +1626,10 @@ var HSCollectionTracker = (function() {
 					localStorage.setItem("disenchantedDust", disenchantedDust);
 					localStorage.setItem("version", version);
 				}
-				else loadLocalStorage();
+				else {
+					loadLocalStorage();
+					initClassAll();
+				}
 			}
 			
 			initHearthpwnTooltips();
