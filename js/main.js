@@ -106,7 +106,7 @@ var HSCollectionTracker = (function() {
 
 	// The collection of cards, divided by classes
 	var classes = {};
-	var class_all = {};
+	var classAll = {};
 
 	// Class and card quality currently selected in the tracker
 	var selectedClass = "all";
@@ -125,7 +125,7 @@ var HSCollectionTracker = (function() {
 	var currentDust = 0;
 	var disenchantedDust = 0;
 	
-	var version = 2.160;
+	var version = 2.161;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, uncraftable) {
@@ -157,7 +157,8 @@ var HSCollectionTracker = (function() {
 			var copies = getMaxCopies(rarity);
 			this.cards[rarity][card.name] = card;
 
-			if (this.name == 'all') {return;}
+			if (this.name == 'all')
+				return;
 
 			for (var i = 0, quality = "normal"; i < 2; i++, quality = "golden") {
 				updateMissingCards(card, quality, copies);
@@ -262,17 +263,15 @@ var HSCollectionTracker = (function() {
 	}
 
 	function initClassAll() {
+		classAll = new classHS('all');
 
-		class_all = new classHS('all');
-
-		for (className in classes) {
+		for (className in classes)
 			for (rarity in classes[className].cards) {
 				var cards = classes[className].cards[rarity];
-				for (cardName in cards) {
-					class_all.addCard(cards[cardName]);
-				}
+				
+				for (cardName in cards)
+					classAll.addCard(cards[cardName]);
 			}
-		}
 
 		sortCards('all');
 	}
@@ -647,11 +646,10 @@ var HSCollectionTracker = (function() {
 	// Mana cost: Lower > higher
 	// Name: Lexicographical order
 	function sortCards(className) {
-		if (className == 'all') {
-			var cardList = class_all.cards;
-		} else {
+		if (className == 'all')
+			var cardList = classAll.cards;
+		else
 			var cardList = classes[className].cards;
-		}
 		
 		for (var rarity in cardList) {
 			var sortedArray = [];
@@ -757,7 +755,7 @@ var HSCollectionTracker = (function() {
 			var card;
 
 			if (selectedClass == "all")
-				card = class_all.cards[rarity][list[i].innerHTML];
+				card = classAll.cards[rarity][list[i].innerHTML];
 			else card = classes[selectedClass].cards[rarity][list[i].innerHTML];
 			
 			if (card[selectedQuality] < getMaxCopies(rarity))
@@ -783,7 +781,7 @@ var HSCollectionTracker = (function() {
 			var card;
 
 			if (selectedClass == "all")
-				card = class_all.cards[rarity][list[i].innerHTML];
+				card = classAll.cards[rarity][list[i].innerHTML];
 			else card = classes[selectedClass].cards[rarity][list[i].innerHTML];
 			
 			if (card[selectedQuality] > 0)
@@ -838,11 +836,10 @@ var HSCollectionTracker = (function() {
 			listItem.setAttribute("class", "col-xs-11ths nopadding");
 			var listItemLink = document.createElement("a");
 			var span = document.createElement("span");
-			if (className in classes) {
+			if (className in classes)
 				span.innerHTML = classes[className].level; // Always level 1 for now
-			} else {
+			else
 				span.innerHTML = 1;
-			}
 			/* ---------------------------------------------
 			 To enable users to manually enter class levels.
 			 Not yet implemented
@@ -888,9 +885,9 @@ var HSCollectionTracker = (function() {
 		}
 
 		createClassTab('all');
-		for (var className in classes) {
+		
+		for (var className in classes)
 			createClassTab(className)
-		}
 
 		div.appendChild(list);
 		
@@ -948,11 +945,10 @@ var HSCollectionTracker = (function() {
 	// Displays the card lists for the specified class.
 	// Created dynamically except for the list names
 	function displayCards(className) {
-		if (className == 'all') {
-			var cardList = class_all.cards;
-		} else {
+		if (className == 'all')
+			var cardList = classAll.cards;
+		else
 			var cardList = classes[className].cards;
-		}
 		
 		// One list for each rarity in the game
 		for (var rarity in raritiesEnum) {
@@ -1049,11 +1045,10 @@ var HSCollectionTracker = (function() {
 	function displayMissingCards() {
 		document.getElementById("missingCardsClassTitle").innerHTML = selectedClass.toUpperCase();
 		
-		if (selectedClass == 'all') {
+		if (selectedClass == 'all')
 			var missingData = getMissingDataFiltered(missingCards.overall);
-		} else {
+		else
 			var missingData = getMissingDataFiltered(missingCards.classes[selectedClass]);
-		}
 
 		for (var rarity in missingData) {
 			var rarityCapitalized = capitalizeFirstLetter(rarity);
@@ -1087,11 +1082,10 @@ var HSCollectionTracker = (function() {
 	
 	// Displays the missing dust data for the selected class
 	function displayMissingDust() {
-		if (selectedClass == 'all') {
+		if (selectedClass == 'all')
 			var missingData = getMissingDataFiltered(missingDust.overall);
-		} else {
+		else
 			var missingData = getMissingDataFiltered(missingDust.classes[selectedClass]);
-		}
 
 		for (var rarity in missingData) {
 			var rarityCapitalized = capitalizeFirstLetter(rarity);
@@ -1605,7 +1599,7 @@ var HSCollectionTracker = (function() {
 	*********************************************************/
 	return {
 		init: function() {
-		//	console.log(JSON.stringify(localStorage).length);
+			//console.log(JSON.stringify(localStorage).length);
 			// Check for HTML5 storage support
 			if (typeof(Storage) !== "undefined") {
 				var storedVersion = localStorage.getItem("version");
