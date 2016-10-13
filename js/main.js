@@ -1127,6 +1127,103 @@ var HSCollectionTracker = (function() {
 		displayMissingCardsOverall();
 		displayCards(selectedClass);
 	}
+	
+	// Creates and returns a table representing a deck.
+	// The deck should be an object of cards with this format:
+	//     "card name": cardCopies
+	//		...
+	// Deck and class names are optional.
+	function createDeckTable(deck, deckName, className) {
+		var cardData = {};
+		var currentDust = {
+			normal: 0,
+			golden: 0
+		};
+		var totalDust = {
+			normal: 0,
+			golden: 0
+		};		
+		
+		request = new XMLHttpRequest();
+		request.open("GET", "data/all-collectibles.json", false);
+		request.onreadystatechange = function () {
+			if(request.readyState === 4) {
+				if(request.status === 200 || request.status == 0) {
+					cardData = JSON.parse(request.responseText);
+				}
+			}
+		}
+		request.send(null);
+		
+		var table = document.createElement("table");
+		table.setAttribute("class", "tableDeck");
+		
+		// Create deck name row
+		var tr = document.createElement("tr");
+		var td = document.createElement("td");
+		td.setAttribute("class", "progress");
+		td.setAttribute("colspan", 3);
+		td.innerHTML = deckName || "Deck List";
+		tr.appendChild(td);
+		table.appendChild(tr);
+		
+		// Create card rows
+		for (var cardName in deck) {
+			var className = "";
+			var rarity = "";
+			
+			// Get necessary card data
+			for (var k = 0; k < cardData.cards.length; k++)
+			    if (cardName == cardData.cards[k].name) {
+					className = cardData.cards[k].hero;
+					rarity = cardData.cards[k].quality;
+					break;
+				}
+				
+			var card = classes[className].cards[rarity][cardName];
+			
+			// Get card copies and dust owned/missing
+			var copiesNormal = Math.min(card.normal, deck[cardName]);
+			currentDust.normal += getCraftingCost(card, "normal", Math.min(card.normal, deck[cardName]));
+			totalDust.normal += getCraftingCost(card, "normal", deck[cardName]);
+			var copiesGolden = Math.min(card.golden, deck[cardName]);
+			currentDust.golden += getCraftingCost(card, "golden", Math.min(card.golden, deck[cardName]));
+			totalDust.golden += getCraftingCost(card, "golden", deck[cardName]);
+			
+			tr = document.createElement("tr");
+			td = document.createElement("td");
+			td.innerHTML = cardName;
+			tr.appendChild(td);
+			td = document.createElement("td");
+			td.setAttribute("class", "normal");
+			td.innerHTML = copiesNormal + "/" + deck[cardName];
+			tr.appendChild(td);
+			td = document.createElement("td");
+			td.setAttribute("class", "golden");
+			td.innerHTML = copiesGolden + "/" + deck[cardName];
+			tr.appendChild(td);
+			table.appendChild(tr);
+		}
+		
+		// Create dust and progress row
+		tr = document.createElement("tr");
+		td = document.createElement("td");
+		td.setAttribute("class", "progress");
+		td.innerHTML =  Math.floor((currentDust.normal + currentDust.golden) 
+		    / (totalDust.normal + totalDust.golden) * 100) + "%";
+		tr.appendChild(td);
+		td = document.createElement("td");
+		td.setAttribute("class", "dust");
+		td.innerHTML = totalDust.normal - currentDust.normal;
+		tr.appendChild(td);
+		td = document.createElement("td");
+		td.setAttribute("class", "dust");
+		td.innerHTML = totalDust.golden - currentDust.golden;
+		tr.appendChild(td);
+		table.appendChild(tr);
+		
+		return table;
+	}
 	/*********************************************************
 	***********************PROGRESS PAGE**********************
 	*********************************************************/

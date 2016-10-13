@@ -483,6 +483,24 @@ h2 {
   font-size: 18px;
   padding-right: 30px;
 }
+.side-page .tableDeck td {
+  background-color: #FFFFFF;
+  font-size: 14px;
+  border: 1px dashed #999999;
+  text-align: center;
+}
+.side-page .tableDeck td.normal {
+  background-color: #98FF21;
+}
+.side-page .tableDeck td.golden {
+  background-color: gold;
+}
+.side-page .tableDeck td.dust {
+  background-color: rgba(50, 150, 215, 0.4);
+}
+.side-page .tableDeck td.progress {
+  background-color: rgba(215, 150, 50, 0.4);
+}
 .side-page #progressTable {
   font-size: 10px;
 }
