@@ -1,0 +1,589 @@
+{
+	"druid": [
+	    {
+			"name": "Classic Druid",
+			"deck": {
+				"Innervate": 2,
+				"Claw": 1,
+				"Novice Engineer": 2,
+				"Wild Growth": 2,	
+				"Wrath": 2,
+				"Earthen Ring Farseer": 1,
+				"Harvest Golem": 2,
+				"Chillwind Yeti": 2,
+				"Keeper of the Grove": 2,
+				"Sen'jin Shieldmasta": 1,
+				"Swipe": 2,
+				"Azure Drake": 2,
+				"Druid of the Claw": 2,
+				"Boulderfist Ogre": 1,
+				"Ancient of War": 2,
+				"Ironbark Protector": 2,
+				"Cenarius": 1
+			}
+		},
+	    {
+			"name": "Overwhelming Numbers",
+			"deck": {
+				"Innervate": 2,
+				"Enchanted Raven": 2,
+				"Living Roots": 2,
+				"Darnassus Aspirant": 2,	
+				"Druid of the Saber": 2,
+				"Power of the Wild": 2,
+				"Wrath": 2,
+				"Mounted Raptor": 2,
+				"Savage Roar": 2,
+				"Defender of Argus": 1,
+				"Gormok the Impaler": 1,
+				"Keeper of the Grove": 2,
+				"Swipe": 2,
+				"Violet Teacher": 2,
+				"Wisps of the Old Gods": 1,
+				"Cenarius": 1,
+				"Sea Giant": 2
+			}
+		},
+	    {
+			"name": "The Ancient Gods",
+			"deck": {
+				"Innervate": 2,
+				"Living Roots": 2,
+				"Beckoner of Evil": 2,
+				"Darnassus Aspirant": 2,	
+				"Wild Growth": 2,
+				"Wrath": 2,
+				"Disciple of C'Thun": 2,
+				"Feral Rage": 2,
+				"Twilight Elder": 2,
+				"Klaxxi Amber-Weaver": 2,
+				"Swipe": 2,
+				"Crazed Worshipper": 2,
+				"Dark Arakkoa": 2,
+				"Twin Emperor Vek'lor": 1,
+				"Doomcaller": 2,
+				"C'Thun": 1
+			}
+		}		
+	],
+	"hunter": [
+	    {
+			"name": "Classic Mage",
+			"deck": {
+				"Arcane Missiles": 2,
+				"Mana Wyrm": 2,
+				"Mirror Image": 2,
+				"Acidic Swamp Ooze": 2,	
+				"Frostbolt": 2,
+				"Sorcerer's Apprentice": 2,
+				"Arcane Intellect": 2,
+				"Mirror Entity": 2,
+				"Fireball": 2,
+				"Polymorph": 2,
+				"Water Elemental": 2,
+				"Azure Drake": 2,
+				"Archmage": 2,
+				"Archmage Antonidas": 1,
+				"Flamestrike": 2,
+				"Pyroblast": 1
+			}
+		},
+	    {
+			"name": "Classic Mage",
+			"deck": {
+				"Arcane Missiles": 2,
+				"Mana Wyrm": 2,
+				"Mirror Image": 2,
+				"Acidic Swamp Ooze": 2,	
+				"Frostbolt": 2,
+				"Sorcerer's Apprentice": 2,
+				"Arcane Intellect": 2,
+				"Mirror Entity": 2,
+				"Fireball": 2,
+				"Polymorph": 2,
+				"Water Elemental": 2,
+				"Azure Drake": 2,
+				"Archmage": 2,
+				"Archmage Antonidas": 1,
+				"Flamestrike": 2,
+				"Pyroblast": 1
+			}
+		},
+	    {
+			"name": "Classic Mage",
+			"deck": {
+				"Arcane Missiles": 2,
+				"Mana Wyrm": 2,
+				"Mirror Image": 2,
+				"Acidic Swamp Ooze": 2,	
+				"Frostbolt": 2,
+				"Sorcerer's Apprentice": 2,
+				"Arcane Intellect": 2,
+				"Mirror Entity": 2,
+				"Fireball": 2,
+				"Polymorph": 2,
+				"Water Elemental": 2,
+				"Azure Drake": 2,
+				"Archmage": 2,
+				"Archmage Antonidas": 1,
+				"Flamestrike": 2,
+				"Pyroblast": 1
+			}
+		}		
+	],
+	"mage": [
+	    {
+			"name": "Classic Mage",
+			"deck": {
+				"Arcane Missiles": 2,
+				"Mana Wyrm": 2,
+				"Mirror Image": 2,
+				"Acidic Swamp Ooze": 2,	
+				"Frostbolt": 2,
+				"Sorcerer's Apprentice": 2,
+				"Arcane Intellect": 2,
+				"Mirror Entity": 2,
+				"Fireball": 2,
+				"Polymorph": 2,
+				"Water Elemental": 2,
+				"Azure Drake": 2,
+				"Archmage": 2,
+				"Archmage Antonidas": 1,
+				"Flamestrike": 2,
+				"Pyroblast": 1
+			}
+		},
+	    {
+			"name": "Classic Mage",
+			"deck": {
+				"Arcane Missiles": 2,
+				"Mana Wyrm": 2,
+				"Mirror Image": 2,
+				"Acidic Swamp Ooze": 2,	
+				"Frostbolt": 2,
+				"Sorcerer's Apprentice": 2,
+				"Arcane Intellect": 2,
+				"Mirror Entity": 2,
+				"Fireball": 2,
+				"Polymorph": 2,
+				"Water Elemental": 2,
+				"Azure Drake": 2,
+				"Archmage": 2,
+				"Archmage Antonidas": 1,
+				"Flamestrike": 2,
+				"Pyroblast": 1
+			}
+		},
+	    {
+			"name": "Classic Mage",
+			"deck": {
+				"Arcane Missiles": 2,
+				"Mana Wyrm": 2,
+				"Mirror Image": 2,
+				"Acidic Swamp Ooze": 2,	
+				"Frostbolt": 2,
+				"Sorcerer's Apprentice": 2,
+				"Arcane Intellect": 2,
+				"Mirror Entity": 2,
+				"Fireball": 2,
+				"Polymorph": 2,
+				"Water Elemental": 2,
+				"Azure Drake": 2,
+				"Archmage": 2,
+				"Archmage Antonidas": 1,
+				"Flamestrike": 2,
+				"Pyroblast": 1
+			}
+		}		
+	],
+	"paladin": [
+	    {
+			"name": "Classic Mage",
+			"deck": {
+				"Arcane Missiles": 2,
+				"Mana Wyrm": 2,
+				"Mirror Image": 2,
+				"Acidic Swamp Ooze": 2,	
+				"Frostbolt": 2,
+				"Sorcerer's Apprentice": 2,
+				"Arcane Intellect": 2,
+				"Mirror Entity": 2,
+				"Fireball": 2,
+				"Polymorph": 2,
+				"Water Elemental": 2,
+				"Azure Drake": 2,
+				"Archmage": 2,
+				"Archmage Antonidas": 1,
+				"Flamestrike": 2,
+				"Pyroblast": 1
+			}
+		},
+	    {
+			"name": "Classic Mage",
+			"deck": {
+				"Arcane Missiles": 2,
+				"Mana Wyrm": 2,
+				"Mirror Image": 2,
+				"Acidic Swamp Ooze": 2,	
+				"Frostbolt": 2,
+				"Sorcerer's Apprentice": 2,
+				"Arcane Intellect": 2,
+				"Mirror Entity": 2,
+				"Fireball": 2,
+				"Polymorph": 2,
+				"Water Elemental": 2,
+				"Azure Drake": 2,
+				"Archmage": 2,
+				"Archmage Antonidas": 1,
+				"Flamestrike": 2,
+				"Pyroblast": 1
+			}
+		},
+	    {
+			"name": "Classic Mage",
+			"deck": {
+				"Arcane Missiles": 2,
+				"Mana Wyrm": 2,
+				"Mirror Image": 2,
+				"Acidic Swamp Ooze": 2,	
+				"Frostbolt": 2,
+				"Sorcerer's Apprentice": 2,
+				"Arcane Intellect": 2,
+				"Mirror Entity": 2,
+				"Fireball": 2,
+				"Polymorph": 2,
+				"Water Elemental": 2,
+				"Azure Drake": 2,
+				"Archmage": 2,
+				"Archmage Antonidas": 1,
+				"Flamestrike": 2,
+				"Pyroblast": 1
+			}
+		}		
+	],
+	"priest": [
+	    {
+			"name": "Classic Mage",
+			"deck": {
+				"Arcane Missiles": 2,
+				"Mana Wyrm": 2,
+				"Mirror Image": 2,
+				"Acidic Swamp Ooze": 2,	
+				"Frostbolt": 2,
+				"Sorcerer's Apprentice": 2,
+				"Arcane Intellect": 2,
+				"Mirror Entity": 2,
+				"Fireball": 2,
+				"Polymorph": 2,
+				"Water Elemental": 2,
+				"Azure Drake": 2,
+				"Archmage": 2,
+				"Archmage Antonidas": 1,
+				"Flamestrike": 2,
+				"Pyroblast": 1
+			}
+		},
+	    {
+			"name": "Classic Mage",
+			"deck": {
+				"Arcane Missiles": 2,
+				"Mana Wyrm": 2,
+				"Mirror Image": 2,
+				"Acidic Swamp Ooze": 2,	
+				"Frostbolt": 2,
+				"Sorcerer's Apprentice": 2,
+				"Arcane Intellect": 2,
+				"Mirror Entity": 2,
+				"Fireball": 2,
+				"Polymorph": 2,
+				"Water Elemental": 2,
+				"Azure Drake": 2,
+				"Archmage": 2,
+				"Archmage Antonidas": 1,
+				"Flamestrike": 2,
+				"Pyroblast": 1
+			}
+		},
+	    {
+			"name": "Classic Mage",
+			"deck": {
+				"Arcane Missiles": 2,
+				"Mana Wyrm": 2,
+				"Mirror Image": 2,
+				"Acidic Swamp Ooze": 2,	
+				"Frostbolt": 2,
+				"Sorcerer's Apprentice": 2,
+				"Arcane Intellect": 2,
+				"Mirror Entity": 2,
+				"Fireball": 2,
+				"Polymorph": 2,
+				"Water Elemental": 2,
+				"Azure Drake": 2,
+				"Archmage": 2,
+				"Archmage Antonidas": 1,
+				"Flamestrike": 2,
+				"Pyroblast": 1
+			}
+		}		
+	],
+	"rogue": [
+	    {
+			"name": "Classic Mage",
+			"deck": {
+				"Arcane Missiles": 2,
+				"Mana Wyrm": 2,
+				"Mirror Image": 2,
+				"Acidic Swamp Ooze": 2,	
+				"Frostbolt": 2,
+				"Sorcerer's Apprentice": 2,
+				"Arcane Intellect": 2,
+				"Mirror Entity": 2,
+				"Fireball": 2,
+				"Polymorph": 2,
+				"Water Elemental": 2,
+				"Azure Drake": 2,
+				"Archmage": 2,
+				"Archmage Antonidas": 1,
+				"Flamestrike": 2,
+				"Pyroblast": 1
+			}
+		},
+	    {
+			"name": "Classic Mage",
+			"deck": {
+				"Arcane Missiles": 2,
+				"Mana Wyrm": 2,
+				"Mirror Image": 2,
+				"Acidic Swamp Ooze": 2,	
+				"Frostbolt": 2,
+				"Sorcerer's Apprentice": 2,
+				"Arcane Intellect": 2,
+				"Mirror Entity": 2,
+				"Fireball": 2,
+				"Polymorph": 2,
+				"Water Elemental": 2,
+				"Azure Drake": 2,
+				"Archmage": 2,
+				"Archmage Antonidas": 1,
+				"Flamestrike": 2,
+				"Pyroblast": 1
+			}
+		},
+	    {
+			"name": "Classic Mage",
+			"deck": {
+				"Arcane Missiles": 2,
+				"Mana Wyrm": 2,
+				"Mirror Image": 2,
+				"Acidic Swamp Ooze": 2,	
+				"Frostbolt": 2,
+				"Sorcerer's Apprentice": 2,
+				"Arcane Intellect": 2,
+				"Mirror Entity": 2,
+				"Fireball": 2,
+				"Polymorph": 2,
+				"Water Elemental": 2,
+				"Azure Drake": 2,
+				"Archmage": 2,
+				"Archmage Antonidas": 1,
+				"Flamestrike": 2,
+				"Pyroblast": 1
+			}
+		}		
+	],
+	"shaman": [
+	    {
+			"name": "Classic Mage",
+			"deck": {
+				"Arcane Missiles": 2,
+				"Mana Wyrm": 2,
+				"Mirror Image": 2,
+				"Acidic Swamp Ooze": 2,	
+				"Frostbolt": 2,
+				"Sorcerer's Apprentice": 2,
+				"Arcane Intellect": 2,
+				"Mirror Entity": 2,
+				"Fireball": 2,
+				"Polymorph": 2,
+				"Water Elemental": 2,
+				"Azure Drake": 2,
+				"Archmage": 2,
+				"Archmage Antonidas": 1,
+				"Flamestrike": 2,
+				"Pyroblast": 1
+			}
+		},
+	    {
+			"name": "Classic Mage",
+			"deck": {
+				"Arcane Missiles": 2,
+				"Mana Wyrm": 2,
+				"Mirror Image": 2,
+				"Acidic Swamp Ooze": 2,	
+				"Frostbolt": 2,
+				"Sorcerer's Apprentice": 2,
+				"Arcane Intellect": 2,
+				"Mirror Entity": 2,
+				"Fireball": 2,
+				"Polymorph": 2,
+				"Water Elemental": 2,
+				"Azure Drake": 2,
+				"Archmage": 2,
+				"Archmage Antonidas": 1,
+				"Flamestrike": 2,
+				"Pyroblast": 1
+			}
+		},
+	    {
+			"name": "Classic Mage",
+			"deck": {
+				"Arcane Missiles": 2,
+				"Mana Wyrm": 2,
+				"Mirror Image": 2,
+				"Acidic Swamp Ooze": 2,	
+				"Frostbolt": 2,
+				"Sorcerer's Apprentice": 2,
+				"Arcane Intellect": 2,
+				"Mirror Entity": 2,
+				"Fireball": 2,
+				"Polymorph": 2,
+				"Water Elemental": 2,
+				"Azure Drake": 2,
+				"Archmage": 2,
+				"Archmage Antonidas": 1,
+				"Flamestrike": 2,
+				"Pyroblast": 1
+			}
+		}		
+	],
+	"warlock": [
+	    {
+			"name": "Classic Mage",
+			"deck": {
+				"Arcane Missiles": 2,
+				"Mana Wyrm": 2,
+				"Mirror Image": 2,
+				"Acidic Swamp Ooze": 2,	
+				"Frostbolt": 2,
+				"Sorcerer's Apprentice": 2,
+				"Arcane Intellect": 2,
+				"Mirror Entity": 2,
+				"Fireball": 2,
+				"Polymorph": 2,
+				"Water Elemental": 2,
+				"Azure Drake": 2,
+				"Archmage": 2,
+				"Archmage Antonidas": 1,
+				"Flamestrike": 2,
+				"Pyroblast": 1
+			}
+		},
+	    {
+			"name": "Classic Mage",
+			"deck": {
+				"Arcane Missiles": 2,
+				"Mana Wyrm": 2,
+				"Mirror Image": 2,
+				"Acidic Swamp Ooze": 2,	
+				"Frostbolt": 2,
+				"Sorcerer's Apprentice": 2,
+				"Arcane Intellect": 2,
+				"Mirror Entity": 2,
+				"Fireball": 2,
+				"Polymorph": 2,
+				"Water Elemental": 2,
+				"Azure Drake": 2,
+				"Archmage": 2,
+				"Archmage Antonidas": 1,
+				"Flamestrike": 2,
+				"Pyroblast": 1
+			}
+		},
+	    {
+			"name": "Classic Mage",
+			"deck": {
+				"Arcane Missiles": 2,
+				"Mana Wyrm": 2,
+				"Mirror Image": 2,
+				"Acidic Swamp Ooze": 2,	
+				"Frostbolt": 2,
+				"Sorcerer's Apprentice": 2,
+				"Arcane Intellect": 2,
+				"Mirror Entity": 2,
+				"Fireball": 2,
+				"Polymorph": 2,
+				"Water Elemental": 2,
+				"Azure Drake": 2,
+				"Archmage": 2,
+				"Archmage Antonidas": 1,
+				"Flamestrike": 2,
+				"Pyroblast": 1
+			}
+		}		
+	],
+	"warrior": [
+	    {
+			"name": "Classic Mage",
+			"deck": {
+				"Arcane Missiles": 2,
+				"Mana Wyrm": 2,
+				"Mirror Image": 2,
+				"Acidic Swamp Ooze": 2,	
+				"Frostbolt": 2,
+				"Sorcerer's Apprentice": 2,
+				"Arcane Intellect": 2,
+				"Mirror Entity": 2,
+				"Fireball": 2,
+				"Polymorph": 2,
+				"Water Elemental": 2,
+				"Azure Drake": 2,
+				"Archmage": 2,
+				"Archmage Antonidas": 1,
+				"Flamestrike": 2,
+				"Pyroblast": 1
+			}
+		},
+	    {
+			"name": "Classic Mage",
+			"deck": {
+				"Arcane Missiles": 2,
+				"Mana Wyrm": 2,
+				"Mirror Image": 2,
+				"Acidic Swamp Ooze": 2,	
+				"Frostbolt": 2,
+				"Sorcerer's Apprentice": 2,
+				"Arcane Intellect": 2,
+				"Mirror Entity": 2,
+				"Fireball": 2,
+				"Polymorph": 2,
+				"Water Elemental": 2,
+				"Azure Drake": 2,
+				"Archmage": 2,
+				"Archmage Antonidas": 1,
+				"Flamestrike": 2,
+				"Pyroblast": 1
+			}
+		},
+	    {
+			"name": "Classic Mage",
+			"deck": {
+				"Arcane Missiles": 2,
+				"Mana Wyrm": 2,
+				"Mirror Image": 2,
+				"Acidic Swamp Ooze": 2,	
+				"Frostbolt": 2,
+				"Sorcerer's Apprentice": 2,
+				"Arcane Intellect": 2,
+				"Mirror Entity": 2,
+				"Fireball": 2,
+				"Polymorph": 2,
+				"Water Elemental": 2,
+				"Azure Drake": 2,
+				"Archmage": 2,
+				"Archmage Antonidas": 1,
+				"Flamestrike": 2,
+				"Pyroblast": 1
+			}
+		}		
+	]	
+}
