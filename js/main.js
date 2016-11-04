@@ -125,7 +125,7 @@ var HSCollectionTracker = (function() {
 	var currentDust = 0;
 	var disenchantedDust = 0;
 	
-	var version = 2.161;
+	var version = 2.162;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, uncraftable) {
@@ -310,6 +310,7 @@ var HSCollectionTracker = (function() {
 		document.getElementById("link-tracker").addEventListener("click", displayTracker);
 		document.getElementById("link-progress").addEventListener("click", displayProgress);
 		document.getElementById("link-packs").addEventListener("click", displayPacks);
+		document.getElementById("link-recipes").addEventListener("click", displayRecipes);
 		document.getElementById("link-news").addEventListener("click", displayNews);
 		document.getElementById("link-about").addEventListener("click", displayAbout);
 		document.getElementById("link-importHearthPwn").addEventListener("click", displayImportHearthPwn);
@@ -1258,6 +1259,7 @@ var HSCollectionTracker = (function() {
 			for (rarity in setsCards[set])
 			    if (rarities[rarity] == undefined)
 					rarities[rarity] = rarity;
+				
 		// Don't display an "all" column for sets only containing one rarity
 		if (Object.keys(rarities).length != 1)
 		    rarities.all = "all";
@@ -1418,6 +1420,50 @@ var HSCollectionTracker = (function() {
 		document.getElementById("chestLegendaryAverageDust").innerHTML = (averageDust.common * 3 + averageDust.epic).toFixed(1);
 	}
 	/*********************************************************
+	**********************DECK RECIPES************************
+	*********************************************************/
+	// Displays deck recipes for the selected class in the drop-down list
+	function displayDeckRecipes(evt) {
+		var className = document.getElementById('selectRecipes').value;
+		
+		// Function is invoked by code when accessing the recipes page,
+		// but otherwise the tables need to be removed each time a new
+		// class is selected.
+		if (evt != undefined) {
+		    document.getElementById("containerRow").childNodes[1].removeChild(
+		        document.getElementById("containerRow").childNodes[1].lastChild);
+		}
+		
+		var recipes = {};
+		
+		var request = new XMLHttpRequest();
+		request.open("GET", "data/deck-recipes.json", false);
+		request.onreadystatechange = function () {
+			if(request.readyState === 4) {
+				if(request.status === 200 || request.status == 0) {
+					recipes = JSON.parse(request.responseText);
+				}
+			}
+		}
+		request.send(null);
+		
+		var side = document.getElementsByClassName("side-page")[0];
+
+		var div = document.createElement("div");
+		div.setAttribute("class", "mainDiv");
+		var div2 = document.createElement("div");
+		div2.setAttribute("class", "row");
+		for (var i = 0; i < recipes[className].length; i++) {
+		    var div3 = document.createElement("div");
+		    div3.setAttribute("class", "col-xs-4");
+		    div3.appendChild(createDeckTable(recipes[className][i].deck,
+			    recipes[className][i].name));
+		    div2.appendChild(div3);
+		}
+		div.appendChild(div2);
+		side.appendChild(div);
+	}
+	/*********************************************************
 	**********************HTML TEMPLATES**********************
 	*********************************************************/
 	function displayAbout() {
@@ -1455,6 +1501,22 @@ var HSCollectionTracker = (function() {
 		
 		updatePackGuide();
 		updateChestGuide();
+		
+		document.getElementById("header-center").style.visibility = "hidden";
+		
+		document.oncontextmenu = function() {
+            return true;
+        }
+	}
+	
+	function displayRecipes() {
+		var template = document.getElementById("template-recipes").innerHTML;
+		document.getElementById("containerRow").innerHTML = template;
+			
+		// Add an event listener to the drop-down list that will display deck recipes
+		document.getElementById('selectRecipes').addEventListener('change', displayDeckRecipes);
+		
+		displayDeckRecipes();
 		
 		document.getElementById("header-center").style.visibility = "hidden";
 		
@@ -1643,7 +1705,6 @@ var HSCollectionTracker = (function() {
 					var externalID = results[i]["data-id"];
 					var name = "";
 					var className = "";
-					var set = "";
 					var rarity = "";
 					var copies = 0;
 					var quality = "";
@@ -1660,7 +1721,6 @@ var HSCollectionTracker = (function() {
 					for (var k = 0; k < cardData.cards.length; k++)
 						if (name == cardData.cards[k].name) {
 							className = cardData.cards[k].hero;
-							set = cardData.cards[k].set;
 							rarity = cardData.cards[k].quality;
 							break;
 						}
