@@ -1199,10 +1199,12 @@ var HSCollectionTracker = (function() {
 			td.setAttribute("class", "normal");
 			td.innerHTML = copiesNormal + "/" + deck[cardName];
 			tr.appendChild(td);
-			td = document.createElement("td");
-			td.setAttribute("class", "golden");
-			td.innerHTML = copiesGolden + "/" + deck[cardName];
-			tr.appendChild(td);
+			if (!settings.excludeGoldenCards) {
+				td = document.createElement("td");
+				td.setAttribute("class", "golden");
+				td.innerHTML = copiesGolden + "/" + deck[cardName];
+				tr.appendChild(td);
+			}
 			table.appendChild(tr);
 		}
 		
@@ -1210,17 +1212,21 @@ var HSCollectionTracker = (function() {
 		tr = document.createElement("tr");
 		td = document.createElement("td");
 		td.setAttribute("class", "progress");
-		td.innerHTML =  Math.floor((currentDust.normal + currentDust.golden) 
-		    / (totalDust.normal + totalDust.golden) * 100) + "%";
+		if (!settings.excludeGoldenCards)
+			td.innerHTML =  Math.floor((currentDust.normal + currentDust.golden) 
+				/ (totalDust.normal + totalDust.golden) * 100) + "%";
+		else td.innerHTML =  Math.floor(currentDust.normal / totalDust.normal * 100) + "%";
 		tr.appendChild(td);
 		td = document.createElement("td");
 		td.setAttribute("class", "dust");
 		td.innerHTML = totalDust.normal - currentDust.normal;
 		tr.appendChild(td);
-		td = document.createElement("td");
-		td.setAttribute("class", "dust");
-		td.innerHTML = totalDust.golden - currentDust.golden;
-		tr.appendChild(td);
+		if (!settings.excludeGoldenCards) {
+			td = document.createElement("td");
+			td.setAttribute("class", "dust");
+			td.innerHTML = totalDust.golden - currentDust.golden;
+			tr.appendChild(td);
+		}
 		table.appendChild(tr);
 		
 		return table;
@@ -1780,7 +1786,7 @@ var HSCollectionTracker = (function() {
 						news.className = news.className + " news";
 					}
 					
-				    updateLocalStorage();
+					updateLocalStorage();
 					localStorage.setItem("currentDust", currentDust);
 					localStorage.setItem("disenchantedDust", disenchantedDust);
 					localStorage.setItem("version", version);
