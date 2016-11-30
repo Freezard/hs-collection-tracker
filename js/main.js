@@ -826,12 +826,12 @@ var HSCollectionTracker = (function() {
 	function displayClassTabs() {
 		var div = document.getElementById("classTabs");
 		var list = document.createElement("ul");
+		
 		// Set the CSS color of the class tabs bar (default neutral)
 		var classTabsClass = document.getElementById("classTabsBar").getAttribute("class");		
 		document.getElementById("classTabsBar").setAttribute("class", classTabsClass + " " + selectedClass);
 		
 		// Create the class tabs
-
 		createClassTab = function (className) {
 			var listItem = document.createElement("li");
 			listItem.setAttribute("class", "col-xs-11ths nopadding");
@@ -896,19 +896,45 @@ var HSCollectionTracker = (function() {
 		var filterListLeft = document.getElementById("filtersLeft").getElementsByTagName("a");
 		for (var i = 0; i < filterListLeft.length; i++) {
 			var filterListItem = filterListLeft[i];
+			
 			// Set the initial filter as selected
-			if (filterBySet === filterListItem.innerHTML.toLowerCase())
+			if (filterBySet === filterListItem.innerHTML.toLowerCase()) {
 				filterListItem.setAttribute("class", "selected");
+				
+				//  In case element is part of a dropdown-menu
+				var dropdown = filterListItem.parentElement.
+					parentElement.parentElement.childNodes[1];
+					
+				if (dropdown.getAttribute("data-toggle")) {
+					dropdown.innerHTML = filterListItem.innerHTML + '<span class="caret"></span>';
+					dropdown.setAttribute("class", "selected");
+				}			
+			}
+			
+			// Ignore clicks on the dropdown-menu itself
+			if (filterListItem.getAttribute("data-toggle"))
+				continue;
+			
 			// Closure function for when clicking on a filter
 	        (function (filterListItem) {
 			    filterListItem.addEventListener("click", function() {
 					// Switch selected filter
 					filterBySet = filterListItem.innerHTML.toLowerCase();
-
+					
 					// Deselect all other filters
 					var filterListLeft = document.getElementById("filtersLeft").getElementsByTagName("a");
 					for (var i = 0; i < filterListLeft.length; i++)
                       filterListLeft[i].removeAttribute("class");
+				  
+					//  In case element is part of a dropdown-menu
+				    var dropdown = filterListItem.parentElement.
+					    parentElement.parentElement.childNodes[1];
+					
+					if (dropdown.getAttribute("data-toggle")) {
+						dropdown.innerHTML = filterListItem.innerHTML + '<span class="caret"></span>';
+						dropdown.setAttribute("class", "selected");
+					}
+						
 				    filterListItem.setAttribute("class", "selected");
 					
 					// Display the cards and missing data with the new filter

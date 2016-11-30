@@ -175,6 +175,11 @@ body {
   text-transform: uppercase;
   cursor: pointer;
 }
+#classTabsBar #filtersLeft .dropdown-menu li a {
+	float: none;
+	margin: 0px;
+	border-radius: 0px;
+}
 #classTabsBar #filtersRight li a {
   float: right;
 }
