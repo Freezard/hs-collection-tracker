@@ -37,7 +37,8 @@ var HSCollectionTracker = (function() {
 		tgt: "tgt",
 		loe: "loe",
 		wotog: "wotog",
-		onik: "onik"
+		onik: "onik",
+		msog: "msog"
 	};
 
 	var standardSetsEnum = {
@@ -47,7 +48,8 @@ var HSCollectionTracker = (function() {
 		tgt: "tgt",
 		loe: "loe",
 		wotog: "wotog",
-		onik: "onik"
+		onik: "onik",
+		msog: "msog"
 	};
 
 	// The number of cards and craftable cards in each set.
@@ -71,7 +73,8 @@ var HSCollectionTracker = (function() {
 	var packsEnum = {
 		classic: "classic",
 		tgt: "tgt",
-		wotog: "wotog"
+		wotog: "wotog",
+		msog: "msog"
 	};
 	
 	var craftingCost = {
@@ -125,7 +128,7 @@ var HSCollectionTracker = (function() {
 	var currentDust = 0;
 	var disenchantedDust = 0;
 	
-	var version = 2.162;
+	var version = 2.163;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, uncraftable) {
@@ -585,6 +588,7 @@ var HSCollectionTracker = (function() {
 			"The League of Explorers": setsEnum.loe,
 			"Whispers of the Old Gods": setsEnum.wotog,
 			"Karazhan": setsEnum.onik,
+			"Mean Streets of Gadgetzan": setsEnum.msog
 		};
 		
 		var importCardData = function (cards, set) {
@@ -607,6 +611,7 @@ var HSCollectionTracker = (function() {
 		}).done(function (response) {
 			Object.keys(setMap).forEach (function (apiSet) {
 				var set = setMap[apiSet];
+				
 				if (set) {
 					importCardData(response[apiSet], set);
 				} else { // Does not work
