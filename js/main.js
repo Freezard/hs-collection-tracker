@@ -249,7 +249,23 @@ var HSCollectionTracker = (function() {
 			
 		return data;
 	}
-	
+
+	function getData(fileName) {
+		var data;
+		
+		var request = new XMLHttpRequest();
+		request.open("GET", "data/" + fileName + ".json", false);
+		request.onreadystatechange = function () {
+			if(request.readyState === 4) {
+				if(request.status === 200 || request.status == 0) {
+					data = JSON.parse(request.responseText);
+				}
+			}
+		}
+		request.send(null);
+		
+		return data;
+	}
 	/*********************************************************
 	**************************INIT****************************
 	*********************************************************/
@@ -625,17 +641,7 @@ var HSCollectionTracker = (function() {
 	
 	// Imports cards from a local JSON-file
 	function importCardsOffline() {
-		var cardData;
-		var request = new XMLHttpRequest();
-		request.open("GET", "data/all-collectibles.json", false);
-		request.onreadystatechange = function () {
-			if(request.readyState === 4) {
-				if(request.status === 200 || request.status == 0) {
-					cardData = JSON.parse(request.responseText);
-				}
-			}
-		}
-		request.send(null);
+		var cardData = getData("all-collectibles");
 		
 		for (var i = 0, l = cardData.cards.length; i < l; i++) {
 			var c = cardData.cards[i];
@@ -1166,7 +1172,7 @@ var HSCollectionTracker = (function() {
 	//		...
 	// Deck and class names are optional.
 	function createDeckTable(deck, deckName, className) {
-		var cardData = {};
+		var cardData = getData("all-collectibles");
 		var currentDust = {
 			normal: 0,
 			golden: 0
@@ -1175,17 +1181,6 @@ var HSCollectionTracker = (function() {
 			normal: 0,
 			golden: 0
 		};		
-		
-		request = new XMLHttpRequest();
-		request.open("GET", "data/all-collectibles.json", false);
-		request.onreadystatechange = function () {
-			if(request.readyState === 4) {
-				if(request.status === 200 || request.status == 0) {
-					cardData = JSON.parse(request.responseText);
-				}
-			}
-		}
-		request.send(null);
 		
 		var table = document.createElement("table");
 		table.setAttribute("class", "tableDeck");
@@ -1471,18 +1466,7 @@ var HSCollectionTracker = (function() {
 		        document.getElementById("containerRow").childNodes[1].lastChild);
 		}
 		
-		var recipes = {};
-		
-		var request = new XMLHttpRequest();
-		request.open("GET", "data/deck-recipes.json", false);
-		request.onreadystatechange = function () {
-			if(request.readyState === 4) {
-				if(request.status === 200 || request.status == 0) {
-					recipes = JSON.parse(request.responseText);
-				}
-			}
-		}
-		request.send(null);
+		var recipes = getData("deck-recipes");
 		
 		var side = document.getElementsByClassName("side-page")[0];
 
@@ -1696,31 +1680,9 @@ var HSCollectionTracker = (function() {
 		    "Please wait...";
 		
 		var username = evt.target["username"].value;
-		var cardIds = {};
-		var cardData = {};
-		
-	    var request = new XMLHttpRequest();
-		request.open("GET", "data/card-ids.json", false);
-		request.onreadystatechange = function () {
-			if(request.readyState === 4) {
-				if(request.status === 200 || request.status == 0) {
-					cardIds = JSON.parse(request.responseText);
-				}
-			}
-		}
-		request.send(null);
-		
-		request = new XMLHttpRequest();
-		request.open("GET", "data/all-collectibles.json", false);
-		request.onreadystatechange = function () {
-			if(request.readyState === 4) {
-				if(request.status === 200 || request.status == 0) {
-					cardData = JSON.parse(request.responseText);
-				}
-			}
-		}
-		request.send(null);
-		
+		var cardIds = getData("card-ids");
+		var cardData = getData("all-collectibles");
+				
 		// Get the collection data
 		YUI().use('yql', function(Y) {
 			Y.YQL('select * from html where ' +
