@@ -902,7 +902,11 @@ var HSCollectionTracker = (function() {
 			createClassTab(className)
 
 		div.appendChild(list);
-		
+	}
+	
+	// Currently only handles control of the filter list.
+	// Display is done in HTML (should add it here)
+	function displayFilterList() {		
 		// Init left filter list (filter sets described in HTML)
 		var filterListLeft = document.getElementById("filtersLeft").getElementsByTagName("a");
 		for (var i = 0; i < filterListLeft.length; i++) {
@@ -1551,6 +1555,7 @@ var HSCollectionTracker = (function() {
 		document.getElementById("containerRow").innerHTML = template;
 		
 		displayClassTabs();
+		displayFilterList();
 		displayCards(selectedClass);
 		displayMissingCards();
 		displayMissingCardsOverall();
