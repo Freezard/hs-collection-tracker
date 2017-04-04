@@ -29,8 +29,7 @@ var HSCollectionTracker = (function() {
 	var setsEnum = {
 		basic: "basic",
 		classic: "classic",
-		reward: "reward",
-		promo: "promo",
+		hof: "hof",
 		naxxramas: "naxxramas",
 		gvg: "gvg",
 		blackrock: "blackrock",
@@ -38,7 +37,8 @@ var HSCollectionTracker = (function() {
 		loe: "loe",
 		wotog: "wotog",
 		onik: "onik",
-		msog: "msog"
+		msog: "msog",
+		ungoro: "ungoro"
 	};
 
 	var standardSetsEnum = {
@@ -60,14 +60,16 @@ var HSCollectionTracker = (function() {
 	var setsUncraftable = {
 		basic: "both",
 		classic: "none",
-		reward: "none",
-		promo: "golden",
+		//reward: "none",
+		//promo: "golden",
+		hof: "none",
 		naxxramas: "none",
 		gvg: "none",
 		blackrock: "none",
 		tgt: "none",
 		loe: "none",
-		wotog: "none"
+		wotog: "none",
+		ungoro: "none"
 	};
 	
 	var packsEnum = {
@@ -128,7 +130,7 @@ var HSCollectionTracker = (function() {
 	var currentDust = 0;
 	var disenchantedDust = 0;
 	
-	var version = 2.164;
+	var version = 2.165;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, uncraftable) {
@@ -595,8 +597,7 @@ var HSCollectionTracker = (function() {
 		var setMap = {
 			"Basic": setsEnum.basic,
 			"Classic": setsEnum.classic,
-			"Reward": setsEnum.reward,
-			"Promo": setsEnum.promo,
+			"Hall of Fame": setsEnum.hof,
 			"Naxxramas": setsEnum.naxxramas,
 			"Goblins vs Gnomes": setsEnum.gvg,
 			"Blackrock Mountain": setsEnum.blackrock,
@@ -604,7 +605,8 @@ var HSCollectionTracker = (function() {
 			"The League of Explorers": setsEnum.loe,
 			"Whispers of the Old Gods": setsEnum.wotog,
 			"Karazhan": setsEnum.onik,
-			"Mean Streets of Gadgetzan": setsEnum.msog
+			"Mean Streets of Gadgetzan": setsEnum.msog,
+			"Journey to Un'Goro": setsEnum.ungoro
 		};
 		
 		var importCardData = function (cards, set) {
