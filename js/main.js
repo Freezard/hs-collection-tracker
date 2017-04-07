@@ -44,12 +44,10 @@ var HSCollectionTracker = (function() {
 	var standardSetsEnum = {
 		basic: "basic",
 		classic: "classic",
-		blackrock: "blackrock",
-		tgt: "tgt",
-		loe: "loe",
 		wotog: "wotog",
 		onik: "onik",
-		msog: "msog"
+		msog: "msog",
+		ungoro: "ungoro"
 	};
 
 	// The number of cards and craftable cards in each set.
@@ -74,9 +72,9 @@ var HSCollectionTracker = (function() {
 	
 	var packsEnum = {
 		classic: "classic",
-		tgt: "tgt",
 		wotog: "wotog",
-		msog: "msog"
+		msog: "msog",
+		ungoro: "ungoro"
 	};
 	
 	var craftingCost = {
@@ -130,7 +128,7 @@ var HSCollectionTracker = (function() {
 	var currentDust = 0;
 	var disenchantedDust = 0;
 	
-	var version = 2.165;
+	var version = 2.166;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, uncraftable) {
@@ -443,6 +441,7 @@ var HSCollectionTracker = (function() {
 
 		// List of hearthstone cards grabbed 2016-03-31 from this chrome extension:
 		// https://chrome.google.com/webstore/detail/hearthstone-linkifier/hgfciolhdhbagnccplcficnahgleflam
+		// ^ Not updated anymore.
 		//
 		// Most valuable here are IDs in hearthpwn.com and wowhead.com databases.
 		if (!window.HS_CardData) {
