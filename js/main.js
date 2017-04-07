@@ -121,7 +121,7 @@ var HSCollectionTracker = (function() {
 		showOnlyMissingCards: false
 	};
 	
-	var filterBySet = "all";
+	var filterBySet = "standard";
 	var progressSet = ""; // Chosen set for the progress table
 	
 	// Currently unused
