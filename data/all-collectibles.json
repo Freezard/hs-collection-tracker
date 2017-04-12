@@ -17562,6 +17562,3122 @@
 			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/CFM_308.png",
 			"hero": "druid",
 			"race": "none"
-		}		
+		}, {
+			"cardId": "UNG_961",
+			"name": "Adaptation",
+			"set": "ungoro",
+			"type": "spell",
+			"quality": "common",
+			"mana": 1,
+			"text": "<b>Adapt</b> a friendly minion.",
+			"flavor": "Pray for salvation. If that fails, pray for extra horns or bigger teeth.",
+			"artist": "Hideaki Takamura",
+			"collectible": true,
+			"hero": "paladin",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_961.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_961_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Adapt"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_019",
+			"name": "Air Elemental",
+			"set": "ungoro",
+			"type": "minion",
+			"faction": "Horde",
+			"quality": "common",
+			"mana": 1,
+			"attack": 2,
+			"health": 1,
+			"text": "Can't be targeted by spells or Hero Powers.",
+			"flavor": "Makes a mean puff pastry.",
+			"artist": "Evgeniy Dlinnov",
+			"collectible": true,
+			"race": "Elemental",
+			"hero": "shaman",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_019.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_019_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "UNG_940",
+			"name": "Awaken the Makers",
+			"set": "ungoro",
+			"type": "spell",
+			"quality": "legendary",
+			"mana": 1,
+			"text": "<b>Quest:</b> Summon\\n7 <b>Deathrattle</b> minions.<b>\\nReward:</b> Amara, Warden of Hope.",
+			"flavor": "They keep hitting the Snooze button.",
+			"artist": "Konstantin Turovec",
+			"collectible": true,
+			"elite": true,
+			"hero": "priest",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_940.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_940_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Quest"
+			  },
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_030",
+			"name": "Binding Heal",
+			"set": "ungoro",
+			"type": "spell",
+			"quality": "common",
+			"mana": 1,
+			"text": "Restore #5 Health to a minion and your hero.",
+			"flavor": "By accepting this healing, you agree to the following terms…",
+			"artist": "Tyler Walpole",
+			"collectible": true,
+			"hero": "priest",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_030.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_030_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "UNG_032",
+			"name": "Crystalline Oracle",
+			"set": "ungoro",
+			"type": "minion",
+			"faction": "Horde",
+			"quality": "rare",
+			"mana": 1,
+			"attack": 1,
+			"health": 1,
+			"text": "[x]<b>Deathrattle:</b> Copy a card\\nfrom your opponent's deck\\n_and add it to your hand.",
+			"flavor": "Being made of light has its disadvantages, but at least it's always looking on the bright side.",
+			"artist": "Arthur Bozonnet",
+			"collectible": true,
+			"race": "Elemental",
+			"hero": "priest",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_032.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_032_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_108",
+			"name": "Earthen Scales",
+			"set": "ungoro",
+			"type": "spell",
+			"faction": "neutral",
+			"quality": "rare",
+			"mana": 1,
+			"text": "Give a friendly minion +1/+1, then gain Armor equal to its Attack.",
+			"flavor": "You can make your own Earthen Scales at home. Step 1: Roll around in the dirt. Step 2: Magic.",
+			"artist": "Mike Azevedo",
+			"collectible": true,
+			"hero": "druid",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_108.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_108_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "UNG_085",
+			"name": "Emerald Hive Queen",
+			"set": "ungoro",
+			"type": "minion",
+			"faction": "Horde",
+			"quality": "epic",
+			"mana": 1,
+			"attack": 2,
+			"health": 3,
+			"text": "Your minions cost (2) more.",
+			"flavor": "She rules the emerald hive at the end of the yellow brick trail.",
+			"artist": "Rafael Zanchetin",
+			"collectible": true,
+			"race": "Beast",
+			"hero": "neutral",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_085.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_085_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Aura"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_803",
+			"name": "Emerald Reaver",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "common",
+			"mana": 1,
+			"attack": 2,
+			"health": 1,
+			"text": "<b>Battlecry:</b> Deal 1 damage to each hero.",
+			"flavor": "Not to be confused with clubbing enthusiast Emerald Raver.",
+			"artist": "Rafael Zanchetin",
+			"collectible": true,
+			"race": "Beast",
+			"hero": "neutral",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_803.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_803_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_809",
+			"name": "Fire Fly",
+			"set": "ungoro",
+			"type": "minion",
+			"faction": "Alliance",
+			"quality": "common",
+			"mana": 1,
+			"attack": 1,
+			"health": 2,
+			"text": "<b>Battlecry</b>: Add a 1/2 Elemental to your hand.",
+			"flavor": "Arch nemeses: small children with glass jars.",
+			"artist": "Evgeniy Dlinnov",
+			"collectible": true,
+			"race": "Elemental",
+			"hero": "neutral",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_809.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_809_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_934",
+			"name": "Fire Plume's Heart",
+			"set": "ungoro",
+			"type": "spell",
+			"quality": "legendary",
+			"mana": 1,
+			"text": "[x]<b>Quest:</b> Play\\n7 <b>Taunt</b> minions.\\n<b>Reward:</b> Sulfuras.",
+			"flavor": "Why does an active volcano need to be defended? To save its ash.",
+			"artist": "Nate Bowden",
+			"collectible": true,
+			"elite": true,
+			"hero": "warrior",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_934.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_934_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Quest"
+			  },
+			  {
+				"name": "Taunt"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_205",
+			"name": "Glacial Shard",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "common",
+			"mana": 1,
+			"attack": 2,
+			"health": 1,
+			"text": "<b>Battlecry:</b> <b>Freeze</b> an_enemy.",
+			"flavor": "Ice, ice, baby!",
+			"artist": "Paul Mafayon",
+			"collectible": true,
+			"race": "Elemental",
+			"hero": "neutral",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_205.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_205_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Freeze"
+			  },
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_856",
+			"name": "Hallucination",
+			"set": "ungoro",
+			"type": "spell",
+			"quality": "common",
+			"mana": 1,
+			"text": "<b>Discover</b> a card from your opponent's class.",
+			"flavor": "It's the good kind of hallucination.",
+			"artist": "Daria Tuzova",
+			"collectible": true,
+			"hero": "rogue",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_856.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_856_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Discover"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_923",
+			"name": "Iron Hide",
+			"set": "ungoro",
+			"type": "spell",
+			"faction": "neutral",
+			"quality": "common",
+			"mana": 1,
+			"text": "Gain 5 Armor.",
+			"flavor": "Week 6. I remain covered head to toe with scales. They do not yet realize that I am not a dinosaur.",
+			"artist": "Phil Saunders",
+			"collectible": true,
+			"hero": "warrior",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_923.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_923_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "UNG_912",
+			"name": "Jeweled Macaw",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "common",
+			"mana": 1,
+			"attack": 1,
+			"health": 1,
+			"text": "<b>Battlecry:</b> Add a random Beast to your hand.",
+			"flavor": "It’s not LITERALLY jeweled. The goblins were terribly disappointed.",
+			"artist": "James Ryman",
+			"collectible": true,
+			"race": "Beast",
+			"hero": "hunter",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_912.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_912_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_116",
+			"name": "Jungle Giants",
+			"set": "ungoro",
+			"type": "spell",
+			"quality": "legendary",
+			"mana": 1,
+			"text": "[x]<b>Quest:</b> Summon\\n5 minions with\\n5 or more Attack.\\n<b>Reward:</b> Barnabus.",
+			"flavor": "Forming the Golakka Crater was the end of Barnabus' disastrous career as a dancer.",
+			"artist": "Konstantin Turovec",
+			"collectible": true,
+			"elite": true,
+			"hero": "druid",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_116.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_116_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Quest"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_829",
+			"name": "Lakkari Sacrifice",
+			"set": "ungoro",
+			"type": "spell",
+			"quality": "legendary",
+			"mana": 1,
+			"text": "[x]<b>Quest:</b> Discard 6 cards.\\n<b>Reward:</b> Nether Portal.",
+			"flavor": "They asked, “And what must we give in return?” Gul’dan lowered his hood and answered: “Six… cards…”",
+			"artist": "Konstantin Turovec",
+			"collectible": true,
+			"elite": true,
+			"hero": "warlock",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_829.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_829_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Quest"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_960",
+			"name": "Lost in the Jungle",
+			"set": "ungoro",
+			"type": "spell",
+			"faction": "Alliance",
+			"quality": "common",
+			"mana": 1,
+			"text": "Summon two 1/1 Silver Hand Recruits.",
+			"flavor": "George and Karl were never heard from again.",
+			"artist": "Zoltan Boros",
+			"collectible": true,
+			"hero": "paladin",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_960.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_960_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "UNG_929",
+			"name": "Molten Blade",
+			"set": "ungoro",
+			"type": "weapon",
+			"quality": "rare",
+			"mana": 1,
+			"attack": 1,
+			"durability": 1,
+			"text": "Each turn this is in your hand, transform it into a new weapon.",
+			"flavor": "It’s a sword! It’s a knife! It’s a swizzle-stick!",
+			"artist": "James Ryman",
+			"collectible": true,
+			"hero": "warrior",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_929.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_929_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "UNG_028",
+			"name": "Open the Waygate",
+			"set": "ungoro",
+			"type": "spell",
+			"quality": "legendary",
+			"mana": 1,
+			"text": "[x]<b>Quest:</b> Cast 6 spells that\\ndidn't start in your deck.\\n<b>Reward:</b> Time Warp.",
+			"flavor": "Although powerful, the incantation is simple. It’s just a jump to the left, and then a step to the right.",
+			"artist": "Rafael Zanchetin",
+			"collectible": true,
+			"elite": true,
+			"hero": "mage",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_028.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_028_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Quest"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_914",
+			"name": "Raptor Hatchling",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 1,
+			"attack": 2,
+			"health": 1,
+			"text": "<b>Deathrattle:</b> Shuffle a 4/3 Raptor into your deck.",
+			"flavor": "They’re just baby teeth. Lots and lots of baby teeth.",
+			"artist": "Jaemin Kim",
+			"collectible": true,
+			"race": "Beast",
+			"hero": "hunter",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_914.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_914_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_916",
+			"name": "Stampede",
+			"set": "ungoro",
+			"type": "spell",
+			"quality": "epic",
+			"mana": 1,
+			"text": "Each time you play a Beast this turn, add_a_random Beast to_your hand.",
+			"flavor": "Many hunters long for the pitter-patter of enormous feet.",
+			"artist": "Daren Bader",
+			"collectible": true,
+			"hero": "hunter",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_916.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_916_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "UNG_067",
+			"name": "The Caverns Below",
+			"set": "ungoro",
+			"type": "spell",
+			"quality": "legendary",
+			"mana": 1,
+			"text": "[x]<b>Quest:</b> Play four minions\\nwith the same name.\\n<b>Reward:</b> Crystal Core.",
+			"flavor": "Why can't it ever be The Taverns Below?",
+			"artist": "James Ryman",
+			"collectible": true,
+			"elite": true,
+			"hero": "rogue",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_067.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_067_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Quest"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_954",
+			"name": "The Last Kaleidosaur",
+			"set": "ungoro",
+			"type": "spell",
+			"quality": "legendary",
+			"mana": 1,
+			"text": "<b>Quest:</b> Cast 6 spells\\non your minions.\\n<b>Reward:</b> Galvadon.",
+			"flavor": "“Impossible!” exclaimed the Silver Hand Recruit, his eyes filled with fear. Uther shook his head, turning the crystal until it caught the light: “Life finds a way.”",
+			"artist": "Arthur Gimaldinov",
+			"collectible": true,
+			"elite": true,
+			"hero": "paladin",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_954.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_954_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Quest"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_920",
+			"name": "The Marsh Queen",
+			"set": "ungoro",
+			"type": "spell",
+			"quality": "legendary",
+			"mana": 1,
+			"text": "[x]<b>Quest:</b> Play seven\\n1-Cost minions.\\n<b>Reward:</b> Queen Carnassa.",
+			"flavor": "Question: What's scarier, one giant angry dinosaur or 15 smaller vicious ones? Answer: AHHHHHHH THEY FOUND MEEEEEE",
+			"artist": "A.J. Nazzaro",
+			"collectible": true,
+			"elite": true,
+			"hero": "hunter",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_920.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_920_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Quest"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_942",
+			"name": "Unite the Murlocs",
+			"set": "ungoro",
+			"type": "spell",
+			"quality": "legendary",
+			"mana": 1,
+			"text": "[x]<b>Quest:</b> Summon\\n10 Murlocs.\\n<b>Reward:</b> Megafin.",
+			"flavor": "Form feet and legs!  Form arms and body!  Oh.  Sorry.  I was thinking about Mechafin.",
+			"artist": "Steve Prescott",
+			"collectible": true,
+			"elite": true,
+			"hero": "shaman",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_942.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_942_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Quest"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_020",
+			"name": "Arcanologist",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "common",
+			"mana": 2,
+			"attack": 2,
+			"health": 3,
+			"text": "<b>Battlecry:</b> Draw a <b>Secret</b> from your deck.",
+			"flavor": "What did you draw? Shhhh… it’s a secret.",
+			"artist": "Eva Widermann",
+			"collectible": true,
+			"hero": "mage",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_020.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_020_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Secret"
+			  },
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_063",
+			"name": "Biteweed",
+			"set": "ungoro",
+			"type": "minion",
+			"faction": "neutral",
+			"quality": "epic",
+			"mana": 2,
+			"attack": 1,
+			"health": 1,
+			"text": "<b>Combo:</b> Gain +1/+1 for each other card you've played this turn.",
+			"flavor": "AKA Edwin VanLeaf.",
+			"artist": "Craig Elliot",
+			"collectible": true,
+			"hero": "rogue",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_063.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_063_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Combo"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_832",
+			"name": "Bloodbloom",
+			"set": "ungoro",
+			"type": "spell",
+			"quality": "epic",
+			"mana": 2,
+			"text": "The next spell you cast this turn costs Health instead of Mana.",
+			"flavor": "Help save mana.  Donate blood today!",
+			"artist": "Tyler Walpole",
+			"collectible": true,
+			"hero": "warlock",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_832.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_832_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "UNG_836",
+			"name": "Clutchmother Zavas",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "legendary",
+			"mana": 2,
+			"attack": 2,
+			"health": 2,
+			"text": "Whenever you discard this, give it +2/+2 and return it to your hand.",
+			"flavor": "A bit of a snob: still refuses to drive anything with automatic transmission.",
+			"artist": "Anton Zemskov",
+			"collectible": true,
+			"elite": true,
+			"race": "Beast",
+			"hero": "warlock",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_836.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_836_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "InvisibleDeathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_926",
+			"name": "Cornered Sentry",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 2,
+			"attack": 2,
+			"health": 6,
+			"text": "<b>Taunt</b>. <b>Battlecry:</b> Summon three 1/1 Raptors for your_opponent.",
+			"flavor": "The Draenei are seriously considering cancelling \"Bring Your Murderous Pet to Work Day.\"",
+			"artist": "Jomaro Kindred",
+			"collectible": true,
+			"hero": "warrior",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_926.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_926_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Taunt"
+			  },
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_831",
+			"name": "Corrupting Mist",
+			"set": "ungoro",
+			"type": "spell",
+			"faction": "neutral",
+			"quality": "rare",
+			"mana": 2,
+			"text": "Corrupt every minion. Destroy them at the start of your next turn.",
+			"flavor": "The most terrifying of Un’goro magics is both silent… AND deadly.",
+			"artist": "Zoltan Boros",
+			"collectible": true,
+			"hero": "warlock",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_831.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_831_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "UNG_915",
+			"name": "Crackling Razormaw",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "common",
+			"mana": 2,
+			"attack": 3,
+			"health": 2,
+			"text": "<b>Battlecry:</b> <b>Adapt</b> a friendly_Beast.",
+			"flavor": "Wasn't clever enough to go AROUND the electric fence.",
+			"artist": "L. Lullabi & K. Turovec",
+			"collectible": true,
+			"race": "Beast",
+			"hero": "hunter",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_915.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_915_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Adapt"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_917",
+			"name": "Dinomancy",
+			"set": "ungoro",
+			"type": "spell",
+			"quality": "epic",
+			"mana": 2,
+			"text": "Your Hero Power becomes 'Give a Beast +2/+2.'",
+			"flavor": "Anyone can dinomance. Just put your lips together and RAAWWWAARGGGH.",
+			"artist": "Arthur Bozonnet",
+			"collectible": true,
+			"hero": "hunter",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_917.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_917_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "UNG_922",
+			"name": "Explore Un'Goro",
+			"set": "ungoro",
+			"type": "spell",
+			"quality": "epic",
+			"mana": 2,
+			"text": "Replace your deck with_copies of \"<b>Discover</b> a card.\"",
+			"flavor": "It turns out cards DO grow on trees!",
+			"artist": "Jerry Mascho",
+			"collectible": true,
+			"hero": "warrior",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_922.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_922_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Discover"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_202",
+			"name": "Fire Plume Harbinger",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 2,
+			"attack": 1,
+			"health": 1,
+			"text": "<b>Battlecry:</b> Reduce the Cost of Elementals in your hand_by (1).",
+			"flavor": "Good for summoning elementals. Great for making s'mores.",
+			"artist": "Mike Azevedo",
+			"collectible": true,
+			"race": "Elemental",
+			"hero": "shaman",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_202.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_202_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_018",
+			"name": "Flame Geyser",
+			"set": "ungoro",
+			"type": "spell",
+			"faction": "neutral",
+			"quality": "common",
+			"mana": 2,
+			"text": "Deal $2 damage.\\nAdd a 1/2 Elemental to_your hand.",
+			"flavor": "Oh, a wise geyser eh?",
+			"artist": "Chris Seaman",
+			"collectible": true,
+			"hero": "mage",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_018.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_018_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "UNG_807",
+			"name": "Golakka Crawler",
+			"set": "ungoro",
+			"type": "minion",
+			"faction": "neutral",
+			"quality": "rare",
+			"mana": 2,
+			"attack": 2,
+			"health": 3,
+			"text": "<b>Battlecry:</b> Destroy a Pirate and gain +1/+1.",
+			"flavor": "Universally adored by both control decks and ninjas.",
+			"artist": "Peter Stapleton",
+			"collectible": true,
+			"race": "Beast",
+			"hero": "neutral",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_807.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_807_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_910",
+			"name": "Grievous Bite",
+			"set": "ungoro",
+			"type": "spell",
+			"quality": "common",
+			"mana": 2,
+			"text": "Deal $2 damage to a minion and $1 damage to adjacent ones.",
+			"flavor": "Ooh.  I'll have a bite of this, and of this, and of this...",
+			"artist": "Slawomir Maniak",
+			"collectible": true,
+			"hero": "hunter",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_910.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_910_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "UNG_011",
+			"name": "Hydrologist",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "common",
+			"mana": 2,
+			"attack": 2,
+			"health": 2,
+			"text": "<b>Battlecry:</b> <b>Discover</b> a <b>Secret</b>.",
+			"flavor": "Murloc hydrologists are pretty rare.  Most murloc undergrads pick computer science.",
+			"artist": "Matt Dixon",
+			"collectible": true,
+			"race": "Murloc",
+			"hero": "paladin",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_011.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_011_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Discover"
+			  },
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Secret"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_953",
+			"name": "Primalfin Champion",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "epic",
+			"mana": 2,
+			"attack": 1,
+			"health": 2,
+			"text": "<b>Deathrattle:</b> Return any spells you cast on this minion to your hand.",
+			"flavor": "Sure, he'll return your stuff.  OVER HIS DEAD BODY!",
+			"artist": "Matt Dixon",
+			"collectible": true,
+			"race": "Murloc",
+			"hero": "paladin",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_953.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_953_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_201",
+			"name": "Primalfin Totem",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 2,
+			"attack": 0,
+			"health": 3,
+			"text": "At the end of your turn, summon a 1/1 Murloc.",
+			"flavor": "Emits a sound only murlocs can hear, which is good because it’s REALLY annoying.",
+			"artist": "Jakub Kasber",
+			"collectible": true,
+			"race": "Totem",
+			"hero": "shaman",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_201.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_201_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "UNG_941",
+			"name": "Primordial Glyph",
+			"set": "ungoro",
+			"type": "spell",
+			"quality": "epic",
+			"mana": 2,
+			"text": "<b>Discover</b> a spell. Reduce its Cost by (2).",
+			"flavor": "It's the Ancient Tol'vir symbol for \"Whoops!\"",
+			"artist": "Matthew O'Connor",
+			"collectible": true,
+			"hero": "mage",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_941.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_941_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Discover"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_027",
+			"name": "Pyros",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "legendary",
+			"mana": 2,
+			"attack": 2,
+			"health": 2,
+			"text": "<b>Deathrattle:</b> Return this to_your hand as a 6/6 that costs (6).",
+			"flavor": "If you strike her down, she shall become more powerful than you can possibly… well, she'll become a 6/6 anyways.",
+			"artist": "Mike Sass",
+			"collectible": true,
+			"elite": true,
+			"race": "Elemental",
+			"hero": "mage",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_027.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_027_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_034",
+			"name": "Radiant Elemental",
+			"set": "ungoro",
+			"type": "minion",
+			"faction": "neutral",
+			"quality": "common",
+			"mana": 2,
+			"attack": 2,
+			"health": 3,
+			"text": "Your spells cost (1) less.",
+			"flavor": "It's a literal lava lamp!",
+			"artist": "A.J. Nazzaro",
+			"collectible": true,
+			"race": "Elemental",
+			"hero": "priest",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_034.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_034_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Aura"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_009",
+			"name": "Ravasaur Runt",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "common",
+			"mana": 2,
+			"attack": 2,
+			"health": 2,
+			"text": "<b>Battlecry:</b> If you control at_least 2 other minions, <b>Adapt.</b>",
+			"flavor": "Doesn't like to adapt unless others are watching. Some minions are such show-offs.",
+			"artist": "Peter Stapleton",
+			"collectible": true,
+			"race": "Beast",
+			"hero": "neutral",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_009.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_009_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Adapt"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_058",
+			"name": "Razorpetal Lasher",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "common",
+			"mana": 2,
+			"attack": 2,
+			"health": 2,
+			"text": "[x]<b>Battlecry:</b> Add a\\nRazorpetal to your hand\\nthat deals 1 damage.",
+			"flavor": "The reason why there are no zombies in Un'goro. ",
+			"artist": "Sojin Hwang",
+			"collectible": true,
+			"hero": "rogue",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_058.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_058_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_057",
+			"name": "Razorpetal Volley",
+			"set": "ungoro",
+			"type": "spell",
+			"quality": "common",
+			"mana": 2,
+			"text": "Add two Razorpetals to_your hand that deal_1 damage.",
+			"flavor": "The result of a fundamental misunderstanding of the phrase \"flower power\".",
+			"artist": "Chanchai Luechaiwattanasopon",
+			"collectible": true,
+			"hero": "rogue",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_057.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_057_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "UNG_073",
+			"name": "Rockpool Hunter",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "common",
+			"mana": 2,
+			"attack": 2,
+			"health": 3,
+			"text": "<b>Battlecry:</b> Give a friendly Murloc +1/+1.",
+			"flavor": "Loves crab meat. Fears crabs.",
+			"artist": "Alex Horley Orlandelli",
+			"collectible": true,
+			"race": "Murloc",
+			"hero": "neutral",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_073.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_073_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_029",
+			"name": "Shadow Visions",
+			"set": "ungoro",
+			"type": "spell",
+			"quality": "epic",
+			"mana": 2,
+			"text": "<b>Discover</b> a copy of a spell in your deck.",
+			"flavor": "This one’s a bird. And here’s a bunny!",
+			"artist": "Nutchapol Thitinunthakorn",
+			"collectible": true,
+			"hero": "priest",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_029.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_029_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Discover"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_846",
+			"name": "Shimmering Tempest",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "common",
+			"mana": 2,
+			"attack": 2,
+			"health": 1,
+			"text": "<b>Deathrattle:</b> Add a random Mage spell to your hand.",
+			"flavor": "HATES being summoned for Kirin Tor party lighting.",
+			"artist": "Luca Zontini",
+			"collectible": true,
+			"race": "Elemental",
+			"hero": "mage",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_846.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_846_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_808",
+			"name": "Stubborn Gastropod",
+			"set": "ungoro",
+			"type": "minion",
+			"faction": "neutral",
+			"quality": "common",
+			"mana": 2,
+			"attack": 1,
+			"health": 2,
+			"text": "<b>Taunt</b>\\n  <b>Poisonous</b>",
+			"flavor": "Stubbornly pursuing its dream to become Azeroth's fastest animal!",
+			"artist": "Aaron Miller",
+			"collectible": true,
+			"race": "Beast",
+			"hero": "neutral",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_808.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_808_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Taunt"
+			  },
+			  {
+				"name": "Poisonous"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_078",
+			"name": "Tortollan Forager",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "common",
+			"mana": 2,
+			"attack": 2,
+			"health": 2,
+			"text": "<b>Battlecry:</b> Add a random minion with 5 or more Attack to your hand.",
+			"flavor": "In the Tortollan tongue, Un’goro is known as the “Land of the Lost and Found.”",
+			"artist": "Jerry Mascho",
+			"collectible": true,
+			"hero": "druid",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_078.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_078_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_818",
+			"name": "Volatile Elemental",
+			"set": "ungoro",
+			"type": "minion",
+			"faction": "neutral",
+			"quality": "common",
+			"mana": 2,
+			"attack": 1,
+			"health": 1,
+			"text": "<b>Deathrattle:</b> Deal 3 damage to a random enemy minion.",
+			"flavor": "Currently in an anger management class with Raging Worgen, Grommash Hellscream, and The Angry Chicken. It isn't helping.",
+			"artist": "Nicola Saviori",
+			"collectible": true,
+			"race": "Elemental",
+			"hero": "neutral",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_818.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_818_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_835",
+			"name": "Chittering Tunneler",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "epic",
+			"mana": 3,
+			"attack": 3,
+			"health": 3,
+			"text": "<b>Battlecry:</b> <b>Discover</b> a spell. Deal damage to your hero equal to its Cost.",
+			"flavor": "Ear to the ground, he carefully interpreted the chittering noises: “You wanna cast a spell? I wanna cast a spell!”",
+			"artist": "Slawomir Maniak",
+			"collectible": true,
+			"race": "Beast",
+			"hero": "warlock",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_835.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_835_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Discover"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_035",
+			"name": "Curious Glimmerroot",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "epic",
+			"mana": 3,
+			"attack": 3,
+			"health": 3,
+			"text": "[x]<b>Battlecry:</b> Look at 3 cards.\\nGuess which one started\\nin your opponent's deck\\nto get a copy of it.",
+			"flavor": "George promised to be good. But it's easy for little Glimmerroots to forget.",
+			"artist": "Servando Lupini",
+			"collectible": true,
+			"hero": "priest",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_035.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_035_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_083",
+			"name": "Devilsaur Egg",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 3,
+			"attack": 0,
+			"health": 3,
+			"text": "<b>Deathrattle:</b> Summon a 5/5 Devilsaur.",
+			"flavor": "A key ingredient in all discerning Funnel Cake recipes.",
+			"artist": "Arthur Bozonnet",
+			"collectible": true,
+			"hero": "neutral",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_083.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_083_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_076",
+			"name": "Eggnapper",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "common",
+			"mana": 3,
+			"attack": 3,
+			"health": 1,
+			"text": "<b>Deathrattle:</b> Summon two 1/1 Raptors.",
+			"flavor": "Often misunderstood, it's just that he likes to use the eggs as pillows.",
+			"artist": "Anton Zemskov",
+			"collectible": true,
+			"hero": "neutral",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_076.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_076_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_109",
+			"name": "Elder Longneck",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "common",
+			"mana": 3,
+			"attack": 5,
+			"health": 1,
+			"text": "<b>Battlecry:</b> If you're holding a minion with 5 or more Attack, <b>Adapt</b>.",
+			"flavor": "And so the bartender says, “Why the long neck?”",
+			"artist": "Trent Kaniuga",
+			"collectible": true,
+			"race": "Beast",
+			"hero": "druid",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_109.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_109_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Adapt"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_823",
+			"name": "Envenom Weapon",
+			"set": "ungoro",
+			"type": "spell",
+			"quality": "rare",
+			"mana": 3,
+			"text": "Give your weapon <b>Poisonous</b>.",
+			"flavor": "Like Deadly Poison, but deadlier.",
+			"artist": "Mauricio Herrera",
+			"collectible": true,
+			"hero": "rogue",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_823.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_823_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Poisonous"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_814",
+			"name": "Giant Wasp",
+			"set": "ungoro",
+			"type": "minion",
+			"faction": "neutral",
+			"quality": "common",
+			"mana": 3,
+			"attack": 2,
+			"health": 2,
+			"text": "<b>Stealth</b>\\n <b>Poisonous</b>",
+			"flavor": "Float like a butterfly, sting like a giant wasp!",
+			"artist": "Luca Zontini",
+			"collectible": true,
+			"race": "Beast",
+			"hero": "neutral",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_814.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_814_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Poisonous"
+			  },
+			  {
+				"name": "Stealth"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_946",
+			"name": "Gluttonous Ooze",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "epic",
+			"mana": 3,
+			"attack": 3,
+			"health": 3,
+			"text": "<b>Battlecry:</b> Destroy your opponent's weapon and gain Armor equal to its Attack.",
+			"flavor": "Three time winner of the Un'Goro weapon eating contest.",
+			"artist": "A.J. Nazzaro",
+			"collectible": true,
+			"hero": "neutral",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_946.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_946_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_938",
+			"name": "Hot Spring Guardian",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "common",
+			"mana": 3,
+			"attack": 2,
+			"health": 4,
+			"text": "<b>Taunt</b>\\n<b>Battlecry:</b> Restore 3_Health.",
+			"flavor": "NONE SHALL PASS until at least an hour after eating.",
+			"artist": "Gustav Schmidt",
+			"collectible": true,
+			"race": "Elemental",
+			"hero": "shaman",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_938.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_938_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Taunt"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_844",
+			"name": "Humongous Razorleaf",
+			"set": "ungoro",
+			"type": "minion",
+			"faction": "Alliance",
+			"quality": "rare",
+			"mana": 3,
+			"attack": 4,
+			"health": 8,
+			"text": "Can't attack.",
+			"flavor": "Loves goblins.  In a light cream sauce.",
+			"artist": "Tooth",
+			"collectible": true,
+			"hero": "neutral",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_844.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_844_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "UNG_845",
+			"name": "Igneous Elemental",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "common",
+			"mana": 3,
+			"attack": 2,
+			"health": 3,
+			"text": "<b>Deathrattle:</b> Add two 1/2 Elementals to your hand.",
+			"flavor": "We wanted to name him \"Ingenious Elemental\", but he just wasn't that bright. ",
+			"artist": "Tyler West Studio",
+			"collectible": true,
+			"race": "Elemental",
+			"hero": "neutral",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_845.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_845_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_024",
+			"name": "Mana Bind",
+			"set": "ungoro",
+			"type": "spell",
+			"quality": "rare",
+			"mana": 3,
+			"text": "<b>Secret:</b> When your opponent casts a spell, add a copy to your hand that costs (0).",
+			"flavor": "Nice spell.  YOINK!",
+			"artist": "Izzy Hoover",
+			"collectible": true,
+			"hero": "mage",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_024.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_024_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Secret"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_060",
+			"name": "Mimic Pod",
+			"set": "ungoro",
+			"type": "spell",
+			"faction": "neutral",
+			"quality": "rare",
+			"mana": 3,
+			"text": "Draw a card, then add a copy of it to your hand.",
+			"flavor": "Jinx!",
+			"artist": "Zoltan Boros",
+			"collectible": true,
+			"hero": "rogue",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_060.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_060_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "UNG_022",
+			"name": "Mirage Caller",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 3,
+			"attack": 2,
+			"health": 3,
+			"text": "<b>Battlecry:</b> Choose a friendly minion. Summon a 1/1 copy of it.",
+			"flavor": "Mirage is actually the name of its long-lost cat.",
+			"artist": "Hideaki Takamura",
+			"collectible": true,
+			"hero": "priest",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_022.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_022_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_937",
+			"name": "Primalfin Lookout",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "common",
+			"mana": 3,
+			"attack": 3,
+			"health": 2,
+			"text": "<b>Battlecry:</b> If you control another Murloc, <b>Discover</b> a_Murloc.",
+			"flavor": "Lookout is a self-appointed title that's mostly an excuse to beat things up.",
+			"artist": "Dany Orizio",
+			"collectible": true,
+			"race": "Murloc",
+			"hero": "neutral",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_937.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_937_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Discover"
+			  },
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_001",
+			"name": "Pterrordax Hatchling",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "common",
+			"mana": 3,
+			"attack": 2,
+			"health": 2,
+			"text": "<b><b>Battlecry:</b> Adapt</b>.",
+			"flavor": "Aww.  So cute.  Want to feed him another finger?",
+			"artist": "Arthur Bozonnet",
+			"collectible": true,
+			"race": "Beast",
+			"hero": "neutral",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_001.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_001_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Adapt"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_956",
+			"name": "Spirit Echo",
+			"set": "ungoro",
+			"type": "spell",
+			"quality": "epic",
+			"mana": 3,
+			"text": "Give your minions \"<b>Deathrattle:</b> Return _this to your hand.\"",
+			"flavor": "I guess you can say they’re… “soul survivors.”",
+			"artist": "Hideaki Takamura",
+			"collectible": true,
+			"hero": "shaman",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_956.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_956_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_072",
+			"name": "Stonehill Defender",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 3,
+			"attack": 1,
+			"health": 4,
+			"text": "<b>Taunt</b>\\n<b>Battlecry:</b> <b>Discover</b> a <b>Taunt</b>_minion.",
+			"flavor": "Briefly tried stand-up comedy under the name \"Stonehill Offender\", but turtles are just too thin-skinned.",
+			"artist": "Mark Gibbons",
+			"collectible": true,
+			"hero": "neutral",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_072.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_072_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Taunt"
+			  },
+			  {
+				"name": "Discover"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_928",
+			"name": "Tar Creeper",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "common",
+			"mana": 3,
+			"attack": 1,
+			"health": 5,
+			"text": "<b>Taunt</b>\\nHas +2 Attack during your opponent's turn.",
+			"flavor": "If you won't come to the tar pits, we'll bring them to you!",
+			"artist": "Jim Nelson",
+			"collectible": true,
+			"race": "Elemental",
+			"hero": "neutral",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_928.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_928_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Taunt"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_800",
+			"name": "Terrorscale Stalker",
+			"set": "ungoro",
+			"type": "minion",
+			"faction": "neutral",
+			"quality": "rare",
+			"mana": 3,
+			"attack": 3,
+			"health": 3,
+			"text": "<b>Battlecry:</b> Trigger a friendly minion's <b>Deathrattle</b>.",
+			"flavor": "Likes to scare his friends half to death.",
+			"artist": "Chris Seaman",
+			"collectible": true,
+			"hero": "hunter",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_800.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_800_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_082",
+			"name": "Thunder Lizard",
+			"set": "ungoro",
+			"type": "minion",
+			"faction": "neutral",
+			"quality": "common",
+			"mana": 3,
+			"attack": 3,
+			"health": 3,
+			"text": "<b>Battlecry</b>: If you played an_Elemental last turn, <b>Adapt</b>.",
+			"flavor": "What? THUNDER LIZARD is adapting!",
+			"artist": "Hideaki Takamura",
+			"collectible": true,
+			"race": "Beast",
+			"hero": "neutral",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_082.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_082_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Adapt"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_075",
+			"name": "Vicious Fledgling",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 3,
+			"attack": 3,
+			"health": 3,
+			"text": "After this minion attacks a_hero, <b>Adapt</b>.",
+			"flavor": "A youngster who is truly hungry for self-improvement.",
+			"artist": "Arthur Bozonnet",
+			"collectible": true,
+			"race": "Beast",
+			"hero": "neutral",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_075.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_075_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Adapt"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_113",
+			"name": "Bright-Eyed Scout",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "epic",
+			"mana": 4,
+			"attack": 3,
+			"health": 4,
+			"text": "<b>Battlecry:</b> Draw a card. Change its Cost to (5).",
+			"flavor": "Also inordinately excited for cupcakes.",
+			"artist": "Trent Kaniuga",
+			"collectible": true,
+			"hero": "neutral",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_113.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_113_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_103",
+			"name": "Evolving Spores",
+			"set": "ungoro",
+			"type": "spell",
+			"quality": "rare",
+			"mana": 4,
+			"text": "<b>Adapt</b> your minions.",
+			"flavor": "The most powerful mushrooms are commonly found in boxes marked with \"?\".",
+			"artist": "Grace Liu",
+			"collectible": true,
+			"hero": "druid",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_103.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_103_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Adapt"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_084",
+			"name": "Fire Plume Phoenix",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "common",
+			"mana": 4,
+			"attack": 3,
+			"health": 3,
+			"text": "<b>Battlecry:</b> Deal 2 damage.",
+			"flavor": "This is what happens when you use a volcano as a bird bath.",
+			"artist": "Dan Scott",
+			"collectible": true,
+			"race": "Elemental",
+			"hero": "neutral",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_084.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_084_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_089",
+			"name": "Gentle Megasaur",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "epic",
+			"mana": 4,
+			"attack": 5,
+			"health": 4,
+			"text": "<b>Battlecry:</b> <b>Adapt</b> your_Murlocs.",
+			"flavor": "\"Low, low rents! Must enjoy a nomadic lifestyle. Quasi-sentient, bipedal, amphibious humanoids ONLY!\"",
+			"artist": "Brian Despain",
+			"collectible": true,
+			"race": "Beast",
+			"hero": "neutral",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_089.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_089_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Adapt"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_833",
+			"name": "Lakkari Felhound",
+			"set": "ungoro",
+			"type": "minion",
+			"faction": "neutral",
+			"quality": "common",
+			"mana": 4,
+			"attack": 3,
+			"health": 8,
+			"text": "<b>Taunt</b>\\n<b>Battlecry:</b> Discard two random cards.",
+			"flavor": "Guaranteed to track tar all over your carpet.",
+			"artist": "Dave Allsop",
+			"collectible": true,
+			"race": "Demon",
+			"hero": "warlock",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_833.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_833_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Taunt"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_962",
+			"name": "Lightfused Stegodon",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 4,
+			"attack": 3,
+			"health": 4,
+			"text": "<b>Battlecry:</b> <b>Adapt</b> your Silver_Hand Recruits.",
+			"flavor": "“Come now, Johnston. I think those horns are quite fetching on you.”",
+			"artist": "Dan Scott",
+			"collectible": true,
+			"race": "Beast",
+			"hero": "paladin",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_962.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_962_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Adapt"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_948",
+			"name": "Molten Reflection",
+			"set": "ungoro",
+			"type": "spell",
+			"faction": "neutral",
+			"quality": "rare",
+			"mana": 4,
+			"text": "Choose a friendly minion. Summon a copy of it.",
+			"flavor": "Dang, I'm looking pretty hot!",
+			"artist": "L. Lullabi & K. Turovec",
+			"collectible": true,
+			"hero": "mage",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_948.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_948_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "UNG_061",
+			"name": "Obsidian Shard",
+			"set": "ungoro",
+			"type": "weapon",
+			"quality": "rare",
+			"mana": 4,
+			"attack": 3,
+			"durability": 3,
+			"text": "[x]Costs (1) less for each\\ncard you've played from\\nanother class.",
+			"flavor": "You know you’re a Rogue when a sharp rock makes you go “Ooh!  Dagger!”",
+			"artist": "Konstantin Turovec",
+			"collectible": true,
+			"hero": "rogue",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_061.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_061_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "UNG_047",
+			"name": "Ravenous Pterrordax",
+			"set": "ungoro",
+			"type": "minion",
+			"faction": "neutral",
+			"quality": "common",
+			"mana": 4,
+			"attack": 4,
+			"health": 4,
+			"text": "<b>Battlecry:</b> Destroy a friendly minion to <b>Adapt</b>_twice.",
+			"flavor": "For better results, feed your pterrordax low-fat, high-fiber minions.",
+			"artist": "Slawomir Maniak",
+			"collectible": true,
+			"race": "Beast",
+			"hero": "warlock",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_047.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_047_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Adapt"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_101",
+			"name": "Shellshifter",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 4,
+			"attack": 3,
+			"health": 3,
+			"text": "[x]<b>Choose One - </b>Transform\\ninto a 5/3 with <b>Stealth</b>;\\nor a 3/5 with <b>Taunt</b>.",
+			"flavor": "Master of the Three Shell Monte.",
+			"artist": "Matt Dixon",
+			"collectible": true,
+			"hero": "druid",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_101.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_101_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Stealth"
+			  },
+			  {
+				"name": "Taunt"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_065",
+			"name": "Sherazin, Corpse Flower",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "legendary",
+			"mana": 4,
+			"attack": 5,
+			"health": 3,
+			"text": "<b>Deathrattle:</b> Go dormant. Play 4 cards in a turn to revive this minion.",
+			"flavor": "A Tortollan gardener's worst nightmare.",
+			"artist": "Matt Dixon",
+			"collectible": true,
+			"elite": true,
+			"hero": "rogue",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_065.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_065_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_900",
+			"name": "Spiritsinger Umbra",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "legendary",
+			"mana": 4,
+			"attack": 3,
+			"health": 4,
+			"text": "After you summon a minion, trigger its <b>Deathrattle</b> effect.",
+			"flavor": "She sees the fate of anyone she meets, but it's always the same: dinosaur attack.",
+			"artist": "Matt Dixon",
+			"collectible": true,
+			"elite": true,
+			"hero": "neutral",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_900.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_900_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_021",
+			"name": "Steam Surger",
+			"set": "ungoro",
+			"type": "minion",
+			"faction": "neutral",
+			"quality": "rare",
+			"mana": 4,
+			"attack": 5,
+			"health": 4,
+			"text": "[x]<b>Battlecry:</b> If you played\\nan Elemental last turn,\\nadd a 'Flame Geyser'\\nto your hand.",
+			"flavor": "Explorers nicknamed him the Teapot Elemental.",
+			"artist": "Jakub Kasber",
+			"collectible": true,
+			"race": "Elemental",
+			"hero": "mage",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_021.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_021_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_810",
+			"name": "Stegodon",
+			"set": "ungoro",
+			"type": "minion",
+			"faction": "neutral",
+			"quality": "common",
+			"mana": 4,
+			"attack": 2,
+			"health": 6,
+			"text": "<b>Taunt</b>",
+			"flavor": "Level 40 Tortollan Paladins quest to tame a Stegodon.  There are no level 41 Tortollan Paladins.",
+			"artist": "Jim Nelson",
+			"collectible": true,
+			"race": "Beast",
+			"hero": "neutral",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_810.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_810_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Taunt"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_843",
+			"name": "The Voraxx",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "legendary",
+			"mana": 4,
+			"attack": 3,
+			"health": 3,
+			"text": "[x]After you cast a spell on\\nthis minion, summon a\\n1/1 Plant and cast\\nanother copy on it.",
+			"flavor": "I am the Voraxx.  I speak for the weeds.",
+			"artist": "Jimmy Lo",
+			"collectible": true,
+			"elite": true,
+			"hero": "neutral",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_843.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_843_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "UNG_817",
+			"name": "Tidal Surge",
+			"set": "ungoro",
+			"type": "spell",
+			"faction": "neutral",
+			"quality": "common",
+			"mana": 4,
+			"text": "Deal $4 damage to a minion. Restore #4 Health to your hero.",
+			"flavor": "Also good for removing pesky stains.",
+			"artist": "Max Greke",
+			"collectible": true,
+			"hero": "shaman",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_817.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_817_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "UNG_070",
+			"name": "Tol'vir Stoneshaper",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 4,
+			"attack": 3,
+			"health": 5,
+			"text": "[x]<b>Battlecry:</b> If you played an\\nElemental last turn, gain\\n_<b>Taunt</b> and <b>Divine_Shield</b>.",
+			"flavor": "He spends a lot of time keeping himself in stoneshape.",
+			"artist": "Mike Azevedo",
+			"collectible": true,
+			"hero": "neutral",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_070.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_070_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Divine Shield"
+			  },
+			  {
+				"name": "Taunt"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_037",
+			"name": "Tortollan Shellraiser",
+			"set": "ungoro",
+			"type": "minion",
+			"faction": "neutral",
+			"quality": "common",
+			"mana": 4,
+			"attack": 2,
+			"health": 6,
+			"text": "[x]<b>Taunt</b>\\n<b>Deathrattle:</b> Give a random\\n_friendly minion +1/+1.",
+			"flavor": "A hero... In a half-shell. ",
+			"artist": "Tyler Walpole",
+			"collectible": true,
+			"hero": "priest",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_037.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_037_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  },
+			  {
+				"name": "Taunt"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_087",
+			"name": "Bittertide Hydra",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "epic",
+			"mana": 5,
+			"attack": 8,
+			"health": 8,
+			"text": "Whenever this minion takes damage, deal 3 damage to_your hero.",
+			"flavor": "It's actually only the middle head that's bitter. The others are sweet and spicy.",
+			"artist": "Mark Gibbons",
+			"collectible": true,
+			"race": "Beast",
+			"hero": "neutral",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_087.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_087_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "UNG_957",
+			"name": "Direhorn Hatchling",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 5,
+			"attack": 3,
+			"health": 6,
+			"text": "<b>Taunt</b>\\n<b>Deathrattle:</b> Shuffle a 6/9 Direhorn with <b>Taunt</b> into your deck.",
+			"flavor": "His mom could beat up your mom.",
+			"artist": "Peter Stapleton",
+			"collectible": true,
+			"race": "Beast",
+			"hero": "warrior",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_957.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_957_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Taunt"
+			  },
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_851",
+			"name": "Elise the Trailblazer",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "legendary",
+			"mana": 5,
+			"attack": 5,
+			"health": 5,
+			"text": "<b>Battlecry:</b> Shuffle a sealed_<b>Un'Goro</b> pack into_your deck.",
+			"flavor": "Reno taught her that blazing her own trail is a lot more fun than following someone else's map.",
+			"artist": "Luke Mancini",
+			"collectible": true,
+			"elite": true,
+			"hero": "neutral",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_851.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_851_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_834",
+			"name": "Feeding Time",
+			"set": "ungoro",
+			"type": "spell",
+			"quality": "rare",
+			"mana": 5,
+			"text": "Deal $3 damage to a minion. Summon three 1/1 Pterrordaxes.",
+			"flavor": "True, they're only 1/1s, but they eat as much as most 4/4s!",
+			"artist": "Jaemin Kim",
+			"collectible": true,
+			"hero": "warlock",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_834.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_834_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "UNG_111",
+			"name": "Living Mana",
+			"set": "ungoro",
+			"type": "spell",
+			"quality": "epic",
+			"mana": 5,
+			"text": "Transform your Mana Crystals into 2/2 minions. Recover the mana when they die.",
+			"flavor": "If you truly love your mana, set it free.",
+			"artist": "Matt Gaser",
+			"collectible": true,
+			"hero": "druid",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_111.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_111_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "UNG_963",
+			"name": "Lyra the Sunshard",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "legendary",
+			"mana": 5,
+			"attack": 3,
+			"health": 5,
+			"text": "Whenever you cast a spell, add a random Priest spell to your hand.",
+			"flavor": "Arise, fair sun, and kill my envious foes. They don't have a legendary as beautiful as you.",
+			"artist": "Phil Saunders",
+			"collectible": true,
+			"elite": true,
+			"race": "Elemental",
+			"hero": "priest",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_963.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_963_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "UNG_801",
+			"name": "Nesting Roc",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "common",
+			"mana": 5,
+			"attack": 4,
+			"health": 7,
+			"text": "<b>Battlecry:</b> If you control at_least 2 other minions, gain <b>Taunt</b>.",
+			"flavor": "Roc eggs are great in omelettes, sandwiches, and as bait to turn poachers into bird food.",
+			"artist": "Paul Mafayon",
+			"collectible": true,
+			"race": "Beast",
+			"hero": "neutral",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_801.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_801_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Taunt"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_816",
+			"name": "Servant of Kalimos",
+			"set": "ungoro",
+			"type": "minion",
+			"faction": "neutral",
+			"quality": "rare",
+			"mana": 5,
+			"attack": 4,
+			"health": 5,
+			"text": "[x]<b>Battlecry:</b> If you played\\nan Elemental last turn,\\n_<b>Discover</b> an Elemental.",
+			"flavor": "He's doing his best, but his mom thinks that if he had just applied himself in school Kalimos would be working for HIM.",
+			"artist": "Zoltan Boros",
+			"collectible": true,
+			"race": "Elemental",
+			"hero": "neutral",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_816.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_816_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Discover"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_927",
+			"name": "Sudden Genesis",
+			"set": "ungoro",
+			"type": "spell",
+			"quality": "epic",
+			"mana": 5,
+			"text": "Summon copies of your damaged minions.",
+			"flavor": "Being hurt can make you another person.",
+			"artist": "Zoltan Boros",
+			"collectible": true,
+			"hero": "warrior",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_927.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_927_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "UNG_049",
+			"name": "Tar Lurker",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "common",
+			"mana": 5,
+			"attack": 1,
+			"health": 7,
+			"text": "<b>Taunt</b>\\nHas +3 Attack during your opponent's turn.",
+			"flavor": "Hi, Tar here. Long time lurking, first time taunting…",
+			"artist": "Jim Nelson",
+			"collectible": true,
+			"race": "Elemental",
+			"hero": "warlock",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_049.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_049_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Taunt"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_913",
+			"name": "Tol'vir Warden",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 5,
+			"attack": 3,
+			"health": 5,
+			"text": "<b>Battlecry:</b> Draw two 1-Cost minions from your deck.",
+			"flavor": "Ferocious in combat… and even more terrifying in pet battles. ",
+			"artist": "Mike Azevedo",
+			"collectible": true,
+			"hero": "hunter",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_913.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_913_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_100",
+			"name": "Verdant Longneck",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "common",
+			"mana": 5,
+			"attack": 5,
+			"health": 4,
+			"text": "<b>Battlecry:</b> <b>Adapt</b>.",
+			"flavor": "Always sticking its neck into other people’s business.",
+			"artist": "Zoltan Boros",
+			"collectible": true,
+			"race": "Beast",
+			"hero": "druid",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_100.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_100_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Adapt"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_064",
+			"name": "Vilespine Slayer",
+			"set": "ungoro",
+			"type": "minion",
+			"faction": "neutral",
+			"quality": "epic",
+			"mana": 5,
+			"attack": 3,
+			"health": 4,
+			"text": "<b>Combo:</b> Destroy a minion.",
+			"flavor": "'Cause slayers gonna slay, slay, slay, slay, slay.",
+			"artist": "Efrem Palacios",
+			"collectible": true,
+			"hero": "rogue",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_064.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_064_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Combo"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_025",
+			"name": "Volcano",
+			"set": "ungoro",
+			"type": "spell",
+			"quality": "rare",
+			"mana": 5,
+			"text": "Deal $15 damage randomly split among all_minions.\\n<b>Overload:</b> (2)",
+			"flavor": "Many young shaman summon a volcano as their first school project.",
+			"artist": "Gustav Schmidt",
+			"collectible": true,
+			"hero": "shaman",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_025.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_025_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Overload"
+			  },
+			  {
+				"name": "ImmuneToSpellpower"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_830",
+			"name": "Cruel Dinomancer",
+			"set": "ungoro",
+			"type": "minion",
+			"faction": "neutral",
+			"quality": "rare",
+			"mana": 6,
+			"attack": 5,
+			"health": 5,
+			"text": "[x]<b>Deathrattle:</b> Summon a\\nrandom minion you\\ndiscarded this game.",
+			"flavor": "As that old saying goes: \"you don't get into dinomancing to make friends.\"",
+			"artist": "Dany Orizio",
+			"collectible": true,
+			"hero": "warlock",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_830.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_830_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_079",
+			"name": "Frozen Crusher",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 6,
+			"attack": 8,
+			"health": 8,
+			"text": "After this minion attacks, <b>Freeze</b> it.",
+			"flavor": "Goes by the online handle \"KoolKrusher99.\"",
+			"artist": "Konstantin Turovec",
+			"collectible": true,
+			"race": "Elemental",
+			"hero": "neutral",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_079.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_079_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Freeze"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_840",
+			"name": "Hemet, Jungle Hunter",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "legendary",
+			"mana": 6,
+			"attack": 6,
+			"health": 6,
+			"text": "<b>Battlecry:</b> Destroy all cards in your deck that cost (3)_or less.",
+			"flavor": "The goblin travel agency lost his luggage, but he's still having a great vacation!",
+			"artist": "Sam Nielson",
+			"collectible": true,
+			"elite": true,
+			"hero": "neutral",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_840.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_840_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_955",
+			"name": "Meteor",
+			"set": "ungoro",
+			"type": "spell",
+			"quality": "epic",
+			"mana": 6,
+			"text": "Deal $15 damage to a minion and $3 damage to adjacent ones.",
+			"flavor": "When you absolutely, positively, have to kill all the dinosaurs.",
+			"artist": "Matt Gaser",
+			"collectible": true,
+			"hero": "mage",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_955.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_955_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "UNG_925",
+			"name": "Ornery Direhorn",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "common",
+			"mana": 6,
+			"attack": 5,
+			"health": 5,
+			"text": "<b>Taunt</b>\\n<b>Battlecry:</b> <b>Adapt</b>.",
+			"flavor": "\"It's an herbivore.  How dangerous can it be?\"  - Famous last words",
+			"artist": "Luca Zontini",
+			"collectible": true,
+			"race": "Beast",
+			"hero": "warrior",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_925.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_925_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Adapt"
+			  },
+			  {
+				"name": "Taunt"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_812",
+			"name": "Sabretooth Stalker",
+			"set": "ungoro",
+			"type": "minion",
+			"faction": "neutral",
+			"quality": "common",
+			"mana": 6,
+			"attack": 8,
+			"health": 2,
+			"text": "<b>Stealth</b>",
+			"flavor": "It's gotten a bit long in the tooth.",
+			"artist": "Alex Horley Orlandelli",
+			"collectible": true,
+			"race": "Beast",
+			"hero": "neutral",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_812.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_812_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Stealth"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_952",
+			"name": "Spikeridged Steed",
+			"set": "ungoro",
+			"type": "spell",
+			"quality": "rare",
+			"mana": 6,
+			"text": "Give a minion +2/+6 and <b>Taunt</b>. When it dies, summon a Stegodon.",
+			"flavor": "What beats cavalry? Dinosaur cavalry.",
+			"artist": "Jim Nelson",
+			"collectible": true,
+			"hero": "paladin",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_952.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_952_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Taunt"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_015",
+			"name": "Sunkeeper Tarim",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "legendary",
+			"mana": 6,
+			"attack": 3,
+			"health": 7,
+			"text": "<b>Taunt</b>\\n<b>Battlecry:</b> Set all other minions' Attack and Health to 3.",
+			"flavor": "Ironically, his favorite number is 4.",
+			"artist": "Mike Azevedo",
+			"collectible": true,
+			"elite": true,
+			"hero": "paladin",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_015.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_015_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Taunt"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_847",
+			"name": "Blazecaller",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "epic",
+			"mana": 7,
+			"attack": 6,
+			"health": 6,
+			"text": "<b>Battlecry:</b> If you played an_Elemental last turn, deal 5 damage.",
+			"flavor": "For when a flamecaller just won't do.",
+			"artist": "Dave Allsop",
+			"collectible": true,
+			"race": "Elemental",
+			"hero": "neutral",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_847.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_847_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_086",
+			"name": "Giant Anaconda",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "epic",
+			"mana": 7,
+			"attack": 5,
+			"health": 3,
+			"text": "<b>Deathrattle:</b> Summon a minion from your hand with 5 or more Attack.",
+			"flavor": "Must be something it ate.",
+			"artist": "Alex Horley Orlandelli",
+			"collectible": true,
+			"race": "Beast",
+			"hero": "druid",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_086.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_086_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_010",
+			"name": "Sated Threshadon",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "common",
+			"mana": 7,
+			"attack": 5,
+			"health": 7,
+			"text": "<b>Deathrattle:</b> Summon three 1/1 Murlocs.",
+			"flavor": "Bet you can't eat just one murloc!",
+			"artist": "James Ryman",
+			"collectible": true,
+			"race": "Beast",
+			"hero": "neutral",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_010.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_010_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_208",
+			"name": "Stone Sentinel",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "epic",
+			"mana": 7,
+			"attack": 4,
+			"health": 4,
+			"text": "<b>Battlecry:</b> If you played an Elemental last turn, summon two 2/3 Elementals with <b>Taunt</b>.",
+			"flavor": "He and his friends just want to rock out.",
+			"artist": "Rudy Siswanto",
+			"collectible": true,
+			"race": "Elemental",
+			"hero": "shaman",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_208.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_208_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Taunt"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_813",
+			"name": "Stormwatcher",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "common",
+			"mana": 7,
+			"attack": 4,
+			"health": 8,
+			"text": "<b>Windfury</b>",
+			"flavor": "Aspiring meteorologist!",
+			"artist": "Arthur Gimaldinov",
+			"collectible": true,
+			"race": "Elemental",
+			"hero": "neutral",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_813.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_813_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Windfury"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_919",
+			"name": "Swamp King Dred",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "legendary",
+			"mana": 7,
+			"attack": 9,
+			"health": 9,
+			"text": "After your opponent plays a minion, attack_it.",
+			"flavor": "Swamp King Dred, more like Swamp King Dead, amiright?",
+			"artist": "Alex Horley Orlandelli",
+			"collectible": true,
+			"elite": true,
+			"race": "Beast",
+			"hero": "hunter",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_919.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_919_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "UNG_838",
+			"name": "Tar Lord",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "common",
+			"mana": 7,
+			"attack": 1,
+			"health": 11,
+			"text": "<b>Taunt</b>\\nHas +4 Attack during your opponent’s turn.",
+			"flavor": "Tar Lord, man... legendary monster? Aw, forget it.",
+			"artist": "Jim Nelson",
+			"collectible": true,
+			"race": "Elemental",
+			"hero": "warrior",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_838.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_838_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Taunt"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_950",
+			"name": "Vinecleaver",
+			"set": "ungoro",
+			"type": "weapon",
+			"quality": "rare",
+			"mana": 7,
+			"attack": 4,
+			"durability": 3,
+			"text": "[x]After your hero attacks,\\nsummon two 1/1 Silver\\nHand Recruits.",
+			"flavor": "George and Karl!  Thank the Light we found you!",
+			"artist": "Joe Wilson",
+			"collectible": true,
+			"hero": "paladin",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_950.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_950_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "UNG_002",
+			"name": "Volcanosaur",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 7,
+			"attack": 5,
+			"health": 6,
+			"text": "<b>Battlecry:</b> <b>Adapt</b>, then_<b>Adapt</b>.",
+			"flavor": "Always fun to say out loud \"VOL-CA-NO-SAUUUR!\"",
+			"artist": "Daren Bader",
+			"collectible": true,
+			"race": "Beast",
+			"hero": "neutral",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_002.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_002_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Adapt"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_099",
+			"name": "Charged Devilsaur",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "epic",
+			"mana": 8,
+			"attack": 7,
+			"health": 7,
+			"text": "<b>Charge</b>\\n<b>Battlecry:</b> Can't attack heroes this turn.",
+			"flavor": "What happens when a dinosaur mixes soda and pop rocks.",
+			"artist": "Luke Mancini",
+			"collectible": true,
+			"race": "Beast",
+			"hero": "neutral",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_099.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_099_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Charge"
+			  },
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_004",
+			"name": "Dinosize",
+			"set": "ungoro",
+			"type": "spell",
+			"faction": "neutral",
+			"quality": "epic",
+			"mana": 8,
+			"text": "Set a minion's Attack and Health to 10.",
+			"flavor": "Comes with fries and a drink.",
+			"artist": "Andrew Hou",
+			"collectible": true,
+			"hero": "paladin",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_004.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_004_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "UNG_854",
+			"name": "Free From Amber",
+			"set": "ungoro",
+			"type": "spell",
+			"faction": "neutral",
+			"quality": "rare",
+			"mana": 8,
+			"text": "<b>Discover</b> a minion that costs (8) or more. Summon it.",
+			"flavor": "Bingo! Minion DNA!",
+			"artist": "Anton Magdalina",
+			"collectible": true,
+			"hero": "priest",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_854.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_854_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Discover"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_211",
+			"name": "Kalimos, Primal Lord",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "legendary",
+			"mana": 8,
+			"attack": 7,
+			"health": 7,
+			"text": "[x]<b>Battlecry:</b> If you played an\\nElemental last turn, cast an\\nElemental Invocation.",
+			"flavor": "All that's missing is a little heart.",
+			"artist": "James Ryman",
+			"collectible": true,
+			"elite": true,
+			"race": "Elemental",
+			"hero": "shaman",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_211.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_211_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_848",
+			"name": "Primordial Drake",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "epic",
+			"mana": 8,
+			"attack": 4,
+			"health": 8,
+			"text": "[x]<b>Taunt</b>\\n<b>Battlecry:</b> Deal 2 damage\\nto all other minions.",
+			"flavor": "Before he became a rap artist.",
+			"artist": "Mike Sass",
+			"collectible": true,
+			"race": "Dragon",
+			"hero": "neutral",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_848.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_848_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Taunt"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_088",
+			"name": "Tortollan Primalist",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "epic",
+			"mana": 8,
+			"attack": 5,
+			"health": 4,
+			"text": "<b>Battlecry:</b> <b>Discover</b> a spell_and cast it with random targets.",
+			"flavor": "I see pizza in my future. ",
+			"artist": "Zoltan Boros",
+			"collectible": true,
+			"hero": "neutral",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_088.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_088_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Discover"
+			  },
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_071",
+			"name": "Giant Mastodon",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "common",
+			"mana": 9,
+			"attack": 6,
+			"health": 10,
+			"text": "<b>Taunt</b>",
+			"flavor": "Still salty about it not being the \"Year of the Mastodon.\"",
+			"artist": "Chanchai Luechaiwattanasopon",
+			"collectible": true,
+			"race": "Beast",
+			"hero": "neutral",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_071.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_071_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Taunt"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_933",
+			"name": "King Mosh",
+			"set": "ungoro",
+			"type": "minion",
+			"faction": "neutral",
+			"quality": "legendary",
+			"mana": 9,
+			"attack": 9,
+			"health": 7,
+			"text": "<b>Battlecry:</b> Destroy all damaged minions.",
+			"flavor": "He's a terror at concerts.",
+			"artist": "James Ryman",
+			"collectible": true,
+			"elite": true,
+			"race": "Beast",
+			"hero": "warrior",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_933.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_933_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_907",
+			"name": "Ozruk",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "legendary",
+			"mana": 9,
+			"attack": 5,
+			"health": 5,
+			"text": "[x]<b>Taunt</b>\\n<b>Battlecry:</b> Gain +5 Health\\nfor each Elemental you\\nplayed last turn.",
+			"flavor": "Between you and me, Ozruk is a bit obsessed with his body.",
+			"artist": "Tooth",
+			"collectible": true,
+			"elite": true,
+			"race": "Elemental",
+			"hero": "neutral",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_907.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_907_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Taunt"
+			  }
+			]
+		  },
+		  {
+			"cardId": "UNG_852",
+			"name": "Tyrantus",
+			"set": "ungoro",
+			"type": "minion",
+			"quality": "legendary",
+			"mana": 10,
+			"attack": 12,
+			"health": 12,
+			"text": "Can't be targeted by spells or Hero Powers.",
+			"flavor": "Millennia of evolutionary pressures turned his species into the Faerie Dragons we know today.",
+			"artist": "Chris Rahn",
+			"collectible": true,
+			"elite": true,
+			"race": "Beast",
+			"hero": "druid",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_852.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_852_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "UNG_806",
+			"name": "Ultrasaur",
+			"set": "ungoro",
+			"type": "minion",
+			"faction": "neutral",
+			"quality": "common",
+			"mana": 10,
+			"attack": 7,
+			"health": 14,
+			"flavor": "Evolved the really long neck to spy on its neighbors.",
+			"artist": "Laurel Austin",
+			"collectible": true,
+			"race": "Beast",
+			"hero": "neutral",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/UNG_806.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/UNG_806_premium.gif",
+			"locale": "enUS"
+		  }
     ]
 }
