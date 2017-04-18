@@ -39,8 +39,14 @@
 		</div>
         <ul class="nav navbar-nav navbar-right">		  
 		  <li><a id="link-tracker" class="title">Tracker</a></li>
-		  <li><a id="link-progress" class="title">Progress</a></li>
-		  <li><a id="link-recipes" class="title">Recipes</a></li>
+		  <li class="dropdown">
+		    <a class="dropdown-toggle title" data-toggle="dropdown">Progress
+		    <span class="caret"></span></a>
+		    <ul class="dropdown-menu">
+			  <li><a id="link-progress" class="title">Collection</a></li>
+			  <li><a id="link-recipes" class="title">Deck Recipes</a></li>
+		    </ul>
+		  </li>
 		  <li><a id="link-packs" class="title">Pack & Chest Guide</a></li>
 		  <li class="dropdown">
 		    <a class="dropdown-toggle title" data-toggle="dropdown">Options
@@ -247,7 +253,7 @@
      
   <p>HCT is a completely client-side single page application written in JavaScript. It is open source and can be found at the
      <a href="https://github.com/Freezard/hs-collection-tracker">GitHub project page</a>.
-	 Contact me through GitHub if you want to make your own contribution or if you got any feature requests, found any bugs or simply want to make a comment.</p>
+	 Contact me through GitHub if you want to make your own contribution, or if you got any feature requests, feedback, or found any bugs.</p>
 </div>
 </script>
 <script id="template-news" type="text/html">
