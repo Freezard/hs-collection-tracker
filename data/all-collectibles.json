@@ -126,7 +126,7 @@
         "hero": "shaman",
         "category": "minion",
         "quality": "legendary",
-        "race": "none",
+        "race": "elemental",
         "set": "classic",
         "mana": 8,
         "attack": 3,
@@ -801,7 +801,7 @@
         "hero": "shaman",
         "category": "minion",
         "quality": "free",
-        "race": "none",
+        "race": "elemental",
         "set": "basic",
         "mana": 6,
         "attack": 6,
@@ -1527,7 +1527,7 @@
         "hero": "neutral",
         "category": "minion",
         "quality": "legendary",
-        "race": "none",
+        "race": "elemental",
         "set": "classic",
         "mana": 7,
         "attack": 7,
@@ -1729,7 +1729,7 @@
         "hero": "neutral",
         "category": "minion",
         "quality": "legendary",
-        "race": "none",
+        "race": "elemental",
         "set": "hof",
         "mana": 8,
         "attack": 8,
@@ -1851,7 +1851,7 @@
         "hero": "mage",
         "category": "minion",
         "quality": "free",
-        "race": "none",
+        "race": "elemental",
         "set": "basic",
         "mana": 4,
         "attack": 3,
@@ -2527,7 +2527,7 @@
         "hero": "neutral",
         "category": "minion",
         "quality": "common",
-        "race": "none",
+        "race": "elemental",
         "set": "classic",
         "mana": 6,
         "attack": 5,
@@ -3203,7 +3203,7 @@
         "hero": "shaman",
         "category": "minion",
         "quality": "common",
-        "race": "none",
+        "race": "elemental",
         "set": "classic",
         "mana": 1,
         "attack": 3,
@@ -4081,7 +4081,7 @@
         "hero": "shaman",
         "category": "minion",
         "quality": "common",
-        "race": "none",
+        "race": "elemental",
         "set": "classic",
         "mana": 3,
         "attack": 2,
@@ -4601,7 +4601,7 @@
         "hero": "priest",
         "category": "minion",
         "quality": "common",
-        "race": "none",
+        "race": "elemental",
         "set": "classic",
         "mana": 4,
         "attack": null,
@@ -5877,7 +5877,7 @@
         "hero": "shaman",
         "category": "minion",
         "quality": "epic",
-        "race": "none",
+        "race": "elemental",
         "set": "classic",
         "mana": 5,
         "attack": 7,
@@ -6471,7 +6471,7 @@
         "hero": "neutral",
         "category": "minion",
         "quality": "free",
-        "race": "none",
+        "race": "elemental",
         "set": "basic",
         "mana": 3,
         "attack": 5,
@@ -8055,7 +8055,7 @@
 
          ],
          "hero":"shaman",
-         "race":"none"
+         "race":"elemental"
       },
       {
          "id":2142,
@@ -9726,7 +9726,7 @@
         "description":"Battlecry: Gain 1-4 Attack. Overload: (1)",
         "image_url":"http://wow.zamimg.com/images/hearthstone/cards/enus/medium/blackrock_012.png",
         "hero":"shaman",
-        "race":"none",
+        "race":"elemental",
         "effect_list":[
 
         ]
@@ -11556,7 +11556,7 @@
             "name": "Ice Rager",
             "image_url": "http://wow.zamimg.com/images/hearthstone/cards/enus/medium/AT_092.png",
             "hero": "neutral",
-            "race": "none",
+            "race": "elemental",
             "effect_list": []
         },
         {
@@ -12786,7 +12786,7 @@
             "description": "After you play a Battlecry minion, deal 2 damage to a random enemy.",
             "image_url": "http://wow.zamimg.com/images/hearthstone/cards/enus/medium/ZAM_1000214.png",
             "hero": "shaman",
-            "race": "none",
+            "race": "elemental",
             "effect_list": []
         },
         {
@@ -13522,7 +13522,7 @@
             "description": "Deathrattle: Deal 8 damage to all minions.",
             "image_url": "http://wow.zamimg.com/images/hearthstone/cards/enus/medium/OG_120.png",
             "hero": "mage",
-            "race": "none",
+            "race": "elemental",
             "effect_list": []
         },
         {
@@ -14160,7 +14160,7 @@
             "description": "At the end of your turn, restore 8 Health to a damaged friendly character.",
             "image_url": "http://wow.zamimg.com/images/hearthstone/cards/enus/medium/OG_229.png",
             "hero": "paladin",
-            "race": "none",
+            "race": "elemental",
             "effect_list": []
         },
         {
@@ -15278,7 +15278,7 @@
 		  "description":"Whenever you cast a spell, give this minion +1 Health.",
 		  "image_url":"http://wow.zamimg.com/images/hearthstone/cards/enus/medium/KAR_036.png",
 		  "hero":"neutral",
-		  "race":"none"
+		  "race":"elemental"
 		},
 		{
 		  "id":6016,
