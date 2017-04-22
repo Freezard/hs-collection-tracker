@@ -611,9 +611,8 @@ var HSCollectionTracker = (function() {
 		var importCardData = function (cards, set) {
 			cards.forEach(function (newCard) {
 				if (newCard.type != 'Hero') {
-					var className = newCard.playerClass ? newCard.playerClass.toLowerCase() : classesEnum.neutral;
-					// Cards like Elven Archer are in the basic set with common rarity, but setting these to free to preserve HCT behavior
-					var rarity = set == setsEnum.basic ? raritiesEnum.free : newCard.rarity.toLowerCase();
+					var className = newCard.playerClass ? newCard.playerClass.toLowerCase() : classesEnum.neutral;					
+					var rarity = newCard.rarity.toLowerCase();
 					classes[className].addCard(new card(newCard.name, rarity, newCard.cost, newCard.type.toLowerCase(), className, set, setsUncraftable[set]));
 				}
 			});
