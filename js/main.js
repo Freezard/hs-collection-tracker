@@ -603,7 +603,7 @@ var HSCollectionTracker = (function() {
 			"The Grand Tournament": setsEnum.tgt,
 			"The League of Explorers": setsEnum.loe,
 			"Whispers of the Old Gods": setsEnum.wotog,
-			"Karazhan": setsEnum.onik,
+			"One Night in Karazhan": setsEnum.onik,
 			"Mean Streets of Gadgetzan": setsEnum.msog,
 			"Journey to Un'Goro": setsEnum.ungoro
 		};

@@ -17,7 +17,7 @@ Website can be found at http://freezard.github.io/hs-collection-tracker
 - The Pack Guide lets you know which card pack is the most valuable based on your collection.
 - Your collection and settings are saved locally in the browser. Option to save and load to file.
 - Tracker is updated whenever new cards are released or changed.
-- Supports all modern browsers and devices like iPhone/iPad.
+- Supports all modern browsers and devices such as iPhone/iPad.
 
 ## USAGE
 - Select whether you want to add or remove a normal or golden card.
