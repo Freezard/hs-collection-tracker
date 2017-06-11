@@ -1,6 +1,6 @@
 body {
   background-color: #FFFFFF;
-  /*font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;*/
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   margin: 0;
   padding: 0;
   padding-top: 70px;
@@ -25,7 +25,6 @@ body {
   text-align: center;
 }
 #header-center li a {
-  font-family: "Comic Sans MS", "Palatino Linotype", "Times", serif;
   float: left;
   border-top: 4px inset #E3D3C8;  
   font-size: 10px;
@@ -78,7 +77,6 @@ body {
   text-align: center;
 }
 #classTabs li a {
-  font-family: "Comic Sans MS", "Palatino Linotype", "Times", serif;
   float: left;
   overflow: hidden;
   text-align: center;
@@ -161,7 +159,6 @@ body {
   text-align: center;  
 }
 #classTabsBar li a {
-  font-family: "Comic Sans MS", "Palatino Linotype", "Times", serif;
   float: left;
   text-decoration: none;
   font-size: 8px;
@@ -169,16 +166,16 @@ body {
   color: black;
   font-weight: bold;
   padding: 2px 8px;
-  margin: 0px 2px;
+  margin: 0px 1px;
   margin-top: 2px;
   border-radius: 4px 4px 4px 4px;
   text-transform: uppercase;
   cursor: pointer;
 }
 #classTabsBar #filtersLeft .dropdown-menu li a {
-	float: none;
-	margin: 0px;
-	border-radius: 0px;
+  float: none;
+  margin: 0px;
+  border-radius: 0px;
 }
 #classTabsBar #filtersRight li a {
   float: right;
@@ -273,7 +270,6 @@ body {
   text-align: center;
 }
 #classCards li a {
-  font-family: "Comic Sans MS", "Palatino Linotype", "Times", serif;  
   box-shadow: inset 0px 0px 0px 1px #DDDDDD;
   text-decoration: none;  
   font-size: 10px;
@@ -468,7 +464,6 @@ h2 {
   margin-bottom: 20px;
 }
 .side-page table {
-  font-family: "Comic Sans MS", "Palatino Linotype", "Times", serif;
   width: 100%;
   font-size: 12px;
   outline: solid 1px;
