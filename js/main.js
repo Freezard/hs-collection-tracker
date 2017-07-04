@@ -1690,11 +1690,12 @@ var HSCollectionTracker = (function() {
 				
 		// Get the collection data
 		YUI().use('yql', function(Y) {
-			Y.YQL('select * from html where ' +
+			Y.YQL('select * from htmlstring where ' +
 			    'url="http://www.hearthpwn.com/members/' + username + '/collection" ' +
 			    'and xpath="//div[contains(@class, \'owns-card\')]"', function(r) {
+				
 				// Error finding collection
-				if (r.query.results == null) {
+				if (r.query.results.result == "") {
 					document.getElementById('importHearthPwnStatus').innerHTML =
 					    "Wrong username or collection set to private";
 					return;
@@ -1702,11 +1703,15 @@ var HSCollectionTracker = (function() {
 				
 				initCollection();
 				
-				var results = r.query.results.div; // Array of collection
-
+				// Trim HTML source and convert to JSON
+				var html = r.query.results.result.replace(/&#13;/g, '');
+				html = html.replace(/\n/ig, '');
+				html = html.replace(/\s\s+/g, '');
+				var results = html2json(html).child; // Array of collection
+				
 				// Loop through the collection
 				for (var i = 0; i < results.length; i++) {
-					var externalID = results[i]["data-id"];
+					var externalID = results[i].attr["data-id"];
 					var name = "";
 					var className = "";
 					var rarity = "";
@@ -1730,17 +1735,17 @@ var HSCollectionTracker = (function() {
 						}
 				
 					// Get the quality and the amount of copies
-					if (results[i]["data-is-gold"] == "False") {
+					if (results[i].attr["data-is-gold"] == "False") {
 						quality = "normal";
-						copies = Math.min(results[i].a.span["data-card-count"],
+						copies = Math.min(results[i].child[0].child[1].attr["data-card-count"],
 						    getMaxCopies(rarity));
 					}
 					else {
 						quality = "golden";
-						copies = Math.min(results[i].a.span[1]["data-card-count"],
+						copies = Math.min(results[i].child[0].child[1].attr["data-card-count"],
 						    getMaxCopies(rarity));
 					}
-
+					
 					// Add the card info to HSCT
 				    if (name != "" && className != "") {
 					    var card = classes[className].cards[rarity][name];
@@ -1752,6 +1757,12 @@ var HSCollectionTracker = (function() {
 				    "Collection imported successfully";
 					
 				updateLocalStorage();
+				}, {
+			    format: 'json',
+				env: 'store://datatables.org/alltableswithkeys'
+				}, {
+				base: '://query.yahooapis.com/v1/public/yql?', //Different base URL for private data
+				proto: 'https' //Connect using SSL
 			});
 		});
 	}
