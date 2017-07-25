@@ -12290,7 +12290,7 @@
             "description": "Whenever you cast a spell on another friendly minion, cast a copy of it on this one.",
             "image_url": "http://wow.zamimg.com/images/hearthstone/cards/enus/medium/ZAM_1000183.png",
             "hero": "neutral",
-            "race": "none",
+            "race": "elemental",
             "effect_list": []
         },
         {
@@ -14032,7 +14032,7 @@
             "description": "Whenever your spells deal damage, restore that much Health to your hero.",
             "image_url": "http://wow.zamimg.com/images/hearthstone/cards/enus/medium/OG_209.png",
             "hero": "shaman",
-            "race": "none",
+            "race": "elemental",
             "effect_list": []
         },
         {
@@ -16176,7 +16176,7 @@
 			"description": "Whenever this minion is healed, summon a 2/2 Crystal.",
 			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/CFM_606.png",
 			"hero": "priest",
-			"race": "none"
+			"race": "elemental"
 		}, {
 			"id": 7033,
 			"set": "msog",
@@ -16778,7 +16778,7 @@
 			"description": "<b>Battlecry:</b> Summon a{1} {0} <b>Jade Golem</b>.@<b>Battlecry:</b> Summon a <b>Jade Golem</b>.",
 			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/CFM_715.png",
 			"hero": "neutral",
-			"race": "none"
+			"race": "elemental"
 		}, {
 			"id": 7076,
 			"set": "msog",
@@ -18022,7 +18022,7 @@
 			"type": "spell",
 			"quality": "legendary",
 			"mana": 1,
-			"text": "[x]<b>Quest:</b> Play four minions\\nwith the same name.\\n<b>Reward:</b> Crystal Core.",
+			"text": "[x]<b>Quest:</b> Play five minions\\nwith the same name.\\n<b>Reward:</b> Crystal Core.",
 			"flavor": "Why can't it ever be The Taverns Below?",
 			"artist": "James Ryman",
 			"collectible": true,
