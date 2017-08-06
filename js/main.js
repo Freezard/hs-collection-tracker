@@ -128,7 +128,7 @@ var HSCollectionTracker = (function() {
 	var currentDust = 0;
 	var disenchantedDust = 0;
 	
-	var version = 2.166;
+	var version = 2.167;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, uncraftable) {
@@ -1403,12 +1403,21 @@ var HSCollectionTracker = (function() {
 		var averageValue = 0;
 		for (set in packsEnum) {
 		    for (rarity in chanceOfGetting) {
-		            averageValue += chanceOfGetting[rarity].normal * (((setsCards[set][rarity].total.cards - missingCards.overall[set][rarity].normal) / setsCards[set][rarity].total.cards) * disenchantmentValue[rarity].normal
-		                + (missingCards.overall[set][rarity].normal / setsCards[set][rarity].total.cards) * craftingCost[rarity].normal);
+				// Value for guaranteed legendary, when any is missing
+				if (rarity == "legendary" && missingCards.overall[set][rarity].normal > 0 && missingCards.overall[set][rarity].golden > 0) {
+					averageValue += chanceOfGetting[rarity].normal * craftingCost[rarity].normal;
 					if (!settings.excludeGoldenCards)
-					    averageValue += chanceOfGetting[rarity].golden * (((setsCards[set][rarity].total.cards - missingCards.overall[set][rarity].golden) / setsCards[set][rarity].total.cards) * disenchantmentValue[rarity].golden
-		                    + (missingCards.overall[set][rarity].golden / setsCards[set][rarity].total.cards) * craftingCost[rarity].golden);
+						averageValue += chanceOfGetting[rarity].golden * craftingCost[rarity].golden;
 					else averageValue += chanceOfGetting[rarity].golden * disenchantmentValue[rarity].golden;
+					continue;
+				}
+				
+		        averageValue += chanceOfGetting[rarity].normal * (((setsCards[set][rarity].total.cards - missingCards.overall[set][rarity].normal) / setsCards[set][rarity].total.cards) * disenchantmentValue[rarity].normal
+		            + (missingCards.overall[set][rarity].normal / setsCards[set][rarity].total.cards) * craftingCost[rarity].normal);
+				if (!settings.excludeGoldenCards)
+				    averageValue += chanceOfGetting[rarity].golden * (((setsCards[set][rarity].total.cards - missingCards.overall[set][rarity].golden) / setsCards[set][rarity].total.cards) * disenchantmentValue[rarity].golden
+		                + (missingCards.overall[set][rarity].golden / setsCards[set][rarity].total.cards) * craftingCost[rarity].golden);
+				else averageValue += chanceOfGetting[rarity].golden * disenchantmentValue[rarity].golden;
 				}
 		
 		    document.getElementById(set + "AverageDust").innerHTML = (averageValue * 5).toFixed(1);
