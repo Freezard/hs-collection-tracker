@@ -74,7 +74,9 @@ var HSCollectionTracker = (function() {
 		classic: "classic",
 		wotog: "wotog",
 		msog: "msog",
-		ungoro: "ungoro"
+		ungoro: "ungoro",
+		gvg: "gvg",
+		tgt: "tgt"
 	};
 	
 	var craftingCost = {
@@ -128,7 +130,7 @@ var HSCollectionTracker = (function() {
 	var currentDust = 0;
 	var disenchantedDust = 0;
 	
-	var version = 2.167;
+	var version = 2.168;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, uncraftable) {
