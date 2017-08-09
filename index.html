@@ -87,6 +87,7 @@
 			<li><a>WotOG</a></li>
 			<li><a>MSoG</a></li>
 			<li><a>Ungoro</a></li>
+			<li><a>KotFT</a></li>
 		  </ul>
 		</li>
 	    <li class="dropdown">
@@ -223,6 +224,7 @@
 	<option value="onik">One Night in Karazhan</option>
 	<option value="msog">Mean Streets of Gadgetzan</option>
 	<option value="ungoro">Journey to Un'Goro</option>
+	<option value="kotft">Knights of the Frozen Throne</option>
 	<option selected disabled>---</option>
 	<option value="standard">Standard</option>
 	<option value="total">Overall</option>
@@ -259,7 +261,8 @@
 <script id="template-news" type="text/html">
 <div class="col-xs-12 side-page">
   <h2>News</h2>
-  <p><span class="special2">07-08-17</span> - Updated Pack Guide to include Wild packs since they are obtainable from the Blizzard store.</p>
+  <p><span class="special2">09-08-17</span> - Updated data to Patch 9.0.0 (Knights of the Frozen Throne).</p>
+  <p><span class="special2">07-08-17</span> - Updated Pack Guide to include Wild packs since they are now obtainable from the Blizzard store.</p>
   <p><span class="special2">06-08-17</span> - Updated Pack Guide to include the new guaranteed legendary feature. Pack values have increased greatly for sets that were only missing a few legendaries.</p>
   <p><span class="special2">07-04-17</span> - Updated data to the new rotation - Year of the Mammoth.</p>
   <p><span class="special2">05-04-17</span> - Updated data to Patch 8.0.0.</p>
@@ -334,7 +337,7 @@
   <p>If you have ticked the "I don't care about golden cards" box, it is assumed that every golden card will be disenchanted.</p>
   <div class="mainDiv">
     <div class="row">
-      <div class="col-xs-3">
+      <div class="col-xs-4">
         <img src="images/pack_classic.png" alt="Classic pack" width="160" height="216">
 	    <table class="tablePack">
 	      <tr>
@@ -343,7 +346,7 @@
 	      </tr>
 	    </table>  
       </div>
-      <div class="col-xs-3">
+      <div class="col-xs-4">
         <img src="images/pack_wotog.png" alt="WotOG pack" width="173" height="216">
 	    <table class="tablePack">
 	      <tr>
@@ -352,7 +355,7 @@
 	      </tr>
 	    </table>
       </div>
-      <div class="col-xs-3">
+      <div class="col-xs-4">
         <img src="images/pack_msog.png" alt="MSoG pack" width="160" height="216">
 	    <table class="tablePack">
 	      <tr>
@@ -361,7 +364,10 @@
 	      </tr>
 	    </table>
       </div>
-      <div class="col-xs-3">
+	</div>
+	<br>
+	<div class="row">
+      <div class="col-xs-6">
         <img src="images/pack_ungoro.png" alt="Un'Goro pack" width="175" height="216">
 	    <table class="tablePack">
 	      <tr>
@@ -370,6 +376,15 @@
 	      </tr>
 	    </table>
       </div>
+      <div class="col-xs-6">
+        <img src="images/pack_kotft.png" alt="KotFT pack" width="170" height="216">
+	    <table class="tablePack">
+	      <tr>
+	        <td>Average dust =</td>
+		    <td id="kotftAverageDust"></td>
+	      </tr>
+	    </table>
+      </div>	  
     </div>
     <br>
     <div class="row">

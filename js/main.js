@@ -38,7 +38,8 @@ var HSCollectionTracker = (function() {
 		wotog: "wotog",
 		onik: "onik",
 		msog: "msog",
-		ungoro: "ungoro"
+		ungoro: "ungoro",
+		kotft: "kotft"
 	};
 
 	var standardSetsEnum = {
@@ -47,7 +48,8 @@ var HSCollectionTracker = (function() {
 		wotog: "wotog",
 		onik: "onik",
 		msog: "msog",
-		ungoro: "ungoro"
+		ungoro: "ungoro",
+		kotft: "kotft"
 	};
 
 	// The number of cards and craftable cards in each set.
@@ -67,7 +69,8 @@ var HSCollectionTracker = (function() {
 		tgt: "none",
 		loe: "none",
 		wotog: "none",
-		ungoro: "none"
+		ungoro: "none",
+		kotft: "none"
 	};
 	
 	var packsEnum = {
@@ -75,6 +78,7 @@ var HSCollectionTracker = (function() {
 		wotog: "wotog",
 		msog: "msog",
 		ungoro: "ungoro",
+		kotft: "kotft",
 		gvg: "gvg",
 		tgt: "tgt"
 	};
@@ -130,7 +134,7 @@ var HSCollectionTracker = (function() {
 	var currentDust = 0;
 	var disenchantedDust = 0;
 	
-	var version = 2.168;
+	var version = 2.170;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, uncraftable) {
@@ -607,14 +611,16 @@ var HSCollectionTracker = (function() {
 			"Whispers of the Old Gods": setsEnum.wotog,
 			"One Night in Karazhan": setsEnum.onik,
 			"Mean Streets of Gadgetzan": setsEnum.msog,
-			"Journey to Un'Goro": setsEnum.ungoro
+			"Journey to Un'Goro": setsEnum.ungoro,
+			"Knights of the Frozen Throne": setsEnum.kotft
 		};
 		
 		var importCardData = function (cards, set) {
 			cards.forEach(function (newCard) {
-				if (newCard.type != 'Hero') {
-					var className = newCard.playerClass ? newCard.playerClass.toLowerCase() : classesEnum.neutral;					
+				if (!newCard.cardId.includes("HERO")) {
+					var className = newCard.playerClass ? newCard.playerClass.toLowerCase() : classesEnum.neutral;
 					var rarity = newCard.rarity.toLowerCase();
+					
 					classes[className].addCard(new card(newCard.name, rarity, newCard.cost, newCard.type.toLowerCase(), className, set, setsUncraftable[set]));
 				}
 			});
