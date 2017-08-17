@@ -291,7 +291,7 @@ body {
   padding: 0;
   border-radius: 0;
   background-color: rgba(150, 200, 255, 1);
-  transition: padding 0.5s, color 1s;
+  transition: padding 1s, color 2s;
   color: transparent;
   border: 0px;
   margin: 0px 1px;

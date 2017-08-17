@@ -32,12 +32,12 @@
 	  </div>
       <div id="myNavbar" class="collapse navbar-collapse">
 	    <div id="header-center" class="center-block">
-  		  <ul class="nav navbar-nav">
+  		  <ul class="nav navbar-nav noselect">
 	        <li><a id="selectedQualityNormal" class="selected">Normal</a></li>
 		    <li><a id="selectedQualityGolden">Golden</a></li>
           </ul>
 		</div>
-        <ul class="nav navbar-nav navbar-right">		  
+        <ul class="nav navbar-nav navbar-right noselect">		  
 		  <li><a id="link-tracker" class="title">Tracker</a></li>
 		  <li class="dropdown">
 		    <a class="dropdown-toggle title" data-toggle="dropdown">Progress
@@ -73,7 +73,7 @@
 <script id="template-tracker" type="text/html">
 <div id="content" class="col-xs-12 col-md-7 col-lg-11">
   <div class="row" id="classTabs"></div>
-  <div class="row" id="classTabsBar">
+  <div class="row noselect" id="classTabsBar">
     <div class="col-xs-9">
       <ul id="filtersLeft">
 	    <li class="dropdown">

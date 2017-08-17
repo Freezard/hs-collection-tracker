@@ -1210,12 +1210,14 @@ var HSCollectionTracker = (function() {
 		for (var cardName in deck) {
 			var className = "";
 			var rarity = "";
+			var image = "";
 			
 			// Get necessary card data
 			for (var k = 0; k < cardData.cards.length; k++)
 			    if (cardName == cardData.cards[k].name) {
 					className = cardData.cards[k].hero;
 					rarity = cardData.cards[k].quality;
+					image = cardData.cards[k].image_url;
 					break;
 				}
 				
@@ -1232,6 +1234,7 @@ var HSCollectionTracker = (function() {
 			tr = document.createElement("tr");
 			td = document.createElement("td");
 			td.innerHTML = cardName;
+			td.style.background = "url('" + image + "') -70px -120px no-repeat";
 			tr.appendChild(td);
 			td = document.createElement("td");
 			td.setAttribute("class", "normal");
