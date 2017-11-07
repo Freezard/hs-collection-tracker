@@ -39,7 +39,8 @@ var HSCollectionTracker = (function() {
 		onik: "onik",
 		msog: "msog",
 		ungoro: "ungoro",
-		kotft: "kotft"
+		kotft: "kotft",
+		kobolds: "kobolds"
 	};
 
 	var standardSetsEnum = {
@@ -49,7 +50,8 @@ var HSCollectionTracker = (function() {
 		onik: "onik",
 		msog: "msog",
 		ungoro: "ungoro",
-		kotft: "kotft"
+		kotft: "kotft",
+		kobolds: "kobolds"
 	};
 
 	// The number of cards and craftable cards in each set.
@@ -70,7 +72,8 @@ var HSCollectionTracker = (function() {
 		loe: "none",
 		wotog: "none",
 		ungoro: "none",
-		kotft: "none"
+		kotft: "none",
+		kobolds: "none"
 	};
 	
 	var packsEnum = {
@@ -134,7 +137,7 @@ var HSCollectionTracker = (function() {
 	var currentDust = 0;
 	var disenchantedDust = 0;
 	
-	var version = 2.18;
+	var version = 2.19;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, uncraftable) {
@@ -612,7 +615,8 @@ var HSCollectionTracker = (function() {
 			"One Night in Karazhan": setsEnum.onik,
 			"Mean Streets of Gadgetzan": setsEnum.msog,
 			"Journey to Un'Goro": setsEnum.ungoro,
-			"Knights of the Frozen Throne": setsEnum.kotft
+			"Knights of the Frozen Throne": setsEnum.kotft,
+			"Kobolds & Catacombs": setsEnum.kobolds
 		};
 		
 		var importCardData = function (cards, set) {

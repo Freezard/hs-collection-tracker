@@ -23854,6 +23854,33 @@
 				"name": "Overload"
 			  }
 			]
+		  },
+		  {
+			"cardId": "LOOT_357",
+			"dbfId": "45988",
+			"name": "Marin the Fox",
+			"set": "Kobolds & Catacombs",
+			"type": "minion",
+			"quality": "legendary",
+			"mana": 8,
+			"attack": 6,
+			"health": 6,
+			"text": "<b>Battlecry:</b> Summon a 0/8 Treasure Chest for your opponent. <i>(Break it for awesome loot!)</i>",
+			"flavor": "My name is Marin the Fox. You took my treasure. Prepare to die.",
+			"artist": "Zoltan Boros",
+			"collectible": true,
+			"elite": true,
+			"hero": "neutral",
+			"howToGet": "Granted to celebrate the upcoming release of Kobolds and Catacombs.",
+			"howToGetGold": "Unlocked with the BlizzCon 2017 virtual ticket.",
+			"image_url": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/LOOT_357.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/LOOT_357_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
 		  }
     ]
 }
