@@ -82,6 +82,7 @@ var HSCollectionTracker = (function() {
 		msog: "msog",
 		ungoro: "ungoro",
 		kotft: "kotft",
+		kobolds: "kobolds",
 		gvg: "gvg",
 		tgt: "tgt"
 	};
@@ -137,7 +138,7 @@ var HSCollectionTracker = (function() {
 	var currentDust = 0;
 	var disenchantedDust = 0;
 	
-	var version = 2.19;
+	var version = 2.20;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, uncraftable) {
@@ -1718,10 +1719,19 @@ var HSCollectionTracker = (function() {
 			    'url="http://www.hearthpwn.com/members/' + username + '/collection" ' +
 			    'and xpath="//div[contains(@class, \'owns-card\')]"', function(r) {
 				
-				// Error finding collection
-				if (r.query.results.result == "") {
+				console.log(r);
+				
+				try {
+					// Error finding collection
+					if (r.query.results.result == "") {
+						document.getElementById('importHearthPwnStatus').innerHTML =
+							"Wrong username or collection set to private";
+						return;
+					}
+				}
+				catch(e) {
 					document.getElementById('importHearthPwnStatus').innerHTML =
-					    "Wrong username or collection set to private";
+						"Importing failed";
 					return;
 				}
 				
