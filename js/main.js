@@ -1731,7 +1731,7 @@ var HSCollectionTracker = (function() {
 				}
 				catch(e) {
 					document.getElementById('importHearthPwnStatus').innerHTML =
-						"Importing failed";
+						"Importing failed. Try editing and saving collection on HearthPwn again";
 					return;
 				}
 				
