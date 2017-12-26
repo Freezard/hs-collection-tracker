@@ -112,11 +112,11 @@
 	</div>
   </div>
   <div class="row" id="classCards">
-    <div class="col-xs-5ths nopadding"><ul id="list_free"></ul></div>
-    <div class="col-xs-5ths nopadding"><ul id="list_common"></ul></div>
-    <div class="col-xs-5ths nopadding"><ul id="list_rare"></ul></div>
-    <div class="col-xs-5ths nopadding"><ul id="list_epic"></ul></div>
-    <div class="col-xs-5ths nopadding"><ul id="list_legendary"></ul></div>
+    <div class="col-xs-5ths nopadding"><ul id="list_free" class="free"></ul></div>
+    <div class="col-xs-5ths nopadding"><ul id="list_common" class="common"></ul></div>
+    <div class="col-xs-5ths nopadding"><ul id="list_rare" class="rare"></ul></div>
+    <div class="col-xs-5ths nopadding"><ul id="list_epic" class="epic"></ul></div>
+    <div class="col-xs-5ths nopadding"><ul id="list_legendary" class="legendary"></ul></div>
   </div>
 </div>
 <div id="missingCardsWrap" class="hidden-xs hidden-sm col-lg-1">
@@ -194,7 +194,8 @@
     </table>
 	<hr>
 	<div class="center">
-      <input type="checkbox" id="checkboxGolden">I don't care about golden cards
+      <input type="checkbox" id="checkboxGolden">I don't care about golden cards<br>
+	  <input type="checkbox" id="checkboxHideFreeCards">Don't display free cards
     </div>
 	<table>
 	  <tr>
@@ -263,6 +264,7 @@
 <script id="template-news" type="text/html">
 <div class="col-xs-12 side-page">
   <h2>News</h2>
+  <p><span class="special2">26-12-17</span> - Added an option to hide free cards in the tracker, located in the infobox. When enabled, common cards will now be displayed in the first column as well.</p>
   <p><span class="special2">07-12-17</span> - Updated data to Patch 10.0.0 (Kobolds & Catacombs).</p>
   <p><span class="special2">07-11-17</span> - Updated data to Patch 9.4.0.</p>
   <p><span class="special2">09-08-17</span> - Updated data to Patch 9.0.0 (Knights of the Frozen Throne).</p>

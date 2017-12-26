@@ -128,6 +128,7 @@ var HSCollectionTracker = (function() {
 	// Persistent settings
 	var settings = {
 		excludeGoldenCards: false,
+		hideFreeCards: false,
 		showOnlyMissingCards: false
 	};
 	
@@ -138,7 +139,7 @@ var HSCollectionTracker = (function() {
 	var currentDust = 0;
 	var disenchantedDust = 0;
 	
-	var version = 2.20;
+	var version = 2.21;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, uncraftable) {
@@ -773,8 +774,7 @@ var HSCollectionTracker = (function() {
 	// by clicking on the "apply to all" button
 	function addAll(element) {
 		var list = element.parentNode.parentNode.getElementsByTagName("a");
-		var rarity = element.parentNode.parentNode.id;		
-		rarity = rarity.slice(5, rarity.length); // Cut out the "list" part
+		var rarity = element.parentNode.parentNode.getAttribute("class");
 		
 		for (var i = 1, len = list.length; i < len; i++) {
 			var card;
@@ -782,7 +782,7 @@ var HSCollectionTracker = (function() {
 			if (selectedClass == "all")
 				card = classAll.cards[rarity][list[i].innerHTML];
 			else card = classes[selectedClass].cards[rarity][list[i].innerHTML];
-			
+
 			if (card[selectedQuality] < getMaxCopies(rarity))
 			    updateCard(card, selectedQuality, getMaxCopies(rarity) - card[selectedQuality]);
 		}
@@ -799,8 +799,7 @@ var HSCollectionTracker = (function() {
 	// by right-clicking on the "apply to all" button
 	function removeAll(element) {
 		var list = element.parentNode.parentNode.getElementsByTagName("a");
-		var rarity = element.parentNode.parentNode.id;		
-		rarity = rarity.slice(5, rarity.length); // Cut out the "list" part
+		var rarity = element.parentNode.parentNode.getAttribute("class");
 		
 		for (var i = 1, len = list.length; i < len; i++) {
 			var card;
@@ -1024,6 +1023,12 @@ var HSCollectionTracker = (function() {
 			listItem.appendChild(linkItemLink);
 			list.appendChild(listItem);
 			
+			// Fill in list_free with common cards instead
+			if (rarity == "free" && settings.hideFreeCards) {
+				document.getElementById("list_free").setAttribute("class", "common");
+				continue;
+			}
+
 			// Loop through all cards in the collection of the selected class.
 			// List is already sorted
 			for (var name in cardList[rarity]) {
@@ -1043,7 +1048,15 @@ var HSCollectionTracker = (function() {
 						"golden" + cardList[rarity][name].golden + " " + "noselect");
 
 					listItem.appendChild(listItemLink);
-					list.appendChild(listItem);
+					
+					// Split common cards in two lists if hideFreeCards is on
+					if (rarity == "common" && settings.hideFreeCards) {
+						if (document.getElementById("list_free").getElementsByTagName("li").length <= 
+								document.getElementById("list_common").getElementsByTagName("li").length)
+							document.getElementById("list_free").appendChild(listItem);
+						else list.appendChild(listItem);
+					}
+					else list.appendChild(listItem);
 				}
 			}
 		}
@@ -1182,6 +1195,18 @@ var HSCollectionTracker = (function() {
 		displayMissingCardsOverall();
 		displayCards(selectedClass);
 	}
+	
+	// Toggles the exclude golden cards setting and updates view
+	function toggleHideFreeCards() {
+		settings.hideFreeCards = !settings.hideFreeCards;
+		
+		if (document.getElementById("list_free").getAttribute("class") == "free")
+			document.getElementById("list_free").setAttribute("class", "common");
+		else document.getElementById("list_free").setAttribute("class", "free");
+		
+		localStorage.setItem("settings", JSON.stringify(settings));
+		displayCards(selectedClass);
+	}	
 	
 	// Creates and returns a table representing a deck.
 	// The deck should be an object of cards with this format:
@@ -1589,6 +1614,9 @@ var HSCollectionTracker = (function() {
 		
 		document.getElementById("checkboxGolden").addEventListener("change", toggleGoldenCards);
 		document.getElementById("checkboxGolden").checked = settings.excludeGoldenCards;
+		
+		document.getElementById("checkboxHideFreeCards").addEventListener("change", toggleHideFreeCards);
+		document.getElementById("checkboxHideFreeCards").checked = settings.hideFreeCards;
 		
 		// Make sure the quality buttons are visible while on the tracker
 		document.getElementById("header-center").style.visibility = "visible";
