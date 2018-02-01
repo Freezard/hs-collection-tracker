@@ -227,8 +227,8 @@ var HSCollectionTracker = (function() {
 			missingDust: getProgressDataObject()
 		};
 		
-		for (set in sets)
-			for (rarity in setsCards[set]) {
+		for (var set in sets)
+			for (var rarity in setsCards[set]) {
 				if (setsCards[set][rarity][className] != undefined) {
 				    data.totalCards[rarity] += setsCards[set][rarity][className].cards;
 					data.totalCards.all += setsCards[set][rarity][className].cards;
@@ -295,11 +295,11 @@ var HSCollectionTracker = (function() {
 	function initClassAll() {
 		classAll = new classHS('all');
 
-		for (className in classes)
-			for (rarity in classes[className].cards) {
+		for (var className in classes)
+			for (var rarity in classes[className].cards) {
 				var cards = classes[className].cards[rarity];
 				
-				for (cardName in cards)
+				for (var cardName in cards)
 					classAll.addCard(cards[cardName]);
 			}
 
@@ -1332,11 +1332,11 @@ var HSCollectionTracker = (function() {
 		else setList = standardSetsEnum;
 		
 		var rarities = {};
-		for (set in setList)
-			for (rarity in setsCards[set])
+		for (var cardSet in setList)
+			for (var rarity in setsCards[cardSet])
 			    if (rarities[rarity] == undefined)
 					rarities[rarity] = rarity;
-				
+
 		// Don't display an "all" column for sets only containing one rarity
 		if (Object.keys(rarities).length != 1)
 		    rarities.all = "all";
@@ -1357,7 +1357,10 @@ var HSCollectionTracker = (function() {
 		// Create rarities row
 		tr = document.createElement("tr");
 		tr.appendChild(document.createElement("td"));
-		for (rarity in rarities) {
+		for (var rarity in rarities) {
+			if (rarity == "free" && settings.hideFreeCards &&
+   			    (set == "standard" || set == "total"))
+				continue;
 		    td = document.createElement("td");
 		    td.innerHTML = capitalizeFirstLetter(rarity);
 		    tr.appendChild(td);
@@ -1367,7 +1370,7 @@ var HSCollectionTracker = (function() {
 		table.appendChild(tr);
 		
 		// Create the class rows
-		for (className in classesEnum) {
+		for (var className in classesEnum) {
 			table.appendChild(createProgressTableRow("normal", setList, rarities, className));
 			// Exclude golden data if the setting is on
 			if (!settings.excludeGoldenCards)
@@ -1396,14 +1399,17 @@ var HSCollectionTracker = (function() {
 		tr.appendChild(td);
 		
 		// Create data for all rarities
-		for (rarity in rarities) {
+		for (var rarity in rarities) {
+			if (rarity == "free" && settings.hideFreeCards &&
+			    (sets == standardSetsEnum || sets.hasOwnProperty("total")))
+				continue;
 			// Create the card data
 		    var td = document.createElement("td");
 			var text = "-";
 			var totalCards = data.totalCards[rarity];
 			var missingCards = data.missingCards[rarity];
 
-			// If collectible cards for this class/set/rarity
+			// If there are collectible cards for this class/set/rarity
 			if (totalCards != 0) {
 				// Example: 0/50 (0%)
 				text = totalCards - missingCards + "/" + totalCards +
@@ -1442,8 +1448,8 @@ var HSCollectionTracker = (function() {
 	// Needs more commenting
 	function updatePackGuide() {
 		var averageValue = 0;
-		for (set in packsEnum) {
-		    for (rarity in chanceOfGetting) {
+		for (var set in packsEnum) {
+		    for (var rarity in chanceOfGetting) {
 				// Value for guaranteed legendary, when any is missing
 				if (rarity == "legendary" && missingCards.overall[set][rarity].normal > 0 && missingCards.overall[set][rarity].golden > 0) {
 					averageValue += chanceOfGetting[rarity].normal * craftingCost[rarity].normal;
@@ -1485,14 +1491,14 @@ var HSCollectionTracker = (function() {
 			epic: 0
 		};
 		
-		for (set in packsEnum) {
-		    for (rarity in averageDust) {
+		for (var set in packsEnum) {
+		    for (var rarity in averageDust) {
 				total[rarity] += setsCards[set][rarity].total.cards;
 				missing[rarity] += missingCards.overall[set][rarity].golden;
 			}
 		}
 		
-		for (rarity in averageDust) {
+		for (var rarity in averageDust) {
 		    if (!settings.excludeGoldenCards)
 			    averageDust[rarity] += ((total[rarity] - missing[rarity]) / total[rarity]) * disenchantmentValue[rarity].golden
 		            + (missing[rarity] / total[rarity]) * craftingCost[rarity].golden;
