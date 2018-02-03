@@ -365,10 +365,16 @@ var HSCollectionTracker = (function() {
 	// setsCards[set][rarity][className].cards = total cards
 	// setsCards[set][rarity][className][quality] = craftable cards
 	function initSetsCards() {
-		setsCards = {};		
+		setsCards = {};
 		
+		// Add the rarities to the set (to get them in the "correct" order)
 		for (var set in setsEnum)
-			setsCards[set] = {};
+			setsCards[set] = { 	free: {},
+								common: {},
+								rare: {},
+								epic: {},
+								legendary: {}
+			};
 		
 		// Loop through every card in the collection and add
 		// the card's copies to its correct places
@@ -376,11 +382,7 @@ var HSCollectionTracker = (function() {
 			for (var rarity in classes[className].cards)
 				for (var cardName in classes[className].cards[rarity]) {
 					var card = classes[className].cards[rarity][cardName];
-					var set = card.set;
-					
-					// Add the rarity to the set if it doesn't exist
-					if (setsCards[set][rarity] === undefined)
-						setsCards[set][rarity] = {};
+					var set = card.set;		
 					
 					// Add the class to the rarity group if it doesn't exist
 					if (setsCards[set][rarity][className] === undefined)
@@ -417,6 +419,12 @@ var HSCollectionTracker = (function() {
 							setsCards[set][rarity].total[quality] += getMaxCopies(rarity);
 					}
 				}
+		
+		// Delete rarities not used in the set
+		for (var set in setsEnum)
+			for (var rarity in raritiesEnum)
+				if (Object.keys(setsCards[set][rarity]).length == 0)
+					delete(setsCards[set][rarity]);
 		
 		// Overall for all sets
 		setsCards.total = {};
