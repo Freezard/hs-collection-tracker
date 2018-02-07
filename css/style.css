@@ -325,34 +325,34 @@ body {
 #classCards .common .normal2 {
   background-color: rgba(94, 111, 121, 0.5);
 }
-#classCards #list_rare .normal1 {
+#classCards .rare .normal1 {
   background-color: rgba(43, 136, 234, 0.2);
 }
-#classCards #list_rare .golden1 {
+#classCards .rare .golden1 {
   box-shadow: inset 0px 0px 0px 1px #DDDDDD, inset 0px -5px 0px 0px rgba(43, 136, 234, 0.7);
 }
-#classCards #list_rare .golden2 {
+#classCards .rare .golden2 {
   box-shadow: inset 0px 0px 0px 1px #DDDDDD, inset 0px -4px 0px 0px rgba(255, 225, 0, 0.7);
 }
-#classCards #list_rare .normal2 {
+#classCards .rare .normal2 {
   background-color: rgba(43, 136, 234, 0.5);
 }
-#classCards #list_epic .normal1 {
+#classCards .epic .normal1 {
   background-color: rgba(227, 62, 255, 0.2);
 }
-#classCards #list_epic .golden1 {
+#classCards .epic .golden1 {
   box-shadow: inset 0px 0px 0px 1px #DDDDDD, inset 0px -5px 0px 0px rgba(227, 62, 255, 0.5);
 }
-#classCards #list_epic .golden2 {
+#classCards .epic .golden2 {
   box-shadow: inset 0px 0px 0px 1px #DDDDDD, inset 0px -4px 0px 0px rgba(255, 225, 0, 0.7);
 }
-#classCards #list_epic .normal2 {
+#classCards .epic .normal2 {
   background-color: rgba(227, 62, 255, 0.5);
 }
-#classCards #list_legendary .normal1 {
+#classCards .legendary .normal1 {
   background-color: rgba(255, 149, 9, 0.6);
 }
-#classCards #list_legendary .golden1 {
+#classCards .legendary .golden1 {
   box-shadow: inset 0px 0px 0px 1px #DDDDDD, inset 0px -4px 0px 0px rgba(255, 120, 0, 0.7);
 }
 #classCards a:hover {
@@ -366,13 +366,13 @@ body {
 #classCards .common a:hover {
   border-color: rgba(94, 111, 121, 0.3);
 }
-#classCards #list_rare a:hover {
+#classCards .rare a:hover {
   border-color: rgba(43, 136, 234, 0.3);
 }
-#classCards #list_epic a:hover {
+#classCards .epic a:hover {
   border-color: rgba(227, 62, 255, 0.3);
 }
-#classCards #list_legendary a:hover {
+#classCards .legendary a:hover {
   border-color: rgba(255, 149, 9, 0.3);
 }
 /* ------------------------------------------ */
