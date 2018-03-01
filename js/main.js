@@ -87,6 +87,15 @@ var HSCollectionTracker = (function() {
 		tgt: "tgt"
 	};
 	
+	var rewardsEnum = {
+		classic: "classic",
+		wotog: "wotog",
+		msog: "msog",
+		ungoro: "ungoro",
+		kotft: "kotft",
+		kobolds: "kobolds"
+	};	
+	
 	var craftingCost = {
 		free:      { normal: 0, golden: 0 },
 		common:    { normal: 40, golden: 400 },
@@ -1499,7 +1508,7 @@ var HSCollectionTracker = (function() {
 			epic: 0
 		};
 		
-		for (var set in packsEnum) {
+		for (var set in rewardsEnum) {
 		    for (var rarity in averageDust) {
 				total[rarity] += setsCards[set][rarity].total.cards;
 				missing[rarity] += missingCards.overall[set][rarity].golden;
