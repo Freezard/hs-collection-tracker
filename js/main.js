@@ -1476,11 +1476,26 @@ var HSCollectionTracker = (function() {
 					continue;
 				}
 				
-		        averageValue += chanceOfGetting[rarity].normal * (((setsCards[set][rarity].total.cards - missingCards.overall[set][rarity].normal) / setsCards[set][rarity].total.cards) * disenchantmentValue[rarity].normal
-		            + (missingCards.overall[set][rarity].normal / setsCards[set][rarity].total.cards) * craftingCost[rarity].normal);
+				var dupesNormal = 0, dupesGolden = 0;
+				var totalCards = setsCards[set][rarity].total.cards / getMaxCopies(rarity);
+
+				for (var className in classesEnum)
+					for (var cardName in classes[className].cards[rarity]) {
+						var card = classes[className].cards[rarity][cardName];
+						
+						if (card.set == set) {
+							if (card.normal == getMaxCopies(rarity))
+								dupesNormal++;
+							if (card.golden == getMaxCopies(rarity))
+								dupesGolden++;
+						}
+					}
+				
+				averageValue += chanceOfGetting[rarity].normal * ((dupesNormal / totalCards) * disenchantmentValue[rarity].normal
+		            + ((totalCards - dupesNormal) / totalCards) * craftingCost[rarity].normal);
 				if (!settings.excludeGoldenCards)
-				    averageValue += chanceOfGetting[rarity].golden * (((setsCards[set][rarity].total.cards - missingCards.overall[set][rarity].golden) / setsCards[set][rarity].total.cards) * disenchantmentValue[rarity].golden
-		                + (missingCards.overall[set][rarity].golden / setsCards[set][rarity].total.cards) * craftingCost[rarity].golden);
+				    averageValue += chanceOfGetting[rarity].golden * ((dupesGolden / totalCards) * disenchantmentValue[rarity].golden
+		                + ((totalCards - dupesGolden) / totalCards) * craftingCost[rarity].golden);
 				else averageValue += chanceOfGetting[rarity].golden * disenchantmentValue[rarity].golden;
 				}
 		
@@ -1502,7 +1517,7 @@ var HSCollectionTracker = (function() {
 			epic: 0
 		};
 		
-		var missing = {
+		var dupes = {
 			common: 0,
 			rare: 0,
 			epic: 0
@@ -1510,15 +1525,23 @@ var HSCollectionTracker = (function() {
 		
 		for (var set in rewardsEnum) {
 		    for (var rarity in averageDust) {
-				total[rarity] += setsCards[set][rarity].total.cards;
-				missing[rarity] += missingCards.overall[set][rarity].golden;
+				total[rarity] += setsCards[set][rarity].total.cards / getMaxCopies(rarity);
+				
+				for (var className in classesEnum)
+					for (var cardName in classes[className].cards[rarity]) {
+						var card = classes[className].cards[rarity][cardName];
+						
+						if (card.set == set)
+							if (card.golden == getMaxCopies(rarity))
+								dupes[rarity]++;
+					}	
 			}
 		}
 		
 		for (var rarity in averageDust) {
 		    if (!settings.excludeGoldenCards)
-			    averageDust[rarity] += ((total[rarity] - missing[rarity]) / total[rarity]) * disenchantmentValue[rarity].golden
-		            + (missing[rarity] / total[rarity]) * craftingCost[rarity].golden;
+			    averageDust[rarity] += (dupes[rarity] / total[rarity]) * disenchantmentValue[rarity].golden
+		            + ((total[rarity] - dupes[rarity]) / total[rarity]) * craftingCost[rarity].golden;
 		    else averageDust[rarity] = disenchantmentValue[rarity].golden;
 		}
 		
