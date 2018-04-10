@@ -222,7 +222,7 @@
     {
         "id": 45,
         "name": "Tauren Warrior",
-        "description": "Taunt. Enrage: +3 Attack",
+        "description": "Taunt. Has +3 Attack while damaged.",
         "image_url": "http://wow.zamimg.com/images/hearthstone/cards/enus/medium/EX1_390.png",
         "hero": "neutral",
         "category": "minion",
@@ -280,7 +280,7 @@
     {
         "id": 61,
         "name": "Spiteful Smith",
-        "description": "Enrage: Your weapon has +2 Attack.",
+        "description": "Your weapon has +2 Attack while this is damaged.",
         "image_url": "http://wow.zamimg.com/images/hearthstone/cards/enus/medium/CS2_221.png",
         "hero": "neutral",
         "category": "minion",
@@ -1538,7 +1538,7 @@
     {
         "id": 338,
         "name": "Grommash Hellscream",
-        "description": "Charge. Enrage: +6 Attack",
+        "description": "Charge. Has +6 Attack while damaged.",
         "image_url": "http://wow.zamimg.com/images/hearthstone/cards/enus/medium/EX1_414.png",
         "hero": "warrior",
         "category": "minion",
@@ -4165,7 +4165,7 @@
     {
         "id": 790,
         "name": "Amani Berserker",
-        "description": "Enrage: +3 Attack",
+        "description": "Has +3 Attack while damaged.",
         "image_url": "http://wow.zamimg.com/images/hearthstone/cards/enus/medium/EX1_393.png",
         "hero": "neutral",
         "category": "minion",
@@ -5946,7 +5946,7 @@
     {
         "id": 1155,
         "name": "Raging Worgen",
-        "description": "Enrage: Windfury and +1 Attack",
+        "description": "Has +1 Attack and Windfury while damaged.",
         "image_url": "http://wow.zamimg.com/images/hearthstone/cards/enus/medium/EX1_412.png",
         "hero": "neutral",
         "category": "minion",
@@ -6358,7 +6358,7 @@
         "quality": "epic",
         "race": "none",
         "set": "classic",
-        "mana": 25,
+        "mana": 20,
         "attack": 8,
         "health": 8,
         "collectible": true,
@@ -6616,7 +6616,7 @@
     {
         "id": 1688,
         "name": "Angry Chicken",
-        "description": "Enrage: +5 Attack.",
+        "description": "Has +5 Attack while damaged.",
         "image_url": "http://wow.zamimg.com/images/hearthstone/cards/enus/medium/EX1_009.png",
         "hero": "neutral",
         "category": "minion",
@@ -8212,7 +8212,7 @@
          "health":3,
          "race":"mech",
          "name":"Warbot",
-         "description":"Enrage: +1 Attack.",
+         "description":"Has +1 Attack while damaged.",
          "image_url":"http://wow.zamimg.com/images/hearthstone/cards/enus/medium/GVG_051.png",
          "effect_list":[
 
@@ -13725,7 +13725,7 @@
             "attack": 3,
             "health": 5,
             "name": "Aberrant Berserker",
-            "description": "Enrage: +2 Attack.",
+            "description": "Has +2 Attack while damaged.",
             "image_url": "http://wow.zamimg.com/images/hearthstone/cards/enus/medium/OG_150.png",
             "hero": "neutral",
             "race": "none",
@@ -14077,7 +14077,7 @@
             "attack": 2,
             "health": 6,
             "name": "Bloodhoof Brave",
-            "description": "Taunt Enrage: +3 Attack.",
+            "description": "Taunt Has +3 Attack while damaged.",
             "image_url": "http://wow.zamimg.com/images/hearthstone/cards/enus/medium/OG_218.png",
             "hero": "warrior",
             "race": "none",
