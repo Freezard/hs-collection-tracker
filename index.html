@@ -89,6 +89,7 @@
 			<li><a>Ungoro</a></li>
 			<li><a>KotFT</a></li>
 			<li><a>Kobolds</a></li>
+			<li><a>Witchwood</a></li>
 		  </ul>
 		</li>
 	    <li class="dropdown">
@@ -229,6 +230,7 @@
 	<option value="ungoro">Journey to Un'Goro</option>
 	<option value="kotft">Knights of the Frozen Throne</option>
 	<option value="kobolds">Kobolds & Catacombs</option>
+	<option value="witchwood">The Witchwood</option>
 	<option selected disabled>---</option>
 	<option value="standard">Standard</option>
 	<option value="total">Overall</option>
@@ -265,6 +267,7 @@
 <script id="template-news" type="text/html">
 <div class="col-xs-12 side-page">
   <h2>News</h2>
+  <p><span class="special2">12-04-18</span> - Updated data to Patch 11.0.0 (The Witchwood).</p>
   <p><span class="special2">07-02-18</span> - Updated data to Patch 10.2.0.</p>
   <p><span class="special2">26-12-17</span> - Added an option to hide free cards in the tracker, located in the infobox. When enabled, common cards will now be displayed in the first column as well.</p>
   <p><span class="special2">07-12-17</span> - Updated data to Patch 10.0.0 (Kobolds & Catacombs).</p>
@@ -345,7 +348,7 @@
   <p>If you have ticked the "I don't care about golden cards" box, it is assumed that every golden card will be disenchanted.</p>
   <div class="mainDiv">
     <div class="row">
-      <div class="col-xs-4">
+	  <div class="col-xs-4">
         <img src="images/pack_classic.png" alt="Classic pack" width="160" height="216">
 	    <table class="tablePack">
 	      <tr>
@@ -355,43 +358,13 @@
 	    </table>  
       </div>
       <div class="col-xs-4">
-        <img src="images/pack_wotog.png" alt="WotOG pack" width="173" height="216">
+        <img src="images/pack_witchwood.png" alt="Witchwood pack" width="160" height="216">
 	    <table class="tablePack">
 	      <tr>
 	        <td>Average dust =</td>
-		    <td id="wotogAverageDust"></td>
+		    <td id="witchwoodAverageDust"></td>
 	      </tr>
-	    </table>
-      </div>
-      <div class="col-xs-4">
-        <img src="images/pack_msog.png" alt="MSoG pack" width="160" height="216">
-	    <table class="tablePack">
-	      <tr>
-	        <td>Average dust =</td>
-		    <td id="msogAverageDust"></td>
-	      </tr>
-	    </table>
-      </div>
-	</div>
-	<br>
-	<div class="row">
-      <div class="col-xs-4">
-        <img src="images/pack_ungoro.png" alt="Un'Goro pack" width="175" height="216">
-	    <table class="tablePack">
-	      <tr>
-	        <td>Average dust =</td>
-		    <td id="ungoroAverageDust"></td>
-	      </tr>
-	    </table>
-      </div>
-      <div class="col-xs-4">
-        <img src="images/pack_kotft.png" alt="KotFT pack" width="176" height="216">
-	    <table class="tablePack">
-	      <tr>
-	        <td>Average dust =</td>
-		    <td id="kotftAverageDust"></td>
-	      </tr>
-	    </table>
+	    </table>  
       </div>
       <div class="col-xs-4">
         <img src="images/pack_kobolds.png" alt="K&C pack" width="160" height="216">
@@ -401,25 +374,64 @@
 		    <td id="koboldsAverageDust"></td>
 	      </tr>
 	    </table>
-      </div>		  
-    </div>
-    <br>
-    <div class="row">
+      </div>
+	</div>
+	<br>
+	<div class="row">
       <div class="col-xs-6">
-        <img src="images/pack_gvg.png" alt="GvG pack" width="160" height="216">
+        <img src="images/pack_kotft.png" alt="KotFT pack" width="176" height="216">
 	    <table class="tablePack">
 	      <tr>
 	        <td>Average dust =</td>
-		    <td id="gvgAverageDust"></td>
+		    <td id="kotftAverageDust"></td>
+	      </tr>
+	    </table>
+      </div>	
+      <div class="col-xs-6">
+        <img src="images/pack_ungoro.png" alt="Un'Goro pack" width="175" height="216">
+	    <table class="tablePack">
+	      <tr>
+	        <td>Average dust =</td>
+		    <td id="ungoroAverageDust"></td>
 	      </tr>
 	    </table>
       </div>
-      <div class="col-xs-6">
+    </div>
+    <hr>
+    <div class="row">
+      <div class="col-xs-3">
+        <img src="images/pack_msog.png" alt="MSoG pack" width="160" height="216">
+	    <table class="tablePack">
+	      <tr>
+	        <td>Average dust =</td>
+		    <td id="msogAverageDust"></td>
+	      </tr>
+	    </table>
+      </div>
+	  <div class="col-xs-3">
+        <img src="images/pack_wotog.png" alt="WotOG pack" width="173" height="216">
+	    <table class="tablePack">
+	      <tr>
+	        <td>Average dust =</td>
+		    <td id="wotogAverageDust"></td>
+	      </tr>
+	    </table>
+      </div>
+      <div class="col-xs-3">
         <img src="images/pack_tgt.png" alt="TGT pack" width="168" height="216">
 	    <table class="tablePack">
 	      <tr>
 	        <td>Average dust =</td>
 		    <td id="tgtAverageDust"></td>
+	      </tr>
+	    </table>
+      </div>	  
+      <div class="col-xs-3">
+        <img src="images/pack_gvg.png" alt="GvG pack" width="160" height="216">
+	    <table class="tablePack">
+	      <tr>
+	        <td>Average dust =</td>
+		    <td id="gvgAverageDust"></td>
 	      </tr>
 	    </table>
       </div>

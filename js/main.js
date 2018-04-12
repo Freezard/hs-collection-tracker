@@ -40,18 +40,17 @@ var HSCollectionTracker = (function() {
 		msog: "msog",
 		ungoro: "ungoro",
 		kotft: "kotft",
-		kobolds: "kobolds"
+		kobolds: "kobolds",
+		witchwood: "witchwood"
 	};
 
 	var standardSetsEnum = {
 		basic: "basic",
 		classic: "classic",
-		wotog: "wotog",
-		onik: "onik",
-		msog: "msog",
 		ungoro: "ungoro",
 		kotft: "kotft",
-		kobolds: "kobolds"
+		kobolds: "kobolds",
+		witchwood: "witchwood"
 	};
 
 	// The number of cards and craftable cards in each set.
@@ -73,27 +72,28 @@ var HSCollectionTracker = (function() {
 		wotog: "none",
 		ungoro: "none",
 		kotft: "none",
-		kobolds: "none"
+		kobolds: "none",
+		witchwood: "none"
 	};
 	
 	var packsEnum = {
 		classic: "classic",
+		gvg: "gvg",
+		tgt: "tgt",
 		wotog: "wotog",
 		msog: "msog",
 		ungoro: "ungoro",
 		kotft: "kotft",
 		kobolds: "kobolds",
-		gvg: "gvg",
-		tgt: "tgt"
+		witchwood: "witchwood"
 	};
 	
 	var rewardsEnum = {
 		classic: "classic",
-		wotog: "wotog",
-		msog: "msog",
 		ungoro: "ungoro",
 		kotft: "kotft",
-		kobolds: "kobolds"
+		kobolds: "kobolds",
+		witchwood: "witchwood"
 	};	
 	
 	var craftingCost = {
@@ -148,7 +148,7 @@ var HSCollectionTracker = (function() {
 	var currentDust = 0;
 	var disenchantedDust = 0;
 	
-	var version = 2.22;
+	var version = 2.24;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, uncraftable) {
@@ -635,7 +635,8 @@ var HSCollectionTracker = (function() {
 			"Mean Streets of Gadgetzan": setsEnum.msog,
 			"Journey to Un'Goro": setsEnum.ungoro,
 			"Knights of the Frozen Throne": setsEnum.kotft,
-			"Kobolds & Catacombs": setsEnum.kobolds
+			"Kobolds & Catacombs": setsEnum.kobolds,
+			"The Witchwood": setsEnum.witchwood
 		};
 		
 		var importCardData = function (cards, set) {
