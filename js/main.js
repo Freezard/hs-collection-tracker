@@ -1136,7 +1136,18 @@ var HSCollectionTracker = (function() {
 		else
 			var missingData = getMissingDataFiltered(missingCards.classes[selectedClass]);
 
+		// Hide Free column if hideFreeCards is enabled
+		var table = document.getElementById("missingCardsTable");
+		for (var i = 0; i < 8; i += 2) {
+			var element = table.childNodes[1].childNodes[i].childNodes[1];
+			if (settings.hideFreeCards)
+				element.style.display = "none";
+			else element.style.display = "block";
+		}
+		
 		for (var rarity in missingData) {
+			if (rarity == "free" && settings.hideFreeCards)
+				continue;
 			var rarityCapitalized = capitalizeFirstLetter(rarity);
 			var td = document.getElementById("classMissing" + rarityCapitalized + "Normal");
 			var normal = missingData[rarity].normal;
@@ -1153,7 +1164,18 @@ var HSCollectionTracker = (function() {
 	function displayMissingCardsOverall() {
 		var missingData = getMissingDataFiltered(missingCards.overall);
 		
+		// Hide Free column if hideFreeCards is enabled
+		var table = document.getElementById("missingCardsOverallTable");
+		for (var i = 0; i < 8; i += 2) {
+			var element = table.childNodes[1].childNodes[i].childNodes[1];
+			if (settings.hideFreeCards)
+				element.style.display = "none";
+			else element.style.display = "block";
+		}
+		
 		for (var rarity in missingData) {
+			if (rarity == "free" && settings.hideFreeCards)
+				continue;
 			var rarityCapitalized = capitalizeFirstLetter(rarity);
 			var td = document.getElementById("overallMissing" + rarityCapitalized + "Normal");
 			var normal = missingData[rarity].normal;
@@ -1174,6 +1196,8 @@ var HSCollectionTracker = (function() {
 			var missingData = getMissingDataFiltered(missingDust.classes[selectedClass]);
 
 		for (var rarity in missingData) {
+			if (rarity == "free" && settings.hideFreeCards)
+				continue;
 			var rarityCapitalized = capitalizeFirstLetter(rarity);
 			var td = document.getElementById("classMissingDust" + rarityCapitalized);
 			var dust = 0;
@@ -1191,6 +1215,8 @@ var HSCollectionTracker = (function() {
 		var missingData = getMissingDataFiltered(missingDust.overall);
 		
 		for (var rarity in missingData) {
+			if (rarity == "free" && settings.hideFreeCards)
+				continue;
 			var rarityCapitalized = capitalizeFirstLetter(rarity);
 			var td = document.getElementById("overallMissingDust" + rarityCapitalized);
 			var dust = 0;
@@ -1224,6 +1250,10 @@ var HSCollectionTracker = (function() {
 		
 		localStorage.setItem("settings", JSON.stringify(settings));
 		displayCards(selectedClass);
+		displayMissingCards();
+		displayMissingCardsOverall();
+		displayMissingDust();
+		displayMissingDustOverall();
 	}	
 	
 	// Creates and returns a table representing a deck.
