@@ -148,7 +148,7 @@ var HSCollectionTracker = (function() {
 	var currentDust = 0;
 	var disenchantedDust = 0;
 	
-	var version = 2.25;
+	var version = 2.251;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, uncraftable) {
@@ -368,6 +368,27 @@ var HSCollectionTracker = (function() {
 			} else alert('Importing is not supported in this browser.');
 		});		
 		document.getElementById("files").addEventListener("change", importCollection);
+	}
+	
+	function switchClassicPack() {
+		var image = document.getElementById("imageClassicPack");
+		
+		if (!image.src.includes("golden")) {
+			image.src = "images/pack_classic_golden.png";
+			image.alt = "Golden Classic Pack";
+			image.width = 157;
+			
+			var averageValue = calculatePackValue("classic", true);
+		
+			document.getElementById("classicAverageDust").innerHTML = (averageValue * 5).toFixed(1);
+		}
+		else {
+			image.src = "images/pack_classic.png";
+			image.alt = "Classic Pack";
+			image.width = 160;
+			
+			updatePackGuide();
+		}
 	}
 	
 	// Initializes setsCards.
@@ -1492,47 +1513,70 @@ var HSCollectionTracker = (function() {
 	/*********************************************************
 	************************PACK GUIDE************************
 	*********************************************************/
-	// Calculates and displays the dust values.
-	// Needs more commenting
+	// Displays the dust values for every pack
 	function updatePackGuide() {
 		var averageValue = 0;
 		for (var set in packsEnum) {
-		    for (var rarity in chanceOfGetting) {
-				// Value for guaranteed legendary, when any is missing
-				if (rarity == "legendary" && missingCards.overall[set][rarity].normal > 0 && missingCards.overall[set][rarity].golden > 0) {
+			averageValue = calculatePackValue(set);
+			
+		    document.getElementById(set + "AverageDust").innerHTML = (averageValue * 5).toFixed(1);
+		}
+	}
+	
+	// Calculates and returns the dust value for a pack.
+	// golden: True if pack is golden.
+	// Needs more commenting
+	function calculatePackValue(set, golden) {
+		var averageValue = 0;
+		
+	    for (var rarity in chanceOfGetting) {
+			// Value for guaranteed legendary, when any is missing (not 100% accurate)
+			if (rarity == "legendary" && missingCards.overall[set][rarity].normal > 0 && missingCards.overall[set][rarity].golden > 0) {
+				if (!golden) {
 					averageValue += chanceOfGetting[rarity].normal * craftingCost[rarity].normal;
 					if (!settings.excludeGoldenCards)
 						averageValue += chanceOfGetting[rarity].golden * craftingCost[rarity].golden;
 					else averageValue += chanceOfGetting[rarity].golden * disenchantmentValue[rarity].golden;
-					continue;
 				}
+				else {
+					if (!settings.excludeGoldenCards)
+						averageValue += (chanceOfGetting[rarity].normal + chanceOfGetting[rarity].golden) * craftingCost[rarity].golden;
+					else averageValue += (chanceOfGetting[rarity].normal + chanceOfGetting[rarity].golden) * disenchantmentValue[rarity].golden;
+				}
+				continue;
+			}
 				
-				var dupesNormal = 0, dupesGolden = 0;
-				var totalCards = setsCards[set][rarity].total.cards / getMaxCopies(rarity);
+			var dupesNormal = 0, dupesGolden = 0;
+			var totalCards = setsCards[set][rarity].total.cards / getMaxCopies(rarity);
 
-				for (var className in classesEnum)
-					for (var cardName in classes[className].cards[rarity]) {
-						var card = classes[className].cards[rarity][cardName];
-						
-						if (card.set == set) {
-							if (card.normal == getMaxCopies(rarity))
-								dupesNormal++;
-							if (card.golden == getMaxCopies(rarity))
-								dupesGolden++;
-						}
+			for (var className in classesEnum)
+				for (var cardName in classes[className].cards[rarity]) {
+					var card = classes[className].cards[rarity][cardName];
+					
+					if (card.set == set) {
+						if (card.normal == getMaxCopies(rarity))
+							dupesNormal++;
+						if (card.golden == getMaxCopies(rarity))
+							dupesGolden++;
 					}
-				
-				averageValue += chanceOfGetting[rarity].normal * ((dupesNormal / totalCards) * disenchantmentValue[rarity].normal
-		            + ((totalCards - dupesNormal) / totalCards) * craftingCost[rarity].normal);
-				if (!settings.excludeGoldenCards)
-				    averageValue += chanceOfGetting[rarity].golden * ((dupesGolden / totalCards) * disenchantmentValue[rarity].golden
-		                + ((totalCards - dupesGolden) / totalCards) * craftingCost[rarity].golden);
-				else averageValue += chanceOfGetting[rarity].golden * disenchantmentValue[rarity].golden;
 				}
-		
-		    document.getElementById(set + "AverageDust").innerHTML = (averageValue * 5).toFixed(1);
-			averageValue = 0;
+			
+			if (!golden) {
+				averageValue += chanceOfGetting[rarity].normal * ((dupesNormal / totalCards) * disenchantmentValue[rarity].normal
+					+ ((totalCards - dupesNormal) / totalCards) * craftingCost[rarity].normal);
+				if (!settings.excludeGoldenCards)
+					averageValue += chanceOfGetting[rarity].golden * ((dupesGolden / totalCards) * disenchantmentValue[rarity].golden
+						+ ((totalCards - dupesGolden) / totalCards) * craftingCost[rarity].golden);
+				else averageValue += chanceOfGetting[rarity].golden * disenchantmentValue[rarity].golden;
+			}
+			else {
+				if (!settings.excludeGoldenCards)
+					averageValue += (chanceOfGetting[rarity].normal + chanceOfGetting[rarity].golden) * ((dupesGolden / totalCards) * disenchantmentValue[rarity].golden
+						+ ((totalCards - dupesGolden) / totalCards) * craftingCost[rarity].golden);
+				else averageValue += (chanceOfGetting[rarity].normal + chanceOfGetting[rarity].golden) * disenchantmentValue[rarity].golden;
+			}
 		}
+		return averageValue;
 	}
 	
 	function updateChestGuide() {
@@ -1653,6 +1697,8 @@ var HSCollectionTracker = (function() {
 		
 		updatePackGuide();
 		updateChestGuide();
+		
+		document.getElementById("imageClassicPack").addEventListener("click", switchClassicPack);
 		
 		document.getElementById("header-center").style.visibility = "hidden";
 		

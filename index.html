@@ -267,6 +267,7 @@
 <script id="template-news" type="text/html">
 <div class="col-xs-12 side-page">
   <h2>News</h2>
+  <p><span class="special2">18-06-18</span> - Added Golden Classic Pack to the Pack Guide. Click on the Classic pack to switch between normal and golden versions.</p>
   <p><span class="special2">23-05-18</span> - Updated to Patch 11.1.1.</p>
   <p><span class="special2">12-04-18</span> - Updated to Patch 11.0.0 (The Witchwood).</p>
   <p><span class="special2">07-02-18</span> - Updated to Patch 10.2.0.</p>
@@ -347,17 +348,19 @@
 	 The value is based on dust received from disenchanting duplicate cards and the amount of dust required to craft new cards.
 	 
   <p>If you have ticked the "I don't care about golden cards" box, it is assumed that every golden card will be disenchanted.</p>
+  
+  <p class="special2">Click on a pack to see its golden version (currently only Classic).</p>
   <div class="mainDiv">
     <div class="row">
 	  <div class="col-xs-4">
-        <img src="images/pack_classic.png" alt="Classic pack" width="160" height="216">
+        <img id="imageClassicPack" src="images/pack_classic.png" alt="Classic pack" width="160" height="216">
 	    <table class="tablePack">
 	      <tr>
 	        <td>Average dust =</td>
 		    <td id="classicAverageDust"></td>
 	      </tr>
 	    </table>  
-      </div>
+      </div>	  
       <div class="col-xs-4">
         <img src="images/pack_witchwood.png" alt="Witchwood pack" width="160" height="216">
 	    <table class="tablePack">
