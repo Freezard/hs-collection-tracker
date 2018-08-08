@@ -41,7 +41,8 @@ var HSCollectionTracker = (function() {
 		ungoro: "ungoro",
 		kotft: "kotft",
 		kobolds: "kobolds",
-		witchwood: "witchwood"
+		witchwood: "witchwood",
+		boomsday: "boomsday"
 	};
 
 	var standardSetsEnum = {
@@ -50,7 +51,8 @@ var HSCollectionTracker = (function() {
 		ungoro: "ungoro",
 		kotft: "kotft",
 		kobolds: "kobolds",
-		witchwood: "witchwood"
+		witchwood: "witchwood",
+		boomsday: "boomsday"
 	};
 
 	// The number of cards and craftable cards in each set.
@@ -73,7 +75,8 @@ var HSCollectionTracker = (function() {
 		ungoro: "none",
 		kotft: "none",
 		kobolds: "none",
-		witchwood: "none"
+		witchwood: "none",
+		boomsday: "none"
 	};
 	
 	var packsEnum = {
@@ -85,7 +88,8 @@ var HSCollectionTracker = (function() {
 		ungoro: "ungoro",
 		kotft: "kotft",
 		kobolds: "kobolds",
-		witchwood: "witchwood"
+		witchwood: "witchwood",
+		boomsday: "boomsday"
 	};
 	
 	var rewardsEnum = {
@@ -93,7 +97,8 @@ var HSCollectionTracker = (function() {
 		ungoro: "ungoro",
 		kotft: "kotft",
 		kobolds: "kobolds",
-		witchwood: "witchwood"
+		witchwood: "witchwood",
+		boomsday: "boomsday"
 	};	
 	
 	var craftingCost = {
@@ -148,7 +153,7 @@ var HSCollectionTracker = (function() {
 	var currentDust = 0;
 	var disenchantedDust = 0;
 	
-	var version = 2.251;
+	var version = 2.26;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, uncraftable) {
@@ -387,7 +392,9 @@ var HSCollectionTracker = (function() {
 			image.alt = "Classic Pack";
 			image.width = 160;
 			
-			updatePackGuide();
+			var averageValue = calculatePackValue("classic");
+		
+			document.getElementById("classicAverageDust").innerHTML = (averageValue * 5).toFixed(1);
 		}
 	}
 	
@@ -657,7 +664,8 @@ var HSCollectionTracker = (function() {
 			"Journey to Un'Goro": setsEnum.ungoro,
 			"Knights of the Frozen Throne": setsEnum.kotft,
 			"Kobolds & Catacombs": setsEnum.kobolds,
-			"The Witchwood": setsEnum.witchwood
+			"The Witchwood": setsEnum.witchwood,
+			"The Boomsday Project": setsEnum.boomsday
 		};
 		
 		var importCardData = function (cards, set) {
