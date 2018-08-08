@@ -30161,6 +30161,3193 @@
 				"name": "Battlecry"
 			  }
 			]
+		  },
+		  {
+			"cardId": "BOT_246",
+			"dbfId": "48798",
+			"name": "Beakered Lightning",
+			"set": "The Boomsday Project",
+			"type": "spell",
+			"quality": "common",
+			"mana": 0,
+			"attack": 0,
+			"health": 0,
+			"text": "Deal $1 damage to all minions. <b>Overload:</b> (2)",
+			"flavor": "Working in a shaman's lab, it's important to be well-grounded.",
+			"artist": "Evgeniy Dlinnov",
+			"collectible": true,
+			"hero": "shaman",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_246.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_246_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Overload"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_517",
+			"dbfId": "48976",
+			"name": "Topsy Turvy",
+			"set": "The Boomsday Project",
+			"type": "spell",
+			"quality": "common",
+			"mana": 0,
+			"text": "Swap a minion's Attack and Health.",
+			"flavor": "\"Help! I've fallen and I can't get down!\"",
+			"artist": "Jim Nelson",
+			"collectible": true,
+			"hero": "priest",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_517.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_517_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "BOT_908",
+			"dbfId": "48984",
+			"name": "Autodefense Matrix",
+			"set": "The Boomsday Project",
+			"type": "spell",
+			"quality": "common",
+			"mana": 1,
+			"text": "<b>Secret:</b> When one of your minions is attacked, give it <b>Divine Shield</b>.",
+			"flavor": "We call it the bubble machine.",
+			"artist": "Zero",
+			"collectible": true,
+			"hero": "paladin",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_908.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_908_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Secret"
+			  },
+			  {
+				"name": "Divine Shield"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_054",
+			"dbfId": "47887",
+			"name": "Biology Project",
+			"set": "The Boomsday Project",
+			"type": "spell",
+			"quality": "common",
+			"mana": 1,
+			"text": "Each player gains 2_Mana Crystals.",
+			"flavor": "Step 1: Grow giant evil strawberry.\\nStep 2: ????\\nStep 3: Rule Azeroth!",
+			"artist": "J. Paick & K. Turovec",
+			"collectible": true,
+			"hero": "druid",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_054.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_054_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "BOT_447",
+			"dbfId": "49018",
+			"name": "Crystallizer",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "epic",
+			"mana": 1,
+			"attack": 1,
+			"health": 3,
+			"text": "[x]<b>Battlecry:</b> Deal 5 damage\\nto your hero. Gain 5 Armor.",
+			"flavor": "This elf's winning the arms race.",
+			"artist": "David Kegg",
+			"collectible": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_447.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_447_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_059",
+			"dbfId": "48691",
+			"name": "Eternium Rover",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "common",
+			"mana": 1,
+			"attack": 1,
+			"health": 3,
+			"text": "Whenever this minion takes damage, gain 2_Armor.",
+			"flavor": "He's all beeps and smiles but you're just a walking pile of armor to him.",
+			"artist": "Vladimir Kafanov",
+			"collectible": true,
+			"race": "Mech",
+			"hero": "warrior",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_059.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_059_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "BOT_079",
+			"dbfId": "48025",
+			"name": "Faithful Lumi",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"faction": "neutral",
+			"quality": "common",
+			"mana": 1,
+			"attack": 1,
+			"health": 1,
+			"text": "<b>Battlecry:</b> Give a friendly Mech +1/+1.",
+			"flavor": "They're a little light-headed.",
+			"artist": "Zero",
+			"collectible": true,
+			"race": "Mech",
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_079.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_079_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_444",
+			"dbfId": "48837",
+			"name": "Floop's Glorious Gloop",
+			"set": "The Boomsday Project",
+			"type": "spell",
+			"quality": "legendary",
+			"mana": 1,
+			"text": "Whenever a minion dies this turn, gain 1 Mana Crystal this turn only.",
+			"flavor": "How much gloop could Floop's Gloop gloop if Floop's Gloop\\ncould gloop gloop?",
+			"artist": "Arthur Bozonnet",
+			"collectible": true,
+			"elite": true,
+			"hero": "druid",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_444.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_444_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "BOT_906",
+			"dbfId": "48982",
+			"name": "Glow-Tron",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "common",
+			"mana": 1,
+			"attack": 1,
+			"health": 3,
+			"text": "<b>Magnetic</b>",
+			"flavor": "They tried for weeks to make a stealth version, but eventually decided to just let it glow.",
+			"artist": "Mike Azevedo",
+			"collectible": true,
+			"race": "Mech",
+			"hero": "paladin",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_906.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_906_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Magnetic"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_031",
+			"dbfId": "47837",
+			"name": "Goblin Bomb",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "common",
+			"mana": 1,
+			"attack": 0,
+			"health": 2,
+			"text": "[x]<b>Deathrattle:</b> Deal 2 damage\\nto the enemy hero.",
+			"flavor": "They're Dr. Boom's babies. His baby boomers.",
+			"artist": "Matt Dixon",
+			"collectible": true,
+			"race": "Mech",
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_031.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_031_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_445",
+			"dbfId": "48886",
+			"name": "Mecharoo",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"faction": "neutral",
+			"quality": "common",
+			"mana": 1,
+			"attack": 1,
+			"health": 1,
+			"text": "<b>Deathrattle:</b> Summon a 1/1 Jo-E Bot.",
+			"flavor": "Its project name was KAN-GA. The little one was R-00.",
+			"artist": "Eva Widermann",
+			"collectible": true,
+			"race": "Mech",
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_445.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_445_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_299",
+			"dbfId": "48515",
+			"name": "Omega Assembly",
+			"set": "The Boomsday Project",
+			"type": "spell",
+			"quality": "rare",
+			"mana": 1,
+			"text": "[x]<b>Discover</b> a Mech. If you\\nhave 10 Mana Crystals,\\nkeep all 3 cards.",
+			"flavor": "They told Dr. Boom he could only pick one. He disagreed.",
+			"artist": "Daren Bader",
+			"collectible": true,
+			"hero": "warrior",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_299.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_299_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Discover"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_402",
+			"dbfId": "48519",
+			"name": "Secret Plan",
+			"set": "The Boomsday Project",
+			"type": "spell",
+			"quality": "common",
+			"mana": 1,
+			"attack": 0,
+			"health": 0,
+			"text": "<b>Discover</b> a <b>Secret</b>.",
+			"flavor": "The secret is... There is no plan!",
+			"artist": "Anton Zemskov",
+			"collectible": true,
+			"hero": "hunter",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_402.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_402_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Secret"
+			  },
+			  {
+				"name": "Discover"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_453",
+			"dbfId": "49081",
+			"name": "Shooting Star",
+			"set": "The Boomsday Project",
+			"type": "spell",
+			"quality": "common",
+			"mana": 1,
+			"text": "Deal $1 damage to a minion and the minions next to it.",
+			"flavor": "Literally starstruck.",
+			"artist": "Konstantin Turovec",
+			"collectible": true,
+			"hero": "mage",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_453.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_453_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "BOT_020",
+			"dbfId": "47775",
+			"name": "Skaterbot",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "common",
+			"mana": 1,
+			"attack": 1,
+			"health": 1,
+			"text": "<b>Magnetic</b>\\n<b>Rush</b>",
+			"flavor": "\"See you later bot\"\\n- Jaina",
+			"artist": "Jim Nelson",
+			"collectible": true,
+			"race": "Mech",
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_020.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_020_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Rush"
+			  },
+			  {
+				"name": "Magnetic"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_263",
+			"dbfId": "48211",
+			"name": "Soul Infusion",
+			"set": "The Boomsday Project",
+			"type": "spell",
+			"quality": "rare",
+			"mana": 1,
+			"text": "Give the\\nleft-most minion in your hand +2/+2.",
+			"flavor": "People called him a soulless monster. We're not sure this is better.",
+			"artist": "Garrett Hanna",
+			"collectible": true,
+			"hero": "warlock",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_263.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_263_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "BOT_558",
+			"dbfId": "49265",
+			"name": "Test Subject",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 1,
+			"attack": 0,
+			"health": 2,
+			"text": "[x]<b>Deathrattle:</b> Return any\\nspells you cast on this\\nminion to your hand.",
+			"flavor": "“Now I feel... REALLY icky.”",
+			"artist": "Ian Ameling",
+			"collectible": true,
+			"hero": "priest",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_558.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_558_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_568",
+			"dbfId": "49423",
+			"name": "The Soularium",
+			"set": "The Boomsday Project",
+			"type": "spell",
+			"quality": "legendary",
+			"mana": 1,
+			"text": "Draw 3 cards.\\nAt the end of your turn, discard them.",
+			"flavor": "Worst field trip ever.",
+			"artist": "Arthur Bozonnet",
+			"collectible": true,
+			"elite": true,
+			"hero": "warlock",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_568.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_568_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "BOT_451",
+			"dbfId": "49052",
+			"name": "Voltaic Burst",
+			"set": "The Boomsday Project",
+			"type": "spell",
+			"quality": "rare",
+			"mana": 1,
+			"text": "Summon two 1/1 Sparks with <b>Rush</b>. <b>Overload:</b> (1)",
+			"flavor": "Batteries have three components: Cathode, Anode, and Overload.",
+			"artist": "Zoltan Boros",
+			"collectible": true,
+			"hero": "shaman",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_451.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_451_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Overload"
+			  },
+			  {
+				"name": "Rush"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_101",
+			"dbfId": "47978",
+			"name": "Astral Rift",
+			"set": "The Boomsday Project",
+			"type": "spell",
+			"faction": "neutral",
+			"quality": "rare",
+			"mana": 2,
+			"text": "Add 2 random minions to your hand.",
+			"flavor": "Let's see what's behind rift number one!",
+			"artist": "A.J. Nazzaro",
+			"collectible": true,
+			"hero": "mage",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_101.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_101_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "BOT_033",
+			"dbfId": "47840",
+			"name": "Bomb Toss",
+			"set": "The Boomsday Project",
+			"type": "spell",
+			"quality": "common",
+			"mana": 2,
+			"text": "Deal $2 damage. Summon a 0/2 Goblin_Bomb.",
+			"flavor": "Me throw face.",
+			"artist": "Alex Horley Orlandelli",
+			"collectible": true,
+			"hero": "hunter",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_033.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_033_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "AffectedBySpellPower"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_531",
+			"dbfId": "49263",
+			"name": "Celestial Emissary",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"faction": "neutral",
+			"quality": "rare",
+			"mana": 2,
+			"attack": 2,
+			"health": 1,
+			"text": "<b>Battlecry:</b> Your next spell_this turn has <b>Spell_Damage +2</b>.",
+			"flavor": "Casting with the stars.",
+			"artist": "L Chanchai",
+			"collectible": true,
+			"race": "Elemental",
+			"hero": "mage",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_531.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_531_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Spell Damage"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_414",
+			"dbfId": "48566",
+			"name": "Cloakscale Chemist",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "common",
+			"mana": 2,
+			"attack": 1,
+			"health": 2,
+			"text": "<b>Stealth</b>\\n<b>Divine Shield</b>",
+			"flavor": "Her suit was fitted using a scale model.",
+			"artist": "Mauricio Herrera",
+			"collectible": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_414.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_414_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Divine Shield"
+			  },
+			  {
+				"name": "Stealth"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_435",
+			"dbfId": "48759",
+			"name": "Cloning Device",
+			"set": "The Boomsday Project",
+			"type": "spell",
+			"quality": "common",
+			"mana": 2,
+			"text": "<b>Discover</b> a copy of a minion in your opponent's deck.",
+			"flavor": "Zerek got sick of fighting over the remote.",
+			"artist": "Anton Zemskov",
+			"collectible": true,
+			"hero": "priest",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_435.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_435_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Discover"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_236",
+			"dbfId": "48637",
+			"name": "Crystalsmith Kangor",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "legendary",
+			"mana": 2,
+			"attack": 1,
+			"health": 2,
+			"text": "<b>Divine Shield</b>, <b>Lifesteal</b>\\nYour healing is doubled.",
+			"flavor": "He wants to tank, but Boom always makes him play support.",
+			"artist": "James Ryman",
+			"collectible": true,
+			"elite": true,
+			"hero": "paladin",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_236.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_236_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Lifesteal"
+			  },
+			  {
+				"name": "Divine Shield"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_909",
+			"dbfId": "48985",
+			"name": "Crystology",
+			"set": "The Boomsday Project",
+			"type": "spell",
+			"quality": "rare",
+			"mana": 2,
+			"text": "[x]Draw two 1-Attack\\nminions from your deck.",
+			"flavor": "\"The Light is neither a particle nor a wave. It's more of a juice, really.\"",
+			"artist": "Tyler West Studio",
+			"collectible": true,
+			"hero": "paladin",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_909.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_909_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "BOT_438",
+			"dbfId": "48772",
+			"name": "Cybertech Chip",
+			"set": "The Boomsday Project",
+			"type": "spell",
+			"quality": "rare",
+			"mana": 2,
+			"text": "Give your minions \"<b>Deathrattle:</b> Add a random Mech to your_hand.\"",
+			"flavor": "Goes great with Cyber-Salsa.",
+			"artist": "Garrett Hanna",
+			"collectible": true,
+			"hero": "hunter",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_438.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_438_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_509",
+			"dbfId": "48929",
+			"name": "Dead Ringer",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "common",
+			"mana": 2,
+			"attack": 2,
+			"health": 1,
+			"text": "<b>Deathrattle:</b> Draw a <b>Deathrattle</b> minion from your deck.",
+			"flavor": "Shortstop on N'zoth's softball team.",
+			"artist": "Dave Allsop",
+			"collectible": true,
+			"race": "Mech",
+			"hero": "priest",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_509.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_509_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_913",
+			"dbfId": "50432",
+			"name": "Demonic Project",
+			"set": "The Boomsday Project",
+			"type": "spell",
+			"quality": "common",
+			"mana": 2,
+			"text": "Each player transforms a random minion in their hand into a Demon.",
+			"flavor": "Another group project where Jaraxxus doesn't do any work.",
+			"artist": "J. Paick & K. Turovec",
+			"collectible": true,
+			"hero": "warlock",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_913.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_913_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "BOT_419",
+			"dbfId": "49621",
+			"name": "Dendrologist",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"faction": "neutral",
+			"quality": "rare",
+			"mana": 2,
+			"attack": 2,
+			"health": 3,
+			"text": "<b>Battlecry:</b> If you control a Treant, <b>Discover</b> a spell.",
+			"flavor": "He's teaching his little buddy to talk, but all it says is, \"I am Gloop.\"",
+			"artist": "Matt Dixon",
+			"collectible": true,
+			"hero": "druid",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_419.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_419_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Discover"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_093",
+			"dbfId": "48051",
+			"name": "Elementary Reaction",
+			"set": "The Boomsday Project",
+			"type": "spell",
+			"faction": "neutral",
+			"quality": "common",
+			"mana": 2,
+			"text": "Draw a card. Copy it if_you played an Elemental last turn.",
+			"flavor": "It's just a Tempest Tantrum.",
+			"artist": "Wayne Wu",
+			"collectible": true,
+			"hero": "shaman",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_093.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_093_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "BOT_038",
+			"dbfId": "47855",
+			"name": "Fireworks Tech",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"faction": "neutral",
+			"quality": "rare",
+			"mana": 2,
+			"attack": 2,
+			"health": 1,
+			"text": "[x]<b>Battlecry:</b> Give a friendly\\nMech +1/+1. If it has\\n<b>Deathrattle</b>, trigger it.",
+			"flavor": "She learns by trial and error.  Mostly error.",
+			"artist": "Steve Prescott",
+			"collectible": true,
+			"hero": "hunter",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_038.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_038_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_907",
+			"dbfId": "48983",
+			"name": "Galvanizer",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 2,
+			"attack": 1,
+			"health": 2,
+			"text": "[x]<b>Battlecry:</b> Reduce the\\nCost of Mechs in your\\nhand by (1).",
+			"flavor": "Also known as a power zinc.",
+			"artist": "Matt Dixon",
+			"collectible": true,
+			"race": "Mech",
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_907.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_907_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_437",
+			"dbfId": "48770",
+			"name": "Goblin Prank",
+			"set": "The Boomsday Project",
+			"type": "spell",
+			"quality": "epic",
+			"mana": 2,
+			"text": "Give a friendly minion +3/+3 and <b>Rush</b>. It_dies at end of turn.",
+			"flavor": "\"Ha ha! Glork looks ridiculous! ...Glork? Glork?\"",
+			"artist": "Mike Azevedo",
+			"collectible": true,
+			"hero": "hunter",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_437.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_437_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Rush"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_288",
+			"dbfId": "48480",
+			"name": "Lab Recruiter",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "common",
+			"mana": 2,
+			"attack": 3,
+			"health": 2,
+			"text": "<b>Battlecry:</b> Shuffle 3 copies of a friendly minion into your deck.",
+			"flavor": "Join the chemistry lab! We've got all the solutions.",
+			"artist": "Zoltan Boros",
+			"collectible": true,
+			"hero": "rogue",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_288.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_288_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_533",
+			"dbfId": "49162",
+			"name": "Menacing Nimbus",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "common",
+			"mana": 2,
+			"attack": 2,
+			"health": 2,
+			"text": "<b>Battlecry:</b> Add a random Elemental to your hand.",
+			"flavor": "Electra stores her elementals in the cloud.",
+			"artist": "Daria Tuzova",
+			"collectible": true,
+			"race": "Elemental",
+			"hero": "shaman",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_533.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_533_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_543",
+			"dbfId": "49175",
+			"name": "Omega Mind",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"faction": "neutral",
+			"quality": "epic",
+			"mana": 2,
+			"attack": 2,
+			"health": 3,
+			"text": "[x]<b>Battlecry:</b> If you have 10\\nMana Crystals, your spells\\n have <b>Lifesteal</b> this turn.",
+			"flavor": "Has a side-business selling her lipstick shade, \"Omega Red.\"",
+			"artist": "Alex Horley Orlandelli",
+			"collectible": true,
+			"hero": "shaman",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_543.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_543_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Lifesteal"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_283",
+			"dbfId": "48471",
+			"name": "Pogo-Hopper",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 2,
+			"attack": 1,
+			"health": 1,
+			"text": "[x]<b>Battlecry:</b> Gain +2/+2 for\\neach other Pogo-Hopper\\nyou played this game.",
+			"flavor": "Once you hop, you just can't stop!",
+			"artist": "Matt Dixon",
+			"collectible": true,
+			"race": "Mech",
+			"hero": "rogue",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_283.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_283_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_600",
+			"dbfId": "48692",
+			"name": "Research Project",
+			"set": "The Boomsday Project",
+			"type": "spell",
+			"quality": "common",
+			"mana": 2,
+			"text": "Each player draws 2_cards.",
+			"flavor": "Abstract: Analyzing systemic applications of coldlight data sets vis-a-vis shuffle-related paradigms. Conclusion: Yay, cards!",
+			"artist": "J. Paick & K. Turovec",
+			"collectible": true,
+			"hero": "mage",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_600.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_600_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "BOT_067",
+			"dbfId": "47925",
+			"name": "Rocket Boots",
+			"set": "The Boomsday Project",
+			"type": "spell",
+			"quality": "common",
+			"mana": 2,
+			"text": "Give a minion <b>Rush</b>. Draw a card.",
+			"flavor": "This is the happiest moment of Grik's life. We'll miss him.",
+			"artist": "Steve Prescott",
+			"collectible": true,
+			"hero": "warrior",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_067.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_067_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Rush"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_538",
+			"dbfId": "49170",
+			"name": "Spark Engine",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 2,
+			"attack": 2,
+			"health": 1,
+			"text": "<b>Battlecry:</b> Add a \\n1/1 Spark with <b>Rush</b> to_your hand.",
+			"flavor": "He goes by Bzzzzt Aldrin.",
+			"artist": "L Chanchai",
+			"collectible": true,
+			"race": "Mech",
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_538.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_538_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Rush"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_222",
+			"dbfId": "48113",
+			"name": "Spirit Bomb",
+			"set": "The Boomsday Project",
+			"type": "spell",
+			"faction": "neutral",
+			"quality": "common",
+			"mana": 2,
+			"text": "Deal $4 damage to a minion and your hero.",
+			"flavor": "Might take a few episodes to power up.",
+			"artist": "Zoltan Boros",
+			"collectible": true,
+			"hero": "warlock",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_222.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_222_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "BOT_083",
+			"dbfId": "48034",
+			"name": "Toxicologist",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "common",
+			"mana": 2,
+			"attack": 2,
+			"health": 2,
+			"text": "<b>Battlecry:</b> Give your weapon +1 Attack.",
+			"flavor": "Double-majoring in culinary sciences was definitely a mistake.",
+			"artist": "Brian Despain",
+			"collectible": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_083.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_083_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_098",
+			"dbfId": "48060",
+			"name": "Unpowered Mauler",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 2,
+			"attack": 2,
+			"health": 4,
+			"text": "Can only attack if you cast a spell this turn.",
+			"flavor": "After a stressful work day it really needs an outlet.",
+			"artist": "Jim Nelson",
+			"collectible": true,
+			"race": "Mech",
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_098.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_098_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "BOT_309",
+			"dbfId": "48529",
+			"name": "Upgradeable Framebot",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "common",
+			"mana": 2,
+			"attack": 1,
+			"health": 5,
+			"flavor": "*Awesome arm not included.",
+			"artist": "Dan Scott",
+			"collectible": true,
+			"race": "Mech",
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_309.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_309_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "BOT_035",
+			"dbfId": "47842",
+			"name": "Venomizer",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "common",
+			"mana": 2,
+			"attack": 2,
+			"health": 2,
+			"text": "<b>Magnetic</b>\\n<b>Poisonous</b>",
+			"flavor": "Keeps getting banned for toxic behavior.",
+			"artist": "Tyler Walpole",
+			"collectible": true,
+			"race": "Mech",
+			"hero": "hunter",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_035.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_035_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Magnetic"
+			  },
+			  {
+				"name": "Poisonous"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_443",
+			"dbfId": "48835",
+			"name": "Void Analyst",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"faction": "neutral",
+			"quality": "rare",
+			"mana": 2,
+			"attack": 2,
+			"health": 2,
+			"text": "<b>Deathrattle:</b> Give all Demons in your hand +1/+1.",
+			"flavor": "Conclusion: Nothing there.",
+			"artist": "Arthur Bozonnet",
+			"collectible": true,
+			"race": "Demon",
+			"hero": "warlock",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_443.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_443_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_042",
+			"dbfId": "47860",
+			"name": "Weapons Project",
+			"set": "The Boomsday Project",
+			"type": "spell",
+			"quality": "common",
+			"mana": 2,
+			"text": "Each player equips a 2/3 Weapon and\\ngains 6 Armor.",
+			"flavor": "Harrison Jones was kicked off this project.",
+			"artist": "J. Paick & K. Turovec",
+			"collectible": true,
+			"hero": "warrior",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_042.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_042_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "BOT_431",
+			"dbfId": "48700",
+			"name": "Whirliglider",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "common",
+			"mana": 2,
+			"attack": 2,
+			"health": 1,
+			"text": "<b>Battlecry:</b> Summon a 0/2_Goblin Bomb.",
+			"flavor": "She's on a bomb voyage.",
+			"artist": "A.J. Nazzaro",
+			"collectible": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_431.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_431_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_559",
+			"dbfId": "49269",
+			"name": "Augmented Elekk",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "epic",
+			"mana": 3,
+			"attack": 3,
+			"health": 4,
+			"text": "Whenever you shuffle a card into a deck, shuffle in_an extra copy.",
+			"flavor": "Her friends call her \"Shuffleupugus\".",
+			"artist": "Luca Zontini",
+			"collectible": true,
+			"race": "Beast",
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_559.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_559_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "BOT_413",
+			"dbfId": "48544",
+			"name": "Brainstormer",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"faction": "neutral",
+			"quality": "common",
+			"mana": 3,
+			"attack": 3,
+			"health": 1,
+			"text": "[x]<b>Battlecry:</b> Gain +1 Health\\nfor each spell in your hand.",
+			"flavor": "Her hair was always like that.",
+			"artist": "Alex Horley Orlandelli",
+			"collectible": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_413.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_413_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_021",
+			"dbfId": "47781",
+			"name": "Bronze Gatekeeper",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "common",
+			"mana": 3,
+			"attack": 1,
+			"health": 5,
+			"text": "<b>Magnetic</b>\\n<b>Taunt</b>",
+			"flavor": "\"You have my shield! And the rest of me too.\"",
+			"artist": "Ursula dorada",
+			"collectible": true,
+			"race": "Mech",
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_021.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_021_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Taunt"
+			  },
+			  {
+				"name": "Magnetic"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_224",
+			"dbfId": "48116",
+			"name": "Doubling Imp",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"faction": "neutral",
+			"quality": "common",
+			"mana": 3,
+			"attack": 2,
+			"health": 2,
+			"text": "<b>Battlecry:</b> Summon a copy of this minion.",
+			"flavor": "What's worse than finding two imps in your lab? Only finding one of them.",
+			"artist": "Dave Allsop",
+			"collectible": true,
+			"race": "Demon",
+			"hero": "warlock",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_224.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_224_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_411",
+			"dbfId": "48537",
+			"name": "Electra Stormsurge",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "legendary",
+			"mana": 3,
+			"attack": 3,
+			"health": 3,
+			"text": "<b>Battlecry:</b> Your next spell this turn casts twice.",
+			"flavor": "\"The coin? You used me for THE COIN!?\"",
+			"artist": "L. Lullabi & K. Turovec",
+			"collectible": true,
+			"elite": true,
+			"race": "Elemental",
+			"hero": "shaman",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_411.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_411_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_550",
+			"dbfId": "49188",
+			"name": "Electrowright",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "common",
+			"mana": 3,
+			"attack": 3,
+			"health": 3,
+			"text": "<b>Battlecry:</b> If you're holding a spell that costs (5) or more, gain +1/+1.",
+			"flavor": "Carefully assembled from two Electrowrongs.",
+			"artist": "Cicily He",
+			"collectible": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_550.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_550_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_219",
+			"dbfId": "48101",
+			"name": "Extra Arms",
+			"set": "The Boomsday Project",
+			"type": "spell",
+			"quality": "rare",
+			"mana": 3,
+			"text": "[x]Give a minion +2/+2.\\nAdd 'More Arms!' to your\\nhand that gives +2/+2.",
+			"flavor": "All the better to hug you with!",
+			"artist": "Nicola Saviori",
+			"collectible": true,
+			"hero": "priest",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_219.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_219_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "BOT_606",
+			"dbfId": "49279",
+			"name": "Kaboom Bot",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "common",
+			"mana": 3,
+			"attack": 2,
+			"health": 2,
+			"text": "<b>Deathrattle:</b> Deal 4_damage to a random enemy minion.",
+			"flavor": "More Boom for your buck.",
+			"artist": "Tyler West Studios",
+			"collectible": true,
+			"race": "Mech",
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_606.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_606_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_420",
+			"dbfId": "48607",
+			"name": "Landscaping",
+			"set": "The Boomsday Project",
+			"type": "spell",
+			"faction": "neutral",
+			"quality": "common",
+			"mana": 3,
+			"text": "Summon two 2/2 Treants.",
+			"flavor": "We'll put a happy tree right here... and give him a little friend.",
+			"artist": "Sam Hogg",
+			"collectible": true,
+			"hero": "druid",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_420.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_420_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "BOT_535",
+			"dbfId": "49164",
+			"name": "Microtech Controller",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"faction": "neutral",
+			"quality": "common",
+			"mana": 3,
+			"attack": 2,
+			"health": 1,
+			"text": "<b>Battlecry:</b> Summon two 1/1 Microbots.",
+			"flavor": "Best-selling author of \"How to Make Friends You Completely Control.\"",
+			"artist": "Vladimir Kafanov",
+			"collectible": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_535.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_535_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_286",
+			"dbfId": "48478",
+			"name": "Necrium Blade",
+			"set": "The Boomsday Project",
+			"type": "weapon",
+			"quality": "rare",
+			"mana": 3,
+			"attack": 3,
+			"durability": 2,
+			"text": "<b>Deathrattle:</b> Trigger the <b>Deathrattle</b> of a random friendly minion.",
+			"flavor": "Grab death by the handle.",
+			"artist": "Vlad Botos",
+			"collectible": true,
+			"hero": "rogue",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_286.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_286_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_226",
+			"dbfId": "48298",
+			"name": "Nethersoul Buster",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 3,
+			"attack": 1,
+			"health": 5,
+			"text": "<b>Battlecry:</b> Gain +1 Attack for each damage your hero has taken this turn.",
+			"flavor": "Why did the demon cross the streams? To get to The Other Side.",
+			"artist": "Nicola Saviori",
+			"collectible": true,
+			"race": "Demon",
+			"hero": "warlock",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_226.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_226_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_216",
+			"dbfId": "48099",
+			"name": "Omega Medic",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 3,
+			"attack": 3,
+			"health": 4,
+			"text": "<b>Battlecry:</b> If you have 10 Mana Crystals, restore #10 Health to your hero.",
+			"flavor": "She feels waiting for healing makes you appreciate it more.",
+			"artist": "James Ryman",
+			"collectible": true,
+			"hero": "priest",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_216.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_216_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_251",
+			"dbfId": "48185",
+			"name": "Spider Bomb",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 3,
+			"attack": 2,
+			"health": 2,
+			"text": "<b>Magnetic</b>\\n<b>Deathrattle:</b> Destroy a random_enemy_minion.",
+			"flavor": "Wrecks a dude, any size. Catches thieves, eats those guys. Look out! Here comes a Spider Bomb!",
+			"artist": "Nicola Saviori",
+			"collectible": true,
+			"race": "Mech",
+			"hero": "hunter",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_251.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_251_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Magnetic"
+			  },
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_308",
+			"dbfId": "48505",
+			"name": "Spring Rocket",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "common",
+			"mana": 3,
+			"attack": 2,
+			"health": 1,
+			"text": "<b>Battlecry:</b> Deal 2 damage.",
+			"flavor": "Proper grammar would be \"sprung rocket.\"",
+			"artist": "L. Lullabi & K. Turovec",
+			"collectible": true,
+			"race": "Mech",
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_308.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_308_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_103",
+			"dbfId": "47982",
+			"name": "Stargazer Luna",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "legendary",
+			"mana": 3,
+			"attack": 2,
+			"health": 4,
+			"text": "After you play the\\nright-most card in your hand, draw a card.",
+			"flavor": "She's Dr. Boom's right-hand mage.",
+			"artist": "L. Lullabi & K. Turovec",
+			"collectible": true,
+			"elite": true,
+			"hero": "mage",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_103.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_103_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "BOT_084",
+			"dbfId": "48035",
+			"name": "Violet Haze",
+			"set": "The Boomsday Project",
+			"type": "spell",
+			"quality": "common",
+			"mana": 3,
+			"text": "Add 2 random <b>Deathrattle</b> cards to_your hand.",
+			"flavor": "Elite Tauren Chieftain's next hit single.",
+			"artist": "Alex Horley Orlandelli",
+			"collectible": true,
+			"hero": "rogue",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_084.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_084_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_087",
+			"dbfId": "48040",
+			"name": "Academic Espionage",
+			"set": "The Boomsday Project",
+			"type": "spell",
+			"faction": "neutral",
+			"quality": "epic",
+			"mana": 4,
+			"text": "Shuffle 10 cards from your opponent's class into your deck. They_cost (1).",
+			"flavor": "The tenth Pyroblast really felt like overkill.",
+			"artist": "Konstantin Turovec",
+			"collectible": true,
+			"hero": "rogue",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_087.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_087_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "BOT_911",
+			"dbfId": "48993",
+			"name": "Annoy-o-Module",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 4,
+			"attack": 2,
+			"health": 4,
+			"text": "<b>Magnetic</b>\\n<b>Divine Shield</b>\\n<b>Taunt</b>",
+			"flavor": "Every ten seconds it asks if you want to update.",
+			"artist": "Matt Dixon",
+			"collectible": true,
+			"race": "Mech",
+			"hero": "paladin",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_911.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_911_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Magnetic"
+			  },
+			  {
+				"name": "Divine Shield"
+			  },
+			  {
+				"name": "Taunt"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_565",
+			"dbfId": "49361",
+			"name": "Blightnozzle Crawler",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"faction": "neutral",
+			"quality": "rare",
+			"mana": 4,
+			"attack": 2,
+			"health": 4,
+			"text": "<b>Deathrattle:</b> Summon a 1/1 Ooze with <b>Poisonous</b> and <b>Rush</b>.",
+			"flavor": "\"Well we HAD it contained. Then you went and gave it legs!\"",
+			"artist": "Anton Kagounkin",
+			"collectible": true,
+			"race": "Mech",
+			"hero": "rogue",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_565.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_565_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  },
+			  {
+				"name": "Rush"
+			  },
+			  {
+				"name": "Poisonous"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_562",
+			"dbfId": "49233",
+			"name": "Coppertail Imposter",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"faction": "Horde",
+			"quality": "common",
+			"mana": 4,
+			"attack": 4,
+			"health": 4,
+			"text": "<b>Battlecry:</b> Gain <b>Stealth</b> until your next turn.",
+			"flavor": "It was fitting in fine until it gathered nuts <i>and</i> bolts.",
+			"artist": "Steve Prescott",
+			"collectible": true,
+			"race": "Mech",
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_562.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_562_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Stealth"
+			  },
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_604",
+			"dbfId": "49045",
+			"name": "Cosmic Anomaly",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "common",
+			"mana": 4,
+			"attack": 4,
+			"health": 3,
+			"text": "<b>Spell Damage +2</b>",
+			"flavor": "INGREDIENTS: STAR-STUFF, \\nBLUE #1, NATURAL AND ARTIFICIAL FLAVORS.",
+			"artist": "Konstantin Turovec",
+			"collectible": true,
+			"race": "Elemental",
+			"hero": "mage",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_604.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_604_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Spell Damage"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_532",
+			"dbfId": "49161",
+			"name": "Explodinator",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"faction": "Horde",
+			"quality": "common",
+			"mana": 4,
+			"attack": 3,
+			"health": 2,
+			"text": "<b>Battlecry:</b> Summon two 0/2 Goblin Bombs.",
+			"flavor": "When it absolutely, positively, has to blow up overnight.",
+			"artist": "Jim Nelson",
+			"collectible": true,
+			"race": "Mech",
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_532.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_532_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_434",
+			"dbfId": "48757",
+			"name": "Flobbidinous Floop",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "legendary",
+			"mana": 4,
+			"attack": 3,
+			"health": 4,
+			"text": "While in your hand, this is a 3/4 copy of the last minion you played.",
+			"flavor": "Of all the scientists, he has the most knowledge (when measured in volume).",
+			"artist": "Max Greck",
+			"collectible": true,
+			"elite": true,
+			"hero": "druid",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_434.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_434_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "BOT_555",
+			"dbfId": "49201",
+			"name": "Harbinger Celestia",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"faction": "neutral",
+			"quality": "legendary",
+			"mana": 4,
+			"attack": 5,
+			"health": 6,
+			"text": "[x]<b>Stealth</b>\\nAfter your opponent plays\\na minion, become a\\ncopy of it.",
+			"flavor": "She wanders realities, taking on many forms. One was a unicorn princess.",
+			"artist": "Konstantin Turovec",
+			"collectible": true,
+			"elite": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_555.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_555_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Stealth"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_404",
+			"dbfId": "48524",
+			"name": "Juicy Psychmelon",
+			"set": "The Boomsday Project",
+			"type": "spell",
+			"quality": "epic",
+			"mana": 4,
+			"text": "Draw a 7, 8, 9, and\\n10-Cost minion\\n from your deck.",
+			"flavor": "It's not juicy at all. IT'S JUST MESSING WITH YOUR HEAD.",
+			"artist": "Jason Kang",
+			"collectible": true,
+			"hero": "druid",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_404.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_404_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "BOT_296",
+			"dbfId": "48508",
+			"name": "Omega Defender",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "epic",
+			"mana": 4,
+			"attack": 2,
+			"health": 6,
+			"text": "[x]<b>Taunt</b>\\n<b>Battlecry:</b> If you have\\n10 Mana Crystals,\\ngain +10 Attack.",
+			"flavor": "\"Surrender. You have 10 mana to comply.\"",
+			"artist": "Jim Nelson",
+			"collectible": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_296.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_296_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Taunt"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_267",
+			"dbfId": "48223",
+			"name": "Piloted Reaper",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "common",
+			"mana": 4,
+			"attack": 4,
+			"health": 3,
+			"text": "<b>Deathrattle:</b> Summon a random minion from\\nyour hand that costs (2) or less.",
+			"flavor": "New facial recognition systems keep out the Lorewalkers and Doomsayers.",
+			"artist": "L. Lullabi & K. Turovec",
+			"collectible": true,
+			"race": "Mech",
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_267.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_267_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_436",
+			"dbfId": "48764",
+			"name": "Prismatic Lens",
+			"set": "The Boomsday Project",
+			"type": "spell",
+			"quality": "epic",
+			"mana": 4,
+			"text": "Draw a minion and a spell from your deck. Swap their Costs.",
+			"flavor": "Mined exclusively from the dark side of the moon.",
+			"artist": "Cicily He",
+			"collectible": true,
+			"hero": "paladin",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_436.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_436_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "BOT_312",
+			"dbfId": "48536",
+			"name": "Replicating Menace",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 4,
+			"attack": 3,
+			"health": 1,
+			"text": "<b>Magnetic</b>\\n<b>Deathrattle:</b> Summon three 1/1 Microbots.",
+			"flavor": "It's a car!\\n*Whomp whomp whomp*\\nIt's a robot!\\n*Whomp whom-CRUNCH*\\nIt's… three.. smaller robots!",
+			"artist": "Vladimir Kafanov",
+			"collectible": true,
+			"race": "Mech",
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_312.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_312_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Magnetic"
+			  },
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_603",
+			"dbfId": "48890",
+			"name": "Steel Rager",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "common",
+			"mana": 4,
+			"attack": 5,
+			"health": 1,
+			"text": "<b>Rush</b>",
+			"flavor": "Rage alongside the machine.",
+			"artist": "Jim Nelson",
+			"collectible": true,
+			"race": "Mech",
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_603.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_603_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Rush"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_291",
+			"dbfId": "48490",
+			"name": "Storm Chaser",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 4,
+			"attack": 3,
+			"health": 4,
+			"text": "<b>Battlecry:</b> Draw a spell from your deck that costs_(5) or more.",
+			"flavor": "Best drank after a stiff gale.",
+			"artist": "Luca Zontini",
+			"collectible": true,
+			"race": "Elemental",
+			"hero": "shaman",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_291.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_291_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_407",
+			"dbfId": "48527",
+			"name": "Thunderhead",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"faction": "neutral",
+			"quality": "epic",
+			"mana": 4,
+			"attack": 3,
+			"health": 5,
+			"text": "[x]After you play a card with\\n<b>Overload</b>, summon two\\n1/1 Sparks with <b>Rush</b>.",
+			"flavor": "Most of his friends are still Metalheads.",
+			"artist": "Mike Sass",
+			"collectible": true,
+			"race": "Elemental",
+			"hero": "shaman",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_407.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_407_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Overload"
+			  },
+			  {
+				"name": "Rush"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_254",
+			"dbfId": "48803",
+			"name": "Unexpected Results",
+			"set": "The Boomsday Project",
+			"type": "spell",
+			"quality": "epic",
+			"mana": 4,
+			"text": "[x]Summon two random\\n$2-Cost minions <i>(improved\\nby <b>Spell Damage</b>)</i>.",
+			"flavor": "Sometimes science is more art than science. A lot of people don’t get that.",
+			"artist": "Jakub Kasper",
+			"collectible": true,
+			"hero": "mage",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_254.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_254_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "BOT_401",
+			"dbfId": "48518",
+			"name": "Weaponized Piñata",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "epic",
+			"mana": 4,
+			"attack": 4,
+			"health": 3,
+			"text": "<b>Deathrattle:</b> Add a random <b>Legendary</b> minion to your_hand.",
+			"flavor": "It'll be fine.  It's not like they have any reason to hate us.",
+			"artist": "Matt Dixon",
+			"collectible": true,
+			"race": "Mech",
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_401.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_401_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_914",
+			"dbfId": "50477",
+			"name": "Whizbang the Wonderful",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "legendary",
+			"mana": 4,
+			"attack": 4,
+			"health": 5,
+			"text": "You start the game with one of Whizbang's Wonderful Decks!",
+			"flavor": "From the prestigious Westfall Wonderfuls.",
+			"artist": "Matt Dixon",
+			"collectible": true,
+			"elite": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_914.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_914_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "BOT_576",
+			"dbfId": "49494",
+			"name": "Crazed Chemist",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "common",
+			"mana": 5,
+			"attack": 4,
+			"health": 4,
+			"text": "<b>Combo:</b> Give a friendly minion +4 Attack.",
+			"flavor": "You don't have to be crazy to work here, but it helps.",
+			"artist": "Max Greck",
+			"collectible": true,
+			"hero": "rogue",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_576.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_576_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Combo"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_104",
+			"dbfId": "48542",
+			"name": "Dyn-o-matic",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 5,
+			"attack": 3,
+			"health": 4,
+			"text": "<b>Battlecry:</b> Deal 5 damage randomly split among all minions_except_Mechs.",
+			"flavor": "Star player on the inter-office Boomball team.",
+			"artist": "Mauricio Herrera",
+			"collectible": true,
+			"race": "Mech",
+			"hero": "warrior",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_104.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_104_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_540",
+			"dbfId": "49172",
+			"name": "E.M.P. Operative",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "epic",
+			"mana": 5,
+			"attack": 3,
+			"health": 3,
+			"text": "<b>Battlecry:</b> Destroy a Mech.",
+			"flavor": "\"I said this looks like a job for me\\nSo everybody just follow me\\n'Cause we need a little E.M.P.\\n'Cause it feels so mechy without me…\"",
+			"artist": "Mauricio Herrera",
+			"collectible": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_540.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_540_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_270",
+			"dbfId": "48226",
+			"name": "Giggling Inventor",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 5,
+			"attack": 2,
+			"health": 1,
+			"text": "<b>Battlecry:</b> Summon two 1/2 Mechs with <b>Taunt</b> and_<b>Divine Shield</b>.",
+			"flavor": "\"I shall build a mighty golden paladin! And he will GREET the WORLD!\"",
+			"artist": "Matt Dixon",
+			"collectible": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_270.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_270_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Taunt"
+			  },
+			  {
+				"name": "Divine Shield"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_280",
+			"dbfId": "48415",
+			"name": "Holomancer",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "epic",
+			"mana": 5,
+			"attack": 3,
+			"health": 3,
+			"text": "After your opponent plays a minion, summon a 1/1_copy of it.",
+			"flavor": "Help me, worthy opponent. You're my only hope.",
+			"artist": "J. Axer",
+			"collectible": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_280.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_280_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "BOT_544",
+			"dbfId": "49176",
+			"name": "Loose Specimen",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "epic",
+			"mana": 5,
+			"attack": 6,
+			"health": 6,
+			"text": "<b>Battlecry:</b> Deal 6 damage randomly split among other friendly minions.",
+			"flavor": "You leave Deathstalker Rexxar alone in the lab for TWO minutes…",
+			"artist": "Peter Stapleton",
+			"collectible": true,
+			"race": "Beast",
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_544.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_544_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_537",
+			"dbfId": "49169",
+			"name": "Mechano-Egg",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "common",
+			"mana": 5,
+			"attack": 0,
+			"health": 5,
+			"text": "<b>Deathrattle:</b> Summon an 8/8 Robosaur.",
+			"flavor": "When you need more iron in your diet.",
+			"artist": "Hideaki Takamura",
+			"collectible": true,
+			"race": "Mech",
+			"hero": "paladin",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_537.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_537_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_243",
+			"dbfId": "48159",
+			"name": "Myra Rotspring",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "legendary",
+			"mana": 5,
+			"attack": 4,
+			"health": 2,
+			"text": "[x]<b>Battlecry:</b> <b>Discover</b> a\\n<b>Deathrattle</b> minion. Also\\ngain its <b>Deathrattle</b>.",
+			"flavor": "On her first day on the job, Myra removed the smoke detectors.",
+			"artist": "Slawomir Maniak",
+			"collectible": true,
+			"elite": true,
+			"hero": "rogue",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_243.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_243_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  },
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Discover"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_242",
+			"dbfId": "48487",
+			"name": "Myra's Unstable Element",
+			"set": "The Boomsday Project",
+			"type": "spell",
+			"faction": "neutral",
+			"quality": "legendary",
+			"mana": 5,
+			"text": "Draw the rest of\\nyour deck.",
+			"flavor": "What could go wrong?",
+			"artist": "Arthur Gimaldinov",
+			"collectible": true,
+			"elite": true,
+			"hero": "rogue",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_242.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_242_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "BOT_508",
+			"dbfId": "48748",
+			"name": "Necrium Vial",
+			"set": "The Boomsday Project",
+			"type": "spell",
+			"quality": "epic",
+			"mana": 5,
+			"attack": 0,
+			"health": 0,
+			"text": "Trigger a friendly minion's <b>Deathrattle</b> twice.",
+			"flavor": "Two near-death experiences for the price of one!",
+			"artist": "Vlad Botos",
+			"collectible": true,
+			"hero": "rogue",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_508.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_508_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_039",
+			"dbfId": "47856",
+			"name": "Necromechanic",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "epic",
+			"mana": 5,
+			"attack": 3,
+			"health": 6,
+			"text": "Your <b>Deathrattles</b> trigger twice.",
+			"flavor": "If at first you don't succeed, die, die again.",
+			"artist": "Dany Orizio",
+			"collectible": true,
+			"hero": "hunter",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_039.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_039_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  },
+			  {
+				"name": "Aura"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_536",
+			"dbfId": "49167",
+			"name": "Omega Agent",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "epic",
+			"mana": 5,
+			"attack": 4,
+			"health": 5,
+			"text": "[x]<b>Battlecry:</b> If you have 10\\nMana Crystals, summon\\n_2 copies of this minion.",
+			"flavor": "They don't just find the truth. They give it a ten second head start, then hunt it down.",
+			"artist": "James Ryman",
+			"collectible": true,
+			"hero": "warlock",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_536.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_536_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_529",
+			"dbfId": "49013",
+			"name": "Power Word: Replicate",
+			"set": "The Boomsday Project",
+			"type": "spell",
+			"quality": "epic",
+			"mana": 5,
+			"text": "Choose a friendly minion. Summon a 5/5 copy of it.",
+			"flavor": "Available as a bundle, along with Power Words: Detonate, Animate, Annihilate, and Paper Weight.",
+			"artist": "Brian Despain",
+			"collectible": true,
+			"hero": "priest",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_529.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_529_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "BOT_566",
+			"dbfId": "49416",
+			"name": "Reckless Experimenter",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "epic",
+			"mana": 5,
+			"attack": 4,
+			"health": 6,
+			"text": "[x]<b>Deathrattle</b> minions you\\nplay cost (3) less, but die\\nat the end of the turn.",
+			"flavor": "It's hard to call her reckless when it's clear she knows what she's doing.",
+			"artist": "Zoltan Boros",
+			"collectible": true,
+			"hero": "priest",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_566.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_566_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Aura"
+			  },
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_050",
+			"dbfId": "47888",
+			"name": "Rusty Recycler",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "common",
+			"mana": 5,
+			"attack": 2,
+			"health": 6,
+			"text": "<b>Taunt</b>\\n<b>Lifesteal</b>",
+			"flavor": "Ironic. It could recycle others, but not itself.",
+			"artist": "Sean McNally",
+			"collectible": true,
+			"race": "Mech",
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_050.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_050_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Lifesteal"
+			  },
+			  {
+				"name": "Taunt"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_511",
+			"dbfId": "48753",
+			"name": "Seaforium Bomber",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "epic",
+			"mana": 5,
+			"attack": 5,
+			"health": 5,
+			"text": "[x]<b>Battlecry:</b> Shuffle a Bomb\\ninto your opponent's deck.\\nWhen drawn, it explodes\\nfor 5 damage.",
+			"flavor": "Dress for the bomb you want, not the bomb you have.",
+			"artist": "Ivan Fomin",
+			"collectible": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_511.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_511_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_234",
+			"dbfId": "48644",
+			"name": "Shrink Ray",
+			"set": "The Boomsday Project",
+			"type": "spell",
+			"faction": "neutral",
+			"quality": "rare",
+			"mana": 5,
+			"text": "Set the Attack and Health of all minions\\nto 1.",
+			"flavor": "Actually works by enlarging the rest of the world.",
+			"artist": "Jiajun Tian",
+			"collectible": true,
+			"hero": "paladin",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_234.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_234_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "BOT_573",
+			"dbfId": "49447",
+			"name": "Subject 9",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "legendary",
+			"mana": 5,
+			"attack": 4,
+			"health": 4,
+			"text": "<b>Battlecry:</b> Draw 5 different <b>Secrets</b> from your deck.",
+			"flavor": "The original clever girl.",
+			"artist": "Dany Orizio",
+			"collectible": true,
+			"elite": true,
+			"race": "Beast",
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_573.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_573_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Secret"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_406",
+			"dbfId": "48526",
+			"name": "Supercollider",
+			"set": "The Boomsday Project",
+			"type": "weapon",
+			"quality": "epic",
+			"mana": 5,
+			"attack": 1,
+			"health": 0,
+			"durability": 3,
+			"text": "[x]After you attack a minion,\\nforce it to attack one\\nof its neighbors.",
+			"flavor": "Boom's Second Law of Motion:\\nHIT IT VERY HARD!",
+			"artist": "Jason Kang",
+			"collectible": true,
+			"hero": "warrior",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_406.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_406_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "BOT_563",
+			"dbfId": "49356",
+			"name": "Wargear",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "common",
+			"mana": 5,
+			"attack": 5,
+			"health": 5,
+			"text": "<b>Magnetic</b>",
+			"flavor": "WAR! GEAR! What is it good for?",
+			"artist": "Dave Allsop",
+			"collectible": true,
+			"race": "Mech",
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_563.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_563_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Magnetic"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_548",
+			"dbfId": "49184",
+			"name": "Zilliax",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "legendary",
+			"mana": 5,
+			"attack": 3,
+			"health": 2,
+			"text": "<b>Magnetic</b>\\n<b><b>Divine Shield</b>, <b>Taunt</b>, Lifesteal, Rush</b>",
+			"flavor": "Everything but the kitchen sink. Oh wait, there's one on his back.",
+			"artist": "L. Lullabi & K. Turovec",
+			"collectible": true,
+			"elite": true,
+			"race": "Mech",
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_548.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_548_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Magnetic"
+			  },
+			  {
+				"name": "Divine Shield"
+			  },
+			  {
+				"name": "Taunt"
+			  },
+			  {
+				"name": "Lifesteal"
+			  },
+			  {
+				"name": "Rush"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_539",
+			"dbfId": "49171",
+			"name": "Arcane Dynamo",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 6,
+			"attack": 3,
+			"health": 4,
+			"text": "<b>Battlecry:</b> <b>Discover</b> a spell that costs (5) or more.",
+			"flavor": "We ran out of jars, so we started putting brains in other stuff.",
+			"artist": "James Ryman",
+			"collectible": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_539.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_539_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Discover"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_448",
+			"dbfId": "49019",
+			"name": "Damaged Stegotron",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"faction": "Horde",
+			"quality": "common",
+			"mana": 6,
+			"attack": 5,
+			"health": 12,
+			"text": "<b>Taunt</b>\\n<b>Battlecry:</b> Deal 6 damage to this minion.",
+			"flavor": "Sadly the warranty does not cover fireballs or acts of Boom.",
+			"artist": "Daria Tuzova",
+			"collectible": true,
+			"race": "Mech",
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_448.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_448_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Taunt"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_521",
+			"dbfId": "48823",
+			"name": "Ectomancy",
+			"set": "The Boomsday Project",
+			"type": "spell",
+			"quality": "epic",
+			"mana": 6,
+			"text": "Summon copies of all Demons you control.",
+			"flavor": "\"Zerek! Stay out of my lab!\"",
+			"artist": "Jerry Mascho",
+			"collectible": true,
+			"hero": "warlock",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_521.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_521_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "BOT_099",
+			"dbfId": "48799",
+			"name": "Eureka!",
+			"set": "The Boomsday Project",
+			"type": "spell",
+			"quality": "rare",
+			"mana": 6,
+			"attack": 0,
+			"health": 0,
+			"text": "Summon a copy of_a_random minion from your hand.",
+			"flavor": "Genius is 1% inspiration, and 99% drawing your Deathwing.",
+			"artist": "Peter Stapleton",
+			"collectible": true,
+			"hero": "shaman",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_099.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_099_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "BOT_910",
+			"dbfId": "48989",
+			"name": "Glowstone Technician",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "epic",
+			"mana": 6,
+			"attack": 3,
+			"health": 4,
+			"text": "<b>Battlecry:</b> Give all minions in your hand +2/+2.",
+			"flavor": "\"Windell! More light!\"\\n\\n\"I'm givin' it all she's got, Kangor!\"",
+			"artist": "Anton Zemskov",
+			"collectible": true,
+			"hero": "paladin",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_910.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_910_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_066",
+			"dbfId": "47924",
+			"name": "Mechanical Whelp",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"faction": "neutral",
+			"quality": "rare",
+			"mana": 6,
+			"attack": 2,
+			"health": 2,
+			"text": "<b>Deathrattle:</b> Summon a 7/7 Mechanical Dragon.",
+			"flavor": "\"Well if I didn't build the whelp and YOU didn't build the whelp…\"",
+			"artist": "Jiajun Tian",
+			"collectible": true,
+			"race": "Mech",
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_066.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_066_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_601",
+			"dbfId": "48693",
+			"name": "Meteorologist",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 6,
+			"attack": 3,
+			"health": 3,
+			"text": "<b>Battlecry:</b> For each card in your hand, deal 1 damage to a random enemy.",
+			"flavor": "Some say the world will end in fire. Some say in ice. Why not BOTH?",
+			"artist": "Paul Mafayon",
+			"collectible": true,
+			"hero": "mage",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_601.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_601_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_107",
+			"dbfId": "48552",
+			"name": "Missile Launcher",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 6,
+			"attack": 4,
+			"health": 4,
+			"text": "[x]<b>Magnetic</b>\\nAt the end of your turn,\\ndeal 1 damage to all\\nother characters.",
+			"flavor": "We asked, \"Where do the missiles go?\" and he answered, \"Yes.\"",
+			"artist": "Dan Scott",
+			"collectible": true,
+			"race": "Mech",
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_107.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_107_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Magnetic"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_218",
+			"dbfId": "48100",
+			"name": "Security Rover",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 6,
+			"attack": 2,
+			"health": 5,
+			"text": "[x]Whenever this minion\\ntakes damage, summon a\\n2/3 Mech with <b>Taunt</b>.",
+			"flavor": "Insecurity detected. Alerting hugbots.",
+			"artist": "Adam Byrne",
+			"collectible": true,
+			"race": "Mech",
+			"hero": "warrior",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_218.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_218_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Taunt"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_102",
+			"dbfId": "47979",
+			"name": "Spark Drill",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 6,
+			"attack": 5,
+			"health": 1,
+			"text": "<b>Rush</b>\\n<b>Deathrattle:</b> Add two\\n1/1 Sparks with <b>Rush</b> to your hand.",
+			"flavor": "Preferred weapon of Dr. Boom's orthodontist.",
+			"artist": "Ivan Fomin",
+			"collectible": true,
+			"race": "Mech",
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_102.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_102_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  },
+			  {
+				"name": "Rush"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_422",
+			"dbfId": "48609",
+			"name": "Tending Tauren",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 6,
+			"attack": 3,
+			"health": 4,
+			"text": "[x]<b>Choose One -</b> Give your\\nother minions +1/+1;\\nor Summon two\\n2/2 Treants.",
+			"flavor": "That racial bonus to Herbalism finally paid off.",
+			"artist": "Zoltan Boros",
+			"collectible": true,
+			"hero": "druid",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_422.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_422_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "BOT_258",
+			"dbfId": "48203",
+			"name": "Zerek, Master Cloner",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "legendary",
+			"mana": 6,
+			"attack": 5,
+			"health": 5,
+			"text": "<b>Deathrattle:</b> If you've cast any spells on this minion, resummon it.",
+			"flavor": "His original name was Aerek. Then the first clone was Berek. They went evil around Merek.",
+			"artist": "James Ryman",
+			"collectible": true,
+			"elite": true,
+			"hero": "priest",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_258.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_258_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_256",
+			"dbfId": "48195",
+			"name": "Astromancer",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "epic",
+			"mana": 7,
+			"attack": 5,
+			"health": 5,
+			"text": "[x]<b>Battlecry:</b> Summon a\\nrandom minion with Cost\\nequal to your hand size.",
+			"flavor": "All signs point to Antonidas.",
+			"artist": "Gonzalo Ordonez",
+			"collectible": true,
+			"hero": "mage",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_256.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_256_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_237",
+			"dbfId": "48142",
+			"name": "Beryllium Nullifier",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "epic",
+			"mana": 7,
+			"attack": 3,
+			"health": 8,
+			"text": "<b>Magnetic</b>\\nCan't be targeted by spells or Hero Powers.",
+			"flavor": "Why Beryllium? Because it's hard to spell.",
+			"artist": "Anton Zemskov",
+			"collectible": true,
+			"race": "Mech",
+			"hero": "warrior",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_237.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_237_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Magnetic"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_034",
+			"dbfId": "47841",
+			"name": "Boommaster Flark",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "legendary",
+			"mana": 7,
+			"attack": 5,
+			"health": 5,
+			"text": "<b>Battlecry:</b> Summon four 0/2 Goblin Bombs.",
+			"flavor": "Every good plan requires a bit of patience. And a lot of explosives.",
+			"artist": "Jomaro Kindred",
+			"collectible": true,
+			"elite": true,
+			"hero": "hunter",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_034.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_034_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_238",
+			"dbfId": "48146",
+			"name": "Dr. Boom, Mad Genius",
+			"set": "The Boomsday Project",
+			"type": "Hero",
+			"quality": "legendary",
+			"mana": 7,
+			"health": 30,
+			"armor": "7",
+			"text": "<b>Battlecry:</b> For the rest of the game, your Mechs have <b>Rush</b>.",
+			"flavor": "\"Of course I've gone mad with power. Ever try going mad without it?\"",
+			"artist": "Matt Dixon",
+			"collectible": true,
+			"elite": true,
+			"hero": "warrior",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_238.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_238_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Rush"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_423",
+			"dbfId": "48612",
+			"name": "Dreampetal Florist",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "epic",
+			"mana": 7,
+			"attack": 4,
+			"health": 4,
+			"text": "At the end of your turn, reduce the Cost of a random minion in your hand by (7).",
+			"flavor": "Unlike gnomes, dreampetals grow more than 3 feet tall.",
+			"artist": "Adam Byrne",
+			"collectible": true,
+			"hero": "druid",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_423.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_423_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "BOT_912",
+			"dbfId": "49009",
+			"name": "Kangor's Endless Army",
+			"set": "The Boomsday Project",
+			"type": "spell",
+			"quality": "legendary",
+			"mana": 7,
+			"text": "Resurrect 3 friendly Mechs. They keep any <b>Magnetic</b> upgrades.",
+			"flavor": "\"That's three, Kangor. Three isn't endless.\"\\n- Countess Ashmore",
+			"artist": "Dai Yang",
+			"collectible": true,
+			"elite": true,
+			"hero": "paladin",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_912.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_912_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Magnetic"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_257",
+			"dbfId": "48198",
+			"name": "Luna's Pocket Galaxy",
+			"set": "The Boomsday Project",
+			"type": "spell",
+			"quality": "legendary",
+			"mana": 7,
+			"attack": 0,
+			"health": 0,
+			"text": "Change the Cost of minions in your\\ndeck to (1).",
+			"flavor": "Luna became head of the astronomy department when her boss invented the Pocket Black Hole.",
+			"artist": "Jakub Kasper",
+			"collectible": true,
+			"elite": true,
+			"hero": "mage",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_257.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_257_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "BOT_552",
+			"dbfId": "49195",
+			"name": "Star Aligner",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "epic",
+			"mana": 7,
+			"attack": 7,
+			"health": 7,
+			"text": "[x]<b>Battlecry:</b> If you control 3\\nminions with 7 Health, deal\\n7 damage to all enemies.",
+			"flavor": "\"You're a Sagittarius? Me too! Just gimme a sec.\"",
+			"artist": "David Kegg",
+			"collectible": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_552.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_552_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_245",
+			"dbfId": "48161",
+			"name": "The Storm Bringer",
+			"set": "The Boomsday Project",
+			"type": "spell",
+			"quality": "legendary",
+			"mana": 7,
+			"attack": 0,
+			"health": 0,
+			"text": "Transform your minions into random <b>Legendary</b> minions.",
+			"flavor": "Finally, Electra can work from home.",
+			"artist": "J. Paick & K. Turovec",
+			"collectible": true,
+			"elite": true,
+			"hero": "shaman",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_245.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_245_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "BOT_433",
+			"dbfId": "48717",
+			"name": "Dr. Morrigan",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"faction": "neutral",
+			"quality": "legendary",
+			"mana": 8,
+			"attack": 5,
+			"health": 5,
+			"text": "<b>Deathrattle:</b> Swap this with a minion from your deck.",
+			"flavor": "She will NOT STOP until she gets tenure.",
+			"artist": "Slawomir Maniak",
+			"collectible": true,
+			"elite": true,
+			"hero": "warlock",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_433.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_433_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_429",
+			"dbfId": "48670",
+			"name": "Flark's Boom-Zooka",
+			"set": "The Boomsday Project",
+			"type": "spell",
+			"quality": "legendary",
+			"mana": 8,
+			"text": "[x]Summon 3 minions from\\nyour deck. They attack\\nenemy minions, then die.",
+			"flavor": "It used to be a Ba-zooka but we ran out of sheep.",
+			"artist": "Jim Nelson",
+			"collectible": true,
+			"elite": true,
+			"hero": "hunter",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_429.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_429_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "BOT_507",
+			"dbfId": "48744",
+			"name": "Gloop Sprayer",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "common",
+			"mana": 8,
+			"attack": 4,
+			"health": 4,
+			"text": "<b>Battlecry:</b> Summon a copy of each adjacent minion.",
+			"flavor": "\"Are you sure that's enough gloop?\"\\n\\n\"Hold on.\"",
+			"artist": "Arthur Bozonnet",
+			"collectible": true,
+			"hero": "druid",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_507.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_507_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_534",
+			"dbfId": "49163",
+			"name": "Bull Dozer",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"faction": "Alliance",
+			"quality": "common",
+			"mana": 9,
+			"attack": 9,
+			"health": 7,
+			"text": "<b>Divine Shield</b>",
+			"flavor": "Leave them alone for two minutes and they go right into sleep mode.",
+			"artist": "Steve Prescott",
+			"collectible": true,
+			"race": "Mech",
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_534.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_534_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Divine Shield"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_069",
+			"dbfId": "47928",
+			"name": "The Boomship",
+			"set": "The Boomsday Project",
+			"type": "spell",
+			"quality": "legendary",
+			"mana": 9,
+			"text": "Summon 3 random minions from your hand. Give them <b>Rush</b>.",
+			"flavor": "Dr. Boom ends his motivational speeches by dropping the mechs.",
+			"artist": "Zoltan Boros",
+			"collectible": true,
+			"elite": true,
+			"hero": "warrior",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_069.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_069_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Rush"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_567",
+			"dbfId": "49421",
+			"name": "Zerek's Cloning Gallery",
+			"set": "The Boomsday Project",
+			"type": "spell",
+			"quality": "legendary",
+			"mana": 9,
+			"text": "Summon a 1/1 copy of_each minion in your_deck.",
+			"flavor": "Cloning can be a jarring experience.",
+			"artist": "Slawomir Maniak",
+			"collectible": true,
+			"elite": true,
+			"hero": "priest",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_567.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_567_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "BOT_424",
+			"dbfId": "48625",
+			"name": "Mecha'thun",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "legendary",
+			"mana": 10,
+			"attack": 10,
+			"health": 10,
+			"text": "[x]<b>Deathrattle:</b> If you have no\\ncards in your deck, hand,\\nand battlefield, destroy\\nthe enemy hero.",
+			"flavor": "\"Your software will fail. Your users will abandon you. You are already obsolete.\"",
+			"artist": "James Ryman",
+			"collectible": true,
+			"elite": true,
+			"race": "Mech",
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_424.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_424_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "BOT_523",
+			"dbfId": "48831",
+			"name": "Mulchmuncher",
+			"set": "The Boomsday Project",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 10,
+			"attack": 8,
+			"health": 8,
+			"text": "<b>Rush</b>. Costs (1) less for each friendly Treant that died this game.",
+			"flavor": "The latest advancement in\\nhippo-botany.",
+			"artist": "Mike Sass",
+			"collectible": true,
+			"race": "Mech",
+			"hero": "druid",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/BOT_523.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/BOT_523_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Rush"
+			  }
+			]
 		  }
 	]
 }
