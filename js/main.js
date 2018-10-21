@@ -153,7 +153,7 @@ var HSCollectionTracker = (function() {
 	var currentDust = 0;
 	var disenchantedDust = 0;
 	
-	var version = 2.26;
+	var version = 2.27;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, uncraftable) {
@@ -2003,6 +2003,8 @@ var HSCollectionTracker = (function() {
 			initSelectedQuality();
 			initEventListeners();
 			displayTracker();
+			
+			fix();
 		}
 	};
 })();
