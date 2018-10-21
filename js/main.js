@@ -2003,8 +2003,6 @@ var HSCollectionTracker = (function() {
 			initSelectedQuality();
 			initEventListeners();
 			displayTracker();
-			
-			fix();
 		}
 	};
 })();
