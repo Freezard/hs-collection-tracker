@@ -33107,7 +33107,7 @@
 			"dbfId": "48146",
 			"name": "Dr. Boom, Mad Genius",
 			"set": "boomsday",
-			"type": "Hero",
+			"type": "hero",
 			"quality": "legendary",
 			"mana": 7,
 			"health": 30,
@@ -33419,6 +33419,3174 @@
 			"mechanics": [
 			  {
 				"name": "Rush"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_310",
+			"dbfId": "50120",
+			"name": "Elemental Evocation",
+			"set": "rastakhan",
+			"type": "spell",
+			"quality": "common",
+			"mana": 0,
+			"text": "The next Elemental you_play this turn costs (2) less.",
+			"flavor": "It's just lighter fluid.",
+			"artist": "Konstantin Turovec",
+			"collectible": true,
+			"hero": "mage",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_310.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_310_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "TRL_243",
+			"dbfId": "49990",
+			"name": "Pounce",
+			"set": "rastakhan",
+			"type": "spell",
+			"quality": "common",
+			"mana": 0,
+			"text": "Give your hero +2_Attack this turn.",
+			"flavor": "Comes with an overwhelming urge to jump into the nearest open box.",
+			"artist": "Rudy Siswanto",
+			"collectible": true,
+			"hero": "druid",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_243.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_243_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "TRL_128",
+			"dbfId": "50794",
+			"name": "Regenerate",
+			"set": "rastakhan",
+			"type": "spell",
+			"quality": "common",
+			"mana": 0,
+			"text": "Restore #3 Health.",
+			"flavor": "Finally a cure for degenerates.",
+			"artist": "Arthur Bozonnet",
+			"collectible": true,
+			"hero": "priest",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_128.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_128_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "TRL_543",
+			"dbfId": "50512",
+			"name": "Bloodclaw",
+			"set": "rastakhan",
+			"type": "weapon",
+			"quality": "common",
+			"mana": 1,
+			"attack": 2,
+			"durability": 2,
+			"text": "<b>Battlecry:</b> Deal 5 damage to your hero.",
+			"flavor": "This weapon – ow! Requires a little – OWW! Finesse.",
+			"artist": "Akkapoj T.",
+			"collectible": true,
+			"hero": "paladin",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_543.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_543_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_390",
+			"dbfId": "50381",
+			"name": "Daring Fire-Eater",
+			"set": "rastakhan",
+			"type": "minion",
+			"faction": "neutral",
+			"quality": "common",
+			"mana": 1,
+			"attack": 1,
+			"health": 1,
+			"text": "<b>Battlecry:</b> Your next Hero Power this turn deals 2_more damage.",
+			"flavor": "A few hours later he DESTROYED the arena bathrooms.",
+			"artist": "Jesper Ejsing",
+			"collectible": true,
+			"hero": "mage",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_390.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_390_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_321",
+			"dbfId": "50040",
+			"name": "Devastate",
+			"set": "rastakhan",
+			"type": "spell",
+			"quality": "common",
+			"mana": 1,
+			"text": "Deal $4 damage to a damaged minion.",
+			"flavor": "No thanks, I already devast-ate.",
+			"artist": "Slawomir Maniak",
+			"collectible": true,
+			"hero": "warrior",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_321.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_321_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "TRL_249",
+			"dbfId": "50012",
+			"name": "Grim Rally",
+			"set": "rastakhan",
+			"type": "spell",
+			"quality": "rare",
+			"mana": 1,
+			"attack": 0,
+			"health": 0,
+			"text": "Destroy a friendly minion. Give your minions +1/+1.",
+			"flavor": "There’s no “Aiiiieeee” in “Team.”",
+			"artist": "Skan Srisuwan",
+			"collectible": true,
+			"hero": "warlock",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_249.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_249_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "TRL_506",
+			"dbfId": "50380",
+			"name": "Gurubashi Chicken",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "common",
+			"mana": 1,
+			"attack": 1,
+			"health": 1,
+			"text": "<b>Overkill:</b> Gain +5 Attack.",
+			"flavor": "“Ya hold it by da feet, mon. Den ya THROW.”",
+			"artist": "Ivan Fomin",
+			"collectible": true,
+			"race": "Beast",
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_506.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_506_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Overkill"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_516",
+			"dbfId": "50396",
+			"name": "Gurubashi Offering",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "epic",
+			"mana": 1,
+			"attack": 0,
+			"health": 2,
+			"text": "At the start of your turn, destroy this and gain 8_Armor.",
+			"flavor": "For a limited time, loa blessings are on a pray-one-get-two deal (on selected sacrifices only).",
+			"artist": "Izzy Hoover",
+			"collectible": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_516.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_516_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "TRL_505",
+			"dbfId": "50377",
+			"name": "Helpless Hatchling",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "common",
+			"mana": 1,
+			"attack": 1,
+			"health": 1,
+			"text": "<b>Deathrattle:</b> Reduce the Cost of a Beast in your hand by (1).",
+			"flavor": "It can’t be all that helpful. Not wif dose widdle wings!",
+			"artist": "Matt Dixon",
+			"collectible": true,
+			"race": "Beast",
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_505.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_505_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_363",
+			"dbfId": "50796",
+			"name": "Saronite Taskmaster",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "common",
+			"mana": 1,
+			"attack": 2,
+			"health": 3,
+			"text": "<b>Deathrattle:</b> Summon a 0/3 Free Agent with <b>Taunt</b> for_your opponent.",
+			"flavor": "Don't even think of asking for time off.",
+			"artist": "Sean McNally",
+			"collectible": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_363.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_363_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  },
+			  {
+				"name": "Taunt"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_074",
+			"dbfId": "49843",
+			"name": "Serrated Tooth",
+			"set": "rastakhan",
+			"type": "weapon",
+			"quality": "common",
+			"mana": 1,
+			"attack": 1,
+			"durability": 3,
+			"text": "<b>Deathrattle:</b> Give your minions <b>Rush</b>.",
+			"flavor": "The tooth hurts, don’t it?",
+			"artist": "Grace Liu",
+			"collectible": true,
+			"hero": "rogue",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_074.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_074_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_245",
+			"dbfId": "50002",
+			"name": "Shriek",
+			"set": "rastakhan",
+			"type": "spell",
+			"quality": "rare",
+			"mana": 1,
+			"text": "Discard your lowest Cost card. Deal $2 damage to all minions.",
+			"flavor": "The first warning sign of an oncoming warlock temper tantrum.",
+			"artist": "Mauricio Herrera",
+			"collectible": true,
+			"hero": "warlock",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_245.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_245_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "TRL_502",
+			"dbfId": "50352",
+			"name": "Spirit of the Dead",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 1,
+			"attack": 0,
+			"health": 3,
+			"text": "[x]<b>Stealth</b> for 1 turn.\\nAfter a friendly minion dies,\\nshuffle a 1-Cost copy of it\\ninto your deck.",
+			"flavor": "Just because you’re dead doesn’t mean you’re off the team.",
+			"artist": "James Ryman",
+			"collectible": true,
+			"hero": "priest",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_502.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_502_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Stealth"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_223",
+			"dbfId": "49944",
+			"name": "Spirit of the Raptor",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 1,
+			"attack": 0,
+			"health": 3,
+			"text": "[x]<b>Stealth</b> for 1 turn.\\nAfter your hero attacks and\\n__kills a minion, draw a card.__",
+			"flavor": "“Loti! LOTI! Drop it. Drop it Loti! Down! Down Loti!”",
+			"artist": "Christopher Hayes",
+			"collectible": true,
+			"hero": "druid",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_223.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_223_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Stealth"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_327",
+			"dbfId": "52242",
+			"name": "Spirit of the Rhino",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 1,
+			"health": 3,
+			"text": "<b>Stealth</b> for 1 turn.\\nYour <b>Rush</b> minions are <b>Immune</b> the turn they're summoned.",
+			"flavor": "Where did they get this preposterous hypothesis?",
+			"artist": "Jim Nelson",
+			"collectible": true,
+			"hero": "warrior",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_327.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_327_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Stealth"
+			  },
+			  {
+				"name": "Aura"
+			  },
+			  {
+				"name": "Rush"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_348",
+			"dbfId": "49824",
+			"name": "Springpaw",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "common",
+			"mana": 1,
+			"attack": 1,
+			"health": 1,
+			"text": "[x]<b>Rush</b>\\n<b>Battlecry:</b> Add a 1/1 Lynx\\nwith <b>Rush</b> to your hand.",
+			"flavor": "The terrible thing about lynxes is lynxes are terrible things. Their teeth are made out of biting, their paws are made out of springs!",
+			"artist": "Vladimir Kafanov",
+			"collectible": true,
+			"race": "Beast",
+			"hero": "hunter",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_348.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_348_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Rush"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_119",
+			"dbfId": "50644",
+			"name": "The Beast Within",
+			"set": "rastakhan",
+			"type": "spell",
+			"quality": "epic",
+			"mana": 1,
+			"text": "Give a friendly Beast +1/+1, then it attacks a random enemy minion.",
+			"flavor": "Undoes years of obedience school training.",
+			"artist": "L. Lullabi & K. Turovec",
+			"collectible": true,
+			"hero": "hunter",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_119.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_119_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "TRL_012",
+			"dbfId": "49051",
+			"name": "Totemic Smash",
+			"set": "rastakhan",
+			"type": "spell",
+			"quality": "common",
+			"mana": 1,
+			"text": "Deal $2 damage. <b>Overkill</b>: Summon a basic Totem.",
+			"flavor": "Trolls are the first group to have a totem survive atmospheric re-entry.",
+			"artist": "L. Lullabi & K. Turovec",
+			"collectible": true,
+			"hero": "shaman",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_012.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_012_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Overkill"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_522",
+			"dbfId": "50405",
+			"name": "Wartbringer",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "common",
+			"mana": 1,
+			"attack": 2,
+			"health": 1,
+			"text": "<b>Battlecry:</b> If you played 2_spells this turn, deal 2_damage.",
+			"flavor": "“Does she cause them with magic, or just…like have a bucket she brings with her?”",
+			"artist": "J. Axer",
+			"collectible": true,
+			"hero": "shaman",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_522.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_522_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_501",
+			"dbfId": "50283",
+			"name": "Auchenai Phantasm",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "epic",
+			"mana": 2,
+			"attack": 3,
+			"health": 2,
+			"text": "<b>Battlecry:</b> This turn, your healing effects deal damage instead.",
+			"flavor": "“Okay kids did everyone remember to heal before we left?”",
+			"artist": "Lemon Sky",
+			"collectible": true,
+			"hero": "priest",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_501.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_501_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_514",
+			"dbfId": "50393",
+			"name": "Belligerent Gnome",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 2,
+			"attack": 1,
+			"health": 4,
+			"text": "[x]<b>Taunt</b>\\n<b>Battlecry:</b> If your opponent\\nhas 2 or more minions,\\ngain +1 Attack.",
+			"flavor": "Maybe don't put this one in your garden.",
+			"artist": "Brian Despain",
+			"collectible": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_514.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_514_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Taunt"
+			  },
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_082",
+			"dbfId": "49853",
+			"name": "Big Bad Voodoo",
+			"set": "rastakhan",
+			"type": "spell",
+			"quality": "epic",
+			"mana": 2,
+			"attack": 0,
+			"health": 0,
+			"text": "Give a friendly minion \"<b>Deathrattle:</b> Summon a random minion that costs (1) more.\"",
+			"flavor": "Murlocs practice Small Nice Voodoo.",
+			"artist": "L. Lullabi & K. Turovec",
+			"collectible": true,
+			"hero": "shaman",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_082.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_082_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_071",
+			"dbfId": "49838",
+			"name": "Bloodsail Howler",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 2,
+			"attack": 1,
+			"health": 1,
+			"durability": 0,
+			"text": "[x]<b>Rush</b>\\n<b>Battlecry:</b> Gain +1/+1\\nfor each other Pirate\\nyou control.",
+			"flavor": "They saw their fate a closin'\\nAboard a pirate ship\\nOn deck: The Howlin' Hozen\\nAbout to let one rip.",
+			"artist": "Patrik Bjorkstrom",
+			"collectible": true,
+			"race": "Pirate",
+			"hero": "rogue",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_071.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_071_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Rush"
+			  },
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_504",
+			"dbfId": "50374",
+			"name": "Booty Bay Bookie",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 2,
+			"attack": 3,
+			"health": 3,
+			"text": "<b>Battlecry:</b> Give your opponent a Coin.",
+			"flavor": "Also makes a great librarian. She's really good at fixing books!",
+			"artist": "Matt Dixon",
+			"collectible": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_504.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_504_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_512",
+			"dbfId": "50391",
+			"name": "Cheaty Anklebiter",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "common",
+			"mana": 2,
+			"attack": 2,
+			"health": 1,
+			"text": "<b>Lifesteal</b>\\n<b>Battlecry:</b> Deal 1 damage.",
+			"flavor": "Famed hunter of the deadly Achilliosaur.",
+			"artist": "Ekaterina Shapovalova",
+			"collectible": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_512.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_512_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Lifesteal"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_406",
+			"dbfId": "50493",
+			"name": "Dozing Marksman",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "common",
+			"mana": 2,
+			"attack": 0,
+			"health": 4,
+			"text": "Has +4 Attack while damaged.",
+			"flavor": "It's the sleeper of the set.",
+			"artist": "Sean McNally",
+			"collectible": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_406.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_406_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "TRL_362",
+			"dbfId": "50602",
+			"name": "Dragon Roar",
+			"set": "rastakhan",
+			"type": "spell",
+			"faction": "neutral",
+			"quality": "common",
+			"mana": 2,
+			"attack": 0,
+			"health": 0,
+			"text": "Add 2 random Dragons to your hand.",
+			"flavor": "Not to be confused with Dragon Yodel.",
+			"artist": "Slawomir Maniak",
+			"collectible": true,
+			"hero": "warrior",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_362.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_362_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "TRL_523",
+			"dbfId": "50408",
+			"name": "Firetree Witchdoctor",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 2,
+			"attack": 2,
+			"health": 2,
+			"text": "[x]<b>Battlecry:</b> If you're holding\\na Dragon, <b>Discover</b> a spell.",
+			"flavor": "If your tree is on fire - stop, drop, and troll.",
+			"artist": "Eva Widermann",
+			"collectible": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_523.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_523_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Discover"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_307",
+			"dbfId": "50028",
+			"name": "Flash of Light",
+			"set": "rastakhan",
+			"type": "spell",
+			"quality": "common",
+			"mana": 2,
+			"text": "Restore #4 Health.\\nDraw a card.",
+			"flavor": "Hey! No cameras allowed!",
+			"artist": "Zoltan Boros",
+			"collectible": true,
+			"hero": "paladin",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_307.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_307_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "TRL_111",
+			"dbfId": "50608",
+			"name": "Headhunter's Hatchet",
+			"set": "rastakhan",
+			"type": "weapon",
+			"quality": "common",
+			"mana": 2,
+			"attack": 2,
+			"health": 0,
+			"durability": 2,
+			"text": "[x]<b>Battlecry:</b> If you\\ncontrol a Beast, gain\\n+1 Durability.",
+			"flavor": "Zul'jin's primary recruiting tool.",
+			"artist": "Akkapoj T.",
+			"collectible": true,
+			"hero": "hunter",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_111.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_111_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_306",
+			"dbfId": "50022",
+			"name": "Immortal Prelate",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "epic",
+			"mana": 2,
+			"attack": 1,
+			"health": 3,
+			"text": "<b>Deathrattle:</b> Shuffle this into your deck. It keeps any enchantments.",
+			"flavor": "She protec.\\nShe attac.\\nBut most importantly,\\nshe come bac.",
+			"artist": "Maria Trepalina",
+			"collectible": true,
+			"hero": "paladin",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_306.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_306_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_352",
+			"dbfId": "50550",
+			"name": "Likkim",
+			"set": "rastakhan",
+			"type": "weapon",
+			"quality": "rare",
+			"mana": 2,
+			"attack": 1,
+			"durability": 3,
+			"text": "Has +2 Attack while you have <b>Overloaded</b> Mana Crystals.",
+			"flavor": "\"I double frog dare you!\"",
+			"artist": "Jakub Kasber",
+			"collectible": true,
+			"hero": "shaman",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_352.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_352_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Aura"
+			  },
+			  {
+				"name": "Overload"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_566",
+			"dbfId": "51159",
+			"name": "Revenge of the Wild",
+			"set": "rastakhan",
+			"type": "spell",
+			"quality": "rare",
+			"mana": 2,
+			"text": "Summon your Beasts that died this turn.",
+			"flavor": "My roommates only use Revenge of the Passive Aggressive.",
+			"artist": "Dave Allsop",
+			"collectible": true,
+			"hero": "hunter",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_566.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_566_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "TRL_240",
+			"dbfId": "49984",
+			"name": "Savage Striker",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "common",
+			"mana": 2,
+			"attack": 2,
+			"health": 3,
+			"text": "<b>Battlecry:</b> Deal damage to an enemy minion equal to your hero's Attack.",
+			"flavor": "Ruthless at tribal roasts.",
+			"artist": "Jesper Ejsing",
+			"collectible": true,
+			"hero": "druid",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_240.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_240_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_503",
+			"dbfId": "50372",
+			"name": "Scarab Egg",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "common",
+			"mana": 2,
+			"attack": 0,
+			"health": 2,
+			"text": "<b>Deathrattle:</b> Summon three 1/1 Scarabs.",
+			"flavor": "They say you can’t make an omelet without AHHH THEY’RE EATING MY FACE!",
+			"artist": "Jim Nelson",
+			"collectible": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_503.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_503_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_097",
+			"dbfId": "50278",
+			"name": "Seance",
+			"set": "rastakhan",
+			"type": "spell",
+			"quality": "common",
+			"mana": 2,
+			"text": "Choose a minion. Add_a copy of it to your hand.",
+			"flavor": "“The spirits spoke to me.”\\n\"What did they say?\"\\n\"You had lethal two turns ago.\"",
+			"artist": "Skan Srisuwan",
+			"collectible": true,
+			"hero": "priest",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_097.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_097_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "TRL_057",
+			"dbfId": "49800",
+			"name": "Serpent Ward",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 2,
+			"attack": 0,
+			"health": 2,
+			"text": "At the end of your turn,\\ndeal 2 damage to the enemy hero.",
+			"flavor": "When snakes get sick, they get sent to the Serpent Ward.",
+			"artist": "Cicily He",
+			"collectible": true,
+			"race": "Totem",
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_057.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_057_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "TRL_507",
+			"dbfId": "50383",
+			"name": "Sharkfin Fan",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "common",
+			"mana": 2,
+			"attack": 2,
+			"health": 2,
+			"text": "After your hero attacks, summon a 1/1 Pirate.",
+			"flavor": "His taste in soup is criminal.",
+			"artist": "Peter Stapleton",
+			"collectible": true,
+			"race": "Pirate",
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_507.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_507_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "TRL_524",
+			"dbfId": "50410",
+			"name": "Shieldbreaker",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 2,
+			"attack": 2,
+			"health": 1,
+			"text": "<b>Battlecry:</b> <b>Silence</b> an enemy minion with <b>Taunt</b>.",
+			"flavor": "Can also break up fights, relationships, and unions.",
+			"artist": "David Devries",
+			"collectible": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_524.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_524_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Taunt"
+			  },
+			  {
+				"name": "Silence"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_570",
+			"dbfId": "52931",
+			"name": "Soup Vendor",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 2,
+			"attack": 1,
+			"health": 4,
+			"text": "Whenever you restore 3 or more Health to your hero, draw a card.",
+			"flavor": "Fresh from the floor of the arena!",
+			"artist": "Sean McNally",
+			"collectible": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_570.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_570_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "TRL_312",
+			"dbfId": "50083",
+			"name": "Spellzerker",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "common",
+			"mana": 2,
+			"attack": 2,
+			"health": 3,
+			"text": "Has <b>Spell Damage +2</b> while damaged.",
+			"flavor": "But don’t ask her to use it in a sentence.",
+			"artist": "Arthur Bozonnet",
+			"collectible": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_312.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_312_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Spell Damage"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_251",
+			"dbfId": "50025",
+			"name": "Spirit of the Bat",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 2,
+			"attack": 0,
+			"health": 3,
+			"text": "<b>Stealth</b> for 1 turn.\\nAfter a friendly minion dies, give a minion in your hand +1/+1.",
+			"flavor": "Nah nah nah nah, nah nah nah nah, nah nah nah nah, nah nah nah nah",
+			"artist": "Slawomir Maniak",
+			"collectible": true,
+			"hero": "warlock",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_251.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_251_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Stealth"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_319",
+			"dbfId": "50093",
+			"name": "Spirit of the Dragonhawk",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 2,
+			"attack": 0,
+			"health": 3,
+			"text": "[x]<b>Stealth</b> for 1 turn.\\nYour Hero Power also targets\\n adjacent minions.",
+			"flavor": "Dragonhawks aren’t known for their accuracy.",
+			"artist": "Jakub Kasber",
+			"collectible": true,
+			"hero": "mage",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_319.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_319_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Stealth"
+			  },
+			  {
+				"name": "Aura"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_156",
+			"dbfId": "50749",
+			"name": "Stolen Steel",
+			"set": "rastakhan",
+			"type": "spell",
+			"quality": "common",
+			"mana": 2,
+			"text": "<b>Discover</b> a weapon <i>(from another class)</i>.",
+			"flavor": "Because Thrall wouldn't <i>lend</i> me Doomhammer.",
+			"artist": "L. Lullabi & K. Turovec",
+			"collectible": true,
+			"hero": "rogue",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_156.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_156_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Discover"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_407",
+			"dbfId": "50497",
+			"name": "Waterboy",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 2,
+			"attack": 2,
+			"health": 1,
+			"text": "<b>Battlecry:</b> Your next Hero Power this turn costs (0).",
+			"flavor": "100% organic troll sweat.",
+			"artist": "Ekaterina Shapovalova",
+			"collectible": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_407.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_407_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_509",
+			"dbfId": "50386",
+			"name": "Banana Buffoon",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "common",
+			"mana": 3,
+			"attack": 2,
+			"health": 2,
+			"text": "<b>Battlecry:</b> Add 2 Bananas to your hand.",
+			"flavor": "You could say he has a certain appeal.",
+			"artist": "Jim Nelson",
+			"collectible": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_509.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_509_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_349",
+			"dbfId": "50471",
+			"name": "Bloodscalp Strategist",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 3,
+			"attack": 2,
+			"health": 4,
+			"text": "<b>Battlecry:</b> If you have a weapon equipped, <b>Discover</b> a spell.",
+			"flavor": "“Shoot them in the face” is more of a <i>tactic</i> than a <i>strategy</i>.",
+			"artist": "Gonzalo Ordonez",
+			"collectible": true,
+			"hero": "hunter",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_349.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_349_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Discover"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_059",
+			"dbfId": "49803",
+			"name": "Bog Slosher",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 3,
+			"attack": 3,
+			"health": 3,
+			"text": "<b>Battlecry:</b> Return a friendly minion to your hand and give it +2/+2.",
+			"flavor": "It's the bane of freshly mopped floors everywhere.",
+			"artist": "James Ryman",
+			"collectible": true,
+			"race": "Elemental",
+			"hero": "shaman",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_059.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_059_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_527",
+			"dbfId": "50414",
+			"name": "Drakkari Trickster",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "epic",
+			"mana": 3,
+			"attack": 3,
+			"health": 4,
+			"text": "[x]<b>Battlecry:</b> Give each player a\\ncopy of a random card from\\ntheir opponent's deck.",
+			"flavor": "“It’s an <i>illusion</i>, Malacrass!”",
+			"artist": "Cicily He",
+			"collectible": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_527.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_527_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_058",
+			"dbfId": "49802",
+			"name": "Haunting Visions",
+			"set": "rastakhan",
+			"type": "spell",
+			"quality": "epic",
+			"mana": 3,
+			"attack": 0,
+			"health": 0,
+			"text": "The next spell you cast this turn costs (3) less. <b>Discover</b> a spell.",
+			"flavor": "When you're awake at 3 AM and can't stop thinking about that time you called your teacher \"mom.\"",
+			"artist": "Akkapoj T.",
+			"collectible": true,
+			"hero": "shaman",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_058.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_058_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Discover"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_308",
+			"dbfId": "50126",
+			"name": "High Priest Thekal",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "legendary",
+			"mana": 3,
+			"attack": 3,
+			"health": 4,
+			"text": "<b>Battlecry:</b> Convert all but 1_of your Hero's Health into Armor.",
+			"flavor": "\"…and then I beat him with 1 Health!\"",
+			"artist": "James Ryman",
+			"collectible": true,
+			"elite": true,
+			"hero": "paladin",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_308.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_308_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_530",
+			"dbfId": "50421",
+			"name": "Masked Contender",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "epic",
+			"mana": 3,
+			"attack": 2,
+			"health": 4,
+			"text": "<b>Battlecry:</b> If you control a_<b>Secret</b>, play a <b>Secret</b> from_your deck.",
+			"flavor": "Knew Mysterious Challenger back when he was a Mysterious Squire.",
+			"artist": "Alex Horley Ormandelli",
+			"collectible": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_530.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_530_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Secret"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_339",
+			"dbfId": "50212",
+			"name": "Master's Call",
+			"set": "rastakhan",
+			"type": "spell",
+			"faction": "neutral",
+			"quality": "epic",
+			"mana": 3,
+			"text": "<b>Discover</b> a minion in your deck.\\nIf all 3 are Beasts,\\ndraw them all.",
+			"flavor": "\"Hello? Yes, this is Huffer.\"",
+			"artist": "Rudy Siswanto",
+			"collectible": true,
+			"hero": "hunter",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_339.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_339_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Discover"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_546",
+			"dbfId": "50532",
+			"name": "Ornery Tortoise",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "common",
+			"mana": 3,
+			"attack": 3,
+			"health": 5,
+			"text": "<b>Battlecry:</b> Deal 5 damage to your hero.",
+			"flavor": "\"Dude, where's my pizza?!\"",
+			"artist": "Zoltan Boros",
+			"collectible": true,
+			"race": "Beast",
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_546.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_546_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_360",
+			"dbfId": "50595",
+			"name": "Overlord's Whip",
+			"set": "rastakhan",
+			"type": "weapon",
+			"faction": "neutral",
+			"quality": "common",
+			"mana": 3,
+			"attack": 2,
+			"durability": 4,
+			"text": "After you play a minion, deal 1 damage to it.",
+			"flavor": "\"This merit badge is for cruelty. This one's for whipping. And this one is for embroidery...\"",
+			"artist": "Akkapoj T.",
+			"collectible": true,
+			"hero": "warrior",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_360.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_360_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "TRL_315",
+			"dbfId": "50084",
+			"name": "Pyromaniac",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 3,
+			"attack": 3,
+			"health": 4,
+			"text": "Whenever your Hero Power_kills a minion, draw a card.",
+			"flavor": "She prefers “Flammably Inclined.”",
+			"artist": "Matt Dixon",
+			"collectible": true,
+			"hero": "mage",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_315.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_315_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "TRL_124",
+			"dbfId": "50773",
+			"name": "Raiding Party",
+			"set": "rastakhan",
+			"type": "spell",
+			"quality": "rare",
+			"mana": 3,
+			"text": "Draw 2 Pirates from_your deck.\\n<b>Combo:</b> And a weapon.",
+			"flavor": "And a bowl of chips. And some of those little cocktail weenies!",
+			"artist": "Jim Nelson",
+			"collectible": true,
+			"hero": "rogue",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_124.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_124_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Combo"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_551",
+			"dbfId": "50863",
+			"name": "Reckless Diretroll",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "common",
+			"mana": 3,
+			"attack": 2,
+			"health": 6,
+			"text": "<b>Taunt</b>\\n<b>Battlecry:</b> Discard your lowest Cost card.",
+			"flavor": "\"Reck less!? ME WRECK MOAR!\"",
+			"artist": "Konstantin Turovec",
+			"collectible": true,
+			"hero": "warlock",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_551.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_551_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Taunt"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_131",
+			"dbfId": "50315",
+			"name": "Sand Drudge",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "common",
+			"mana": 3,
+			"attack": 3,
+			"health": 3,
+			"text": "Whenever you cast a spell, summon a 1/1 Zombie with <b>Taunt</b>.",
+			"flavor": "Loves long walks on the beach, raising the dead, and chocolates.",
+			"artist": "Dave Allsop",
+			"collectible": true,
+			"hero": "priest",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_131.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_131_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Taunt"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_326",
+			"dbfId": "50059",
+			"name": "Smolderthorn Lancer",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "epic",
+			"mana": 3,
+			"attack": 3,
+			"health": 2,
+			"text": "<b>Battlecry:</b> If you're holding a Dragon, destroy a damaged enemy minion.",
+			"flavor": "Here comes “The Smolder.”",
+			"artist": "Dave Allsop",
+			"collectible": true,
+			"hero": "warrior",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_326.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_326_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_060",
+			"dbfId": "49804",
+			"name": "Spirit of the Frog",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 3,
+			"attack": 0,
+			"health": 3,
+			"text": "[x]<b>Stealth</b> for 1 turn.\\nWhenever you cast a spell,\\ndraw a spell from your deck\\nthat costs (1) more.",
+			"flavor": "It is Wednesday, my dudes.",
+			"artist": "Konstantin Turovec",
+			"collectible": true,
+			"hero": "shaman",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_060.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_060_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Stealth"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_901",
+			"dbfId": "50660",
+			"name": "Spirit of the Lynx",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 3,
+			"attack": 0,
+			"health": 3,
+			"text": "[x]<b>Stealth</b> for 1 turn.\\nWhenever you summon a \\nBeast, give it +1/+1.",
+			"flavor": "Much of this shrine’s power lies in the can-opener noise it makes.",
+			"artist": "Arthur Bozonnet",
+			"collectible": true,
+			"hero": "hunter",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_901.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_901_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Stealth"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_400",
+			"dbfId": "50230",
+			"name": "Splitting Image",
+			"set": "rastakhan",
+			"type": "spell",
+			"quality": "epic",
+			"mana": 3,
+			"text": "<b>Secret:</b> When one of your minions is attacked, summon a copy of it.",
+			"flavor": "Sometimes you get punched so hard <i>they</i> see double.",
+			"artist": "L. Lullabi & K. Turovec",
+			"collectible": true,
+			"hero": "mage",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_400.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_400_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Secret"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_500",
+			"dbfId": "50282",
+			"name": "Surrender to Madness",
+			"set": "rastakhan",
+			"type": "spell",
+			"quality": "epic",
+			"mana": 3,
+			"text": "[x]Destroy 3 of your Mana\\nCrystals. Give all minions\\nin your deck +2/+2.",
+			"flavor": "Never give up, always surrender!",
+			"artist": "Maria Trepalina",
+			"collectible": true,
+			"hero": "priest",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_500.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_500_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "TRL_302",
+			"dbfId": "49999",
+			"name": "Time Out!",
+			"set": "rastakhan",
+			"type": "spell",
+			"quality": "common",
+			"mana": 3,
+			"text": "Your hero is <b>Immune</b> until your next turn.",
+			"flavor": "Highly effective against 3 year olds.",
+			"artist": "Arthur Bozonnet",
+			"collectible": true,
+			"hero": "paladin",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_302.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_302_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "TRL_405",
+			"dbfId": "50491",
+			"name": "Untamed Beastmaster",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "epic",
+			"mana": 3,
+			"attack": 3,
+			"health": 4,
+			"text": "Whenever you draw a Beast, give it +2/+2.",
+			"flavor": "All it takes is a tummy rub.",
+			"artist": "E. Kenji & M. Azevedo",
+			"collectible": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_405.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_405_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "TRL_343",
+			"dbfId": "43310",
+			"name": "Wardruid Loti",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "legendary",
+			"mana": 3,
+			"attack": 1,
+			"health": 2,
+			"text": "<b>Choose One - </b>Transform into one of Loti's four dinosaur forms.",
+			"flavor": "“Ravasaur!”\\n“Pretty scary”\\n“…Blammodax!”\\n“Is that a thing?”\\n“SMAXODON!”\\n“….now you’re just making those up.”",
+			"artist": "Zoltan Boros",
+			"collectible": true,
+			"elite": true,
+			"hero": "druid",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_343.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_343_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "TRL_085",
+			"dbfId": "49867",
+			"name": "Zentimo",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "legendary",
+			"mana": 3,
+			"attack": 1,
+			"health": 3,
+			"text": "[x]Whenever you target a\\nminion with a spell, it also\\ntargets adjacent ones.",
+			"flavor": "Serenity. Peace. Many frogs.",
+			"artist": "Evgeniy Zagumyenny",
+			"collectible": true,
+			"elite": true,
+			"hero": "shaman",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_085.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_085_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "TRL_517",
+			"dbfId": "50397",
+			"name": "Arena Fanatic",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "common",
+			"mana": 4,
+			"attack": 2,
+			"health": 3,
+			"text": "<b>Battlecry:</b> Give all minions in your hand +1/+1.",
+			"flavor": "Her fantasy Rumble league gives double points for dismemberment.",
+			"artist": "Matt Dixon",
+			"collectible": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_517.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_517_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_525",
+			"dbfId": "50411",
+			"name": "Arena Treasure Chest",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "common",
+			"mana": 4,
+			"attack": 0,
+			"health": 4,
+			"text": "<b>Deathrattle:</b> Draw 2 cards.",
+			"flavor": "Yeah it's great, but did you see the Arena Treasure Arms?!",
+			"artist": "James Ryman",
+			"collectible": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_525.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_525_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_096",
+			"dbfId": "50009",
+			"name": "Griftah",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "legendary",
+			"mana": 4,
+			"attack": 4,
+			"health": 5,
+			"text": "[x]<b>Battlecry:</b> <b>Discover</b> two\\ncards. Give one to your\\nopponent at random.",
+			"flavor": "With Griftah in your deck, sometimes you start the game with The Coin!",
+			"artist": "Matt Dixon",
+			"collectible": true,
+			"elite": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_096.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_096_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Discover"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_010",
+			"dbfId": "49049",
+			"name": "Half-Time Scavenger",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "common",
+			"mana": 4,
+			"attack": 3,
+			"health": 5,
+			"text": "<b>Stealth</b>\\n<b>Overkill</b>: Gain 3 Armor.",
+			"flavor": "One player's trash is another's “Best In Slot”.",
+			"artist": "Ivan Fomin",
+			"collectible": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_010.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_010_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Overkill"
+			  },
+			  {
+				"name": "Stealth"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_252",
+			"dbfId": "50032",
+			"name": "High Priestess Jeklik",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "legendary",
+			"mana": 4,
+			"attack": 3,
+			"health": 4,
+			"text": "[x]<b>Taunt</b>, <b>Lifesteal</b>\\nWhen you discard this,\\nadd 2 copies of it to\\nyour hand.",
+			"flavor": "If you love Jeklik, set her free. YOU CAN'T GET RID OF HER.",
+			"artist": "James Ryman",
+			"collectible": true,
+			"elite": true,
+			"hero": "warlock",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_252.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_252_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Lifesteal"
+			  },
+			  {
+				"name": "Taunt"
+			  },
+			  {
+				"name": "InvisibleDeathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_533",
+			"dbfId": "50434",
+			"name": "Ice Cream Peddler",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "epic",
+			"mana": 4,
+			"attack": 3,
+			"health": 5,
+			"text": "<b>Battlecry:</b> If you control a_<b>Frozen</b> minion, gain 8_Armor.",
+			"flavor": "I scream, you scream, we all scream when we see a Freeze Mage.",
+			"artist": "Matt Dixon",
+			"collectible": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_533.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_533_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Freeze"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_254",
+			"dbfId": "50042",
+			"name": "Mark of the Loa",
+			"set": "rastakhan",
+			"type": "spell",
+			"quality": "rare",
+			"mana": 4,
+			"attack": 0,
+			"health": 0,
+			"text": "<b>Choose One</b> -\\nGive a minion +2/+4\\nand <b>Taunt</b>; or Summon\\ntwo 3/2 Raptors.",
+			"flavor": "Ah, yes. Mark. The mightiest Loa.",
+			"artist": "Mauricio Herrera",
+			"collectible": true,
+			"hero": "druid",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_254.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_254_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "TRL_520",
+			"dbfId": "50402",
+			"name": "Murloc Tastyfin",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 4,
+			"attack": 3,
+			"health": 2,
+			"text": "[x]<b>Deathrattle:</b> Draw 2 Murlocs\\nfrom your deck.",
+			"flavor": "He was destined for the soup. One way or another…",
+			"artist": "Matt Dixon",
+			"collectible": true,
+			"race": "Murloc",
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_520.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_520_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_244",
+			"dbfId": "49994",
+			"name": "Predatory Instincts",
+			"set": "rastakhan",
+			"type": "spell",
+			"faction": "neutral",
+			"quality": "rare",
+			"mana": 4,
+			"text": "[x]Draw a Beast from your\\ndeck. Double its Health.",
+			"flavor": "Somebody’s been eating their funnel cakes.",
+			"artist": "Clint Langley",
+			"collectible": true,
+			"hero": "druid",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_244.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_244_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "TRL_508",
+			"dbfId": "50385",
+			"name": "Regeneratin' Thug",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "common",
+			"mana": 4,
+			"attack": 3,
+			"health": 5,
+			"text": "At the start of your turn, restore #2 Health to this_minion.",
+			"flavor": "Regenerates any injury except heartbreak.",
+			"artist": "Arthur Bozonnet",
+			"collectible": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_508.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_508_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "TRL_531",
+			"dbfId": "50427",
+			"name": "Rumbletusk Shaker",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "common",
+			"mana": 4,
+			"attack": 3,
+			"health": 2,
+			"text": "<b>Deathrattle:</b> Summon a 3/2 Rumbletusk Breaker.",
+			"flavor": "Rub a dub dub, three trolls in a tub.\\nAnd who do you think dey be?\\nDa Shaker, Da Breaker, and Da Undatakah.\\nAnd all of dem comin' for me.",
+			"artist": "Sam Nielsen",
+			"collectible": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_531.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_531_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_313",
+			"dbfId": "50122",
+			"name": "Scorch",
+			"set": "rastakhan",
+			"type": "spell",
+			"faction": "neutral",
+			"quality": "rare",
+			"mana": 4,
+			"attack": 0,
+			"health": 0,
+			"text": "[x]Deal $4 damage to a\\nminion. Costs (1) if you\\nplayed an Elemental\\nlast turn.",
+			"flavor": "The hoof.\\nThe hoof.\\nThe hoof is on fire.",
+			"artist": "Zoltan Boros",
+			"collectible": true,
+			"hero": "mage",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_313.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_313_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "TRL_092",
+			"dbfId": "49972",
+			"name": "Spirit of the Shark",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 4,
+			"attack": 0,
+			"health": 3,
+			"text": "[x]<b>Stealth</b> for 1 turn.\\nYour minions' <b>Battlecries</b>\\n__and <b>Combos</b> trigger twice._",
+			"flavor": "It has Stealth, but its ominous theme music keeps giving it away.",
+			"artist": "Ivan Fomin",
+			"collectible": true,
+			"hero": "rogue",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_092.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_092_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Aura"
+			  },
+			  {
+				"name": "Stealth"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_309",
+			"dbfId": "50031",
+			"name": "Spirit of the Tiger",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 4,
+			"attack": 0,
+			"health": 3,
+			"text": "[x]<b>Stealth</b> for 1 turn.\\nAfter you cast a spell,\\nsummon a Tiger with stats\\nequal to its Cost.",
+			"flavor": "Less of a cantrip and more of a cat-nip.",
+			"artist": "Arthur Gimaldinov",
+			"collectible": true,
+			"hero": "paladin",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_309.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_309_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Stealth"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_015",
+			"dbfId": "49066",
+			"name": "Ticket Scalper",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "common",
+			"mana": 4,
+			"attack": 5,
+			"health": 3,
+			"text": "<b>Overkill</b>: Draw 2 cards.",
+			"flavor": "Takes ten percent off the top.",
+			"artist": "David Kegg",
+			"collectible": true,
+			"race": "Pirate",
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_015.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_015_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Overkill"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_157",
+			"dbfId": "50766",
+			"name": "Walk the Plank",
+			"set": "rastakhan",
+			"type": "spell",
+			"quality": "common",
+			"mana": 4,
+			"text": "Destroy an undamaged minion.",
+			"flavor": "Pirates will fall for anything.",
+			"artist": "Ivan Fomin",
+			"collectible": true,
+			"hero": "rogue",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_157.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_157_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "TRL_328",
+			"dbfId": "50066",
+			"name": "War Master Voone",
+			"set": "rastakhan",
+			"type": "minion",
+			"faction": "neutral",
+			"quality": "legendary",
+			"mana": 4,
+			"attack": 4,
+			"health": 3,
+			"durability": 0,
+			"text": "<b>Battlecry:</b> Copy all\\nDragons in your hand.",
+			"flavor": "War Master sounds cooler than Dragon Sitter.",
+			"artist": "Slawomir Maniak",
+			"collectible": true,
+			"elite": true,
+			"hero": "warrior",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_328.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_328_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_545",
+			"dbfId": "50514",
+			"name": "Zandalari Templar",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 4,
+			"attack": 4,
+			"health": 4,
+			"text": " <i>({0} left!)</i>@ <i>(Ready!)</i>",
+			"flavor": "YOU WERE A TEMPLAR, JONDAR!",
+			"artist": "James Ryman",
+			"collectible": true,
+			"hero": "paladin",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_545.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_545_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Taunt"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_521",
+			"dbfId": "50403",
+			"name": "Arena Patron",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 5,
+			"attack": 3,
+			"health": 3,
+			"text": "<b>Overkill:</b> Summon another Arena Patron.",
+			"flavor": "Everybody with a ticket get in here!",
+			"artist": "Eric Braddock",
+			"collectible": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_521.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_521_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Overkill"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_347",
+			"dbfId": "50466",
+			"name": "Baited Arrow",
+			"set": "rastakhan",
+			"type": "spell",
+			"faction": "neutral",
+			"quality": "common",
+			"mana": 5,
+			"text": "Deal $3 damage. <b>Overkill:</b> Summon a 5/5 Devilsaur.",
+			"flavor": "The card is common, but the steak is rare.",
+			"artist": "Anton Zemskov",
+			"collectible": true,
+			"hero": "hunter",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_347.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_347_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Overkill"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_317",
+			"dbfId": "50086",
+			"name": "Blast Wave",
+			"set": "rastakhan",
+			"type": "spell",
+			"faction": "neutral",
+			"quality": "epic",
+			"mana": 5,
+			"attack": 0,
+			"health": 0,
+			"durability": 0,
+			"text": "Deal $2 damage to_all minions.\\n<b>Overkill</b>: Add a random Mage spell to your hand.",
+			"flavor": "If you’re burning and you know it, wave your hands!",
+			"artist": "J. Axer",
+			"collectible": true,
+			"hero": "mage",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_317.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_317_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Overkill"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_526",
+			"dbfId": "50412",
+			"name": "Dragonmaw Scorcher",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "common",
+			"mana": 5,
+			"attack": 3,
+			"health": 6,
+			"text": "<b>Battlecry:</b> Deal 1 damage to all other minions.",
+			"flavor": "Caution: Contains Flammable Material",
+			"artist": "Maurico Herrera",
+			"collectible": true,
+			"race": "Dragon",
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_526.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_526_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_323",
+			"dbfId": "50049",
+			"name": "Emberscale Drake",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 5,
+			"attack": 5,
+			"health": 5,
+			"text": "<b>Battlecry:</b> If you're holding a Dragon, gain 5 Armor.",
+			"flavor": "The third little dragon made his armor out of adamantite.",
+			"artist": "Alex Horley Orlandelli",
+			"collectible": true,
+			"race": "Dragon",
+			"hero": "warrior",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_323.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_323_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_304",
+			"dbfId": "50014",
+			"name": "Farraki Battleaxe",
+			"set": "rastakhan",
+			"type": "weapon",
+			"quality": "rare",
+			"mana": 5,
+			"attack": 3,
+			"durability": 3,
+			"text": "<b>Overkill:</b> Give a minion in your hand +2/+2.",
+			"flavor": "Only two things in life are certain: death and axes.",
+			"artist": "M. Alvares & M. Azevedo",
+			"collectible": true,
+			"hero": "paladin",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_304.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_304_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Overkill"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_151",
+			"dbfId": "50731",
+			"name": "Former Champ",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "common",
+			"mana": 5,
+			"attack": 1,
+			"health": 1,
+			"text": "<b>Battlecry:</b> Summon a 5/5_Hotshot.",
+			"flavor": "The last time he saw action, Undertaker ruled the meta.",
+			"artist": "Peter Stapleton",
+			"collectible": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_151.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_151_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_409",
+			"dbfId": "50775",
+			"name": "Gral, the Shark",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "legendary",
+			"mana": 5,
+			"attack": 2,
+			"health": 2,
+			"text": "[x]<b>Battlecry:</b> Eat a minion in\\nyour deck and gain its stats.\\n<b>Deathrattle:</b> Add it to\\nyour hand.",
+			"flavor": "“… We’re gonna need a bigger board.”",
+			"artist": "Anton Zemskov",
+			"collectible": true,
+			"elite": true,
+			"race": "Beast",
+			"hero": "rogue",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_409.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_409_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_900",
+			"dbfId": "50659",
+			"name": "Halazzi, the Lynx",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "legendary",
+			"mana": 5,
+			"attack": 3,
+			"health": 2,
+			"text": "<b>Battlecry:</b> Fill your hand with 1/1 Lynxes that have_<b>Rush</b>.",
+			"flavor": "Remember, you’re only as strong as your weakest lynx.",
+			"artist": "Arthur Bozonnet",
+			"collectible": true,
+			"elite": true,
+			"race": "Beast",
+			"hero": "hunter",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_900.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_900_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Rush"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_258",
+			"dbfId": "50071",
+			"name": "Mass Hysteria",
+			"set": "rastakhan",
+			"type": "spell",
+			"faction": "neutral",
+			"quality": "rare",
+			"mana": 5,
+			"text": "Force each minion to_attack another random minion.",
+			"flavor": "Black Friday gets worse every year.",
+			"artist": "Vladimir Kafanov",
+			"collectible": true,
+			"hero": "priest",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_258.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_258_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "TRL_532",
+			"dbfId": "50430",
+			"name": "Mosh'Ogg Announcer",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "epic",
+			"mana": 5,
+			"attack": 6,
+			"health": 5,
+			"text": "[x]Enemies attacking this\\nhave a 50% chance to\\nattack someone else.",
+			"flavor": "One's play-by-play. The other is off-color.",
+			"artist": "Steve Prescott",
+			"collectible": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_532.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_532_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "TRL_020",
+			"dbfId": "49088",
+			"name": "Sightless Ranger",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "common",
+			"mana": 5,
+			"attack": 3,
+			"health": 4,
+			"text": "<b>Rush</b>\\n<b>Overkill</b>: Summon two 1/1_Bats.",
+			"flavor": "An eye for sore sights.",
+			"artist": "Jiajun Tian",
+			"collectible": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_020.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_020_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Overkill"
+			  },
+			  {
+				"name": "Rush"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_535",
+			"dbfId": "50437",
+			"name": "Snapjaw Shellfighter",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "epic",
+			"mana": 5,
+			"attack": 3,
+			"health": 8,
+			"text": "[x]Whenever an adjacent\\nminion takes damage, this\\n_minion takes it instead.",
+			"flavor": "Nonono, the <i>turtle</i> is the Shellfighter.",
+			"artist": "Matt Dixon",
+			"collectible": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_535.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_535_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "TRL_341",
+			"dbfId": "50356",
+			"name": "Treespeaker",
+			"set": "rastakhan",
+			"type": "minion",
+			"faction": "neutral",
+			"quality": "epic",
+			"mana": 5,
+			"attack": 4,
+			"health": 4,
+			"text": "<b>Battlecry:</b> Transform your Treants into 5/5 Ancients.",
+			"flavor": "Honestly, his delivery is a little wooden.",
+			"artist": "J. Axer",
+			"collectible": true,
+			"hero": "druid",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_341.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_341_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_311",
+			"dbfId": "50121",
+			"name": "Arcanosaur",
+			"set": "rastakhan",
+			"type": "minion",
+			"faction": "neutral",
+			"quality": "common",
+			"mana": 6,
+			"attack": 3,
+			"health": 3,
+			"text": "<b>Battlecry:</b> If you played an_Elemental last turn, deal_3_damage_to_all other minions.",
+			"flavor": "Arcane energy… finds a way.",
+			"artist": "Ware Lee",
+			"collectible": true,
+			"race": "Elemental",
+			"hero": "mage",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_311.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_311_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_127",
+			"dbfId": "50779",
+			"name": "Cannon Barrage",
+			"set": "rastakhan",
+			"type": "spell",
+			"faction": "neutral",
+			"quality": "epic",
+			"mana": 6,
+			"text": "[x]Deal $3 damage to a\\nrandom enemy. Repeat\\nfor each of your Pirates.",
+			"flavor": "Why fire your cannons strategically when you can fire them all at once?",
+			"artist": "Arthur Bozonnet",
+			"collectible": true,
+			"hero": "rogue",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_127.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_127_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "TRL_324",
+			"dbfId": "50054",
+			"name": "Heavy Metal!",
+			"set": "rastakhan",
+			"type": "spell",
+			"faction": "neutral",
+			"quality": "rare",
+			"mana": 6,
+			"text": "[x]Summon a random\\nminion with Cost equal\\nto your Armor <i>(up to 10).</i>",
+			"flavor": "This metal is so heavy it will satisfy your iron requirements for the next year.",
+			"artist": "Alex Horley Orlandelli",
+			"collectible": true,
+			"hero": "warrior",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_324.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_324_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "TRL_345",
+			"dbfId": "50369",
+			"name": "Krag'wa, the Frog",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "legendary",
+			"mana": 6,
+			"attack": 4,
+			"health": 6,
+			"text": "<b>Battlecry:</b> Return all spells you played last turn to_your hand.",
+			"flavor": "Krag'wa has a ritual to honor his friends and a ritual to devour his enemies. No one can tell them apart.",
+			"artist": "Konstantin Turovec",
+			"collectible": true,
+			"elite": true,
+			"race": "Beast",
+			"hero": "shaman",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_345.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_345_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_564",
+			"dbfId": "51136",
+			"name": "Mojomaster Zihi",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "legendary",
+			"mana": 6,
+			"attack": 5,
+			"health": 5,
+			"text": "<b>Battlecry:</b> Set each player to 5 Mana Crystals.",
+			"flavor": "Sadly, she was still two credits short of her Witch Doctorate.",
+			"artist": "J. Axer",
+			"collectible": true,
+			"elite": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_564.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_564_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_351",
+			"dbfId": "50547",
+			"name": "Rain of Toads",
+			"set": "rastakhan",
+			"type": "spell",
+			"quality": "common",
+			"mana": 6,
+			"text": "Summon three 2/4 Toads with <b>Taunt</b>. <b>Overload:</b> (3)",
+			"flavor": "\"Oh, THAT'S how she brings the warts!\"",
+			"artist": "Cicily He",
+			"collectible": true,
+			"hero": "shaman",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_351.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_351_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Overload"
+			  },
+			  {
+				"name": "Taunt"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_247",
+			"dbfId": "50006",
+			"name": "Soulwarden",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "epic",
+			"mana": 6,
+			"attack": 6,
+			"health": 6,
+			"text": "<b>Battlecry:</b> Add 3 random cards you discarded this game to your hand.",
+			"flavor": "Reduce, reuse, resoul.",
+			"artist": "Alex Garner",
+			"collectible": true,
+			"hero": "warlock",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_247.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_247_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_255",
+			"dbfId": "50044",
+			"name": "Stampeding Roar",
+			"set": "rastakhan",
+			"type": "spell",
+			"faction": "neutral",
+			"quality": "epic",
+			"mana": 6,
+			"text": "Summon a random Beast from your hand and give it <b>Rush</b>.",
+			"flavor": "[x]The Gurubashi Arena has an\\nextremely permissive policy on\\npets in the workplace.",
+			"artist": "Andrew Hou",
+			"collectible": true,
+			"hero": "druid",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_255.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_255_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "TRL_325",
+			"dbfId": "50056",
+			"name": "Sul'thraze",
+			"set": "rastakhan",
+			"type": "weapon",
+			"quality": "epic",
+			"mana": 6,
+			"attack": 4,
+			"durability": 4,
+			"text": "<b>Overkill</b>: You may attack again.",
+			"flavor": "“Griftah here with de Sul’chop. One chop, you get four damage. Two chops, eight damage - you gonna change de way you fight.\"",
+			"artist": "Jason Kang",
+			"collectible": true,
+			"hero": "warrior",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_325.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_325_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Overkill"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_305",
+			"dbfId": "50019",
+			"name": "A New Challenger...",
+			"set": "rastakhan",
+			"type": "spell",
+			"quality": "epic",
+			"mana": 7,
+			"text": "<b>Discover</b> a 6-Cost minion. Summon it with <b>Taunt</b> and <b>Divine Shield</b>.",
+			"flavor": "… Arrives? Approaches? TELL US ALREADY!",
+			"artist": "James Ryman",
+			"collectible": true,
+			"hero": "paladin",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_305.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_305_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Taunt"
+			  },
+			  {
+				"name": "Divine Shield"
+			  },
+			  {
+				"name": "Discover"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_550",
+			"dbfId": "50776",
+			"name": "Amani War Bear",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "common",
+			"mana": 7,
+			"attack": 5,
+			"health": 7,
+			"text": "<b>Rush</b>\\n<b>Taunt</b>",
+			"flavor": "\"I used to farm for hours! Now they just come in packs?\"",
+			"artist": "Vlad Botos",
+			"collectible": true,
+			"race": "Beast",
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_550.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_550_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Rush"
+			  },
+			  {
+				"name": "Taunt"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_257",
+			"dbfId": "50070",
+			"name": "Blood Troll Sapper",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "common",
+			"mana": 7,
+			"attack": 5,
+			"health": 8,
+			"text": "After a friendly minion dies, deal 2 damage to the enemy hero.",
+			"flavor": "Main supplier of Blood Troll Syrup to the Intercontinental Hut of Funnel Cakes.",
+			"artist": "Luke Mancini",
+			"collectible": true,
+			"hero": "warlock",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_257.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_257_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "TRL_260",
+			"dbfId": "50087",
+			"name": "Bwonsamdi, the Dead",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "legendary",
+			"mana": 7,
+			"attack": 7,
+			"health": 7,
+			"text": "[x]<b>Battlecry:</b> Draw 1-Cost\\nminions from your deck\\nuntil your hand is full.",
+			"flavor": "Everyone's dying to meet him.",
+			"artist": "James Ryman",
+			"collectible": true,
+			"elite": true,
+			"hero": "priest",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_260.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_260_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_569",
+			"dbfId": "51816",
+			"name": "Crowd Roaster",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "epic",
+			"mana": 7,
+			"attack": 7,
+			"health": 4,
+			"text": "[x]<b>Battlecry:</b> If you're holding\\na Dragon, deal 7 damage\\nto an enemy minion.",
+			"flavor": "Every major show has an opening act to warm up the crowd.",
+			"artist": "Mike Sass",
+			"collectible": true,
+			"race": "Dragon",
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_569.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_569_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_241",
+			"dbfId": "49985",
+			"name": "Gonk, the Raptor",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "legendary",
+			"mana": 7,
+			"attack": 4,
+			"health": 9,
+			"text": "After your hero attacks and_kills a minion, it may_attack again.",
+			"flavor": "There’s a word for Zandalari druids who refuse to pledge loyalty to Gonk: “Delicious.”",
+			"artist": "Christopher Hayes",
+			"collectible": true,
+			"elite": true,
+			"race": "Beast",
+			"hero": "druid",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_241.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_241_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "TRL_077",
+			"dbfId": "49847",
+			"name": "Gurubashi Hypemon",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "epic",
+			"mana": 7,
+			"attack": 5,
+			"health": 7,
+			"text": "<b>Battlecry:</b> <b>Discover</b> a 1/1 copy of a <b>Battlecry</b> minion. It costs (1).",
+			"flavor": "Throw your hands in the air!\\nThey cost (1).",
+			"artist": "Ivan Fomin",
+			"collectible": true,
+			"hero": "rogue",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_077.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_077_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_232",
+			"dbfId": "49973",
+			"name": "Ironhide Direhorn",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "common",
+			"mana": 7,
+			"attack": 7,
+			"health": 7,
+			"text": "<b>Overkill:</b> Summon a 5/5_Ironhide Runt.",
+			"flavor": "\"Boy! Bring me my masks and skull rams.\"",
+			"artist": "Luca Zontini",
+			"collectible": true,
+			"race": "Beast",
+			"hero": "druid",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_232.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_232_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Overkill"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_316",
+			"dbfId": "50088",
+			"name": "Jan'alai, the Dragonhawk",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "legendary",
+			"mana": 7,
+			"attack": 4,
+			"health": 4,
+			"text": " <i>({0} left!)</i>@ <i>(Ready!)</i>",
+			"flavor": "You mess with the Bird, you get the Firelord.",
+			"artist": "Jakub Kasber",
+			"collectible": true,
+			"elite": true,
+			"race": "Beast",
+			"hero": "mage",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_316.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_316_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_528",
+			"dbfId": "50416",
+			"name": "Linecracker",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "epic",
+			"mana": 7,
+			"attack": 5,
+			"health": 10,
+			"text": "<b>Overkill:</b> Double this minion's Attack.",
+			"flavor": "\"Tell me if you’ve heard this one!\"",
+			"artist": "Paul Mafayon",
+			"collectible": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_528.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_528_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Overkill"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_515",
+			"dbfId": "50395",
+			"name": "Rabble Bouncer",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "common",
+			"mana": 7,
+			"attack": 2,
+			"health": 7,
+			"text": "<b>Taunt</b>\\nCosts (1) less for each enemy minion.",
+			"flavor": "\"Shirt? Shoes!? No service!\"",
+			"artist": "Paul Mafayon",
+			"collectible": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_515.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_515_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Taunt"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_329",
+			"dbfId": "50074",
+			"name": "Akali, the Rhino",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "legendary",
+			"mana": 8,
+			"attack": 5,
+			"health": 5,
+			"text": "<b>Rush</b>\\n<b>Overkill:</b> Draw a <b>Rush</b> minion from your deck. Give it +5/+5.",
+			"flavor": "Most trolls only get to “AAAAHHH!” and don’t make it to the “kali” part.",
+			"artist": "Jim Nelson",
+			"collectible": true,
+			"elite": true,
+			"race": "Beast",
+			"hero": "warrior",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_329.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_329_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Rush"
+			  },
+			  {
+				"name": "Overkill"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_126",
+			"dbfId": "50774",
+			"name": "Captain Hooktusk",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "legendary",
+			"mana": 8,
+			"attack": 6,
+			"health": 3,
+			"text": "<b>Battlecry:</b> Summon 3 Pirates from your deck. Give them <b>Rush</b>.",
+			"flavor": "\"You three! Get in the cannon!\"",
+			"artist": "Matt Dixon",
+			"collectible": true,
+			"elite": true,
+			"race": "Pirate",
+			"hero": "rogue",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_126.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_126_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_537",
+			"dbfId": "50443",
+			"name": "Da Undatakah",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "legendary",
+			"mana": 8,
+			"attack": 8,
+			"health": 5,
+			"text": "[x]<b>Battlecry:</b> Gain the\\n<b>Deathrattle</b> effects of\\n3 friendly minions that\\ndied this game.",
+			"flavor": "First Deathrattle: Draw a card.\\nSecond: Draw 2 cards.\\nThird: Throw Mon'kind off a steel cage and plummet sixteen feet through an announcer’s table.",
+			"artist": "Clint Langley",
+			"collectible": true,
+			"elite": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_537.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_537_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  },
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_555",
+			"dbfId": "50991",
+			"name": "Demonbolt",
+			"set": "rastakhan",
+			"type": "spell",
+			"quality": "common",
+			"mana": 8,
+			"text": "Destroy a minion. Costs (1) less for each minion you control.",
+			"flavor": "Or as it’s known in troll, “De bolt, mon.”",
+			"artist": "Akkapoj T.",
+			"collectible": true,
+			"hero": "warlock",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_555.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_555_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "TRL_318",
+			"dbfId": "50095",
+			"name": "Hex Lord Malacrass",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "legendary",
+			"mana": 8,
+			"attack": 5,
+			"health": 5,
+			"text": "<b>Battlecry</b>: Add a copy of your opening hand to your hand <i>(except this card)</i>.",
+			"flavor": "Extremely awkward cousin of Hex Lord Malaclass.",
+			"artist": "Mike Sass",
+			"collectible": true,
+			"elite": true,
+			"hero": "mage",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_318.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_318_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_253",
+			"dbfId": "50034",
+			"name": "Hir'eek, the Bat",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "legendary",
+			"mana": 8,
+			"attack": 1,
+			"health": 1,
+			"text": "<b>Battlecry:</b> Fill your board with copies of this minion.",
+			"flavor": "REPEL’S EFFECT WORE OFF.",
+			"artist": "Slawomir Maniak",
+			"collectible": true,
+			"elite": true,
+			"race": "Beast",
+			"hero": "warlock",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_253.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_253_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_513",
+			"dbfId": "50392",
+			"name": "Mosh'ogg Enforcer",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "common",
+			"mana": 8,
+			"attack": 2,
+			"health": 14,
+			"text": "<b>Taunt</b>\\n<b>Divine Shield</b>",
+			"flavor": "Can’t break the rules if you can’t read ‘em.",
+			"artist": "Dan Scott",
+			"collectible": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_513.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_513_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Taunt"
+			  },
+			  {
+				"name": "Divine Shield"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_259",
+			"dbfId": "50082",
+			"name": "Princess Talanji",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "legendary",
+			"mana": 8,
+			"attack": 7,
+			"health": 5,
+			"text": "<b>Battlecry:</b> Summon all minions from your hand that_didn't start in your_deck.",
+			"flavor": "Everyone wants to be a princess, but nobody ever considers the size of the hat.",
+			"artist": "Alex Horley Ormandelli",
+			"collectible": true,
+			"elite": true,
+			"hero": "priest",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_259.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_259_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_246",
+			"dbfId": "50004",
+			"name": "Void Contract",
+			"set": "rastakhan",
+			"type": "spell",
+			"quality": "epic",
+			"mana": 8,
+			"text": "Destroy half of each player's deck.",
+			"flavor": "“YOU SIGNED WHAT?!”",
+			"artist": "Alex Horley Orlandelli",
+			"collectible": true,
+			"hero": "warlock",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_246.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_246_premium.gif",
+			"locale": "enUS"
+		  },
+		  {
+			"cardId": "TRL_542",
+			"dbfId": "50459",
+			"name": "Oondasta",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "legendary",
+			"mana": 9,
+			"attack": 7,
+			"health": 7,
+			"text": "<b>Rush</b>\\n<b>Overkill:</b> Summon a Beast from your hand.",
+			"flavor": "Adorning devilsaurs with armor and feathers is a respected job in troll culture, although it has a high turnover rate.",
+			"artist": "James Ryman",
+			"collectible": true,
+			"elite": true,
+			"race": "Beast",
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_542.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_542_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Rush"
+			  },
+			  {
+				"name": "Overkill"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_541",
+			"dbfId": "50454",
+			"name": "Hakkar, the Soulflayer",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "legendary",
+			"mana": 10,
+			"attack": 9,
+			"health": 6,
+			"text": "<b>Deathrattle:</b> Shuffle a Corrupted Blood into each player's deck.",
+			"flavor": "ATTENTION: Do not enter any major city while infected with the Corrupted Blood!",
+			"artist": "Izzy Hoover",
+			"collectible": true,
+			"elite": true,
+			"hero": "neutral",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_541.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_541_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Deathrattle"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_065",
+			"dbfId": "49819",
+			"name": "Zul'jin",
+			"set": "rastakhan",
+			"type": "hero",
+			"quality": "legendary",
+			"mana": 10,
+			"health": 30,
+			"armor": "5",
+			"text": "[x]<b>Battlecry:</b> Cast all spells\\nyou've played this game\\n<i>(targets chosen randomly)</i>.",
+			"flavor": "If you can dodge an axe, you can dodge a ball.",
+			"artist": "Alex Horley Orlandelli",
+			"collectible": true,
+			"elite": true,
+			"hero": "hunter",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_065.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_065_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Battlecry"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_408",
+			"dbfId": "50539",
+			"name": "Grave Horror",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "rare",
+			"mana": 12,
+			"attack": 7,
+			"health": 8,
+			"text": "[x]<b>Taunt</b>\\nCosts (1) less for each spell\\nyou've cast this game.",
+			"flavor": "Trolls can regenerate lost limbs, but this is what they do with the leftovers.",
+			"artist": "Dave Allsop",
+			"collectible": true,
+			"hero": "priest",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_408.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_408_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Taunt"
+			  }
+			]
+		  },
+		  {
+			"cardId": "TRL_300",
+			"dbfId": "49981",
+			"name": "Shirvallah, the Tiger",
+			"set": "rastakhan",
+			"type": "minion",
+			"quality": "legendary",
+			"mana": 25,
+			"attack": 7,
+			"health": 5,
+			"text": "[x]<b>Divine Shield</b>, <b>Rush</b>, <b>Lifesteal</b>\\n Costs (1) less for each Mana\\nyou've spent on spells.",
+			"flavor": "On bended knee Thekal placed his weapon upon Shirvallah’s altar, whereupon she slowly knocked it off with her paw.",
+			"artist": "Arthur Gimaldinov",
+			"collectible": true,
+			"elite": true,
+			"race": "Beast",
+			"hero": "paladin",
+			"img": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/TRL_300.png",
+			"imgGold": "http://media.services.zam.com/v1/media/byName/hs/cards/enus/animated/TRL_300_premium.gif",
+			"locale": "enUS",
+			"mechanics": [
+			  {
+				"name": "Divine Shield"
+			  },
+			  {
+				"name": "Rush"
+			  },
+			  {
+				"name": "Lifesteal"
 			  }
 			]
 		  }

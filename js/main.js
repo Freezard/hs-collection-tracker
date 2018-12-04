@@ -42,7 +42,8 @@ var HSCollectionTracker = (function() {
 		kotft: "kotft",
 		kobolds: "kobolds",
 		witchwood: "witchwood",
-		boomsday: "boomsday"
+		boomsday: "boomsday",
+		rastakhan: "rastakhan"
 	};
 
 	var standardSetsEnum = {
@@ -52,7 +53,8 @@ var HSCollectionTracker = (function() {
 		kotft: "kotft",
 		kobolds: "kobolds",
 		witchwood: "witchwood",
-		boomsday: "boomsday"
+		boomsday: "boomsday",
+		rastakhan: "rastakhan"
 	};
 
 	// The number of cards and craftable cards in each set.
@@ -76,7 +78,8 @@ var HSCollectionTracker = (function() {
 		kotft: "none",
 		kobolds: "none",
 		witchwood: "none",
-		boomsday: "none"
+		boomsday: "none",
+		rastakhan: "none"
 	};
 	
 	var packsEnum = {
@@ -89,7 +92,8 @@ var HSCollectionTracker = (function() {
 		kotft: "kotft",
 		kobolds: "kobolds",
 		witchwood: "witchwood",
-		boomsday: "boomsday"
+		boomsday: "boomsday",
+		rastakhan: "rastakhan"
 	};
 	
 	var rewardsEnum = {
@@ -98,7 +102,8 @@ var HSCollectionTracker = (function() {
 		kotft: "kotft",
 		kobolds: "kobolds",
 		witchwood: "witchwood",
-		boomsday: "boomsday"
+		boomsday: "boomsday",
+		rastakhan: "rastakhan"
 	};	
 	
 	var craftingCost = {
@@ -153,7 +158,7 @@ var HSCollectionTracker = (function() {
 	var currentDust = 0;
 	var disenchantedDust = 0;
 	
-	var version = 2.28;
+	var version = 2.29;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, uncraftable) {
@@ -665,7 +670,8 @@ var HSCollectionTracker = (function() {
 			"Knights of the Frozen Throne": setsEnum.kotft,
 			"Kobolds & Catacombs": setsEnum.kobolds,
 			"The Witchwood": setsEnum.witchwood,
-			"The Boomsday Project": setsEnum.boomsday
+			"The Boomsday Project": setsEnum.boomsday,
+			"Rastakhan's Rumble": setsEnum.rastakhan
 		};
 		
 		var importCardData = function (cards, set) {

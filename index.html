@@ -91,6 +91,7 @@
 			<li><a>Kobolds</a></li>
 			<li><a>Witchwood</a></li>
 			<li><a>Boomsday</a></li>
+			<li><a>Rastakhan</a></li>
 		  </ul>
 		</li>
 	    <li class="dropdown">
@@ -233,6 +234,7 @@
 	<option value="kobolds">Kobolds & Catacombs</option>
 	<option value="witchwood">The Witchwood</option>
 	<option value="boomsday">The Boomsday Project</option>
+	<option value="rastakhan">Rastakhan's Rumble</option>
 	<option selected disabled>---</option>
 	<option value="standard">Standard</option>
 	<option value="total">Overall</option>
@@ -269,6 +271,7 @@
 <script id="template-news" type="text/html">
 <div class="col-xs-12 side-page">
   <h2>News</h2>
+  <p><span class="special2">04-12-18</span> - Updated to Patch 13.0.0 (Rastakhan's Rumble).</p>
   <p><span class="special2">06-11-18</span> - Updated to Patch 12.4.0.</p>
   <p><span class="special2">21-10-18</span> - Updated to Patch 12.2.0.</p>
   <p><span class="special2">08-08-18</span> - Updated to Patch 12.0.0 (The Boomsday Project).</p>
@@ -366,6 +369,15 @@
 	      </tr>
 	    </table>  
       </div>
+	  <div class="col-xs-4">
+        <img src="images/pack_rastakhan.png" alt="Rastakhan pack" width="175" height="216">
+	    <table class="tablePack">
+	      <tr>
+	        <td>Average dust =</td>
+		    <td id="rastakhanAverageDust"></td>
+	      </tr>
+	    </table>
+      </div>
       <div class="col-xs-4">
         <img src="images/pack_boomsday.png" alt="Boomsday pack" width="160" height="216">
 	    <table class="tablePack">
@@ -374,8 +386,11 @@
 		    <td id="boomsdayAverageDust"></td>
 	      </tr>
 	    </table>  
-      </div>	  
-      <div class="col-xs-4">
+      </div>
+	</div>
+	<br>
+	<div class="row">
+	  <div class="col-xs-3">
         <img src="images/pack_witchwood.png" alt="Witchwood pack" width="160" height="216">
 	    <table class="tablePack">
 	      <tr>
@@ -384,10 +399,7 @@
 	      </tr>
 	    </table>  
       </div>
-	</div>
-	<br>
-	<div class="row">
-      <div class="col-xs-4">
+      <div class="col-xs-3">
         <img src="images/pack_kobolds.png" alt="K&C pack" width="160" height="216">
 	    <table class="tablePack">
 	      <tr>
@@ -396,7 +408,7 @@
 	      </tr>
 	    </table>
       </div>	
-      <div class="col-xs-4">
+      <div class="col-xs-3">
         <img src="images/pack_kotft.png" alt="KotFT pack" width="176" height="216">
 	    <table class="tablePack">
 	      <tr>
@@ -405,7 +417,7 @@
 	      </tr>
 	    </table>
       </div>	
-      <div class="col-xs-4">
+      <div class="col-xs-3">
         <img src="images/pack_ungoro.png" alt="Un'Goro pack" width="175" height="216">
 	    <table class="tablePack">
 	      <tr>
