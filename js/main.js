@@ -362,7 +362,7 @@ var HSCollectionTracker = (function() {
 		document.getElementById("link-recipes").addEventListener("click", displayRecipes);
 		document.getElementById("link-news").addEventListener("click", displayNews);
 		document.getElementById("link-about").addEventListener("click", displayAbout);
-		document.getElementById("link-importHearthPwn").addEventListener("click", displayImportHearthPwn);
+		//document.getElementById("link-importHearthPwn").addEventListener("click", displayImportHearthPwn);
 		document.getElementById("link-export").addEventListener("click", exportCollection);
 		document.getElementById("link-import").addEventListener("click", function() {
 			// Check for File API support
