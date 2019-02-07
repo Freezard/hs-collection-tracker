@@ -1,0 +1,21 @@
+{
+  "name": "hs-collection-tracker-gh-pages",
+  "version": "1.0.0",
+  "description": "Tracks your Hearthstone card collection. Lets you know exactly how many normal and golden cards are missing for each class and in total. Also shows the dust required to craft the missing cards, and the Pack Guide tells you the most efficient pack to buy based on your collection.",
+  "main": "js/main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack ./js/main.js --devtool source-map",
+    "serve": "http-server -o --cors"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2"
+  },
+  "devDependencies": {
+    "webpack": "^4.29.3",
+    "webpack-cli": "^3.2.3",
+    "http-server": "^0.11.1"
+  }
+}
