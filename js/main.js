@@ -1929,7 +1929,7 @@ var HSCollectionTracker = (function() {
 						var card = classes[className].cards[rarity][name];
 						
 						if(!card) {
-							console.error('Could not add card', {
+							console.log('Could not add card', {
 								name, className, rarity, copies, quality
 							})
 						}
