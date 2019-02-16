@@ -362,7 +362,7 @@ var HSCollectionTracker = (function() {
 		document.getElementById("link-recipes").addEventListener("click", displayRecipes);
 		document.getElementById("link-news").addEventListener("click", displayNews);
 		document.getElementById("link-about").addEventListener("click", displayAbout);
-		//document.getElementById("link-importHearthPwn").addEventListener("click", displayImportHearthPwn);
+		document.getElementById("link-importHearthPwn").addEventListener("click", displayImportHearthPwn);
 		document.getElementById("link-export").addEventListener("click", exportCollection);
 		document.getElementById("link-import").addEventListener("click", function() {
 			// Check for File API support
@@ -1875,14 +1875,80 @@ var HSCollectionTracker = (function() {
 		    "Please wait...";
 		
 		var username = evt.target["username"].value;
-		var cardIds = getData("card-ids");
-		var cardData = getData("all-collectibles");
 				
 		// Get the collection data
+		var xhttp = new XMLHttpRequest();
+		xhttp.responseType = "json";
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				var result = xhttp.response;
+				console.log(result);
+				
+				if (result == undefined) {
+					document.getElementById('importHearthPwnStatus').innerHTML =
+						"Importing failed. HearthPwn might be down";
+					return;
+				}
+				else if (Object.keys(result) == 0) {
+					// Error finding collection
+					document.getElementById('importHearthPwnStatus').innerHTML =
+						"Wrong username or collection set to private";
+					return;
+				}
+				else {
+					var cardIds = getData("card-ids");
+					var cardData = getData("all-collectibles");
+					
+					initCollection();
+					
+					// Loop through the collection
+					for (var id in result) {
+						var name = "";
+						var className = "";
+						var rarity = "";
+						var copies = 0;
+						var quality = "";
+					
+						// Get the name of the card by matching HearthPwn ids.
+						// Can grab name from HTML, but may contain odd symbols
+						for (var i = 0; i < cardIds.length; i++)
+							if (id == cardIds[i].hpid) {
+								name = cardIds[i].name;
+								break;
+							}
+					
+						// Get other necessary card data
+						for (var j = 0; j < cardData.cards.length; j++)
+							if (name == cardData.cards[j].name) {
+								className = cardData.cards[j].hero;
+								rarity = cardData.cards[j].quality;
+								break;
+							}
+						
+						// Add the card info to HSCT
+						if (name != "" && className != "") {
+							var card = classes[className].cards[rarity][name];
+							updateCard(card, "normal", Math.min(result[id].normal, getMaxCopies(rarity)));
+							updateCard(card, "golden", Math.min(result[id].golden, getMaxCopies(rarity)));
+						}
+					}
+					
+					document.getElementById('importHearthPwnStatus').innerHTML =
+						"Collection imported successfully";
+						
+					updateLocalStorage();
+				}
+			}
+		};
+		xhttp.open("GET", "http://localhost:8080/scrape?user=" + username, true);
+		xhttp.send();
+	}
+	
+	function fix() {
 		YUI().use('yql', function(Y) {
 			Y.YQL('select * from htmlstring where ' +
-			    'url="http://www.hearthpwn.com/members/' + username + '/collection" ' +
-			    'and xpath="//div[contains(@class, \'owns-card\')]"', function(r) {
+			    'url="https://www.hearthpwn.com/cards?display=1&filter-premium=1&filter-set=114&filter-unreleased=0&page=2" ' +
+			    'and xpath="//a[contains(@class, \'manual-data-link\')]"', function(r) {
 				
 				console.log(r);
 				
@@ -1899,9 +1965,7 @@ var HSCollectionTracker = (function() {
 						"Importing failed. Try editing and saving collection on HearthPwn again";
 					return;
 				}
-				
-				initCollection();
-				
+								
 				// Trim HTML source and convert to JSON
 				var html = r.query.results.result.replace(/&#13;/g, '');
 				html = html.replace(/\n/ig, '');
@@ -1910,52 +1974,14 @@ var HSCollectionTracker = (function() {
 				
 				// Loop through the collection
 				for (var i = 0; i < results.length; i++) {
-					var externalID = results[i].attr["data-id"];
-					var name = "";
-					var className = "";
-					var rarity = "";
-					var copies = 0;
-					var quality = "";
-				
-					// Get the name of the card by matching HearthPwn ids.
-					// Can grab name from HTML, but may contain odd symbols
-					for (var j = 0; j < cardIds.length; j++)
-						if (externalID == cardIds[j].hpid) {
-							name = cardIds[j].name;
-							break;
-						}
-				
-					// Get other necessary card data
-					for (var k = 0; k < cardData.cards.length; k++)
-						if (name == cardData.cards[k].name) {
-							className = cardData.cards[k].hero;
-							rarity = cardData.cards[k].quality;
-							break;
-						}
-				
-					// Get the quality and the amount of copies
-					if (results[i].attr["data-is-gold"] == "False") {
-						quality = "normal";
-						copies = Math.min(results[i].child[0].child[1].attr["data-card-count"],
-						    getMaxCopies(rarity));
-					}
-					else {
-						quality = "golden";
-						copies = Math.min(results[i].child[0].child[1].attr["data-card-count"],
-						    getMaxCopies(rarity));
-					}
+					var hpid = results[i].attr["data-id"];
+					var name = results[i].child[0].text;
+					name = name.replace("&amp;#27;", "'");
 					
-					// Add the card info to HSCT
-				    if (name != "" && className != "") {
-					    var card = classes[className].cards[rarity][name];
-					    updateCard(card, quality, copies);
-					}
+					console.log('{"hpid":' + hpid + ',"set":"' + 'boomsday' + '","name":"' + name + '"},');
+				
 				}
-				
-				document.getElementById('importHearthPwnStatus').innerHTML =
-				    "Collection imported successfully";
-					
-				updateLocalStorage();
+
 				}, {
 			    format: 'json',
 				env: 'store://datatables.org/alltableswithkeys'
@@ -2008,7 +2034,9 @@ var HSCollectionTracker = (function() {
 			initHearthpwnTooltips();
 			initSelectedQuality();
 			initEventListeners();
-			displayTracker();
+			displayImportHearthPwn();
+			
+			//fix();
 		}
 	};
 })();
