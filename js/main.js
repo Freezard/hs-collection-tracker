@@ -158,7 +158,7 @@ var HSCollectionTracker = (function() {
 	var currentDust = 0;
 	var disenchantedDust = 0;
 	
-	var version = 2.29;
+	var version = 2.3;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, uncraftable) {
@@ -1692,7 +1692,7 @@ var HSCollectionTracker = (function() {
 		document.getElementById("containerRow").innerHTML = template;
 		
 		// If news page was updated, remove the news highlight when clicking on the button
-	    var news = document.getElementById("link-news");
+		var news = document.getElementById("link-news");
 		news.className = news.className.replace(" news", "");
 		
 		document.getElementById("header-center").style.visibility = "hidden";
@@ -1941,7 +1941,6 @@ var HSCollectionTracker = (function() {
 			}
 		};
 		xhttp.open("GET", "/scrape?user=" + username, true);
-		//xhttp.open("GET", "http://localhost:3000/scrape?user=" + username, true);
 		xhttp.send();
 	}
 	
