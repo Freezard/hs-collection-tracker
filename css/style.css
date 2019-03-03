@@ -1,0 +1,704 @@
+body {
+  background-color: #FFFFFF;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  padding-top: 70px;
+}
+#wrapper {
+  min-height: 100%;
+  position: relative;
+}
+#header {
+  background-color: #E3D3C8;
+}
+#header .title {
+  font-size: 18px;
+  color: #999999;
+}
+#header-center {
+  width: 280px;
+}
+#header-center ul {  
+  list-style-type: none;
+  padding: 0;
+  text-align: center;
+}
+#header-center li a {
+  float: left;
+  border-top: 4px inset #E3D3C8;  
+  font-size: 10px;
+  width: 120px;
+  top: 10px;
+  line-height: 5px;
+  color: black;
+  font-weight: bold;
+  padding: 10px 0px;
+  margin: 0px 10px;
+  border-radius: 4px 4px 0px 0px;
+  text-decoration: none;
+  text-transform: uppercase;
+  background-color: #FFFFFF;
+  cursor: pointer;
+}
+#files {
+  display: none;
+}
+#selectedQualityNormal.selected {
+  border-top-color: #98FF21;
+  box-shadow: inset 0 0 40px 1px #98FF21;
+}
+#selectedQualityGolden.selected {
+  border-top-color: gold;
+  box-shadow: inset 0 0 40px 1px gold;
+}
+#selectedQualityNormal:hover {
+  box-shadow: inset 0 0 40px 1px #98FF21;
+}
+#selectedQualityGolden:hover {
+  box-shadow: inset 0 0 40px 1px gold;
+}
+.navbar-right li a {
+  cursor: pointer;
+}
+/* ------------------------------------------- */
+#container {  
+  margin: 0px auto;
+  max-width: 940px;
+}
+#content {
+  float: left;
+}
+/* ---------------- classTabs ---------------- */
+#classTabs ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;  
+  text-align: center;
+}
+#classTabs li a {
+  float: left;
+  overflow: hidden;
+  text-align: center;
+  border: 5px double #98BF21;
+  border-bottom-width: 0;
+  text-decoration: none;
+  font-size: 10px;
+  min-height: 54px;
+  width: 100%;
+  color: black;
+  font-weight: bold;
+  padding: 10px 0;
+  margin: 0px 0px;
+  border-radius: 4px 4px 0px 0px;
+  text-transform: uppercase;
+  background-color: white;
+  cursor: pointer;
+}
+#classTabs .all, #classTabsBar.all {
+  background-color: #bdbdbd;
+  border-color: #939393;
+}
+
+#classTabs .neutral, #classTabsBar.neutral {
+  background-color: #736358;
+  border-color: #938378;
+}
+#classTabs .druid, #classTabsBar.druid {
+  background-color: #855C33;
+  border-color: #C59C73;
+}
+#classTabs .hunter, #classTabsBar.hunter {
+  background-color: #709020;
+  border-color: #90B040;
+}
+#classTabs .mage, #classTabsBar.mage{
+  background-color: #80B2FF;
+  border-color: #A0D2FF;
+}
+#classTabs .paladin, #classTabsBar.paladin {
+  background-color: #EBC84D;
+  border-color: #FBE86D;
+}
+#classTabs .priest, #classTabsBar.priest {
+  background-color: #F7FAFA;
+  border-color: #DDDDDD;
+}
+#classTabs .rogue, #classTabsBar.rogue {
+  background-color: #1C1C1C;
+  border-color: #3C3C3C;
+  color: #C59C73;
+}
+#classTabs .shaman, #classTabsBar.shaman {
+  background-color: #191987;
+  border-color: #3939A7;
+  color: #C59C73;
+  /*color: #A9A9F7;*/
+}
+#classTabs .warlock, #classTabsBar.warlock {
+  background-color: #470047;
+  border-color: #672067;
+  color: #C59C73;
+}
+#classTabs .warrior, #classTabsBar.warrior {
+  background-color: #6B0000;
+  border-color: #8B2020;
+  color: #C59C73;
+}
+#classTabsBar {
+  height: 25px;
+  border: 3px ridge;
+}
+#classTabsBar div {
+  padding: 0;
+}
+#classTabsBar ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;  
+}
+#classTabsBar li a {
+  float: left;
+  text-decoration: none;
+  font-size: 8px;
+  overflow: hidden;
+  color: black;
+  font-weight: bold;
+  padding: 2px 8px;
+  margin: 0px 1px;
+  margin-top: 2px;
+  border-radius: 4px 4px 4px 4px;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+#classTabsBar #filtersLeft .dropdown-menu li a {
+  float: none;
+  margin: 0px;
+  border-radius: 0px;
+}
+#classTabsBar #filtersRight li a {
+  float: right;
+}
+#classTabsBar.all li a {
+  background-color: #bdbdbd;
+  box-shadow: inset 0px 0px 2px 1px #939393;
+}
+#classTabsBar.all li a:hover, #classTabsBar.all li a.selected {
+  background-color: #939393;
+}
+#classTabsBar.neutral li a {
+  background-color: #736358;
+  box-shadow: inset 0px 0px 2px 1px #938378;
+}
+#classTabsBar.neutral li a:hover, #classTabsBar.neutral li a.selected {
+  background-color: #938378;
+}
+#classTabsBar.druid li a {
+  background-color: #855C33;
+  box-shadow: inset 0px 0px 2px 1px #C59C73;
+}
+#classTabsBar.druid li a:hover, #classTabsBar.druid li a.selected {
+  background-color: #C59C73;
+}
+#classTabsBar.hunter li a {
+  background-color: #709020;
+  box-shadow: inset 0px 0px 2px 1px #90B040;
+}
+#classTabsBar.hunter li a:hover, #classTabsBar.hunter li a.selected {
+  background-color: #90B040;
+}
+#classTabsBar.mage li a {
+  background-color: #80B2FF;
+  box-shadow: inset 0px 0px 2px 1px #A0D2FF;
+}
+#classTabsBar.mage li a:hover, #classTabsBar.mage li a.selected {
+  background-color: #A0D2FF;
+}
+#classTabsBar.paladin li a {
+  background-color: #EBC84D;
+  box-shadow: inset 0px 0px 2px 1px #FBE86D;
+}
+#classTabsBar.paladin li a:hover, #classTabsBar.paladin li a.selected {
+  background-color: #FBE86D;
+}
+#classTabsBar.priest li a {
+  background-color: #F7FAFA;
+  box-shadow: inset 0px 0px 2px 1px #DDDDDD;
+}
+#classTabsBar.priest li a:hover, #classTabsBar.priest li a.selected {
+  background-color: #DDDDDD;
+}
+#classTabsBar.rogue li a {
+  color: #C59C73;
+  background-color: #1C1C1C;
+  box-shadow: inset 0px 0px 2px 1px #3C3C3C;
+}
+#classTabsBar.rogue li a:hover, #classTabsBar.rogue li a.selected {
+  background-color: #3C3C3C;
+}
+#classTabsBar.shaman li a {
+  color: #C59C73;
+  background-color: #191987;
+  box-shadow: inset 0px 0px 2px 1px #3939A7;
+}
+#classTabsBar.shaman li a:hover, #classTabsBar.shaman li a.selected {
+  background-color: #3939A7;
+}
+#classTabsBar.warlock li a {
+  color: #C59C73;
+  background-color: #470047;
+  box-shadow: inset 0px 0px 2px 1px #672067;
+}
+#classTabsBar.warlock li a:hover, #classTabsBar.warlock li a.selected {
+  background-color: #672067;
+}
+#classTabsBar.warrior li a {
+  color: #C59C73;
+  background-color: #6B0000;
+  box-shadow: inset 0px 0px 2px 1px #8B2020;
+}
+#classTabsBar.warrior li a:hover, #classTabsBar.warrior li a.selected {
+  background-color: #8B2020;
+}
+/* ------------------------------------------- */
+/* ---------------- classCards --------------- */
+#classCards ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  text-align: center;
+}
+#classCards li a {
+  box-shadow: inset 0px 0px 0px 1px #DDDDDD;
+  text-decoration: none;  
+  font-size: 10px;
+  overflow: hidden;
+  display: block;
+  color: black;
+  font-weight: bold;
+  padding: 10px 8px;
+  margin: 0px 1px;
+  margin-bottom: 2px;
+  border-radius: 4px 4px 4px 4px;
+  text-transform: uppercase;
+  background-color: white;
+  cursor: pointer;
+}
+#classCards li a.buttonAll {
+  box-shadow: inset 0px 0px 0px 1px #DDDDDD;
+  margin-bottom: 0px;
+  padding: 0;
+  border-radius: 0;
+  background-color: rgba(150, 200, 255, 1);
+  transition: padding 1s, color 2s;
+  color: transparent;
+  border: 0px;
+  margin: 0px 1px;
+}
+#classCards li a.buttonAll:hover {
+  background-color: rgba(200, 230, 255, 1);
+  padding: 10px 0px;
+  color: black;
+}
+#classCards .free .normal1 {
+  background-color: rgba(174, 163, 60, 0.2);
+}
+#classCards .free .golden1{
+  box-shadow: inset 0px 0px 0px 1px #DDDDDD, inset 0px -5px 0px 0px rgba(174, 163, 60, 0.7);
+}
+#classCards .free .normal2 {
+  background-color: rgba(174, 163, 60, 0.5);
+}
+#classCards .free .golden2 {
+  box-shadow: inset 0px 0px 0px 1px #DDDDDD, inset 0px -4px 0px 0px rgba(255, 225, 0, 0.7);
+}
+#classCards .common .normal1 {
+  background-color: rgba(94, 111, 121, 0.2);
+}
+#classCards .common .golden1 {
+  box-shadow: inset 0px 0px 0px 1px #DDDDDD, inset 0px -5px 0px 0px rgba(94, 111, 121, 0.5);
+}
+#classCards .common .golden2 {
+  box-shadow: inset 0px 0px 0px 1px #DDDDDD, inset 0px -4px 0px 0px rgba(255, 225, 0, 0.7);
+}
+#classCards .common .normal2 {
+  background-color: rgba(94, 111, 121, 0.5);
+}
+#classCards .rare .normal1 {
+  background-color: rgba(43, 136, 234, 0.2);
+}
+#classCards .rare .golden1 {
+  box-shadow: inset 0px 0px 0px 1px #DDDDDD, inset 0px -5px 0px 0px rgba(43, 136, 234, 0.7);
+}
+#classCards .rare .golden2 {
+  box-shadow: inset 0px 0px 0px 1px #DDDDDD, inset 0px -4px 0px 0px rgba(255, 225, 0, 0.7);
+}
+#classCards .rare .normal2 {
+  background-color: rgba(43, 136, 234, 0.5);
+}
+#classCards .epic .normal1 {
+  background-color: rgba(227, 62, 255, 0.2);
+}
+#classCards .epic .golden1 {
+  box-shadow: inset 0px 0px 0px 1px #DDDDDD, inset 0px -5px 0px 0px rgba(227, 62, 255, 0.5);
+}
+#classCards .epic .golden2 {
+  box-shadow: inset 0px 0px 0px 1px #DDDDDD, inset 0px -4px 0px 0px rgba(255, 225, 0, 0.7);
+}
+#classCards .epic .normal2 {
+  background-color: rgba(227, 62, 255, 0.5);
+}
+#classCards .legendary .normal1 {
+  background-color: rgba(255, 149, 9, 0.6);
+}
+#classCards .legendary .golden1 {
+  box-shadow: inset 0px 0px 0px 1px #DDDDDD, inset 0px -4px 0px 0px rgba(255, 120, 0, 0.7);
+}
+#classCards a:hover {
+  border: 2px solid transparent;
+  margin: -2px -1px 0 -1px;
+  box-shadow: none;
+}
+#classCards .free a:hover {
+  border-color: rgba(174, 163, 60, 0.3);
+}
+#classCards .common a:hover {
+  border-color: rgba(94, 111, 121, 0.3);
+}
+#classCards .rare a:hover {
+  border-color: rgba(43, 136, 234, 0.3);
+}
+#classCards .epic a:hover {
+  border-color: rgba(227, 62, 255, 0.3);
+}
+#classCards .legendary a:hover {
+  border-color: rgba(255, 149, 9, 0.3);
+}
+/* ------------------------------------------ */
+#missingCardsWrap {
+  position: relative;
+  float: left;
+}
+/* ---------------- missingCards ---------------- */
+#missingCards {
+  position: fixed;
+  margin-top: 55px;
+  background-color: #E3D3C8;
+  border: 1px solid black;
+  font-family: "Palatino Linotype", Palatino, Palladio, "URW Palladio L", "Book Antiqua", serif;
+}
+#missingCards p {
+  color: #CAA597;
+  background-color: #736358;
+  text-align: center;
+  height: 30px;
+  line-height: 30px;
+  margin-bottom: 0;
+}
+#missingCards p[id^=missing]{
+  color: #8A6557;
+  background-color: #C59C73;
+  height: 20px;
+  line-height: 20px;
+  font-weight: bold;
+}
+#missingCards table {
+  width: 100%;
+}
+#missingCards td {
+  padding: 0px 5px;
+  font-size: 16px;
+}
+#missingCards hr {
+  margin: 0px 0 0px 0;
+  border-top: 1px solid #736358;
+}
+#missingCards div.center {  
+  text-align: center;
+}
+.special {
+  font-weight: bold;
+  color: #B3A398;
+}
+.special2 {
+  font-weight: bold;
+  color: #AA5577;
+}
+h2 {
+  color: #736358;
+}
+#missingCards h4 {
+  color: #552255;
+  text-align: center;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  font-size: 16px;
+  font-weight: bold;
+}
+#missingCards td[id*="Dust"], .dust {
+  color: rgba(50, 150, 215, 1.0);
+}
+#missingCards td[id*="Normal"], .normal {
+  color: rgba(50, 150, 0, 1.0);
+}
+#missingCards td[id*="Golden"], .golden {
+  color: rgba(200, 150, 0, 1.0);
+}
+/* ---------------------------------------------- */
+#link-news.news {
+  color: #635348;
+  background-color: #F3D358;
+}
+.side-page {
+  border: 1px solid;
+  background-color: #E3D3C8;
+  padding-bottom: 10px;
+}
+.side-page .mainDiv {
+  margin-top: 30px;
+}
+.side-page img {
+  display: block;
+  margin: auto;
+  margin-bottom: 20px;
+}
+.side-page table {
+  width: 100%;
+  font-size: 12px;
+  outline: solid 1px;
+}
+.side-page .tablePack {
+  
+}
+.side-page .tablePack td {
+  background-color: #E5BC97;
+  font-size: 14px;
+  text-align: right;
+}
+.side-page td[id*="AverageDust"] {
+  color: rgba(50, 150, 215, 1.0);
+  font-weight: bold;
+  text-align: left;
+  font-size: 18px;
+  padding-right: 30px;
+}
+.side-page .tableDeck td {
+  background-color: #FFFFFF;
+  font-size: 14px;
+  border: 1px dashed #999999;
+  text-align: center;
+}
+.side-page .tableDeck td.normal {
+  background-color: #98FF21;
+}
+.side-page .tableDeck td.golden {
+  background-color: gold;
+}
+.side-page .tableDeck td.dust {
+  background-color: rgba(50, 150, 215, 0.4);
+}
+.side-page .tableDeck td.progress {
+  background-color: rgba(215, 150, 50, 0.4);
+}
+.side-page #progressTable {
+  font-size: 10px;
+}
+.side-page #select {
+  margin-bottom: 10px;
+}
+#progressTable .neutral td {
+  background-color: #736358;
+  border-bottom: 1px solid #635348;
+}
+#progressTable .druid td {
+  background-color: #855C33;
+  border-bottom: 1px solid #754C23;
+}
+#progressTable .hunter td {
+  background-color: #709020;
+  border-bottom: 1px solid #607010;
+}
+#progressTable .mage td {
+  background-color: #80B2FF;
+  border-bottom: 1px solid #70A2EF;
+}
+#progressTable .paladin td {
+  background-color: #EBC84D;
+  border-bottom: 1px solid #DBB83D;
+}
+#progressTable .priest td {
+  background-color: #F7FAFA;
+  border-bottom: 1px solid #E7EAEA;
+}
+#progressTable .rogue td {
+  background-color: #1C1C1C;
+  color: #C59C73;
+  border-bottom: 1px solid #0C0C0C;
+}
+#progressTable .shaman td {
+  background-color: #191987;
+  color: #C59C73;
+  border-bottom: 1px solid #090977;
+}
+#progressTable .warlock td {
+  background-color: #470047;
+  color: #C59C73;
+  border-bottom: 1px solid #370037;
+}
+#progressTable .warrior td {
+  background-color: #6B0000;
+  color: #C59C73;
+  border-bottom: 1px solid #5B0000;
+}
+#progressTable .total td {
+  border-bottom: 1px solid #B57C63;
+}
+.side-page tr.normal td {
+  /*background-color: #C59C73;
+  color: #000000;*/
+}
+.side-page tr.golden td {
+  /*background-color: #736358;
+  color: rgba(200, 150, 0, 1.0);*/
+}
+.side-page td, .side-page th {
+  background-color: #C59C73;
+  color: #000000;
+  padding: 5px 5px;
+}
+.side-page th {
+  text-align: center;
+}
+.side-page hr {
+  border-top: 2px dotted #736358;
+}
+.side-page div.center {
+  text-align: center;
+}
+#footer {
+  position: relative;  
+  clear: left;
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  vertical-align: middle;
+  line-height: 50px;
+  margin: auto;
+  margin-top: 10px;
+
+}
+[contenteditable="true"] {
+  border-bottom-style: solid;
+  border-bottom-width: 1px;
+  border-bottom-color: red;
+  white-space: normal;
+  overflow: hidden;		
+} 
+[contenteditable="true"] br {
+  display:none;
+}
+[contenteditable="true"] * {
+  display: block;
+  white-space:normal;
+}
+.noselect {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.col-xs-5ths,
+.col-sm-5ths,
+.col-md-5ths,
+.col-lg-5ths {
+    position: relative;
+    min-height: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.col-xs-5ths {
+    width: 20%;
+    float: left;
+}
+
+@media (min-width: 768px) {
+    .col-sm-5ths {
+        width: 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 992px) {
+    .col-md-5ths {
+        width: 20%;
+        float: left;
+    }
+}
+
+@media (min-width: 1200px) {
+    .col-lg-5ths {
+        width: 20%;
+        float: left;
+    }
+}
+.col-xs-11ths,
+.col-sm-11ths,
+.col-md-11ths,
+.col-lg-11ths {
+    position: relative;
+    min-height: 1px;
+    padding-right: 10px;
+    padding-left: 10px;
+}
+
+.col-xs-11ths {
+    width: calc(100%/11);
+    float: left;
+}
+
+@media (min-width: 768px) {
+    .col-sm-11ths {
+        width: calc(100%/11);
+        float: left;
+    }
+}
+
+@media (min-width: 992px) {
+    .col-md-11ths {
+        width: calc(100%/11);
+        float: left;
+    }
+}
+
+@media (min-width: 1200px) {
+    .col-lg-11ths {
+        width: calc(100%/11);
+        float: left;
+    }
+}
+.nopadding {
+  padding-left: 0;
+  padding-right: 0;
+}
+/*
+#content:after {
+    content : "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-image: url(hs.jpg);
+    width: 100%;
+    height: 100%;
+    opacity : 0.1;
+    z-index: -1;
+	background-size: 100% 100%;
+}
+
+   #98004a
+   #ff3296
+*/

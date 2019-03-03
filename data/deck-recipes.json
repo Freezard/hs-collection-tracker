@@ -1,0 +1,636 @@
+{
+	"druid": [
+	    {
+			"name": "Classic Druid",
+			"deck": {
+				"Innervate": 2,
+				"Claw": 1,
+				"Kobold Geomancer": 2,
+				"Novice Engineer": 2,
+				"Wild Growth": 2,	
+				"Wrath": 2,
+				"Earthen Ring Farseer": 1,
+				"Harvest Golem": 2,
+				"Chillwind Yeti": 2,
+				"Keeper of the Grove": 2,
+				"Sen'jin Shieldmasta": 1,
+				"Swipe": 2,
+				"Druid of the Claw": 2,
+				"Boulderfist Ogre": 2,
+				"Ancient of War": 2,
+				"Ironbark Protector": 2,
+				"Cenarius": 1
+			}
+		},
+	    {
+			"name": "The Lotus' Golems",
+			"deck": {
+				"Innervate": 2,
+				"Earthen Scales": 2,
+				"Jade Idol": 2,
+				"Loot Hoarder": 2,
+				"Wild Growth": 2,
+				"Wrath": 2,
+				"Jade Blossom": 2,
+				"Fandral Staghelm": 1,
+				"Jade Spirit": 2,
+				"Swipe": 2,
+				"Druid of the Claw": 2,
+				"Lotus Agents": 2,
+				"Lunar Visions": 2,
+				"Aya Blackpaw": 1,
+				"Jade Behemoth": 2,
+				"Ironbark Protector": 2
+			}
+		},
+	    {
+			"name": "Might of the Dino King",
+			"deck": {
+				"Innervate": 2,
+				"Earthen Scales": 2,
+				"Jungle Giants": 1,
+				"Sunfury Protector": 1,	
+				"Wild Growth": 2,
+				"Wrath": 2,
+				"Coldlight Oracle": 1,
+				"Elder Longneck": 2,
+				"Shellshifter": 2,
+				"Swipe": 2,
+				"Nourish": 2,
+				"Stranglethorn Tiger": 2,
+				"Menagerie Warden": 2,
+				"Giant Anaconda": 2,
+				"The Curator": 1,
+				"Alexstrasza": 1,
+				"Cenarius": 1,
+				"Kun the Forgotten King": 1,
+				"Tyrantus": 1
+			}
+		}
+	],
+	"hunter": [
+	    {
+			"name": "Classic Hunter",
+			"deck": {
+				"Arcane Shot": 2,
+				"Hunter's Mark": 2,
+				"Leper Gnome": 2,
+				"Bloodfen Raptor": 2,	
+				"Dire Wolf Alpha": 1,
+				"Explosive Trap": 1,
+				"Freezing Trap": 2,
+				"Scavenging Hyena": 2,
+				"Snake Trap": 1,
+				"Animal Companion": 2,
+				"Eaglehorn Bow": 2,
+				"Jungle Panther": 1,
+				"Kill Command": 2,
+				"Unleash the Hounds": 2,
+				"Houndmaster": 2,
+				"Tundra Rhino": 1,
+				"Savannah Highmane": 2,
+				"King Krush": 1
+			}
+		},
+	    {
+			"name": "Deathtrap",
+			"deck": {
+				"Arcane Shot": 2,
+				"Hunter's Mark": 2,
+				"Jeweled Macaw": 2,
+				"Tracking": 2,	
+				"Cat Trick": 2,
+				"Explosive Trap": 2,
+				"Freezing Trap": 2,
+				"Grievous Bite": 2,
+				"Snake Trap": 2,
+				"Animal Companion": 2,
+				"Cloaked Huntress": 2,
+				"Eaglehorn Bow": 2,
+				"Unleash the Hounds": 1,
+				"Savannah Highmane": 2,
+				"Call of the Wild": 2,
+				"Yogg-Saron, Hope's End": 1
+			}
+		},
+	    {
+			"name": "Dinomancer",
+			"deck": {
+				"Alleycat": 2,
+				"Jeweled Macaw": 2,
+				"Cat Trick": 1,
+				"Crackling Razormaw": 2,	
+				"Dinomancy": 2,
+				"Freezing Trap": 1,
+				"Kindly Grandmother": 2,
+				"Stubborn Gastropod": 1,
+				"Animal Companion": 2,
+				"Eaglehorn Bow": 2,
+				"Eggnapper": 1,
+				"Kill Command": 2,
+				"Rat Pack": 2,
+				"Houndmaster": 2,
+				"Infested Wolf": 2,
+				"Nesting Roc": 1,
+				"Tundra Rhino": 1,
+				"Savannah Highmane": 2
+			}
+		}		
+	],
+	"mage": [
+	    {
+			"name": "Classic Mage",
+			"deck": {
+				"Arcane Missiles": 2,
+				"Mana Wyrm": 2,
+				"Mirror Image": 2,
+				"Acidic Swamp Ooze": 2,	
+				"Frostbolt": 2,
+				"Kobold Geomancer": 2,
+				"Sorcerer's Apprentice": 2,
+				"Arcane Intellect": 2,
+				"Mirror Entity": 2,
+				"Fireball": 2,
+				"Polymorph": 2,
+				"Water Elemental": 2,
+				"Archmage": 2,
+				"Archmage Antonidas": 1,
+				"Flamestrike": 2,
+				"Pyroblast": 1
+			}
+		},
+	    {
+			"name": "Kabalist Mixology",
+			"deck": {
+				"Babbling Book": 1,
+				"Mistress of Mixtures": 1,
+				"Bloodmage Thalnos": 1,
+				"Dirty Rat": 1,
+				"Doomsayer": 1,
+				"Frostbolt": 1,
+				"Primordial Glyph": 1,
+				"Shimmering Tempest": 1,
+				"Acolyte of Pain": 1,
+				"Earthen Ring Farseer": 1,
+				"Gluttonous Ooze": 1,
+				"Ice Block": 1,
+				"Kabal Courier": 1,
+				"Manic Soulcaster": 1,
+				"Mind Control Tech": 1,
+				"Tar Creeper": 1,
+				"Twilight Flamecaller": 1,
+				"Volcanic Potion": 1,
+				"Fireball": 1,
+				"Kazakus": 1,
+				"Polymorph": 1,
+				"Water Elemental": 1,
+				"Cabalist's Tome": 1,
+				"Second-Rate Bruiser": 1,
+				"Blizzard": 1,
+				"Archmage Antonidas": 1,
+				"Firelands Portal": 1,
+				"Flamestrike": 1,
+				"Inkmaster Solia": 1,
+				"Alexstrasza": 1
+			}
+		},
+	    {
+			"name": "Flames of the Phoenix",
+			"deck": {
+				"Fire Fly": 1,
+				"Mana Wyrm": 2,
+				"Bloodmage Thalnos": 1,
+				"Flame Geyser": 2,
+				"Frostbolt": 2,
+				"Primordial Glyph": 2,
+				"Pyros": 1,
+				"Shimmering Tempest": 2,
+				"Sorcerer's Apprentice": 2,
+				"Volatile Elemental": 1,
+				"Arcane Intellect": 2,
+				"Fireball": 2,
+				"Steam Surger": 2,
+				"Water Elemental": 2,
+				"Servant of Kalimos": 2,
+				"Blazecaller": 2,
+				"Firelands Portal": 1,
+				"Ozruk": 1
+			}
+		}
+	],
+	"paladin": [
+	    {
+			"name": "Classic Paladin",
+			"deck": {
+				"Acidic Swamp Ooze": 2,
+				"Argent Protector": 2,
+				"Equality": 2,
+				"River Crocolisk": 2,
+				"Aldor Peacekeeper": 2,
+				"Harvest Golem": 2,
+				"Shattered Sun Cleric": 2,
+				"Blessing of Kings": 2,
+				"Consecration": 2,
+				"Sen'jin Shieldmasta": 2,
+				"Truesilver Champion": 2,
+				"Silver Hand Knight": 2,
+				"Boulderfist Ogre": 2,
+				"Guardian of Kings": 1,
+				"Stormwind Champion": 1,
+				"Lay on Hands": 1,
+				"Tirion Fordring": 1
+			}
+		},
+	    {
+			"name": "The Mean Market",
+			"deck": {
+				"Forbidden Healing": 1,
+				"Smuggler's Run": 2,
+				"Doomsayer": 2,
+				"Equality": 2,	
+				"Grimestreet Outfitter": 2,
+				"Loot Hoarder": 2,
+				"Wild Pyromancer": 2,
+				"Acolyte of Pain": 2,
+				"Aldor Peacekeeper": 2,
+				"Devilsaur Egg": 2,
+				"Wickerflame Burnbristle": 1,
+				"Truesilver Champion": 2,
+				"Doppelgangster": 2,
+				"Grimestreet Enforcer": 2,
+				"Ancient of Blossoms": 2,
+				"Don Han'Cho": 1,
+				"Tirion Fordring": 1
+			}
+		},
+	    {
+			"name": "Primordial Blessings",
+			"deck": {
+				"Adaptation": 2,
+				"Argent Squire": 2,
+				"Blessing of Might": 2,
+				"Blessing of Wisdom": 2,	
+				"Divine Strength": 2,
+				"Hand of Protection": 2,
+				"Humility": 2,
+				"The Last Kaleidosaur": 1,
+				"Hydrologist": 2,
+				"Mana Addict": 1,
+				"Primalfin Champion": 2,
+				"Devilsaur Egg": 2,
+				"Divine Favor": 2,
+				"Blessing of Kings": 1,
+				"The Voraxx": 1,
+				"Truesilver Champion": 2,
+				"Dinosize": 1,
+				"Yogg-Saron, Hope's End": 1
+			}
+		}
+	],
+	"priest": [
+	    {
+			"name": "Classic Priest",
+			"deck": {
+				"Circle of Healing": 2,
+				"Northshire Cleric": 2,
+				"Power Word: Shield": 2,
+				"Wild Pyromancer": 2,	
+				"Earthen Ring Farseer": 2,
+				"Injured Blademaster": 2,
+				"Shadow Word: Death": 2,
+				"Thoughtsteal": 2,
+				"Auchenai Soulpriest": 2,
+				"Chillwind Yeti": 2,
+				"Lightspawn": 1,
+				"Sen'jin Shieldmasta": 2,
+				"Holy Nova": 2,
+				"Cabal Shadow Priest": 1,
+				"Temple Enforcer": 2,
+				"Prophet Velen": 1,
+				"Mind Control": 1
+			}
+		},
+	    {
+			"name": "C'Thun's Clutch",
+			"deck": {
+				"Circle of Healing": 2,
+				"Northshire Cleric": 2,
+				"Power Word: Shield": 2,
+				"Beckoner of Evil": 2,
+				"Disciple of C'Thun": 2,
+				"Injured Blademaster": 2,
+				"Kabal Talonpriest": 2,
+				"Shadow Word: Death": 2,
+				"Twilight Elder": 2,
+				"Auchenai Soulpriest": 2,
+				"Hooded Acolyte": 2,
+				"Darkshire Alchemist": 2,
+				"Holy Nova": 1,
+				"Twilight Darkmender": 2,
+				"Twin Emperor Vek'lor": 1,
+				"Doomcaller": 1,
+				"C'Thun": 1
+			}
+		},
+	    {
+			"name": "Awakenings",
+			"deck": {
+				"Awaken the Makers": 1,
+				"Crystalline Oracle": 2,
+				"Mistress of Mixtures": 2,
+				"Power Word: Shield": 2,	
+				"Bloodmage Thalnos": 1,
+				"Loot Hoarder": 2,
+				"Shadow Word: Pain": 2,
+				"Volatile Elemental": 2,
+				"Mirage Caller": 1,
+				"Shadow Word: Death": 2,
+				"Barnes": 1,
+				"Infested Tauren": 1,
+				"Shifting Shade": 2,
+				"Spiritsinger Umbra": 1,
+				"Tortollan Shellraiser": 2,
+				"Onyx Bishop": 2,
+				"Cairne Bloodhoof": 1,
+				"Dragonfire Potion": 2,
+				"N'Zoth, the Corruptor": 1
+			}
+		}		
+	],
+	"rogue": [
+	    {
+			"name": "Classic Rogue",
+			"deck": {
+				"Backstab": 2,
+				"Abusive Sergeant": 2,
+				"Deadly Poison": 2,
+				"Leper Gnome": 2,	
+				"Southsea Deckhand": 2,
+				"Acidic Swamp Ooze": 2,
+				"Bloodsail Raider": 2,
+				"Bluegill Warrior": 2,
+				"Eviscerate": 2,
+				"Knife Juggler": 2,
+				"Sap": 2,
+				"Edwin VanCleef": 1,
+				"Wolfrider": 2,
+				"Dark Iron Dwarf": 2,
+				"Dread Corsair": 1,
+				"Assassin's Blade": 1,
+				"Sprint": 1
+			}
+		},
+	    {
+			"name": "Gadgetzan Dockside",
+			"deck": {
+				"Backstab": 2,
+				"Bladed Cultist": 2,
+				"Cold Blood": 2,
+				"Deadly Poison": 2,
+				"Patches the Pirate": 1,
+				"Small-Time Buccaneer": 2,
+				"Southsea Deckhand": 2,
+				"Swashburglar": 2,
+				"Bloodsail Raider": 2,
+				"Defias Ringleader": 2,
+				"Eviscerate": 2,
+				"Sap": 1,
+				"Undercity Huckster": 2,
+				"SI:7 Agent": 2,
+				"Southsea Captain": 2,
+				"Assassin's Blade": 1,
+				"Leeroy Jenkins": 1
+			}
+		},
+	    {
+			"name": "The Dig",
+			"deck": {
+				"Backstab": 2,
+				"Preparation": 2,
+				"Shadowstep": 2,
+				"Patches the Pirate": 1,
+				"Southsea Deckhand": 2,
+				"Stonetusk Boar": 2,
+				"The Caverns Below": 1,
+				"Bloodmage Thalnos": 1,
+				"Eviscerate": 2,
+				"Gadgetzan Ferryman": 2,
+				"Loot Hoarder": 2,
+				"Novice Engineer": 2,
+				"Sap": 2,
+				"Fan of Knives": 2,
+				"Mimic Pod": 2,
+				"SI:7 Agent": 2,
+				"Thistle Tea": 1
+			}
+		}
+	],
+	"shaman": [
+	    {
+			"name": "Classic Shaman",
+			"deck": {
+				"Argent Squire": 2,
+				"Earth Shock": 1,
+				"Lightning Bolt": 2,
+				"Acidic Swamp Ooze": 2,	
+				"Flametongue Totem": 2,
+				"Kobold Geomancer": 2,
+				"Murloc Tidehunter": 2,
+				"Rockbiter Weapon": 2,
+				"Stormforged Axe": 2,
+				"Hex": 2,
+				"Lightning Storm": 1,
+				"Mana Tide Totem": 1,
+				"Shattered Sun Cleric": 2,
+				"Chillwind Yeti": 2,
+				"Bloodlust": 1,
+				"Doomhammer": 1,
+				"Fire Elemental": 2,
+				"Al'Akir the Windlord": 1
+			}
+		},
+	    {
+			"name": "Murloc Association",
+			"deck": {
+				"Grimscale Oracle": 2,
+				"Murloc Tidecaller": 2,
+				"Unite the Murlocs": 1,
+				"Bilefin Tidehunter": 2,
+				"Blowgill Sniper": 2,
+				"Bluegill Warrior": 2,
+				"Flametongue Totem": 2,
+				"Murloc Tidehunter": 2,
+				"Rockpool Hunter": 2,
+				"Coldlight Seer": 2,
+				"Murloc Warleader": 2,
+				"Primalfin Lookout": 2,
+				"Call in the Finishers": 2,
+				"Gentle Megasaur": 2,
+				"Finja, the Flying Star": 1,
+				"Corrupted Seer": 2
+			}
+		},
+	    {
+			"name": "Storm, Earth, and Fire",
+			"deck": {
+				"Fire Fly": 2,
+				"Bloodmage Thalnos": 1,
+				"Fire Plume Harbinger": 2,
+				"Flametongue Totem": 2,	
+				"Kobold Geomancer": 2,
+				"Maelstrom Portal": 2,
+				"Spirit Claws": 2,
+				"Hex": 2,
+				"Hot Spring Guardian": 1,
+				"Igneous Elemental": 2,
+				"Lightning Storm": 1,
+				"Tol'vir Stoneshaper": 1,
+				"Servant of Kalimos": 2,
+				"Fire Elemental": 2,
+				"Blazecaller": 2,
+				"Stone Sentinel": 2,
+				"Kalimos, Primal Lord": 1,
+				"Ozruk": 1
+			}
+		}
+	],
+	"warlock": [
+	    {
+			"name": "Classic Warlock",
+			"deck": {
+				"Abusive Sergeant": 2,
+				"Elven Archer": 2,
+				"Flame Imp": 2,
+				"Mortal Coil": 2,	
+				"Soulfire": 2,
+				"Voidwalker": 2,
+				"Acidic Swamp Ooze": 2,
+				"Knife Juggler": 2,
+				"Murloc Tidehunter": 2,
+				"Harvest Golem": 1,
+				"Razorfen Hunter": 2,
+				"Shattered Sun Cleric": 2,
+				"Dark Iron Dwarf": 2,
+				"Defender of Argus": 2,
+				"Frostwolf Warlord": 2,
+				"Lord Jaraxxus": 1
+			}
+		},
+	    {
+			"name": "Demons of the Kabal",
+			"deck": {
+				"Flame Imp": 2,
+				"Malchezaar's Imp": 2,
+				"Mistress of Mixtures": 1,
+				"Soulfire": 2,
+				"Voidwalker": 2,
+				"Demonfire": 2,
+				"Bloodfury Potion": 2,
+				"Earthen Ring Farseer": 2,
+				"Blastcrystal Potion": 1,
+				"Crystalweaver": 2,
+				"Defender of Argus": 2,
+				"Bane of Doom": 1,
+				"Doomguard": 2,
+				"Felfire Potion": 1,
+				"Kabal Trafficker": 2,
+				"Siphon Soul": 1,
+				"Abyssal Enforcer": 2,
+				"Lord Jaraxxus": 1
+			}
+		},
+	    {
+			"name": "Feed the Void",
+			"deck": {
+				"Lakkari Sacrifice": 1,
+				"Malchezaar's Imp": 2,
+				"Soulfire": 2,
+				"Bloodbloom": 1,	
+				"Clutchmother Zavas": 1,
+				"Corrupting Mist": 2,
+				"Darkshire Librarian": 2,
+				"Earthen Ring Farseer": 2,
+				"Silverware Golem": 2,
+				"Tar Creeper": 2,
+				"Lakkari Felhound": 2,
+				"Doomguard": 2,
+				"Tar Lurker": 2,
+				"Cruel Dinomancer": 2,
+				"Felfire Potion": 1,
+				"Siphon Soul": 2,
+				"Twisting Nether": 1,
+				"Lord Jaraxxus": 1
+			}
+		}
+	],
+	"warrior": [
+	    {
+			"name": "Classic Warrior",
+			"deck": {
+				"Inner Rage": 2,
+				"Whirlwind": 2,
+				"Amani Berserker": 2,
+				"Battle Rage": 1,
+				"Cruel Taskmaster": 2,
+				"Execute": 2,
+				"Fiery War Axe": 2,
+				"Acolyte of Pain": 2,
+				"Frothing Berserker": 2,
+				"Raging Worgen": 2,
+				"Shattered Sun Cleric": 1,
+				"Shield Block": 2,
+				"Gnomish Inventor": 1,
+				"Kor'kron Elite": 2,
+				"Arcanite Reaper": 2,
+				"Gurubashi Berserker": 2,
+				"Grommash Hellscream": 1
+			}
+		},
+	    {
+			"name": "The Goons' Empire",
+			"deck": {
+				"I Know a Guy": 1,
+				"Shield Slam": 2,
+				"Armorsmith": 2,
+				"Cornered Sentry": 1,
+				"Doomsayer": 2,	
+				"Fiery War Axe": 2,
+				"Acolyte of Pain": 2,
+				"Grimestreet Smuggler": 2,
+				"Ravaging Ghoul": 2,
+				"Shield Block": 1,
+				"Bloodhoof Brave": 2,
+				"Brass Knuckles": 2,
+				"Grimy Gadgeteer": 1,
+				"Alley Armorsmith": 2,
+				"Brawl": 1,
+				"Doppelgangster": 2,
+				"Sudden Genesis": 1,
+				"Don Han'Cho": 1,
+				"Gorehowl": 1
+			}
+		},
+	    {
+			"name": "Guarding the Shard",
+			"deck": {
+				"Fire Plume's Heart": 1,
+				"Cornered Sentry": 2,
+				"Cruel Taskmaster": 1,
+				"Execute": 2,	
+				"Fiery War Axe": 2,
+				"Public Defender": 1,
+				"Slam": 2,
+				"Stolen Goods": 2,
+				"Stubborn Gastropod": 2,
+				"Acolyte of Pain": 2,
+				"Ravaging Ghoul": 2,
+				"Stonehill Defender": 2,
+				"Bloodhoof Brave": 2,
+				"Alley Armorsmith": 2,
+				"Brawl": 2,
+				"Direhorn Hatchling": 2,
+				"Second-Rate Bruiser": 1
+			}
+		}		
+	]
+}

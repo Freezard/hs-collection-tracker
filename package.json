@@ -1,0 +1,24 @@
+{
+  "name"         : "hs-collection-tracker",
+  "version"      : "0.0.1",
+  "description"  : "Hiroku app",
+  "main"         : "server.js",
+  "scripts": {
+  "start": "node server.js"
+  },
+  "repository": {
+  "type": "git",
+  "url": ""
+  },
+  "author"       : "",
+  "license": "ISC",
+  "bugs": {
+  "url": ""
+  },
+  "homepage": "",
+  "dependencies" : {
+    "express"    : "latest",
+    "request"    : "latest",
+    "cheerio"    : "latest"
+  }
+}
