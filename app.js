@@ -1,21 +1,12 @@
-var express = require('express');
-var fs = require('fs');
-var request = require('request');
-var cheerio = require('cheerio');
-var path = require('path');
-var app = express();
+const express = require('express');
+const fs = require('fs');
+const request = require('request');
+const cheerio = require('cheerio');
+const path = require('path');
+const app = express();
+const { check, validationResult } = require('express-validator/check');
 
 const port = process.env.PORT || 3000;
-
-// Add headers for local testing
-/*app.use(function (req, res, next) {
-    res.setHeader('Access-Control-Allow-Origin', req.headers.origin);
-    res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, PATCH, DELETE');
-    res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With,content-type');
-    res.setHeader('Access-Control-Allow-Credentials', true);
-
-    next();
-});*/
 
 app.use("/css",  express.static(__dirname + '/css'));
 app.use("/js", express.static(__dirname + '/js'));
@@ -26,7 +17,9 @@ app.get('/',function(req,res) {
   res.sendFile(path.join(__dirname + '/index.html'));
 });
 
-app.get("/scrape", function(req, res) {
+app.get("/scrape", [
+  check("user").trim().escape()
+], function(req, res) {
 	var url = "https://www.hearthpwn.com/members/" + req.query.user + "/collection";
 
 	var promise = new Promise(function(resolve, reject) {

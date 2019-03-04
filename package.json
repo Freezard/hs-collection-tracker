@@ -1,24 +1,25 @@
 {
-  "name"         : "hs-collection-tracker",
-  "version"      : "0.0.1",
-  "description"  : "Hiroku app",
-  "main"         : "server.js",
+  "name": "hs-collection-tracker",
+  "version": "0.0.1",
+  "description": "Heroku app",
+  "main": "app.js",
   "scripts": {
-  "start": "node server.js"
+    "start": "node app.js"
   },
   "repository": {
-  "type": "git",
-  "url": ""
+    "type": "git",
+    "url": ""
   },
-  "author"       : "",
+  "author": "",
   "license": "ISC",
   "bugs": {
-  "url": ""
+    "url": ""
   },
   "homepage": "",
-  "dependencies" : {
-    "express"    : "4.16.4",
-    "request"    : "2.88.0",
-    "cheerio"    : "1.0.0-rc.2"
+  "dependencies": {
+    "cheerio": "1.0.0-rc.2",
+    "express": "4.16.4",
+    "express-validator": "^5.3.1",
+    "request": "2.88.0"
   }
 }
