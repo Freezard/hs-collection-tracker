@@ -1,25 +1,21 @@
 {
-  "name"         : "hs-collection-tracker",
-  "version"      : "0.0.1",
-  "description"  : "Hiroku app",
-  "main"         : "server.js",
+  "name": "hs-collection-tracker-gh-pages",
+  "version": "1.0.0",
+  "description": "Tracks your Hearthstone card collection. Lets you know exactly how many normal and golden cards are missing for each class and in total. Also shows the dust required to craft the missing cards, and the Pack Guide tells you the most efficient pack to buy based on your collection.",
+  "main": "js/main.js",
   "scripts": {
-  "start": "node server.js"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack ./js/main.js --devtool source-map",
+    "serve": "http-server -o --cors"
   },
-  "repository": {
-  "type": "git",
-  "url": ""
-  },
-  "author"       : "",
+  "author": "",
   "license": "ISC",
-  "bugs": {
-  "url": ""
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2"
   },
-  "homepage": ""
-  },
-  "dependencies" : {
-    "express"    : "latest",
-    "request"    : "latest",
-    "cheerio"    : "latest"
+  "devDependencies": {
+    "webpack": "^4.29.3",
+    "webpack-cli": "^3.2.3",
+    "http-server": "^0.11.1"
   }
 }

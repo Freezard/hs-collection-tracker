@@ -1,6 +1,8 @@
 /*  main.js
     Hearthstone Collection Tracker
 */
+var cheerio = require("cheerio");
+
 var HSCollectionTracker = (function() {
 	/*********************************************************
 	***************************DATA***************************
@@ -1875,34 +1877,35 @@ var HSCollectionTracker = (function() {
 		    "Please wait...";
 		
 		var username = evt.target["username"].value;
-				
-		// Get the collection data
-		var xhttp = new XMLHttpRequest();
-		xhttp.responseType = "json";
-		xhttp.onreadystatechange = function() {
-			if (this.readyState == 4 && this.status == 200) {
-				var result = xhttp.response;
-				console.log(result);
-				
-				if (result == undefined) {
+		var cardIds = getData("card-ids");
+		var cardData = getData("all-collectibles");
+		
+		fetch('https://cors-anywhere.herokuapp.com/http://www.hearthpwn.com/members/' + username + '/collection', { mode: 'cors' })
+			.then(function(response) {
+				if (response.status !== 200) {
 					document.getElementById('importHearthPwnStatus').innerHTML =
 						"Importing failed. HearthPwn might be down";
-					return;
+					return;	
 				}
-				else if (Object.keys(result) == 0) {
-					// Error finding collection
-					document.getElementById('importHearthPwnStatus').innerHTML =
-						"Wrong username or collection set to private";
-					return;
-				}
-				else {
-					var cardIds = getData("card-ids");
-					var cardData = getData("all-collectibles");
+				
+				response.text().then(function(data) {
+					var normalizedData = cheerio.load(data, {
+						normalizeWhitespace: true
+					});
+					var ownedCards = normalizedData('div.owns-card');
+					
+					if (ownedCards.length == 0) {
+						// Error finding collection
+						document.getElementById('importHearthPwnStatus').innerHTML =
+							"Wrong username or collection set to private";
+						return;
+					}
 					
 					initCollection();
-					
-					// Loop through the collection
-					for (var id in result) {
+
+					ownedCards.each(function(i, element)
+					{
+						var externalID = element.attribs["data-id"];
 						var name = "";
 						var className = "";
 						var rarity = "";
@@ -1911,86 +1914,98 @@ var HSCollectionTracker = (function() {
 					
 						// Get the name of the card by matching HearthPwn ids.
 						// Can grab name from HTML, but may contain odd symbols
-						for (var i = 0; i < cardIds.length; i++)
-							if (id == cardIds[i].hpid) {
-								name = cardIds[i].name;
+						for (var j = 0; j < cardIds.length; j++)
+							if (externalID == cardIds[j].hpid) {
+								name = cardIds[j].name;
 								break;
 							}
 					
 						// Get other necessary card data
-						for (var j = 0; j < cardData.cards.length; j++)
-							if (name == cardData.cards[j].name) {
-								className = cardData.cards[j].hero;
-								rarity = cardData.cards[j].quality;
+						for (var k = 0; k < cardData.cards.length; k++)
+							if (name == cardData.cards[k].name) {
+								className = cardData.cards[k].hero;
+								rarity = cardData.cards[k].quality;
 								break;
 							}
+					
+						// Get the quality and the amount of copies
+						if (element.attribs["data-is-gold"] == "False") {
+							quality = "normal";
+						}
+						else {
+							quality = "golden";
+						}
 						
+						copies = Math.min(element.children[1].children[3].attribs["data-card-count"], getMaxCopies(rarity));
+
 						// Add the card info to HSCT
 						if (name != "" && className != "") {
 							var card = classes[className].cards[rarity][name];
-							updateCard(card, "normal", Math.min(result[id].normal, getMaxCopies(rarity)));
-							updateCard(card, "golden", Math.min(result[id].golden, getMaxCopies(rarity)));
+							
+							if(!card) {
+								console.log('Could not add card', {
+									name, className, rarity, copies, quality
+								})
+							}
+							else {
+								updateCard(card, quality, copies);
+							}
+
 						}
-					}
-					
+					});
+				
 					document.getElementById('importHearthPwnStatus').innerHTML =
 						"Collection imported successfully";
 						
 					updateLocalStorage();
-				}
-			}
-		};
-		xhttp.open("GET", "http://localhost:8080/scrape?user=" + username, true);
-		xhttp.send();
-	}
-	
-	function fix() {
-		YUI().use('yql', function(Y) {
-			Y.YQL('select * from htmlstring where ' +
-			    'url="https://www.hearthpwn.com/cards?display=1&filter-premium=1&filter-set=114&filter-unreleased=0&page=2" ' +
-			    'and xpath="//a[contains(@class, \'manual-data-link\')]"', function(r) {
-				
-				console.log(r);
-				
-				try {
-					// Error finding collection
-					if (r.query.results.result == "") {
-						document.getElementById('importHearthPwnStatus').innerHTML =
-							"Wrong username or collection set to private";
-						return;
-					}
-				}
-				catch(e) {
-					document.getElementById('importHearthPwnStatus').innerHTML =
-						"Importing failed. Try editing and saving collection on HearthPwn again";
-					return;
-				}
-								
-				// Trim HTML source and convert to JSON
-				var html = r.query.results.result.replace(/&#13;/g, '');
-				html = html.replace(/\n/ig, '');
-				html = html.replace(/\s\s+/g, '');
-				var results = html2json(html).child; // Array of collection
-				
-				// Loop through the collection
-				for (var i = 0; i < results.length; i++) {
-					var hpid = results[i].attr["data-id"];
-					var name = results[i].child[0].text;
-					name = name.replace("&amp;#27;", "'");
-					
-					console.log('{"hpid":' + hpid + ',"set":"' + 'boomsday' + '","name":"' + name + '"},');
-				
-				}
 
-				}, {
-			    format: 'json',
-				env: 'store://datatables.org/alltableswithkeys'
-				}, {
-				base: '://query.yahooapis.com/v1/public/yql?', //Different base URL for private data
-				proto: 'https' //Connect using SSL
+				});
+			})
+			.catch(function(err) {
+				// Error finding collection
+				document.getElementById('importHearthPwnStatus').innerHTML =
+					"Wrong username or collection set to private";
+				return;
 			});
-		});
 	}
+
+		// Get the collection data
+		// YUI().use('yql', function(Y) {
+		// 	Y.YQL('select * from htmlstring where ' +
+		// 	    'url="http://www.hearthpwn.com/members/' + username + '/collection" ' +
+		// 	    'and xpath="//div[contains(@class, \'owns-card\')]"', function(r) {
+				
+		// 		console.log(r);
+				
+		// 		try {
+		// 			// Error finding collection
+		// 			if (r.query.results.result == "") {
+		// 				document.getElementById('importHearthPwnStatus').innerHTML =
+		// 					"Wrong username or collection set to private";
+		// 				return;
+		// 			}
+		// 		}
+		// 		catch(e) {
+		// 			document.getElementById('importHearthPwnStatus').innerHTML =
+		// 				"Importing failed. Try editing and saving collection on HearthPwn again";
+		// 			return;
+		// 		}
+				
+		// 		initCollection();
+				
+		// 		// Trim HTML source and convert to JSON
+		// 		var html = r.query.results.result.replace(/&#13;/g, '');
+		// 		html = html.replace(/\n/ig, '');
+		// 		html = html.replace(/\s\s+/g, '');
+				
+		// 		}, {
+		// 	    format: 'json',
+		// 		env: 'store://datatables.org/alltableswithkeys'
+		// 		}, {
+		// 		base: '://query.yahooapis.com/v1/public/yql?', //Different base URL for private data
+		// 		proto: 'https' //Connect using SSL
+		// 	});
+		// });
 	/*********************************************************
 	***********************MAIN FUNCTION**********************
 	*********************************************************/
@@ -2034,9 +2049,7 @@ var HSCollectionTracker = (function() {
 			initHearthpwnTooltips();
 			initSelectedQuality();
 			initEventListeners();
-			displayImportHearthPwn();
-			
-			//fix();
+			displayTracker();
 		}
 	};
 })();
