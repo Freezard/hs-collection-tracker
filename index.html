@@ -1,12 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Hearthstone Collection Tracker - Tracks your card collection</title>
-<!-- Bootstrap CSS CDN -->
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="css/style.css">
 <!-- Global site tag (gtag.js) - Google Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=UA-62707621-1"></script>
 <script>
@@ -16,27 +10,14 @@
 
   gtag('config', 'UA-62707621-1');
 </script>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hearthstone Collection Tracker - Tracks your card collection</title>
+<!-- Bootstrap CSS CDN -->
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/style.css">
 </head>
 <body>
-  <!-- The Modal -->
-  <div class="modal fade" id="myModal">
-    <div class="modal-dialog modal-dialog-centered">
-      <div class="modal-content">
-             
-        <!-- Modal body -->
-        <div class="modal-body">
-          Site moved to <b><a href="https://hs-collection-tracker.herokuapp.com/">https://hs-collection-tracker.herokuapp.com/</a></b><br><br>
-		  
-		  Use Export/Import to move your collection. This address will soon be taken down.
-        </div>
-        
-        <!-- Modal footer -->
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
-  </div>
 <div id="wrapper">
   <nav id="header" class="navbar navbar-default navbar-fixed-top">
     <div class="container-fluid">
@@ -265,6 +246,7 @@
   <p>Here you can import a collection from <a href="http://www.hearthpwn.com/" target="_blank">HearthPwn</a>. Be sure to have your collection set to public.</p>
   <p>Note: Whenever you switch visibility of your collection, golden cards will be removed, 
      so you'll have to use Innkeeper to sync golden cards again.</p>
+  <p><b>Warning: There is currently a bug where Innkeeper doesn't import all the neutral cards.</b></p>
   <form id="formImportHearthPwn">
     HearthPwn username:
     <input type="text" name="username" value="">
