@@ -34628,7 +34628,7 @@
 			"mana": 3,
 			"attack": 2,
 			"health": 4,
-			"text": "<b>Battlecry:</b> If you control a_<b>Secret</b>, play a <b>Secret</b> from_your deck.",
+			"text": "<b>Battlecry:</b> If you control a_<b>Secret</b>, cast a <b>Secret</b> from_your deck.",
 			"flavor": "Knew Mysterious Challenger back when he was a Mysterious Squire.",
 			"artist": "Alex Horley Ormandelli",
 			"collectible": true,

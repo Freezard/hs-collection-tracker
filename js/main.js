@@ -876,11 +876,11 @@ var HSCollectionTracker = (function() {
 	// Changes the selected quality through clicking on the top buttons
 	function setSelectedQuality(element) {
 		if (element.getAttribute("id") === "selectedQualityNormal")
-			document.getElementById("selectedQualityGolden").removeAttribute("class");
-		else document.getElementById("selectedQualityNormal").removeAttribute("class");
+			document.getElementById("selectedQualityGolden").classList.remove("selected");
+		else document.getElementById("selectedQualityNormal").classList.remove("selected");
 		
 		selectedQuality = element.innerHTML.toLowerCase();
-		element.setAttribute("class", "selected");
+		element.classList.add("selected");
     }
 	
 	function getMaxCopies(rarity) {
@@ -979,15 +979,15 @@ var HSCollectionTracker = (function() {
 			
 			// Set the initial filter as selected
 			if (filterBySet === filterListItem.innerHTML.toLowerCase()) {
-				filterListItem.setAttribute("class", "selected");
+				filterListItem.classList.add("selected");
 				
 				//  In case element is part of a dropdown-menu
 				var dropdown = filterListItem.parentElement.
-					parentElement.parentElement.childNodes[1];
+					parentElement.childNodes[1];
 					
 				if (dropdown.getAttribute("data-toggle")) {
-					dropdown.innerHTML = filterListItem.innerHTML + '<span class="caret"></span>';
-					dropdown.setAttribute("class", "selected");
+					dropdown.innerHTML = filterListItem.innerHTML;
+					dropdown.classList.add("selected");
 				}			
 			}
 			
@@ -1004,18 +1004,18 @@ var HSCollectionTracker = (function() {
 					// Deselect all other filters
 					var filterListLeft = document.getElementById("filtersLeft").getElementsByTagName("a");
 					for (var i = 0; i < filterListLeft.length; i++)
-                      filterListLeft[i].removeAttribute("class");
+                      filterListLeft[i].classList.remove("selected");
 				  
 					//  In case element is part of a dropdown-menu
 				    var dropdown = filterListItem.parentElement.
-					    parentElement.parentElement.childNodes[1];
-					
+					    parentElement.childNodes[1];
+
 					if (dropdown.getAttribute("data-toggle")) {
-						dropdown.innerHTML = filterListItem.innerHTML + '<span class="caret"></span>';
-						dropdown.setAttribute("class", "selected");
+						dropdown.innerHTML = filterListItem.innerHTML;
+						dropdown.classList.add("selected");
 					}
 						
-				    filterListItem.setAttribute("class", "selected");
+				    filterListItem.classList.add("selected");
 					
 					// Display the cards and missing data with the new filter
 					displayCards(selectedClass);
@@ -1031,7 +1031,7 @@ var HSCollectionTracker = (function() {
 		var filterListRight = document.getElementById("filtersRight").getElementsByTagName("a")[0];
 		// Set the button as selected if the setting is turned on
 		if (settings.showOnlyMissingCards)
-			filterListRight.setAttribute("class", "selected");
+			filterListRight.classList.add("selected");
 		
 		// Function for when clicking the showOnlyMissingCards button
 	    filterListRight.addEventListener("click", function() {
@@ -1041,8 +1041,8 @@ var HSCollectionTracker = (function() {
 			
 			// Display the new change in the CSS
 			if (settings.showOnlyMissingCards)
-			    filterListRight.setAttribute("class", "selected");
-			else filterListRight.removeAttribute("class");
+			    filterListRight.classList.add("selected");
+			else filterListRight.classList.remove("selected");
 			
 			// Display the cards with the new setting
 			displayCards(selectedClass);
@@ -1313,7 +1313,7 @@ var HSCollectionTracker = (function() {
 		// Create deck name row
 		var tr = document.createElement("tr");
 		var td = document.createElement("td");
-		td.setAttribute("class", "progress");
+		td.classList.add("completion");
 		td.setAttribute("colspan", 3);
 		td.innerHTML = deckName || "Deck List";
 		tr.appendChild(td);
@@ -1365,7 +1365,7 @@ var HSCollectionTracker = (function() {
 		// Create dust and progress row
 		tr = document.createElement("tr");
 		td = document.createElement("td");
-		td.setAttribute("class", "progress");
+		td.setAttribute("class", "completion");
 		if (!settings.excludeGoldenCards)
 			td.innerHTML =  Math.floor((currentDust.normal + currentDust.golden) 
 				/ (totalDust.normal + totalDust.golden) * 100) + "%";
@@ -1424,8 +1424,13 @@ var HSCollectionTracker = (function() {
 		if (Object.keys(rarities).length != 1)
 		    rarities.all = "all";
 		
+		var div = document.createElement("div");
+		div.setAttribute("class", "table-responsive");
+		
 		var table = document.createElement("table");
 		table.setAttribute("id", "progressTable");
+		table.setAttribute("class", "table table-bordered");
+		div.appendChild(table);
 		
 		// Create the header
 		var tr = document.createElement("tr");
@@ -1464,7 +1469,7 @@ var HSCollectionTracker = (function() {
 		if (!settings.excludeGoldenCards)
 		    table.appendChild(createProgressTableRow("golden", setList, rarities, "total"));
 		
-		return table;
+		return div;
 	}
 	
 	// Creates and returns a progress table row
@@ -1665,7 +1670,7 @@ var HSCollectionTracker = (function() {
 		div2.setAttribute("class", "row");
 		for (var i = 0; i < recipes[className].length; i++) {
 		    var div3 = document.createElement("div");
-		    div3.setAttribute("class", "col-xs-4");
+		    div3.setAttribute("class", "col");
 		    div3.appendChild(createDeckTable(recipes[className][i].deck,
 			    recipes[className][i].name));
 		    div2.appendChild(div3);
@@ -1680,7 +1685,7 @@ var HSCollectionTracker = (function() {
 		var template = document.getElementById("template-about").innerHTML;
 		document.getElementById("containerRow").innerHTML = template;
 		
-		document.getElementById("header-center").style.visibility = "hidden";
+		document.getElementById("qualityButtons").style.visibility = "hidden";
 		
 		document.oncontextmenu = function() {
             return true;
@@ -1695,7 +1700,7 @@ var HSCollectionTracker = (function() {
 		var news = document.getElementById("link-news");
 		news.className = news.className.replace(" news", "");
 		
-		document.getElementById("header-center").style.visibility = "hidden";
+		document.getElementById("qualityButtons").style.visibility = "hidden";
 		
 		document.oncontextmenu = function() {
             return true;
@@ -1714,7 +1719,7 @@ var HSCollectionTracker = (function() {
 		
 		document.getElementById("imageClassicPack").addEventListener("click", switchClassicPack);
 		
-		document.getElementById("header-center").style.visibility = "hidden";
+		document.getElementById("qualityButtons").style.visibility = "hidden";
 		
 		document.oncontextmenu = function() {
             return true;
@@ -1730,7 +1735,7 @@ var HSCollectionTracker = (function() {
 		
 		displayDeckRecipes();
 		
-		document.getElementById("header-center").style.visibility = "hidden";
+		document.getElementById("qualityButtons").style.visibility = "hidden";
 		
 		document.oncontextmenu = function() {
             return true;
@@ -1756,7 +1761,7 @@ var HSCollectionTracker = (function() {
 		document.getElementById("checkboxHideFreeCards").checked = settings.hideFreeCards;
 		
 		// Make sure the quality buttons are visible while on the tracker
-		document.getElementById("header-center").style.visibility = "visible";
+		document.getElementById("qualityButtons").style.visibility = "visible";
 		
 		// Disable the context menu when right-clicking while on the tracker
 		document.oncontextmenu = function() {
@@ -1777,7 +1782,7 @@ var HSCollectionTracker = (function() {
 		if (progressSet != "")
 		    displayProgressTable();
 		
-		document.getElementById("header-center").style.visibility = "hidden";
+		document.getElementById("qualityButtons").style.visibility = "hidden";
 		
 		document.oncontextmenu = function() {
             return true;
@@ -1791,7 +1796,7 @@ var HSCollectionTracker = (function() {
 		// Add an event listener to the submit form
 		document.getElementById('formImportHearthPwn').addEventListener('submit', importHearthPwn);
 		
-		document.getElementById("header-center").style.visibility = "hidden";
+		document.getElementById("qualityButtons").style.visibility = "hidden";
 		
 		document.oncontextmenu = function() {
             return true;

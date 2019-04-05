@@ -13,56 +13,46 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <!-- Bootstrap CSS CDN -->
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <title>Hearthstone Collection Tracker - Tracks your card collection</title>
 </head>
 <body>
-<div id="wrapper">
-  <nav id="header" class="navbar navbar-default navbar-fixed-top">
-    <div class="container-fluid">
-      <div class="navbar-header">
-	    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-          <span class="icon-bar"></span>
-        </button>
-	    <span class="title navbar-brand">Hearthstone Collection Tracker</span>
-	  </div>
-      <div id="myNavbar" class="collapse navbar-collapse">
-	    <div id="header-center" class="center-block">
-  		  <ul class="nav navbar-nav noselect">
-	        <li><a id="selectedQualityNormal" class="selected">Normal</a></li>
-		    <li><a id="selectedQualityGolden">Golden</a></li>
-          </ul>
-		</div>
-        <ul class="nav navbar-nav navbar-right noselect">		  
-		  <li><a id="link-tracker" class="title">Tracker</a></li>
-		  <li class="dropdown">
-		    <a class="dropdown-toggle title" data-toggle="dropdown">Progress
-		    <span class="caret"></span></a>
-		    <ul class="dropdown-menu">
-			  <li><a id="link-progress" class="title">Collection</a></li>
-			  <li><a id="link-recipes" class="title">Deck Recipes</a></li>
-		    </ul>
+  <nav id="header" class="navbar navbar-light navbar-expand-xl fixed-top py-1">
+   <!-- <div class="container-fluid"> -->
+	  <span class="title navbar-brand d-flex w-50 mr-auto">Hearthstone Collection Tracker</span>
+	  <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#myNavbar" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+	    <span class="navbar-toggler-icon"></span>
+	  </button>
+      <div id="myNavbar" class="navbar-collapse collapse w-100">
+  		<ul id="qualityButtons" class="nav navbar-nav w-100 justify-content-center noselect">
+	      <li class="nav-item"><a id="selectedQualityNormal" class="nav-link selected" href="#">Normal</a></li>
+		  <li class="nav-item"><a id="selectedQualityGolden" class="nav-link" href="#">Golden</a></li>
+        </ul>
+        <ul class="nav navbar-nav ml-auto w-100 nav-fill justify-content-end noselect">
+		  <li class="nav-item"><a id="link-tracker" class="nav-link title" href="#">Tracker</a></li>
+		  <li class="nav-item dropdown">
+		    <a class="nav-link dropdown-toggle title" role="button" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">Progress</a>
+		    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			  <a id="link-progress" class="dropdown-item title" href="#">Collection</a>
+			  <a id="link-recipes" class="dropdown-item title" href="#">Deck Recipes</a>
+		    </div>
 		  </li>
-		  <li><a id="link-packs" class="title">Pack & Chest Guide</a></li>
-		  <li class="dropdown">
-		    <a class="dropdown-toggle title" data-toggle="dropdown">Options
-		    <span class="caret"></span></a>
-		    <ul class="dropdown-menu">
-			  <li><a id="link-importHearthPwn" class="title">Import from HearthPwn</a></li>
-			  <li role="separator" class="divider"></li>
-			  <li><input type="file" id="files" name="files[]"><a id="link-import" class="title">Import from file</a></li>
-			  <li><a id="link-export" class="title">Export to file</a></li>
-		    </ul>
+		  <li class="nav-item"><a id="link-packs" class="nav-link title" href="#">Pack & Chest Guide</a></li>
+		  <li class="nav-item dropdown">
+		    <a class="nav-link dropdown-toggle title" role="button" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">Options</a>
+		    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+			  <a id="link-importHearthPwn" class="dropdown-item title" href="#">Import from HearthPwn</a>
+			  <div class="dropdown-divider"></div>
+			  <input type="file" id="files" name="files[]"><a id="link-import" class="dropdown-item title" href="#">Import from file</a>
+			  <a id="link-export" class="dropdown-item title" href="#">Export to file</a>
+		    </div>
 		  </li>
-          <li><a id="link-news" class="title">News</a></li>
-          <li><a id="link-about" class="title">About</a></li>
+          <li class="nav-item"><a id="link-news" class="nav-link title" href="#">News</a></li>
+          <li class="nav-item"><a id="link-about" class="nav-link title" href="#">About</a></li>
         </ul>
 	  </div>
-	</div>
   </nav>
   <div id="container" class="container">
     <div id="containerRow" class="row">
@@ -71,46 +61,44 @@
   <div id="footer"></div>
 </div>
 <script id="template-tracker" type="text/html">
-<div id="content" class="col-xs-12 col-md-7 col-lg-11">
+<div id="content" class="col-12 col-lg-7 col-xl-11">
   <div class="row">
-    <div id="classTabs" class="col-xs-12"></div>
+    <div id="classTabs" class="col"></div>
   </div>
   <div class="row noselect" id="classTabsBar">
-    <div class="col-xs-9">
+    <div class="col-9">
       <ul id="filtersLeft">
 	    <li class="dropdown">
-		  <a class="dropdown-toggle" data-toggle="dropdown">Expansions
-		  <span class="caret"></span></a>
-		  <ul class="dropdown-menu">
-			<li><a>Classic</a></li>
-			<li><a>HoF</a></li>
-			<li><a>GvG</a></li>
-			<li><a>TGT</a></li>
-			<li><a>WotOG</a></li>
-			<li><a>MSoG</a></li>
-			<li><a>Ungoro</a></li>
-			<li><a>KotFT</a></li>
-			<li><a>Kobolds</a></li>
-			<li><a>Witchwood</a></li>
-			<li><a>Boomsday</a></li>
-			<li><a>Rastakhan</a></li>
-		  </ul>
+		  <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Expansions</a>
+		  <div class="dropdown-menu">
+			<a class="dropdown-item" href="#">Classic</a>
+			<a class="dropdown-item" href="#">HoF</a>
+			<a class="dropdown-item" href="#">GvG</a>
+			<a class="dropdown-item" href="#">TGT</a>
+			<a class="dropdown-item" href="#">WotOG</a>
+			<a class="dropdown-item" href="#">MSoG</a>
+			<a class="dropdown-item" href="#">Ungoro</a>
+			<a class="dropdown-item" href="#">KotFT</a>
+			<a class="dropdown-item" href="#">Kobolds</a>
+			<a class="dropdown-item" href="#">Witchwood</a>
+			<a class="dropdown-item" href="#">Boomsday</a>
+			<a class="dropdown-item" href="#">Rastakhan</a>
+		  </div>
 		</li>
 	    <li class="dropdown">
-		  <a class="dropdown-toggle" data-toggle="dropdown">Adventures
-		  <span class="caret"></span></a>
-		  <ul class="dropdown-menu">
-			<li><a>Naxxramas</a></li>
-			<li><a>Blackrock</a></li>
-			<li><a>LoE</a></li>
-			<li><a>ONiK</a></li>
-		  </ul>
+		  <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Adventures</a>
+		  <div class="dropdown-menu">
+			<a class="dropdown-item" href="#">Naxxramas</a>
+			<a class="dropdown-item" href="#">Blackrock</a>
+			<a class="dropdown-item" href="#">LoE</a>
+			<a class="dropdown-item" href="#">ONiK</a>
+		  </div>
 		</li>
 	    <li><a>All</a></li>
 	    <li><a>Standard</a></li>
 	  </ul>
     </div>
-	<div class="col-xs-3">
+	<div class="col-3">
 	  <ul id="filtersRight">
 	    <li><a>Show missing</a></li>
 	  </ul>
@@ -124,7 +112,7 @@
     <div class="col-xs-5ths nopadding"><ul id="list_legendary" class="legendary"></ul></div>
   </div>
 </div>
-<div id="missingCardsWrap" class="hidden-xs hidden-sm col-lg-1">
+<div id="missingCardsWrap" class="d-none d-lg-block col-lg-1">
   <div id="missingCards">
     <p>Missing Cards</p>
     <p id="missingCardsClassTitle"></p>
@@ -213,7 +201,7 @@
 </div>
 </script>
 <script id="template-progress" type="text/html">
-<div class="col-xs-12 side-page">
+<div class="col side-page">
   <h2>Progress</h2>
   <p>This page displays how many cards and how much dust you've collected for a selected set below.</p>
   <p>The first column for each rarity displays how many cards you have collected, and the second column displays the dust (if the cards are craftable).
@@ -244,12 +232,12 @@
 </div>
 </script>
 <script id="template-importHearthPwn" type="text/html">
-<div class="col-xs-12 side-page">
+<div class="col-12 side-page">
   <h2>Import from HearthPwn</h2>
-  <p>Here you can import a collection from <a href="http://www.hearthpwn.com/" target="_blank">HearthPwn</a>. Be sure to have your collection set to public.</p>
+  <p>Here you can import a collection from <a href="https://www.hearthpwn.com/" target="_blank">HearthPwn</a>. Be sure to have your collection set to public.</p>
   <p>Note: Whenever you switch visibility of your collection, golden cards will be removed, 
-     so you'll have to use Innkeeper to sync golden cards again.</p>
-  <p><b>Warning: There is currently a bug where Innkeeper doesn't import all the neutral cards.</b></p>
+     so you'll have to use Innkeeper to re-sync golden cards.</p>
+  <p><b>There is currently a bug where Innkeeper doesn't import all the neutral cards to HearthPwn.</b></p>
   <form id="formImportHearthPwn">
     HearthPwn username:
     <input type="text" name="username" value="">
@@ -259,7 +247,7 @@
 </div>
 </script>
 <script id="template-about" type="text/html">
-<div class="col-xs-12 side-page">
+<div class="col-12 side-page">
   <h2>About</h2>
   <p><span class="special2">Hearthstone Collection Tracker</span> lets you know how many cards you are missing from your collection, and how much dust is needed to craft them.
      Simply choose whether you want to add or remove a normal or golden card, then click on a card to add a copy of it and right-click to remove one.
@@ -272,7 +260,7 @@
 </div>
 </script>
 <script id="template-news" type="text/html">
-<div class="col-xs-12 side-page">
+<div class="col-12 side-page">
   <h2>News</h2>
   <p><span class="special2">03-03-19</span> - Website now uses server-side technology with Node.js. Hosting is free, so there may be some waiting time on startup.</p>
 				<p style="margin-left: 62px"> - Importing from HearthPwn is now fixed, including golden cards.</p>
@@ -336,7 +324,7 @@
 </div>
 </script>
 <script id="template-recipes" type="text/html">
-<div class="col-xs-12 side-page">
+<div class="col-12 side-page">
   <h2>Deck Recipes</h2>
   <p>Shows your progress of every deck recipe in the game.</p>
   <p>Green/gold = normal/golden cards, blue = dust required to craft missing cards, % = deck completion progress in dust</p>
@@ -354,7 +342,7 @@
 </div>
 </script>
 <script id="template-packs" type="text/html">
-<div class="col-xs-12 side-page">
+<div class="col-12 side-page">
   <h2>Pack & Chest Guide</h2>
   <p>This guide will help you determine which pack you should buy based on your collection, as well as which ranked chest to aim for.</p>
   <p>The average amount of dust that you will receive from each pack and ranked chest is listed below.
@@ -365,8 +353,8 @@
   <p class="special2">Click on a pack to see its golden version (currently only Classic).</p>
   <div class="mainDiv">
     <div class="row">
-	  <div class="col-xs-4">
-        <img id="imageClassicPack" src="images/pack_classic.png" alt="Classic pack" width="160" height="216">
+	  <div class="col-4">
+        <img id="imageClassicPack" class="img-fluid" src="images/pack_classic.png" alt="Classic pack" width="160" height="216">
 	    <table class="tablePack">
 	      <tr>
 	        <td>Average dust =</td>
@@ -374,8 +362,8 @@
 	      </tr>
 	    </table>  
       </div>
-	  <div class="col-xs-4">
-        <img src="images/pack_rastakhan.png" alt="Rastakhan pack" width="175" height="216">
+	  <div class="col-4">
+        <img src="images/pack_rastakhan.png" class="img-fluid" alt="Rastakhan pack" width="175" height="216">
 	    <table class="tablePack">
 	      <tr>
 	        <td>Average dust =</td>
@@ -383,8 +371,8 @@
 	      </tr>
 	    </table>
       </div>
-      <div class="col-xs-4">
-        <img src="images/pack_boomsday.png" alt="Boomsday pack" width="160" height="216">
+      <div class="col-4">
+        <img src="images/pack_boomsday.png" class="img-fluid" alt="Boomsday pack" width="160" height="216">
 	    <table class="tablePack">
 	      <tr>
 	        <td>Average dust =</td>
@@ -395,8 +383,8 @@
 	</div>
 	<br>
 	<div class="row">
-	  <div class="col-xs-3">
-        <img src="images/pack_witchwood.png" alt="Witchwood pack" width="160" height="216">
+	  <div class="col-3">
+        <img src="images/pack_witchwood.png" class="img-fluid" alt="Witchwood pack">
 	    <table class="tablePack">
 	      <tr>
 	        <td>Average dust =</td>
@@ -404,8 +392,8 @@
 	      </tr>
 	    </table>  
       </div>
-      <div class="col-xs-3">
-        <img src="images/pack_kobolds.png" alt="K&C pack" width="160" height="216">
+      <div class="col-3">
+        <img src="images/pack_kobolds.png" class="img-fluid" alt="K&C pack">
 	    <table class="tablePack">
 	      <tr>
 	        <td>Average dust =</td>
@@ -413,8 +401,8 @@
 	      </tr>
 	    </table>
       </div>	
-      <div class="col-xs-3">
-        <img src="images/pack_kotft.png" alt="KotFT pack" width="176" height="216">
+      <div class="col-3">
+        <img src="images/pack_kotft.png" class="img-fluid" alt="KotFT pack">
 	    <table class="tablePack">
 	      <tr>
 	        <td>Average dust =</td>
@@ -422,8 +410,8 @@
 	      </tr>
 	    </table>
       </div>	
-      <div class="col-xs-3">
-        <img src="images/pack_ungoro.png" alt="Un'Goro pack" width="175" height="216">
+      <div class="col-3">
+        <img src="images/pack_ungoro.png" class="img-fluid" alt="Un'Goro pack">
 	    <table class="tablePack">
 	      <tr>
 	        <td>Average dust =</td>
@@ -434,8 +422,8 @@
     </div>
     <hr>
     <div class="row">
-      <div class="col-xs-3">
-        <img src="images/pack_msog.png" alt="MSoG pack" width="160" height="216">
+      <div class="col-3">
+        <img src="images/pack_msog.png" class="img-fluid" alt="MSoG pack" width="160" height="216">
 	    <table class="tablePack">
 	      <tr>
 	        <td>Average dust =</td>
@@ -443,8 +431,8 @@
 	      </tr>
 	    </table>
       </div>
-	  <div class="col-xs-3">
-        <img src="images/pack_wotog.png" alt="WotOG pack" width="173" height="216">
+	  <div class="col-3">
+        <img src="images/pack_wotog.png" class="img-fluid" alt="WotOG pack" width="173" height="216">
 	    <table class="tablePack">
 	      <tr>
 	        <td>Average dust =</td>
@@ -452,8 +440,8 @@
 	      </tr>
 	    </table>
       </div>
-      <div class="col-xs-3">
-        <img src="images/pack_tgt.png" alt="TGT pack" width="168" height="216">
+      <div class="col-3">
+        <img src="images/pack_tgt.png" class="img-fluid" alt="TGT pack" width="168" height="216">
 	    <table class="tablePack">
 	      <tr>
 	        <td>Average dust =</td>
@@ -461,8 +449,8 @@
 	      </tr>
 	    </table>
       </div>	  
-      <div class="col-xs-3">
-        <img src="images/pack_gvg.png" alt="GvG pack" width="160" height="216">
+      <div class="col-3">
+        <img src="images/pack_gvg.png" class="img-fluid" alt="GvG pack" width="160" height="216">
 	    <table class="tablePack">
 	      <tr>
 	        <td>Average dust =</td>
@@ -473,8 +461,8 @@
     </div>
     <hr>	
     <div class="row">
-      <div class="col-xs-4">
-        <img src="images/chest_20.png" alt="Rank 20 chest" width="130" height="91">
+      <div class="col-4">
+        <img src="images/chest_20.png" class="img-fluid" alt="Rank 20 chest" width="130" height="91">
 	    <table class="tablePack">
 	      <tr>
 	        <td>Average dust =</td>
@@ -482,8 +470,8 @@
 	      </tr>
 	    </table>  
       </div>
-      <div class="col-xs-4">
-        <img src="images/chest_15.png" alt="Rank 15 chest" width="130" height="91">
+      <div class="col-4">
+        <img src="images/chest_15.png" class="img-fluid" alt="Rank 15 chest" width="130" height="91">
 	    <table class="tablePack">
 	      <tr>
 	        <td>Average dust =</td>
@@ -491,8 +479,8 @@
 	      </tr>
 	    </table>
       </div>
-      <div class="col-xs-4">
-        <img src="images/chest_10.png" alt="Rank 10 chest" width="130" height="91">
+      <div class="col-4">
+        <img src="images/chest_10.png" class="img-fluid" alt="Rank 10 chest" width="130" height="91">
 	    <table class="tablePack">
 	      <tr>
 	        <td>Average dust =</td>
@@ -503,8 +491,8 @@
     </div>
 	<br>
     <div class="row">
-      <div class="col-xs-6">
-        <img src="images/chest_5.png" alt="Rank 5 chest" width="131" height="110">
+      <div class="col-6">
+        <img src="images/chest_5.png" class="img-fluid" alt="Rank 5 chest" width="131" height="110">
 	    <table class="tablePack">
 	      <tr>
 	        <td>Average dust =</td>
@@ -512,8 +500,8 @@
 	      </tr>
 	    </table>
       </div>
-      <div class="col-xs-6">
-        <img src="images/chest_legendary.png" alt="Legendary rank chest" width="131" height="110">
+      <div class="col-6">
+        <img src="images/chest_legendary.png" class="img-fluid" alt="Legendary rank chest" width="131" height="110">
 	    <table class="tablePack">
 	      <tr>
 	        <td>Average dust =</td>
@@ -526,20 +514,13 @@
 </div>
 </script>
 <!-- jQuery CDN -->
-<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <!-- jQuery local fallback -->
 <script>window.jQuery || document.write('<script type="text/javascript" src="js/vendor/jquery-2.1.4.min.js"><\/script>')</script>
+<!-- Popper.js CDN -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <!-- Bootstrap JS CDN -->
-<script type="text/javascript" src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
-<!-- Bootstrap JS local fallback -->
-<script>if(typeof($.fn.modal) === 'undefined') {document.write('<script type="text/javascript" src="js/vendor/bootstrap.min.js"><\/script>')}</script>
-<!-- Bootstrap CSS local fallback -->
-<script>
-    $(document).ready(function() {
-    var bodyColor = $('body').css('color');
-    if(bodyColor != 'rgb(51, 51, 51)') {
-    $("head").prepend('<link rel="stylesheet" type="text/css" href="css/vendor/bootstrap.min.css">');}});
-</script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 <script src="https://cdn.rawgit.com/blowsie/Pure-JavaScript-HTML5-Parser/master/htmlparser.js"></script>
 <script src="js/vendor/html2json.js"></script>
 <script type="text/javascript" src="js/vendor/FileSaver.min.js"></script>
