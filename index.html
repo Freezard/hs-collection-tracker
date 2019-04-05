@@ -83,6 +83,7 @@
 			<a class="dropdown-item" href="#">Witchwood</a>
 			<a class="dropdown-item" href="#">Boomsday</a>
 			<a class="dropdown-item" href="#">Rastakhan</a>
+			<a class="dropdown-item" href="#">RoS</a>
 		  </div>
 		</li>
 	    <li class="dropdown">
@@ -225,6 +226,7 @@
 	<option value="witchwood">The Witchwood</option>
 	<option value="boomsday">The Boomsday Project</option>
 	<option value="rastakhan">Rastakhan's Rumble</option>
+	<option value="ros">Rise of Shadows</option>
 	<option selected disabled>---</option>
 	<option value="standard">Standard</option>
 	<option value="total">Overall</option>
@@ -262,6 +264,7 @@
 <script id="template-news" type="text/html">
 <div class="col-12 side-page">
   <h2>News</h2>
+  <p><span class="special2">06-04-19</span> - Updated to Patch 14.0.0 (Rise of Shadows).</p>
   <p><span class="special2">03-03-19</span> - Website now uses server-side technology with Node.js. Hosting is free, so there may be some waiting time on startup.</p>
 				<p style="margin-left: 62px"> - Importing from HearthPwn is now fixed, including golden cards.</p>
   <p><span class="special2">04-12-18</span> - Updated to Patch 13.0.0 (Rastakhan's Rumble).</p>
@@ -353,7 +356,7 @@
   <p class="special2">Click on a pack to see its golden version (currently only Classic).</p>
   <div class="mainDiv">
     <div class="row">
-	  <div class="col-4">
+	  <div class="col-3">
         <img id="imageClassicPack" class="img-fluid" src="images/pack_classic.png" alt="Classic pack" width="160" height="216">
 	    <table class="tablePack">
 	      <tr>
@@ -362,7 +365,16 @@
 	      </tr>
 	    </table>  
       </div>
-	  <div class="col-4">
+	  <div class="col-3">
+        <img src="images/pack_ros.png" class="img-fluid" alt="Rise of Shadows pack" width="175" height="216">
+	    <table class="tablePack">
+	      <tr>
+	        <td>Average dust =</td>
+		    <td id="rosAverageDust"></td>
+	      </tr>
+	    </table>
+      </div>
+	  <div class="col-3">
         <img src="images/pack_rastakhan.png" class="img-fluid" alt="Rastakhan pack" width="175" height="216">
 	    <table class="tablePack">
 	      <tr>
@@ -371,14 +383,14 @@
 	      </tr>
 	    </table>
       </div>
-      <div class="col-4">
+      <div class="col-3">
         <img src="images/pack_boomsday.png" class="img-fluid" alt="Boomsday pack" width="160" height="216">
 	    <table class="tablePack">
 	      <tr>
 	        <td>Average dust =</td>
 		    <td id="boomsdayAverageDust"></td>
 	      </tr>
-	    </table>  
+	    </table> 
       </div>
 	</div>
 	<br>

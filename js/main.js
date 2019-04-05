@@ -43,7 +43,8 @@ var HSCollectionTracker = (function() {
 		kobolds: "kobolds",
 		witchwood: "witchwood",
 		boomsday: "boomsday",
-		rastakhan: "rastakhan"
+		rastakhan: "rastakhan",
+		ros: "ros"
 	};
 
 	var standardSetsEnum = {
@@ -54,7 +55,8 @@ var HSCollectionTracker = (function() {
 		kobolds: "kobolds",
 		witchwood: "witchwood",
 		boomsday: "boomsday",
-		rastakhan: "rastakhan"
+		rastakhan: "rastakhan",
+		ros: "ros"
 	};
 
 	// The number of cards and craftable cards in each set.
@@ -79,7 +81,8 @@ var HSCollectionTracker = (function() {
 		kobolds: "none",
 		witchwood: "none",
 		boomsday: "none",
-		rastakhan: "none"
+		rastakhan: "none",
+		ros: "none"
 	};
 	
 	var packsEnum = {
@@ -93,7 +96,8 @@ var HSCollectionTracker = (function() {
 		kobolds: "kobolds",
 		witchwood: "witchwood",
 		boomsday: "boomsday",
-		rastakhan: "rastakhan"
+		rastakhan: "rastakhan",
+		ros: "ros"
 	};
 	
 	var rewardsEnum = {
@@ -103,7 +107,8 @@ var HSCollectionTracker = (function() {
 		kobolds: "kobolds",
 		witchwood: "witchwood",
 		boomsday: "boomsday",
-		rastakhan: "rastakhan"
+		rastakhan: "rastakhan",
+		ros: "ros"
 	};	
 	
 	var craftingCost = {
@@ -158,7 +163,7 @@ var HSCollectionTracker = (function() {
 	var currentDust = 0;
 	var disenchantedDust = 0;
 	
-	var version = 2.3;
+	var version = 2.31;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, uncraftable) {
@@ -671,7 +676,8 @@ var HSCollectionTracker = (function() {
 			"Kobolds & Catacombs": setsEnum.kobolds,
 			"The Witchwood": setsEnum.witchwood,
 			"The Boomsday Project": setsEnum.boomsday,
-			"Rastakhan's Rumble": setsEnum.rastakhan
+			"Rastakhan's Rumble": setsEnum.rastakhan,
+			"Rise of Shadows": setsEnum.ros
 		};
 		
 		var importCardData = function (cards, set) {
@@ -1950,51 +1956,25 @@ var HSCollectionTracker = (function() {
 	}
 	
 	function fix() {
-		YUI().use('yql', function(Y) {
-			Y.YQL('select * from htmlstring where ' +
-			    'url="https://www.hearthpwn.com/cards?display=1&filter-premium=1&filter-set=114&filter-unreleased=0&page=2" ' +
-			    'and xpath="//a[contains(@class, \'manual-data-link\')]"', function(r) {
-				
-				console.log(r);
-				
-				try {
-					// Error finding collection
-					if (r.query.results.result == "") {
-						document.getElementById('importHearthPwnStatus').innerHTML =
-							"Wrong username or collection set to private";
-						return;
-					}
-				}
-				catch(e) {
-					document.getElementById('importHearthPwnStatus').innerHTML =
-						"Importing failed. Try editing and saving collection on HearthPwn again";
-					return;
-				}
-								
-				// Trim HTML source and convert to JSON
-				var html = r.query.results.result.replace(/&#13;/g, '');
-				html = html.replace(/\n/ig, '');
-				html = html.replace(/\s\s+/g, '');
-				var results = html2json(html).child; // Array of collection
-				
+		var xhttp = new XMLHttpRequest();
+		xhttp.responseType = "json";
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				var result = xhttp.response;
+
 				// Loop through the collection
-				for (var i = 0; i < results.length; i++) {
-					var hpid = results[i].attr["data-id"];
-					var name = results[i].child[0].text;
+				for (var i in result) {
+					var hpid = i;
+					var name = result[i];
 					name = name.replace("&amp;#27;", "'");
 					
-					console.log('{"hpid":' + hpid + ',"set":"' + 'boomsday' + '","name":"' + name + '"},');
+					console.log('{"hpid":' + hpid + ',"set":"' + 'ros' + '","name":"' + name + '"},');
 				
 				}
-
-				}, {
-			    format: 'json',
-				env: 'store://datatables.org/alltableswithkeys'
-				}, {
-				base: '://query.yahooapis.com/v1/public/yql?', //Different base URL for private data
-				proto: 'https' //Connect using SSL
-			});
-		});
+			}
+		};
+		xhttp.open("GET", "http://localhost:3000/ids", true);
+		xhttp.send();
 	}
 	/*********************************************************
 	***********************MAIN FUNCTION**********************
