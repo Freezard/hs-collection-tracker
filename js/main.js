@@ -50,9 +50,6 @@ var HSCollectionTracker = (function() {
 	var standardSetsEnum = {
 		basic: "basic",
 		classic: "classic",
-		ungoro: "ungoro",
-		kotft: "kotft",
-		kobolds: "kobolds",
 		witchwood: "witchwood",
 		boomsday: "boomsday",
 		rastakhan: "rastakhan",
@@ -102,9 +99,6 @@ var HSCollectionTracker = (function() {
 	
 	var rewardsEnum = {
 		classic: "classic",
-		ungoro: "ungoro",
-		kotft: "kotft",
-		kobolds: "kobolds",
 		witchwood: "witchwood",
 		boomsday: "boomsday",
 		rastakhan: "rastakhan",
