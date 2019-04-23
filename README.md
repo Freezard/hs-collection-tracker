@@ -1,7 +1,7 @@
 # Hearthstone Collection Tracker
 Tracks your Hearthstone card collection. Lets you know exactly how many normal and golden cards are missing for each class and in total. Also shows the dust required to craft the missing cards, and the Pack Guide tells you the most efficient pack to buy based on your collection.
 
-Website can be found at http://freezard.github.io/hs-collection-tracker
+Website can be found at https://hs-collection-tracker.herokuapp.com/
 
 ![Site overview](images/readme-1.jpg)
 
