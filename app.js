@@ -17,6 +17,7 @@ app.get('/',function(req,res) {
   res.sendFile(path.join(__dirname + '/index.html'));
 });
 
+app.get("/sync", function(req, res) {
 	var url = "https://www.hearthpwn.com/members/" + req.query.user + "/collection";
 
 	var promise = new Promise(function(resolve, reject) {
