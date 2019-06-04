@@ -43,7 +43,7 @@
 		  <li class="nav-item dropdown">
 		    <a class="nav-link dropdown-toggle title" role="button" data-toggle="dropdown" href="#" aria-haspopup="true" aria-expanded="false">Options</a>
 		    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-			  <a id="link-importHearthPwn" class="dropdown-item title" href="#">Import from HearthPwn</a>
+			  <a id="link-importHSReplay" class="dropdown-item title" href="#">Import from HSReplay</a>
 			  <div class="dropdown-divider"></div>
 			  <input type="file" id="files" name="files[]"><a id="link-import" class="dropdown-item title" href="#">Import from file</a>
 			  <a id="link-export" class="dropdown-item title" href="#">Export to file</a>
@@ -233,17 +233,16 @@
   </select>
 </div>
 </script>
-<script id="template-importHearthPwn" type="text/html">
+<script id="template-importHSReplay" type="text/html">
 <div class="col-12 side-page">
-  <h2>Import from HearthPwn</h2>
-  <p>Here you can import a collection from <a href="https://www.hearthpwn.com/" target="_blank">HearthPwn</a>. Be sure to have your collection set to public.</p>
-  <p><b>Innkeeper has unfortunately been discontinued and so it's no longer possible to sync all the cards with HearthPwn.</b></p>
-  <form id="formImportHearthPwn">
-    HearthPwn username:
-    <input type="text" name="username" value="">
+  <h2>Import from HSReplay</h2>
+  <p>Here you can import a collection from <a href="https://hsreplay.net/" target="_blank">HSReplay</a>. Make sure to have your collection set to public.</p>
+  <form id="formImportHSReplay">
+    HSReplay collection url:
+    <input type="text" name="url" value="">
     <input type="submit" value="Import">
   </form><br>
-  <span id="importHearthPwnStatus" class="special2"></span>
+  <p><span id="importHSReplayStatus" class="special2"></span></p>
 </div>
 </script>
 <script id="template-about" type="text/html">
@@ -262,6 +261,9 @@
 <script id="template-news" type="text/html">
 <div class="col-12 side-page">
   <h2>News</h2>
+  <p><span class="special2">05-06-19</span> - Added an option to import a collection from HSReplay, located in options. You can use Hearthstone Deck Tracker to import your collection from the game to HSReplay, and then import it to HSCT.</p>
+  				<p style="margin-left: 62px"> - Removed importing from HearthPwn as it's no longer supported.</p>
+  				<p style="margin-left: 62px"> - Updated to Patch 14.4.0.</p>
   <p><span class="special2">06-04-19</span> - Updated to Patch 14.0.0 (Rise of Shadows).</p>
   <p><span class="special2">03-03-19</span> - Website now uses server-side technology with Node.js. Hosting is free, so there may be some waiting time on startup.</p>
 				<p style="margin-left: 62px"> - Importing from HearthPwn is now fixed, including golden cards.</p>

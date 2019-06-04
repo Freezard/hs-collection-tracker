@@ -295,6 +295,19 @@ var HSCollectionTracker = (function() {
 		
 		return data;
 	}
+	
+	function getCardData(callback) {
+		// Get the collection data
+		var xhttp = new XMLHttpRequest();
+		xhttp.responseType = "json";
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				callback(xhttp.response);
+			}
+		};
+		xhttp.open("GET", "/cardData", true);
+		xhttp.send();		
+	}
 	/*********************************************************
 	**************************INIT****************************
 	*********************************************************/
@@ -361,7 +374,7 @@ var HSCollectionTracker = (function() {
 		document.getElementById("link-recipes").addEventListener("click", displayRecipes);
 		document.getElementById("link-news").addEventListener("click", displayNews);
 		document.getElementById("link-about").addEventListener("click", displayAbout);
-		document.getElementById("link-importHearthPwn").addEventListener("click", displayImportHearthPwn);
+		document.getElementById("link-importHSReplay").addEventListener("click", displayImportHSReplay);
 		document.getElementById("link-export").addEventListener("click", exportCollection);
 		document.getElementById("link-import").addEventListener("click", function() {
 			// Check for File API support
@@ -751,13 +764,15 @@ var HSCollectionTracker = (function() {
 	
 	// Adds or removes copies of a card
 	function updateCard(card, quality, copies) {
-		card[quality] += copies;
-		updateMissingCards(card, quality, -copies);
+		if (card != undefined) {
+			card[quality] += copies;
+			updateMissingCards(card, quality, -copies);
 		
-		if (isCraftable(card, quality)) {
-		    var craftingCost = getCraftingCost(card, quality, copies);
+			if (isCraftable(card, quality)) {
+				var craftingCost = getCraftingCost(card, quality, copies);
 		
-		    updateMissingDust(card, quality, -craftingCost);
+				updateMissingDust(card, quality, -craftingCost);
+			}
 		}
 	}
 	
@@ -1789,12 +1804,12 @@ var HSCollectionTracker = (function() {
         }
 	}
 	
-	function displayImportHearthPwn() {
-		var template = document.getElementById("template-importHearthPwn").innerHTML;
+	function displayImportHSReplay() {
+		var template = document.getElementById("template-importHSReplay").innerHTML;
 		document.getElementById("containerRow").innerHTML = template;
 		
 		// Add an event listener to the submit form
-		document.getElementById('formImportHearthPwn').addEventListener('submit', importHearthPwn);
+		document.getElementById('formImportHSReplay').addEventListener('submit', importHSReplay);
 		
 		document.getElementById("qualityButtons").style.visibility = "hidden";
 		
@@ -1871,6 +1886,73 @@ var HSCollectionTracker = (function() {
 		} else alert('Exporting is not supported in this browser.');
 	}
 	
+	// Imports a collection from HSReplay.
+	// Event = formImportHSReplay onsubmit
+	function importHSReplay(evt) {
+		evt.preventDefault();
+		
+		document.getElementById('importHSReplayStatus').innerHTML =
+		    "Please wait...";
+		
+		var url = evt.target["url"].value.split('/');
+		var region = url[4];
+		var lo = url[5];
+
+		// Get the collection data
+		var xhttp = new XMLHttpRequest();
+		xhttp.responseType = "json";
+		xhttp.onreadystatechange = function() {
+			if (this.readyState == 4 && this.status == 200) {
+				var collection = xhttp.response;
+				
+				if (collection == undefined) {
+					// Error finding collection
+					document.getElementById('importHSReplayStatus').innerHTML =
+						"Importing failed. Wrong username or collection set to private";
+					return;
+				}
+				else {					
+					getCardData(function(cardData) {						
+						initCollection();
+						
+						// Loop through the collection
+						for (var id in collection.collection) {
+							var name = "";
+							var className = "";
+							var rarity = "";
+							var copies = 0;
+							var quality = "";
+			
+							// Get other necessary card data
+							for (var set in cardData)
+								for (var j = 0; j < cardData[set].length; j++)
+									if (id == cardData[set][j].dbfId) {
+										name = cardData[set][j].name;
+										className = cardData[set][j].playerClass.toLowerCase();
+										rarity = cardData[set][j].rarity.toLowerCase();
+										break;
+									}
+							
+							// Add the card info to HSCT
+							if (name != "" && className != "") {
+								var card = classes[className].cards[rarity][name];
+								updateCard(card, "normal", Math.min(collection.collection[id][0], getMaxCopies(rarity)));
+								updateCard(card, "golden", Math.min(collection.collection[id][1], getMaxCopies(rarity)));
+							}
+						}
+						
+						document.getElementById('importHSReplayStatus').innerHTML =
+							"Collection imported successfully";
+							
+						updateLocalStorage();
+					});
+				}
+			}
+		};
+		xhttp.open("GET", "/importHSReplay?lo=" + lo + "&region=" + region, true);
+		xhttp.send();
+	}
+	
 	// Imports a collection from HearthPwn.
 	// Event = formImportHearthPwn onsubmit
 	function importHearthPwn(evt) {
@@ -1886,66 +1968,67 @@ var HSCollectionTracker = (function() {
 		xhttp.responseType = "json";
 		xhttp.onreadystatechange = function() {
 			if (this.readyState == 4 && this.status == 200) {
-				var result = xhttp.response;
-				console.log(result);
+				var collection = xhttp.response;
 				
-				if (result == undefined) {
+				if (collection == undefined) {
 					document.getElementById('importHearthPwnStatus').innerHTML =
 						"Importing failed. HearthPwn might be down";
 					return;
 				}
-				else if (Object.keys(result) == 0) {
+				else if (Object.keys(collection) == 0) {
 					// Error finding collection
 					document.getElementById('importHearthPwnStatus').innerHTML =
 						"Wrong username or collection set to private";
 					return;
 				}
-				else {
-					var cardIds = getData("card-ids");
-					var cardData = getData("all-collectibles");
-					
-					initCollection();
-					
-					// Loop through the collection
-					for (var id in result) {
-						var name = "";
-						var className = "";
-						var rarity = "";
-						var copies = 0;
-						var quality = "";
-					
-						// Get the name of the card by matching HearthPwn ids.
-						// Can grab name from HTML, but may contain odd symbols
-						for (var i = 0; i < cardIds.length; i++)
-							if (id == cardIds[i].hpid) {
-								name = cardIds[i].name;
-								break;
-							}
-					
-						// Get other necessary card data
-						for (var j = 0; j < cardData.cards.length; j++)
-							if (name == cardData.cards[j].name) {
-								className = cardData.cards[j].hero;
-								rarity = cardData.cards[j].quality;
-								break;
-							}
+				else {					
+					getCardData(function(cardData) {
+						var cardIds = getData("card-ids");
+
+						initCollection();
 						
-						// Add the card info to HSCT
-						if (name != "" && className != "") {
-							var card = classes[className].cards[rarity][name];
-							updateCard(card, "normal", Math.min(result[id].normal, getMaxCopies(rarity)));
-							updateCard(card, "golden", Math.min(result[id].golden, getMaxCopies(rarity)));
+						// Loop through the collection
+						for (var id in collection) {
+							var name = "";
+							var className = "";
+							var rarity = "";
+							var copies = 0;
+							var quality = "";
+						
+							// Get the name of the card by matching HearthPwn ids.
+							// Can grab name from HTML, but may contain odd symbols
+							for (var i = 0; i < cardIds.length; i++)
+								if (id == cardIds[i].hpid) {
+									name = cardIds[i].name;
+									break;
+								}
+			
+							// Get other necessary card data
+							for (var set in cardData)
+								for (var j = 0; j < cardData[set].length; j++)
+									if (name == cardData[set][j].name) {
+										className = cardData[set][j].playerClass.toLowerCase();
+										rarity = cardData[set][j].rarity.toLowerCase();
+										break;
+									}
+							
+							// Add the card info to HSCT
+							if (name != "" && className != "") {
+								var card = classes[className].cards[rarity][name];
+								updateCard(card, "normal", Math.min(collection[id].normal, getMaxCopies(rarity)));
+								updateCard(card, "golden", Math.min(collection[id].golden, getMaxCopies(rarity)));
+							}
 						}
-					}
-					
-					document.getElementById('importHearthPwnStatus').innerHTML =
-						"Collection imported successfully";
 						
-					updateLocalStorage();
+						document.getElementById('importHearthPwnStatus').innerHTML =
+							"Collection imported successfully";
+							
+						updateLocalStorage();
+					});
 				}
 			}
 		};
-		xhttp.open("GET", "/scrape?user=" + username, true);
+		xhttp.open("GET", "/importHearthPwn?user=" + username, true);
 		xhttp.send();
 	}
 	
