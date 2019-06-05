@@ -1856,7 +1856,7 @@ var HSCollectionTracker = (function() {
 	        try {
 			    var collection = JSON.parse(event.target.result);
 				// Reset and load the collection
-				initCollection();
+				resetCollection();
 			    loadCollection(collection);
 				updateLocalStorage();
 				displayTracker();
@@ -1886,6 +1886,19 @@ var HSCollectionTracker = (function() {
 		} else alert('Exporting is not supported in this browser.');
 	}
 	
+	function resetCollection() {
+		for (var HSclass in classes)
+			for (var quality in classes[HSclass].cards)
+				for (var cardName in classes[HSclass].cards[quality]) {
+					var card = classes[HSclass].cards[quality][cardName];
+				
+					if (card.normal != 0)
+						updateCard(card, "normal", -card.normal);
+					if (card.golden != 0)
+						updateCard(card, "golden", -card.golden);
+				}
+	}
+	
 	// Imports a collection from HSReplay.
 	// Event = formImportHSReplay onsubmit
 	function importHSReplay(evt) {
@@ -1913,7 +1926,7 @@ var HSCollectionTracker = (function() {
 				}
 				else {					
 					getCardData(function(cardData) {						
-						initCollection();
+						resetCollection();
 						
 						// Loop through the collection
 						for (var id in collection.collection) {
@@ -1950,85 +1963,6 @@ var HSCollectionTracker = (function() {
 			}
 		};
 		xhttp.open("GET", "/importHSReplay?lo=" + lo + "&region=" + region, true);
-		xhttp.send();
-	}
-	
-	// Imports a collection from HearthPwn.
-	// Event = formImportHearthPwn onsubmit
-	function importHearthPwn(evt) {
-		evt.preventDefault();
-		
-		document.getElementById('importHearthPwnStatus').innerHTML =
-		    "Please wait...";
-		
-		var username = evt.target["username"].value;
-				
-		// Get the collection data
-		var xhttp = new XMLHttpRequest();
-		xhttp.responseType = "json";
-		xhttp.onreadystatechange = function() {
-			if (this.readyState == 4 && this.status == 200) {
-				var collection = xhttp.response;
-				
-				if (collection == undefined) {
-					document.getElementById('importHearthPwnStatus').innerHTML =
-						"Importing failed. HearthPwn might be down";
-					return;
-				}
-				else if (Object.keys(collection) == 0) {
-					// Error finding collection
-					document.getElementById('importHearthPwnStatus').innerHTML =
-						"Wrong username or collection set to private";
-					return;
-				}
-				else {					
-					getCardData(function(cardData) {
-						var cardIds = getData("card-ids");
-
-						initCollection();
-						
-						// Loop through the collection
-						for (var id in collection) {
-							var name = "";
-							var className = "";
-							var rarity = "";
-							var copies = 0;
-							var quality = "";
-						
-							// Get the name of the card by matching HearthPwn ids.
-							// Can grab name from HTML, but may contain odd symbols
-							for (var i = 0; i < cardIds.length; i++)
-								if (id == cardIds[i].hpid) {
-									name = cardIds[i].name;
-									break;
-								}
-			
-							// Get other necessary card data
-							for (var set in cardData)
-								for (var j = 0; j < cardData[set].length; j++)
-									if (name == cardData[set][j].name) {
-										className = cardData[set][j].playerClass.toLowerCase();
-										rarity = cardData[set][j].rarity.toLowerCase();
-										break;
-									}
-							
-							// Add the card info to HSCT
-							if (name != "" && className != "") {
-								var card = classes[className].cards[rarity][name];
-								updateCard(card, "normal", Math.min(collection[id].normal, getMaxCopies(rarity)));
-								updateCard(card, "golden", Math.min(collection[id].golden, getMaxCopies(rarity)));
-							}
-						}
-						
-						document.getElementById('importHearthPwnStatus').innerHTML =
-							"Collection imported successfully";
-							
-						updateLocalStorage();
-					});
-				}
-			}
-		};
-		xhttp.open("GET", "/importHearthPwn?user=" + username, true);
 		xhttp.send();
 	}
 	
@@ -2102,48 +2036,4 @@ var HSCollectionTracker = (function() {
 		}
 	};
 })();
-
 window.onload = HSCollectionTracker.init();
-/*********************************************************
-************************UNFINISHED************************
-*********************************************************/
-		//var request = new XMLHttpRequest();
-		//request.open("GET", "data/all-collectibles.json", false);
-		//request.send(null);
-		//var my_JSON_object = JSON.parse(request.responseText);
-		//console.log(my_JSON_object.cards);
-//alert(Object.keys(classEnum).length);
-
-	/*function handleKey(element, event) {
-	  var a = String.fromCharCode(event.keyCode);
-	  console.log(a); 
-	  console.log(element.parentNode.innerText.split(" ")[0]);
-	  if (/\d/.test(a)) {
-		  if (window.getSelection().type == "Range")
-			  if (element.innerHTML.length <= 2)
-				  return true;
-			  else return false;
-		  
-		  else if (element.innerHTML.length + 1 <= 2)
-			return true;
-		}
-	  return false;
-	}*/
-	
-   /*function lol(e) {
-	   window.getSelection().removeAllRanges();
-	   document.selection.empty();
-	   console.log(e);
-		//e.innerHTML = "lol";
-	}*/
-	
-	/*$('span[contenteditable]').keydown(function(e) {
-		// trap the return key being pressed
-		if (e.keyCode === 13) {
-		  // insert 2 br tags (if only one br tag is inserted the cursor won't go to the next line)
-		  //document.execCommand('insertHTML', false, '<br><br>');
-		  document.getElementById("a").blur();
-		  // prevent the default behaviour of return key pressed
-		  return false;
-		}
-	  });*/

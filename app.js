@@ -88,40 +88,6 @@ app.get("/importHSReplay", [
 	});
 });
 
-app.get("/importHearthPwn", [
-  check("user").trim().escape()
-], function(req, res) {
-	var url = "https://www.hearthpwn.com/members/" + req.query.user + "/collection";
-
-		request(url, function(error, response, html) {
-				var $ = cheerio.load(html);
-				var collection = {};				
-				var lastId = -1;
-				
-				$('.owns-card').filter(function() {
-					var data = $(this);
-					var id = data.attr("data-id");
-					var copies = parseInt(data.find(".inline-card-count").attr("data-card-count"));
-					var isGolden = (data.attr("data-is-gold") == "True");
-					
-					if (id == lastId) {
-						if (isGolden)
-							collection[id].golden = copies;
-						else collection[id].normal = copies;
-					}
-					else
-						collection[id] = {
-							normal: isGolden ? 0 : copies,
-							golden: isGolden ? copies : 0
-						};
-						
-					lastId = id;
-				});
-				
-				res.send(collection);
-		});
-   });
-
 app.listen(port);
 
 console.log('Server started.');
