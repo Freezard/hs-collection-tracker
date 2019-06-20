@@ -279,21 +279,16 @@ let HSCollectionTracker = (function() {
 		return data;
 	}
 
-	function getData(fileName) {
-		let data;
-		
-		let request = new XMLHttpRequest();
-		request.open("GET", "data/" + fileName + ".json", false);
-		request.onreadystatechange = function () {
-			if(request.readyState === 4) {
-				if(request.status === 200 || request.status == 0) {
-					data = JSON.parse(request.responseText);
-				}
-			}
+	// Get data from local JSON files
+	async function getData(fileName) {
+		try {
+			let request = await fetch("data/" + fileName + ".json");
+			let data = await request.json();
+			return data;
 		}
-		request.send(null);
-		
-		return data;
+		catch (error) {
+			console.log(error);
+		}
 	}
 	
 	// Get card data from Hearthstone API
@@ -1283,8 +1278,7 @@ let HSCollectionTracker = (function() {
 	//     "card name": cardCopies
 	//		...
 	// Deck and class names are optional.
-	function createDeckTable(deck, deckName, className) {
-		let cardData = getData("all-collectibles");
+	function createDeckTable(deck, deckName, cardData) {
 		let currentDust = {
 			normal: 0,
 			golden: 0
@@ -1647,23 +1641,25 @@ let HSCollectionTracker = (function() {
 		        document.getElementById("containerRow").childNodes[1].lastChild);
 		}
 		
-		let recipes = getData("deck-recipes");
-		
-		let side = document.getElementsByClassName("side-page")[0];
+		getData("deck-recipes").then(recipes => {
+			getData("all-collectibles").then(cardData => {
+				let side = document.getElementsByClassName("side-page")[0];
 
-		let div = document.createElement("div");
-		div.setAttribute("class", "mainDiv");
-		let div2 = document.createElement("div");
-		div2.setAttribute("class", "row");
-		for (let i = 0; i < recipes[className].length; i++) {
-		    let div3 = document.createElement("div");
-		    div3.setAttribute("class", "col");
-		    div3.appendChild(createDeckTable(recipes[className][i].deck,
-			    recipes[className][i].name));
-		    div2.appendChild(div3);
-		}
-		div.appendChild(div2);
-		side.appendChild(div);
+				let div = document.createElement("div");
+				div.setAttribute("class", "mainDiv");
+				let div2 = document.createElement("div");
+				div2.setAttribute("class", "row");
+				for (let i = 0; i < recipes[className].length; i++) {
+					let div3 = document.createElement("div");
+					div3.setAttribute("class", "col");
+					div3.appendChild(createDeckTable(recipes[className][i].deck,
+						recipes[className][i].name, cardData));
+					div2.appendChild(div3);
+				}
+				div.appendChild(div2);
+				side.appendChild(div);
+			})
+		});
 	}
 	/*********************************************************
 	**********************HTML TEMPLATES**********************

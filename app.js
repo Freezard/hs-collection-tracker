@@ -18,7 +18,7 @@ app.get('/', function(req,res) {
 });
 
 app.get("/cardData", function(req, res) {
-	let unirest = require('unirest');
+	const unirest = require('unirest');
 
 	unirest.get("https://omgvamp-hearthstone-v1.p.rapidapi.com/cards?collectible=1")
 	  .header("X-RapidAPI-Host", "omgvamp-hearthstone-v1.p.rapidapi.com")
@@ -37,11 +37,12 @@ app.get("/importHSReplay", [
 	if (!errors.isEmpty())
 		 res.send(undefined);
 	
-	let url = "https://hsreplay.net/api/v1/collection/?account_lo=" + req.query.lo + "&format=json&region=" + req.query.region;
+	const url = "https://hsreplay.net/api/v1/collection/?account_lo=" + req.query.lo +
+	  "&format=json&region=" + req.query.region;
 
-	request(url, { json: true }, function(error, response, html) {
-		if (html.hasOwnProperty("collection"))
-			res.send(html);
+	request(url, { json: true }, function(error, response, body) {
+		if (body.hasOwnProperty("collection"))
+			res.send(body);
 		else res.send(undefined);
 	});
 });
