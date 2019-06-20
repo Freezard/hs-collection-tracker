@@ -282,7 +282,7 @@ let HSCollectionTracker = (function() {
 	// Get data from local JSON files
 	async function getData(fileName) {
 		try {
-			let request = await fetch("data/" + fileName + ".json");
+			let request = await fetch("/data?fileName=" + fileName);
 			let data = await request.json();
 			return data;
 		}

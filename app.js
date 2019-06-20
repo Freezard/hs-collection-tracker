@@ -29,6 +29,12 @@ app.get("/cardData", function(req, res) {
 	  });
 });
 
+app.get("/data", function(req, res) {
+	const url = "/data/" + req.query.fileName + ".json";
+	
+	res.sendFile(path.join(__dirname + url));
+});
+
 app.get("/importHSReplay", [
   check("lo").isNumeric(),
   check("region").isNumeric(),
