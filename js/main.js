@@ -302,6 +302,18 @@ let HSCollectionTracker = (function() {
 			console.log(error);
 		}
 	}
+	
+	// Get card data from Hearthstone API
+	async function getCardData2() {
+		try {
+			let request = await fetch("/cardData2");
+			let cardData = await request.json();
+			return cardData;
+		}
+		catch (error) {
+			console.log(error);
+		}
+	}	
 	/*********************************************************
 	**************************INIT****************************
 	*********************************************************/
@@ -309,7 +321,9 @@ let HSCollectionTracker = (function() {
 		initMissingData();
 		initClasses();
 		
-		importCards(cardData);
+		if (cardData !== undefined)
+			importCards(cardData);
+		else console.log("Error importing cards"); // Add backup plan
 		
 		for (let className in classes)
 			sortCards(className);
@@ -657,47 +671,45 @@ let HSCollectionTracker = (function() {
 	/*********************************************************
 	**********************CARD FUNCTIONS**********************
 	*********************************************************/
-	// Imports cards from the Hearthstone API
+	// Imports cards from https://hearthstonejson.com/
 	function importCards(cardData) {
-		// Maps Hearthstone API set names to HSCT setsEnum
+		// Maps HearthstoneJSON set names to HSCT setsEnum
 		let setMap = {
-			"Basic": setsEnum.basic,
-			"Classic": setsEnum.classic,
-			"Hall of Fame": setsEnum.hof,
-			"Naxxramas": setsEnum.naxxramas,
-			"Goblins vs Gnomes": setsEnum.gvg,
-			"Blackrock Mountain": setsEnum.blackrock,
-			"The Grand Tournament": setsEnum.tgt,
-			"The League of Explorers": setsEnum.loe,
-			"Whispers of the Old Gods": setsEnum.wotog,
-			"One Night in Karazhan": setsEnum.onik,
-			"Mean Streets of Gadgetzan": setsEnum.msog,
-			"Journey to Un'Goro": setsEnum.ungoro,
-			"Knights of the Frozen Throne": setsEnum.kotft,
-			"Kobolds & Catacombs": setsEnum.kobolds,
-			"The Witchwood": setsEnum.witchwood,
-			"The Boomsday Project": setsEnum.boomsday,
-			"Rastakhan's Rumble": setsEnum.rastakhan,
-			"Rise of Shadows": setsEnum.ros
+			"CORE": setsEnum.basic,
+			"EXPERT1": setsEnum.classic,
+			"HOF": setsEnum.hof,
+			"NAXX": setsEnum.naxxramas,
+			"GVG": setsEnum.gvg,
+			"BRM": setsEnum.blackrock,
+			"TGT": setsEnum.tgt,
+			"LOE": setsEnum.loe,
+			"OG": setsEnum.wotog,
+			"KARA": setsEnum.onik,
+			"GANGS": setsEnum.msog,
+			"UNGORO": setsEnum.ungoro,
+			"ICECROWN": setsEnum.kotft,
+			"LOOTAPALOOZA": setsEnum.kobolds,
+			"GILNEAS": setsEnum.witchwood,
+			"BOOMSDAY": setsEnum.boomsday,
+			"TROLL": setsEnum.rastakhan,
+			"DALARAN": setsEnum.ros
 		};
+		
+		for (let i = 0; i < cardData.length; i++) {
+			let newCard = cardData[i];
+			let set = setMap[newCard.set];
 
-		for (let set in setMap) {
-			let HSCTset = setMap[set];
+			// Don't add cards from new sets that are yet to be added to HSCT,
+			// or core heroes/skins
+			if (set !== undefined && !newCard.id.includes("HERO")) {
+				let className = newCard.cardClass.toLowerCase();
+				let rarity = newCard.rarity.toLowerCase();
+				let type = newCard.type.toLowerCase();
 				
-			if (HSCTset)
-				for (let i = 0; i < cardData[set].length; i++) {
-					let newCard = cardData[set][i];
-						
-					if (!newCard.cardId.includes("HERO")) {						
-						let className = newCard.playerClass.toLowerCase();
-						let rarity = newCard.rarity.toLowerCase();
-						
-						classes[className].addCard(new card(newCard.name, rarity, newCard.cost, newCard.type.toLowerCase(), className, HSCTset, setsUncraftable[HSCTset]));
-					}
-				}
-			else console.log("Set not found");
-		}			
-
+				classes[className].addCard(new card(newCard.name, rarity, newCard.cost,
+				  type, className, set, setsUncraftable[set]));
+			}
+		}
 	}
 	
 	// Sorts all the card lists for the specified class.
@@ -1307,10 +1319,10 @@ let HSCollectionTracker = (function() {
 			//let image = "";
 			
 			// Get necessary card data
-			for (let k = 0; k < cardData.cards.length; k++)
-			    if (cardName == cardData.cards[k].name) {
-					className = cardData.cards[k].hero;
-					rarity = cardData.cards[k].quality;
+			for (let i = 0; i < cardData.length; i++)
+			    if (cardName == cardData[i].name) {
+					className = cardData[i].cardClass.toLowerCase();
+					rarity = cardData[i].rarity.toLowerCase();
 					//image = cardData.cards[k].image_url;
 					break;
 				}
@@ -1630,6 +1642,7 @@ let HSCollectionTracker = (function() {
 	**********************DECK RECIPES************************
 	*********************************************************/
 	// Displays deck recipes for the selected class in the drop-down list
+	// TODO: Things break when switching class too quickly
 	function displayDeckRecipes(evt) {
 		let className = document.getElementById('selectRecipes').value;
 		
@@ -1642,7 +1655,7 @@ let HSCollectionTracker = (function() {
 		}
 		
 		getData("deck-recipes").then(recipes => {
-			getData("all-collectibles").then(cardData => {
+			getCardData2().then(cardData => {
 				let side = document.getElementsByClassName("side-page")[0];
 
 				let div = document.createElement("div");
@@ -1883,9 +1896,10 @@ let HSCollectionTracker = (function() {
 		fetch("/importHSReplay?lo=" + lo + "&region=" + region)
 		  .then(response => response.json())
 		  .then(collection => {	
-			  getCardData().then((cardData) => {
-				  resetCollection();
-							
+			  getCardData2().then((cardData) => {
+				  if (cardData !== undefined)
+					  resetCollection();
+
 				  // Loop through the collection
 				  for (let id in collection.collection) {
 					  let name = "";
@@ -1895,17 +1909,16 @@ let HSCollectionTracker = (function() {
 					  let quality = "";
 				
 					  // Get other necessary card data
-					  for (let set in cardData)
-						  for (let j = 0; j < cardData[set].length; j++) {
-							  let card = cardData[set][j];
+					  for (let i = 0; i < cardData.length; i++) {
+						  let card = cardData[i];
 
-							  if (id == card.dbfId) {
-								  name = card.name;
-								  className = card.playerClass.toLowerCase();
-								  rarity = card.rarity.toLowerCase();
-								  break;
-							  }
+						  if (id == card.dbfId) {
+							  name = card.name;
+							  className = card.cardClass.toLowerCase();
+							  rarity = card.rarity.toLowerCase();
+							  break;
 						  }
+					  }
 								
 					  // Add the card info to HSCT
 					  if (name != "" && className != "") {
@@ -1920,35 +1933,18 @@ let HSCollectionTracker = (function() {
 					  "Collection imported successfully";
 								
 				  updateLocalStorage();
-			  });
+			  })
+			 .catch(error => {
+			  	document.getElementById('importHSReplayStatus').innerHTML =
+					"Importing failed. Unable to connect to card database";
+			 });
 		  })
 		  .catch(error => {
 			  	document.getElementById('importHSReplayStatus').innerHTML =
 					"Importing failed. Wrong URL or collection set to private";
 		  });
 	}
-	
-	function fix() {
-		let xhttp = new XMLHttpRequest();
-		xhttp.responseType = "json";
-		xhttp.onreadystatechange = function() {
-			if (this.readyState == 4 && this.status == 200) {
-				let result = xhttp.response;
 
-				// Loop through the collection
-				for (let i in result) {
-					let hpid = i;
-					let name = result[i];
-					name = name.replace("&amp;#27;", "'");
-					
-					console.log('{"hpid":' + hpid + ',"set":"' + 'ros' + '","name":"' + name + '"},');
-				
-				}
-			}
-		};
-		xhttp.open("GET", "http://localhost:3000/ids", true);
-		xhttp.send();
-	}
 	/*********************************************************
 	***********************MAIN FUNCTION**********************
 	*********************************************************/
@@ -1965,7 +1961,7 @@ let HSCollectionTracker = (function() {
 				
 				// If first visit or new version
 				if (storedVersion != version) {
-						getCardData().then((cardData) => {
+						getCardData2().then((cardData) => {
 							initCollection(cardData);
 						
 							// If new version, restore saved collection/settings
@@ -1996,7 +1992,6 @@ let HSCollectionTracker = (function() {
 					displayTracker();
 				}
 			}
-			//fix();
 		}
 	};
 })();

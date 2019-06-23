@@ -29,6 +29,14 @@ app.get("/cardData", function(req, res) {
 	  });
 });
 
+app.get("/cardData2", function(req, res) {
+	const url = "https://api.hearthstonejson.com/v1/latest/enUS/cards.collectible.json";
+
+	request(url, { json: true }, function(error, response, body) {
+		res.send(body);
+	});
+});
+
 app.get("/data", function(req, res) {
 	const url = "/data/" + req.query.fileName + ".json";
 	
