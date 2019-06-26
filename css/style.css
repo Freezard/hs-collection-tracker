@@ -30,7 +30,7 @@ p {
   color: black;
   font-weight: bold;
   padding: 10px 0px;
-  margin: 0px 10px;
+  margin: 0 10px;
   border-radius: 4px 4px 0px 0px;
   text-transform: uppercase;
   background-color: #FFFFFF;
@@ -684,6 +684,80 @@ h2 {
 .nopadding {
   padding-left: 0;
   padding-right: 0;
+}
+
+@media (min-width: 1800px) {
+	.navbar-expand-custom > .container,
+    .navbar-expand-custom > .container-fluid {
+        padding-right: 0;
+        padding-left: 0;
+    }
+    .navbar-expand-custom {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-flow: row nowrap;
+        flex-flow: row nowrap;
+        -webkit-box-pack: start;
+        -ms-flex-pack: start;
+        justify-content: flex-start;
+    }
+    .navbar-expand-custom .navbar-nav {
+        -webkit-box-orient: horizontal;
+        -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+        flex-direction: row;
+    }
+    .navbar-expand-custom .navbar-nav .dropdown-menu {
+        position: absolute;
+    }
+    .navbar-expand-custom .navbar-nav .dropdown-menu-right {
+        right: 0;
+        left: auto;
+    }
+    .navbar-expand-custom .navbar-nav .nav-link {
+        padding-right: 0.5rem;
+        padding-left: 0.5rem;
+    }
+    .navbar-expand-custom > .container,
+    .navbar-expand-custom > .container-fluid {
+        -ms-flex-wrap: nowrap;
+        flex-wrap: nowrap;
+    }
+    .navbar-expand-custom .navbar-collapse {
+        display: -webkit-box !important;
+        display: -ms-flexbox !important;
+        display: flex !important;
+        -ms-flex-preferred-size: auto;
+        flex-basis: auto;
+    }
+    .navbar-expand-custom .navbar-toggler {
+        display: none;
+    }
+    .navbar-expand-custom .dropup .dropdown-menu {
+        top: auto;
+        bottom: 100%;
+    }
+}
+
+@media (max-width: 1800px) {
+	#qualityButtons li a {
+	  margin: auto;
+	}
+	
+	.dropdown {
+		margin: auto;
+	}
+}
+
+@media (min-width: 1200px) {
+	#missingCardsWrap {
+		display: none !important;
+	}
+}
+@media (min-width: 1800px) {
+	#missingCardsWrap {
+		display: block !important;
+	}
 }
 /*
 #content:after {
