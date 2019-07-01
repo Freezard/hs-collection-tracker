@@ -157,7 +157,7 @@ let HSCollectionTracker = (function() {
 	let currentDust = 0;
 	let disenchantedDust = 0;
 	
-	let version = 2.4;
+	let version = 2.41;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, uncraftable) {
@@ -1944,7 +1944,6 @@ let HSCollectionTracker = (function() {
 					"Importing failed. Wrong URL or collection set to private";
 		  });
 	}
-
 	/*********************************************************
 	***********************MAIN FUNCTION**********************
 	*********************************************************/
