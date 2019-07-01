@@ -21,6 +21,9 @@ p {
   font-size: 18px;
   color: #999999;
 }
+#header a {
+  cursor: pointer;
+}
 #qualityButtons li a {
   text-align: center;
   border-top: 4px inset #E3D3C8;  
@@ -34,7 +37,6 @@ p {
   border-radius: 4px 4px 0px 0px;
   text-transform: uppercase;
   background-color: #FFFFFF;
-  cursor: pointer;
 }
 #files {
   display: none;
