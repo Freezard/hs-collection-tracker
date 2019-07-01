@@ -34,6 +34,7 @@ p {
   border-radius: 4px 4px 0px 0px;
   text-transform: uppercase;
   background-color: #FFFFFF;
+  cursor: pointer;
 }
 #files {
   display: none;
