@@ -786,14 +786,19 @@ let HSCollectionTracker = (function() {
 	}
 	
 	// Adds a copy of a card through clicking on an <li><a> element
-	function addCard(card) {
+	function addCard(card, evt) {
 		let rarity = card.rarity;
 		
 		if (card[selectedQuality] < getMaxCopies(rarity)) {
 			updateCard(card, selectedQuality, 1);
 			
 		    updateLocalStorage();
-			displayCards(selectedClass);
+			
+			if (isVisible(card)) {
+				evt.classList.toggle(selectedQuality + (card[selectedQuality] - 1));
+				evt.classList.add(selectedQuality + card[selectedQuality]);
+			}
+			else evt.parentNode.removeChild(evt);
 			displayMissingCards();
 			displayMissingCardsOverall();
 			displayMissingDust();
@@ -802,14 +807,16 @@ let HSCollectionTracker = (function() {
 	}
 	
 	// Removes a copy of a card through right-clicking on an <li><a> element
-	function removeCard(card) {
+	function removeCard(card, evt) {
 		let rarity = card.rarity;
 		
 		if (card[selectedQuality] > 0) {
 		    updateCard(card, selectedQuality, -1);
 		
 			updateLocalStorage();
-			displayCards(selectedClass);
+			
+			evt.classList.toggle(selectedQuality + (card[selectedQuality] + 1));
+			evt.classList.add(selectedQuality + card[selectedQuality]);
 			displayMissingCards();
 			displayMissingCardsOverall();
 			displayMissingDust();
@@ -888,6 +895,28 @@ let HSCollectionTracker = (function() {
 	function getCraftingCost(card, quality, copies) {
 		return craftingCost[card.rarity][quality] * copies;
 	}
+	
+	// Checks whether a card is visible or not according to filter settings
+	function isVisible(card) {
+		if (settings.showOnlyMissingCards) {
+			if (settings.excludeGoldenCards) {
+				if (card.normal >= getMaxCopies(card.rarity)) {
+					return false;
+				}
+			} else {
+				if (card.normal >= getMaxCopies(card.rarity) && card.golden >= getMaxCopies(card.rarity)) {
+					return false;
+				}
+			}
+		}
+		if (filterBySet === "all") {
+			return true;
+		}
+		if (filterBySet === "standard") {
+			return !!standardSetsEnum[card.set];
+		}
+		return card.set === filterBySet;
+	}	
 	/*********************************************************
 	*************************DISPLAY**************************
 	*********************************************************/
@@ -1082,13 +1111,13 @@ let HSCollectionTracker = (function() {
 				let card = cardList[rarity][name];
 				
 				// Only display the card if it isn't filtered out
-				if (isVisible(card, filterBySet, settings)) {
+				if (isVisible(card)) {
 					let listItem = document.createElement("li");
 					let listItemLink = document.createElement("a");
 					listItemLink.textContent = name;
 					(function (card) {
-						listItemLink.addEventListener("click", function() { addCard(card); });
-						listItemLink.addEventListener("contextmenu", function() { removeCard(card); });
+						listItemLink.addEventListener("click", function() { addCard(card, this); });
+						listItemLink.addEventListener("contextmenu", function() { removeCard(card, this); });
 						}(card))
 					// Set the CSS for the card depending on how many copies in the collection
 					listItemLink.setAttribute("class", "normal" + cardList[rarity][name].normal + " " +
@@ -1106,29 +1135,6 @@ let HSCollectionTracker = (function() {
 					else list.appendChild(listItem);
 				}
 			}
-		}
-
-		function isVisible(card, filterBySet, settings) {
-			// Only display the card if show missing cards is off,
-			// or the card is actually missing from your collection
-			if (settings.showOnlyMissingCards) {
-				if (settings.excludeGoldenCards) {
-					if (card.normal >= getMaxCopies(rarity)) {
-						return false;
-					}
-				} else {
-					if (card.normal >= getMaxCopies(rarity) && card.golden >= getMaxCopies(rarity)) {
-						return false;
-					}
-				}
-			}
-			if (filterBySet === "all") {
-				return true;
-			}
-			if (filterBySet === "standard") {
-				return !!standardSetsEnum[card.set];
-			}
-			return card.set === filterBySet;
 		}
 	}
 
