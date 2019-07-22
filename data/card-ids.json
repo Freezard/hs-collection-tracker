@@ -116,7 +116,7 @@
 {"hpid":325,"set":"basic","name":"Stormpike Commando"},
 {"hpid":310,"set":"basic","name":"Stormwind Champion"},
 {"hpid":603,"set":"basic","name":"Stormwind Knight"},
-{"hpid":208,"set":"basic","name":"Succubus"},
+{"hpid":208,"set":"basic","name":"Felstalker"},
 {"hpid":620,"set":"basic","name":"Swipe"},
 {"hpid":86,"set":"basic","name":"Timber Wolf"},
 {"hpid":367,"set":"basic","name":"Totemic Might"},
@@ -495,7 +495,7 @@
 {"hpid":12189,"set":"gvg","name":"Micro Machine"},
 {"hpid":12190,"set":"gvg","name":"Mimiron's Head"},
 {"hpid":12262,"set":"gvg","name":"Mini-Mage"},
-{"hpid":12283,"set":"gvg","name":"Mistress of Pain"},
+{"hpid":12283,"set":"gvg","name":"Queen of Pain"},
 {"hpid":12282,"set":"gvg","name":"Mogor the Ogre"},
 {"hpid":12223,"set":"gvg","name":"Muster for Battle"},
 {"hpid":12292,"set":"gvg","name":"Neptulon"},
@@ -2022,5 +2022,16 @@
 {"hpid":90662,"set":"ros","name":"Spellbook Binder"},
 {"hpid":90673,"set":"ros","name":"Daring Escape"},
 {"hpid":90677,"set":"ros","name":"Arcane Servant"},
-{"hpid":90679,"set":"ros","name":"Zayle, Shadow Cloak"}
+{"hpid":90679,"set":"ros","name":"Zayle, Shadow Cloak"},
+
+{"hpid":90681,"set":"basic","name":"Plaguebringer"},
+{"hpid":90682,"set":"basic","name":"Radiance"},
+{"hpid":90683,"set":"classic","name":"Siegebreaker"},
+{"hpid":90684,"set":"classic","name":"Righteousness"},
+{"hpid":90685,"set":"classic","name":"Brightwing"},
+{"hpid":90686,"set":"classic","name":"High Inquisitor Whitemane"},
+{"hpid":90687,"set":"classic","name":"Barrens Stablehand"},
+{"hpid":90688,"set":"classic","name":"SI:7 Infiltrator"},
+{"hpid":90689,"set":"classic","name":"Arcane Devourer"},
+{"hpid":90690,"set":"classic","name":"Gift of the Wild"}
 ]
