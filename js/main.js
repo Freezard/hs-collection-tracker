@@ -157,16 +157,17 @@ let HSCollectionTracker = (function() {
 	let currentDust = 0;
 	let disenchantedDust = 0;
 	
-	let version = 2.41;
+	let version = 2.42;
 	
 	// Card object
-	function card(name, rarity, mana, type, className, set, uncraftable) {
+	function card(name, rarity, mana, type, className, set, id, uncraftable) {
 		this.name = name;
 		this.rarity = rarity;
 		this.mana = mana;
 		this.type = type;
 		this.className = className;
 		this.set = set;
+		this.id = id;
 		this.uncraftable = uncraftable;
 		this.normal = 0;
 		this.golden = 0;
@@ -517,135 +518,28 @@ let HSCollectionTracker = (function() {
 		}		
 	}
 
-	function initHearthpwnTooltips() {
-		let deferreds = [];
-
-		// List of hearthstone cards grabbed 2016-03-31 from this chrome extension:
-		// https://chrome.google.com/webstore/detail/hearthstone-linkifier/hgfciolhdhbagnccplcficnahgleflam
-		// ^ Not updated anymore.
-		//
-		// Most valuable here are IDs in hearthpwn.com and wowhead.com databases.
-		if (!window.HS_CardData) {
-			let promise = (function() {
-				let deferred = jQuery.Deferred();
-				let request = new XMLHttpRequest();
-				request.open("GET", "data/card-ids.json");
-				request.onreadystatechange = function () {
-					if(request.readyState === 4) {
-						if(request.status === 200 || request.status == 0) {
-							try {
-								deferred.resolve(JSON.parse(request.responseText));
-								return;
-							} catch (e) {
-								console.log('Error getting card IDs');
-								console.log(e);
-							}
-						}
-						deferred.reject();
-					}
-				}
-				try {
-					request.send(null);
-				} catch(e) {
-					console.log('Error getting card IDs');
-					console.log(e);
-					deferred.reject();
-				}
-				return deferred.promise();
-			})();
-			deferreds.push(promise.then(function(data) {
-				window.HS_CardData = data;
-			}));
-		}
-
-		// HearthPwn tooltip script
-		// http://www.hearthpwn.com/tooltips
-		if (!window.CurseTips) {
-			let tt_url = '//static-hearth.cursecdn.com/current/js/syndication/tt.js';
-			if (location.protocol == 'file:') {
-				tt_url = 'http:' + tt_url;
-			}
-
-			// HearthPwn's tooltip script does not like being $.getScript()'ed.
-			// It errs when it can't find its <script>. So, we have to include it by hand.
-			let promise = (function() {
-				let deferred = jQuery.Deferred();
-				let $script = $('<script>').prop('src', tt_url).on("load error", function(e) {
-					if (e.type === "error") {
-						deferred.reject();
-					} else {
-						deferred.resolve();
-					}
-				});
-				document.head.appendChild($script[0]);
-				return deferred.promise();
-			})();
-			deferreds.push(promise);
-		}
-
-		// Init tooltips when dependencies are loaded
-		return $.when.apply($, deferreds).then(function() {
-
-			initTooltipDelay();
-
-			// maps card name to hearthpwn id
-			let card_ids = {};
-			HS_CardData.forEach(function(card) {
-				card_ids[card.name] = card.hpid;
-			});
-			let href_tmpl = 'http://www.hearthpwn.com/cards/%d';
-
+	// Uses Tippy.js and card images from https://art.hearthstonejson.com/
+	function initTooltips() {
+		return $(function() {
 			// Listen to mouse events and init tooltips on the fly
 			$(document.body).on('mouseover', '#classCards li a', function(evt) {
 				let $a = $(this);
-				if ($a.hasClass('buttonAll') || $a.attr('data-tooltip-href')) {
+				
+				if ($a.hasClass('buttonAll') || $a.data('tippy-content')) {
 					return;
 				}
-				let card_name = $a.text();
-				if (!card_ids[card_name]) {
-					return;
-				}
-				$a.attr('data-tooltip-href', href_tmpl.replace('%d', card_ids[card_name]));
-				CurseTips['hearth-tooltip'].watchElements([$a[0]]);
-				CurseTips['hearth-tooltip'].createTooltip(evt);
+				
+				$a.attr('data-tippy-content', 
+				  '<img src="https://art.hearthstonejson.com/v1/render/latest/enUS/256x/'
+				  + $a.data("card-id") + '.png">');
+				tippy('[data-tippy-content]', {
+				  offset: "150, 20",
+				  followCursor: true,
+				  hideOnClick: false,
+				  duration: 0,
+				  delay: [500, 0],
+				});
 			});
-
-			// Monkey-patch to delay showing tooltip
-			function initTooltipDelay() {
-				let mouseenter_ts = 0;
-				let last_card_id = null;
-				let self = CurseTips['hearth-tooltip'];
-
-				// 100ms delay between mouseenter and requesting data
-				let origCreateTooltip = self.createTooltip;
-				self.createTooltip = function(q) {
-					mouseenter_ts = Date.now();
-					let card_id = last_card_id = (q.currentTarget.getAttribute("data-tooltip-href")||'').split('/').pop().split('?')[0];
-					if (last_card_id) {
-						q = $.extend({}, q);
-						setTimeout(function() {
-							if (card_id == last_card_id) {
-								origCreateTooltip.call(self, q);
-							}
-						}, 100);
-					}
-				};
-
-				// 500ms delay between mouseenter and showing tooltip
-				let origHandleTooltipData = self.handleTooltipData;
-				self.handleTooltipData = function(p) {
-					let args = arguments;
-					if (!p) {
-						last_card_id = null;
-						return origHandleTooltipData.apply(self, args);
-					}
-					setTimeout(function() {
-						if (p.Id == last_card_id) {
-							origHandleTooltipData.apply(self, args);
-						}
-					}, Math.max(0, 500 - (Date.now() - mouseenter_ts)));
-				};
-			}
 		});
 	}
 
@@ -707,7 +601,7 @@ let HSCollectionTracker = (function() {
 				let type = newCard.type.toLowerCase();
 				
 				classes[className].addCard(new card(newCard.name, rarity, newCard.cost,
-				  type, className, set, setsUncraftable[set]));
+				  type, className, set, newCard.id, setsUncraftable[set]));
 			}
 		}
 	}
@@ -1122,7 +1016,8 @@ let HSCollectionTracker = (function() {
 					// Set the CSS for the card depending on how many copies in the collection
 					listItemLink.setAttribute("class", "normal" + cardList[rarity][name].normal + " " +
 						"golden" + cardList[rarity][name].golden + " " + "noselect");
-
+					listItemLink.setAttribute("data-card-id", card.id);
+					
 					listItem.appendChild(listItemLink);
 					
 					// Split common cards in two lists if hideFreeCards is on
@@ -1960,7 +1855,7 @@ let HSCollectionTracker = (function() {
 			if (typeof(Storage) !== "undefined") {
 				let storedVersion = localStorage.getItem("version");
 				
-				initHearthpwnTooltips();
+				initTooltips();
 				initSelectedQuality();
 				initEventListeners();
 				

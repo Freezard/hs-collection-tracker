@@ -10,6 +10,9 @@ body {
 p {
 	margin-bottom: 10px;
 }
+.tippy-backdrop {
+	display: none;
+}
 #wrapper {
   min-height: 100%;
   position: relative;
