@@ -1,13 +1,13 @@
 # Hearthstone Collection Tracker
-Tracks your Hearthstone card collection. Lets you know exactly how many normal and golden cards are missing for each class and in total. Also shows the dust required to craft the missing cards, and the Pack Guide tells you the most efficient pack to buy based on your collection.
+Tracks your Hearthstone card collection. Lets you know exactly how many normal and golden cards are missing for each class and in total. Also shows the dust required to craft the missing cards, and the Pack Guide lists the most efficient pack to buy based on your collection.
 
-Website can be found at https://hs-collection-tracker.herokuapp.com/
+Web app can be found at https://hs-collection-tracker.herokuapp.com/
 
 ![Site overview](images/readme-1.jpg)
 
 ## FEATURES
 - Keeps track of how many normal and golden copies you have of each card.
-- Import your entire collection from HearthPwn or add cards by clicking on them.
+- Import your entire collection from HSReplay or add cards by clicking on them.
 - Add all copies of a selected card rarity in one click.
 - Each class has their cards listed in their own tab, or list everything in the All tab.
 - Infobox displaying the number of missing copies and dust required to complete a set or your whole collection.
