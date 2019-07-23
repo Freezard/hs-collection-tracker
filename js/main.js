@@ -1860,6 +1860,12 @@ let HSCollectionTracker = (function() {
 				initSelectedQuality();
 				initEventListeners();
 				
+				// Close collapsed navbar when clicking on links
+				$(".nav-item, .navbar-nav .dropdown-item").not(".dropdown")
+				  .on("click", function(){
+					  $(".navbar-collapse").collapse("hide");
+				  });				
+				
 				// If first visit or new version
 				if (storedVersion != version) {
 						getCardData2().then((cardData) => {
