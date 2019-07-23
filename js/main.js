@@ -531,11 +531,12 @@ let HSCollectionTracker = (function() {
 				
 				$a.attr('data-tippy-content', 
 				  '<img src="https://art.hearthstonejson.com/v1/render/latest/enUS/256x/'
-				  + $a.data("card-id") + '.png">');
+				  + $a.data("card-id") + '.png" width="256" height="387">');
 				tippy('[data-tippy-content]', {
 				  offset: "150, 20",
 				  followCursor: true,
 				  hideOnClick: false,
+				  a11y: false,
 				  duration: 0,
 				  delay: [500, 0],
 				});
