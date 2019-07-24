@@ -13,8 +13,12 @@ app.use("/js", express.static(__dirname + '/js'));
 app.use("/data", express.static(__dirname + '/data'));
 app.use("/images",  express.static(__dirname + '/images'));
 
+let count = 0;
+
 app.get('/', function(req,res) {
-  res.sendFile(path.join(__dirname + '/index.html'));
+	count++;
+	console.log(count + " " + new Date());
+	res.sendFile(path.join(__dirname + '/index.html'));
 });
 
 app.get("/cardData", function(req, res) {
