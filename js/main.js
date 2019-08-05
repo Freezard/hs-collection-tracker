@@ -44,7 +44,8 @@ let HSCollectionTracker = (function() {
 		witchwood: "witchwood",
 		boomsday: "boomsday",
 		rastakhan: "rastakhan",
-		ros: "ros"
+		ros: "ros",
+		uldum: "uldum"
 	};
 
 	let standardSetsEnum = {
@@ -53,7 +54,8 @@ let HSCollectionTracker = (function() {
 		witchwood: "witchwood",
 		boomsday: "boomsday",
 		rastakhan: "rastakhan",
-		ros: "ros"
+		ros: "ros",
+		uldum: "uldum"
 	};
 
 	// The number of cards and craftable cards in each set.
@@ -79,7 +81,8 @@ let HSCollectionTracker = (function() {
 		witchwood: "none",
 		boomsday: "none",
 		rastakhan: "none",
-		ros: "none"
+		ros: "none",
+		uldum: "none"
 	};
 	
 	let packsEnum = {
@@ -94,7 +97,8 @@ let HSCollectionTracker = (function() {
 		witchwood: "witchwood",
 		boomsday: "boomsday",
 		rastakhan: "rastakhan",
-		ros: "ros"
+		ros: "ros",
+		uldum: "uldum"
 	};
 	
 	let rewardsEnum = {
@@ -102,7 +106,8 @@ let HSCollectionTracker = (function() {
 		witchwood: "witchwood",
 		boomsday: "boomsday",
 		rastakhan: "rastakhan",
-		ros: "ros"
+		ros: "ros",
+		uldum: "uldum"
 	};	
 	
 	let craftingCost = {
@@ -157,7 +162,7 @@ let HSCollectionTracker = (function() {
 	let currentDust = 0;
 	let disenchantedDust = 0;
 	
-	let version = 2.42;
+	let version = 2.43;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, id, uncraftable) {
@@ -296,18 +301,6 @@ let HSCollectionTracker = (function() {
 	async function getCardData() {
 		try {
 			let request = await fetch("/cardData");
-			let cardData = await request.json();
-			return cardData;
-		}
-		catch (error) {
-			console.log(error);
-		}
-	}
-	
-	// Get card data from Hearthstone API
-	async function getCardData2() {
-		try {
-			let request = await fetch("/cardData2");
 			let cardData = await request.json();
 			return cardData;
 		}
@@ -587,7 +580,8 @@ let HSCollectionTracker = (function() {
 			"GILNEAS": setsEnum.witchwood,
 			"BOOMSDAY": setsEnum.boomsday,
 			"TROLL": setsEnum.rastakhan,
-			"DALARAN": setsEnum.ros
+			"DALARAN": setsEnum.ros,
+			"ULDUM": setsEnum.uldum
 		};
 		
 		for (let i = 0; i < cardData.length; i++) {
@@ -1557,7 +1551,7 @@ let HSCollectionTracker = (function() {
 		}
 		
 		getData("deck-recipes").then(recipes => {
-			getCardData2().then(cardData => {
+			getCardData().then(cardData => {
 				let side = document.getElementsByClassName("side-page")[0];
 
 				let div = document.createElement("div");
@@ -1798,7 +1792,7 @@ let HSCollectionTracker = (function() {
 		fetch("/importHSReplay?lo=" + lo + "&region=" + region)
 		  .then(response => response.json())
 		  .then(collection => {	
-			  getCardData2().then((cardData) => {
+			  getCardData().then((cardData) => {
 				  if (cardData !== undefined)
 					  resetCollection();
 
@@ -1868,7 +1862,7 @@ let HSCollectionTracker = (function() {
 				
 				// If first visit or new version
 				if (storedVersion != version) {
-						getCardData2().then((cardData) => {
+						getCardData().then((cardData) => {
 							initCollection(cardData);
 						
 							// If new version, restore saved collection/settings

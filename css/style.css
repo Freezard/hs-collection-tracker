@@ -8,10 +8,10 @@ body {
 /*  line-height: 1.428;*/
 }
 p {
-	margin-bottom: 10px;
+  margin-bottom: 10px;
 }
 .tippy-backdrop {
-	display: none;
+  display: none;
 }
 #wrapper {
   min-height: 100%;

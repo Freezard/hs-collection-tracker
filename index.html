@@ -83,6 +83,7 @@
 			<a class="dropdown-item">Boomsday</a>
 			<a class="dropdown-item">Rastakhan</a>
 			<a class="dropdown-item">RoS</a>
+			<a class="dropdown-item">Uldum</a>
 		  </div>
 		</li>
 	    <li class="dropdown">
@@ -226,6 +227,7 @@
 	<option value="boomsday">The Boomsday Project</option>
 	<option value="rastakhan">Rastakhan's Rumble</option>
 	<option value="ros">Rise of Shadows</option>
+	<option value="uldum">Saviors of Uldum</option>
 	<option selected disabled>---</option>
 	<option value="standard">Standard</option>
 	<option value="total">Overall</option>
@@ -260,6 +262,7 @@
 <script id="template-news" type="text/html">
 <div class="col-12 side-page">
   <h2>News</h2>
+  <p><span class="special2">05-08-19</span> - Updated to Patch 15.0.0 (Saviors of Uldum).</p>
   <p><span class="special2">01-07-19</span> - Updated to Patch 14.6.0.</p>
   <p style="margin-left: 62px"> - You need to re-enter the renamed cards: Felstalker and Queen of Pain.</p>
   <p><span class="special2">05-06-19</span> - Added an option to import a collection from HSReplay, located in options. You can use Hearthstone Deck Tracker to import your collection from the game to HSReplay, and then import it to HSCT.</p>
@@ -357,7 +360,7 @@
   <p class="special2">Click on a pack to see its golden version (currently only Classic).</p>
   <div class="mainDiv">
     <div class="row">
-	  <div class="col-3">
+	  <div class="col-4">
         <img id="imageClassicPack" class="img-fluid" src="images/pack_classic.png" alt="Classic pack" width="160" height="216">
 	    <table class="tablePack">
 	      <tr>
@@ -366,7 +369,16 @@
 	      </tr>
 	    </table>  
       </div>
-	  <div class="col-3">
+	  <div class="col-4">
+        <img src="images/pack_uldum.png" class="img-fluid" alt="Saviors of Uldum pack" width="167" height="216">
+	    <table class="tablePack">
+	      <tr>
+	        <td>Average dust =</td>
+		    <td id="uldumAverageDust"></td>
+	      </tr>
+	    </table>
+	  </div>
+	  <div class="col-4">
         <img src="images/pack_ros.png" class="img-fluid" alt="Rise of Shadows pack" width="164" height="216">
 	    <table class="tablePack">
 	      <tr>
@@ -375,7 +387,10 @@
 	      </tr>
 	    </table>
       </div>
-	  <div class="col-3">
+	</div>
+	<br>
+	<div class="row">
+	  <div class="col-4">
         <img src="images/pack_rastakhan.png" class="img-fluid" alt="Rastakhan pack" width="175" height="216">
 	    <table class="tablePack">
 	      <tr>
@@ -383,8 +398,8 @@
 		    <td id="rastakhanAverageDust"></td>
 	      </tr>
 	    </table>
-      </div>
-      <div class="col-3">
+      </div>	
+      <div class="col-4">
         <img src="images/pack_boomsday.png" class="img-fluid" alt="Boomsday pack" width="160" height="216">
 	    <table class="tablePack">
 	      <tr>
@@ -392,11 +407,8 @@
 		    <td id="boomsdayAverageDust"></td>
 	      </tr>
 	    </table> 
-      </div>
-	</div>
-	<br>
-	<div class="row">
-	  <div class="col-3">
+      </div>	
+	  <div class="col-4">
         <img src="images/pack_witchwood.png" class="img-fluid" alt="Witchwood pack">
 	    <table class="tablePack">
 	      <tr>
@@ -405,7 +417,10 @@
 	      </tr>
 	    </table>  
       </div>
-      <div class="col-3">
+	</div>
+	<br>
+	<div class="row">
+      <div class="col-4">
         <img src="images/pack_kobolds.png" class="img-fluid" alt="K&C pack">
 	    <table class="tablePack">
 	      <tr>
@@ -414,7 +429,7 @@
 	      </tr>
 	    </table>
       </div>	
-      <div class="col-3">
+      <div class="col-4">
         <img src="images/pack_kotft.png" class="img-fluid" alt="KotFT pack">
 	    <table class="tablePack">
 	      <tr>
@@ -423,7 +438,7 @@
 	      </tr>
 	    </table>
       </div>	
-      <div class="col-3">
+      <div class="col-4">
         <img src="images/pack_ungoro.png" class="img-fluid" alt="Un'Goro pack">
 	    <table class="tablePack">
 	      <tr>
