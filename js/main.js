@@ -45,7 +45,8 @@ let HSCollectionTracker = (function() {
 		boomsday: "boomsday",
 		rastakhan: "rastakhan",
 		ros: "ros",
-		uldum: "uldum"
+		uldum: "uldum",
+		dragons: "dragons"
 	};
 
 	let standardSetsEnum = {
@@ -55,7 +56,8 @@ let HSCollectionTracker = (function() {
 		boomsday: "boomsday",
 		rastakhan: "rastakhan",
 		ros: "ros",
-		uldum: "uldum"
+		uldum: "uldum",
+		dragons: "dragons"
 	};
 
 	// The number of cards and craftable cards in each set.
@@ -82,7 +84,8 @@ let HSCollectionTracker = (function() {
 		boomsday: "none",
 		rastakhan: "none",
 		ros: "none",
-		uldum: "none"
+		uldum: "none",
+		dragons: "dragons"
 	};
 	
 	let packsEnum = {
@@ -162,7 +165,7 @@ let HSCollectionTracker = (function() {
 	let currentDust = 0;
 	let disenchantedDust = 0;
 	
-	let version = 2.44;
+	let version = 2.45;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, id, uncraftable) {
@@ -581,7 +584,8 @@ let HSCollectionTracker = (function() {
 			"BOOMSDAY": setsEnum.boomsday,
 			"TROLL": setsEnum.rastakhan,
 			"DALARAN": setsEnum.ros,
-			"ULDUM": setsEnum.uldum
+			"ULDUM": setsEnum.uldum,
+			"DRAGONS": setsEnum.dragons
 		};
 		
 		for (let i = 0; i < cardData.length; i++) {
