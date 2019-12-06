@@ -2,6 +2,7 @@
     Hearthstone Collection Tracker
 */
 let HSCollectionTracker = (function() {
+	"use strict";
 	/*********************************************************
 	***************************DATA***************************
 	*********************************************************/
@@ -824,7 +825,7 @@ let HSCollectionTracker = (function() {
 		document.getElementById("classTabsBar").setAttribute("class", classTabsClass + " " + selectedClass);
 		
 		// Create the class tabs
-		createClassTab = function (className) {
+		let createClassTab = function (className) {
 			let listItem = document.createElement("li");
 			listItem.setAttribute("class", "col-xs-11ths nopadding");
 			let listItemLink = document.createElement("a");
