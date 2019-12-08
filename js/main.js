@@ -102,7 +102,8 @@ let HSCollectionTracker = (function() {
 		boomsday: "boomsday",
 		rastakhan: "rastakhan",
 		ros: "ros",
-		uldum: "uldum"
+		uldum: "uldum",
+		dragons: "dragons"
 	};
 	
 	let rewardsEnum = {
@@ -111,7 +112,8 @@ let HSCollectionTracker = (function() {
 		boomsday: "boomsday",
 		rastakhan: "rastakhan",
 		ros: "ros",
-		uldum: "uldum"
+		uldum: "uldum",
+		dragons: "dragons"
 	};	
 	
 	let craftingCost = {
@@ -166,7 +168,7 @@ let HSCollectionTracker = (function() {
 	let currentDust = 0;
 	let disenchantedDust = 0;
 	
-	let version = 2.45;
+	let version = 2.46;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, id, uncraftable) {
