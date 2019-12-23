@@ -168,7 +168,7 @@ let HSCollectionTracker = (function() {
 	let currentDust = 0;
 	let disenchantedDust = 0;
 	
-	let version = 2.46;
+	let version = 2.47;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, id, uncraftable) {
@@ -1883,8 +1883,8 @@ let HSCollectionTracker = (function() {
 									settings[setting] = storedSettings[setting];
 								
 								// Highlight the news button
-								let news = document.getElementById("link-news");
-								news.className = news.className + " news";
+								//let news = document.getElementById("link-news");
+								//news.className = news.className + " news";
 							}
 							
 							updateLocalStorage();
