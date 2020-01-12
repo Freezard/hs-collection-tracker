@@ -168,7 +168,7 @@ let HSCollectionTracker = (function() {
 	let currentDust = 0;
 	let disenchantedDust = 0;
 	
-	let version = 2.47;
+	let version = 2.48;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, id, uncraftable) {
