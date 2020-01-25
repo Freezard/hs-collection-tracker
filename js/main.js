@@ -47,7 +47,8 @@ let HSCollectionTracker = (function() {
 		rastakhan: "rastakhan",
 		ros: "ros",
 		uldum: "uldum",
-		dragons: "dragons"
+		dragons: "dragons",
+		galakrond: "galakrond"
 	};
 
 	let standardSetsEnum = {
@@ -58,7 +59,8 @@ let HSCollectionTracker = (function() {
 		rastakhan: "rastakhan",
 		ros: "ros",
 		uldum: "uldum",
-		dragons: "dragons"
+		dragons: "dragons",
+		galakrond: "galakrond"
 	};
 
 	// The number of cards and craftable cards in each set.
@@ -86,7 +88,8 @@ let HSCollectionTracker = (function() {
 		rastakhan: "none",
 		ros: "none",
 		uldum: "none",
-		dragons: "dragons"
+		dragons: "none",
+		galakrond: "none"
 	};
 	
 	let packsEnum = {
@@ -168,7 +171,7 @@ let HSCollectionTracker = (function() {
 	let currentDust = 0;
 	let disenchantedDust = 0;
 	
-	let version = 2.48;
+	let version = 2.5;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, id, uncraftable) {
@@ -588,7 +591,8 @@ let HSCollectionTracker = (function() {
 			"TROLL": setsEnum.rastakhan,
 			"DALARAN": setsEnum.ros,
 			"ULDUM": setsEnum.uldum,
-			"DRAGONS": setsEnum.dragons
+			"DRAGONS": setsEnum.dragons,
+			"YEAR_OF_THE_DRAGON": setsEnum.galakrond
 		};
 		
 		for (let i = 0; i < cardData.length; i++) {
@@ -1883,8 +1887,8 @@ let HSCollectionTracker = (function() {
 									settings[setting] = storedSettings[setting];
 								
 								// Highlight the news button
-								//let news = document.getElementById("link-news");
-								//news.className = news.className + " news";
+								let news = document.getElementById("link-news");
+								news.className = news.className + " news";
 							}
 							
 							updateLocalStorage();
