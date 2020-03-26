@@ -605,7 +605,7 @@ let HSCollectionTracker = (function() {
 
 			// Don't add cards from new sets that are yet to be added to HSCT,
 			// or core heroes/skins
-			if (set !== undefined && !newCard.id.includes("HERO")) {
+			if (set !== undefined && !newCard.id.includes("HERO") && newCard.type !== "ENCHANTMENT" && newCard.cardClass !== "DEMONHUNTER") {
 				let className = newCard.cardClass.toLowerCase();
 				let rarity = newCard.rarity.toLowerCase();
 				let type = newCard.type.toLowerCase();
