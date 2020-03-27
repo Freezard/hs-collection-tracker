@@ -1523,7 +1523,6 @@ let HSCollectionTracker = (function() {
 							+ ((totalCards - dupesGolden) / totalCards) * craftingCost[rarity].golden);
 					else averageValue += (chanceOfGetting[rarity].normal + chanceOfGetting[rarity].golden) * disenchantmentValue[rarity].golden;
 				}
-						+ ((totalCards - dupesGolden) / totalCards) * craftingCost[rarity].golden);
 			}
 		}
 		return averageValue;
