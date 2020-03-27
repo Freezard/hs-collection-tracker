@@ -8,6 +8,7 @@ let HSCollectionTracker = (function() {
 	*********************************************************/
 	let classesEnum = {
 		neutral: "neutral",
+		dh: "dh",
 		druid: "druid",
 		hunter: "hunter",
 		mage: "mage",
@@ -174,7 +175,7 @@ let HSCollectionTracker = (function() {
 	let currentDust = 0;
 	let disenchantedDust = 0;
 	
-	let version = 2.51;
+	let version = 3.0;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, id, uncraftable) {
@@ -577,6 +578,7 @@ let HSCollectionTracker = (function() {
 		let setMap = {
 			"CORE": setsEnum.basic,
 			"EXPERT1": setsEnum.classic,
+			"DEMON_HUNTER_INITIATE": setsEnum.classic,
 			"HOF": setsEnum.hof,
 			"NAXX": setsEnum.naxxramas,
 			"GVG": setsEnum.gvg,
@@ -602,13 +604,18 @@ let HSCollectionTracker = (function() {
 		for (let i = 0; i < cardData.length; i++) {
 			let newCard = cardData[i];
 			let set = setMap[newCard.set];
-
+			
 			// Don't add cards from new sets that are yet to be added to HSCT,
 			// or core heroes/skins
-			if (set !== undefined && !newCard.id.includes("HERO") && newCard.type !== "ENCHANTMENT" && newCard.cardClass !== "DEMONHUNTER") {
-				let className = newCard.cardClass.toLowerCase();
+			// HACK because ENCHANTMENT is a bugged/temporary card
+			if (set !== undefined && !newCard.id.includes("HERO") && newCard.type !== "ENCHANTMENT") {
+				let className = newCard.cardClass === "DEMONHUNTER" ? "dh" : newCard.cardClass.toLowerCase();
 				let rarity = newCard.rarity.toLowerCase();
 				let type = newCard.type.toLowerCase();
+				
+				// HACK because API data is incorrect
+				if (newCard.name === "Psychic Conjurer" || newCard.name === "Power Infusion")
+					rarity = "free";
 				
 				classes[className].addCard(new card(newCard.name, rarity, newCard.cost,
 				  type, className, set, newCard.id, setsUncraftable[set]));
@@ -837,7 +844,7 @@ let HSCollectionTracker = (function() {
 		// Create the class tabs
 		let createClassTab = function (className) {
 			let listItem = document.createElement("li");
-			listItem.setAttribute("class", "col-xs-11ths nopadding");
+			listItem.setAttribute("class", "col-12ths nopadding");
 			let listItemLink = document.createElement("a");
 			let span = document.createElement("span");
 			if (className in classes)
@@ -1385,8 +1392,11 @@ let HSCollectionTracker = (function() {
 		let td = document.createElement("td");
 		
 		// Only display the class name on the first (normal) row
-		if (quality == "normal")
-		    td.innerHTML = capitalizeFirstLetter(className);
+		if (quality == "normal") {
+			if (className === "dh") // HACK
+				td.innerHTML = "DH";
+			else td.innerHTML = capitalizeFirstLetter(className);
+		}
 		
 		tr.appendChild(td);
 		
@@ -1453,8 +1463,24 @@ let HSCollectionTracker = (function() {
 		let averageValue = 0;
 		
 	    for (let rarity in chanceOfGetting) {
-			// Value for guaranteed legendary, when any is missing (not 100% accurate)
-			if (rarity == "legendary" && missingCards.overall[set][rarity].normal > 0 && missingCards.overall[set][rarity].golden > 0) {
+			let complete = true;
+			
+			// Determine whether the guaranteed new card rule should be used
+			loop1:
+			for (let HSclass in classesEnum) {
+				loop2:
+				for (let cardName in classes[HSclass].cards[rarity]) {
+					card = classes[HSclass].cards[rarity][cardName];
+					
+					if (card.set === set && card.normal + card.golden < getMaxCopies(rarity)) {
+						complete = false;
+						break loop1;
+					}
+				}
+			}
+			
+			// Value for guaranteed new card
+			if (!complete) {
 				if (!golden) {
 					averageValue += chanceOfGetting[rarity].normal * craftingCost[rarity].normal;
 					if (!settings.excludeGoldenCards)
@@ -1466,37 +1492,38 @@ let HSCollectionTracker = (function() {
 						averageValue += (chanceOfGetting[rarity].normal + chanceOfGetting[rarity].golden) * craftingCost[rarity].golden;
 					else averageValue += (chanceOfGetting[rarity].normal + chanceOfGetting[rarity].golden) * disenchantmentValue[rarity].golden;
 				}
-				continue;
-			}
-				
-			let dupesNormal = 0, dupesGolden = 0;
-			let totalCards = setsCards[set][rarity].total.cards / getMaxCopies(rarity);
-
-			for (let className in classesEnum)
-				for (let cardName in classes[className].cards[rarity]) {
-					let card = classes[className].cards[rarity][cardName];
-					
-					if (card.set == set) {
-						if (card.normal == getMaxCopies(rarity))
-							dupesNormal++;
-						if (card.golden == getMaxCopies(rarity))
-							dupesGolden++;
-					}
-				}
-			
-			if (!golden) {
-				averageValue += chanceOfGetting[rarity].normal * ((dupesNormal / totalCards) * disenchantmentValue[rarity].normal
-					+ ((totalCards - dupesNormal) / totalCards) * craftingCost[rarity].normal);
-				if (!settings.excludeGoldenCards)
-					averageValue += chanceOfGetting[rarity].golden * ((dupesGolden / totalCards) * disenchantmentValue[rarity].golden
-						+ ((totalCards - dupesGolden) / totalCards) * craftingCost[rarity].golden);
-				else averageValue += chanceOfGetting[rarity].golden * disenchantmentValue[rarity].golden;
 			}
 			else {
-				if (!settings.excludeGoldenCards)
-					averageValue += (chanceOfGetting[rarity].normal + chanceOfGetting[rarity].golden) * ((dupesGolden / totalCards) * disenchantmentValue[rarity].golden
+				let dupesNormal = 0, dupesGolden = 0;
+				let totalCards = setsCards[set][rarity].total.cards / getMaxCopies(rarity);
+
+				for (let className in classesEnum)
+					for (let cardName in classes[className].cards[rarity]) {
+						let card = classes[className].cards[rarity][cardName];
+						
+						if (card.set == set) {
+							if (card.normal == getMaxCopies(rarity))
+								dupesNormal++;
+							if (card.golden == getMaxCopies(rarity))
+								dupesGolden++;
+						}
+					}
+				
+				if (!golden) {
+					averageValue += chanceOfGetting[rarity].normal * ((dupesNormal / totalCards) * disenchantmentValue[rarity].normal
+						+ ((totalCards - dupesNormal) / totalCards) * craftingCost[rarity].normal);
+					if (!settings.excludeGoldenCards)
+						averageValue += chanceOfGetting[rarity].golden * ((dupesGolden / totalCards) * disenchantmentValue[rarity].golden
+							+ ((totalCards - dupesGolden) / totalCards) * craftingCost[rarity].golden);
+					else averageValue += chanceOfGetting[rarity].golden * disenchantmentValue[rarity].golden;
+				}
+				else {
+					if (!settings.excludeGoldenCards)
+						averageValue += (chanceOfGetting[rarity].normal + chanceOfGetting[rarity].golden) * ((dupesGolden / totalCards) * disenchantmentValue[rarity].golden
+							+ ((totalCards - dupesGolden) / totalCards) * craftingCost[rarity].golden);
+					else averageValue += (chanceOfGetting[rarity].normal + chanceOfGetting[rarity].golden) * disenchantmentValue[rarity].golden;
+				}
 						+ ((totalCards - dupesGolden) / totalCards) * craftingCost[rarity].golden);
-				else averageValue += (chanceOfGetting[rarity].normal + chanceOfGetting[rarity].golden) * disenchantmentValue[rarity].golden;
 			}
 		}
 		return averageValue;
@@ -1906,6 +1933,7 @@ let HSCollectionTracker = (function() {
 					loadLocalStorage();
 					initClassAll();
 					displayTracker();
+					//console.log(JSON.stringify(classes, null, 4));
 				}
 			}
 		}
