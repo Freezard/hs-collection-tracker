@@ -607,15 +607,10 @@ let HSCollectionTracker = (function() {
 			
 			// Don't add cards from new sets that are yet to be added to HSCT,
 			// or core heroes/skins
-			// HACK because ENCHANTMENT is a bugged/temporary card
-			if (set !== undefined && !newCard.id.includes("HERO") && newCard.type !== "ENCHANTMENT") {
+			if (set !== undefined && !newCard.id.includes("HERO")) {
 				let className = newCard.cardClass === "DEMONHUNTER" ? "dh" : newCard.cardClass.toLowerCase();
 				let rarity = newCard.rarity.toLowerCase();
 				let type = newCard.type.toLowerCase();
-				
-				// HACK because API data is incorrect
-				if (newCard.name === "Psychic Conjurer" || newCard.name === "Power Infusion")
-					rarity = "free";
 				
 				classes[className].addCard(new card(newCard.name, rarity, newCard.cost,
 				  type, className, set, newCard.id, setsUncraftable[set]));
@@ -1832,7 +1827,7 @@ let HSCollectionTracker = (function() {
 		// Get the collection data
 		fetch("/importHSReplay?lo=" + lo + "&region=" + region)
 		  .then(response => response.json())
-		  .then(collection => {	
+		  .then(collection => {
 			  getCardData().then((cardData) => {
 				  if (cardData !== undefined)
 					  resetCollection();
@@ -1851,14 +1846,14 @@ let HSCollectionTracker = (function() {
 
 						  if (id == card.dbfId) {
 							  name = card.name;
-							  className = card.cardClass.toLowerCase();
+							  className = card.cardClass === "DEMONHUNTER" ? "dh" : card.cardClass.toLowerCase();
 							  rarity = card.rarity.toLowerCase();
 							  break;
 						  }
 					  }
-								
+
 					  // Add the card info to HSCT
-					  if (name != "" && className != "") {
+					  if (name != "" && className != "") {						  
 						  let card = classes[className].cards[rarity][name];
 									
 						  updateCard(card, "normal", Math.min(collection.collection[id][0], getMaxCopies(rarity)));
