@@ -56,9 +56,6 @@ let HSCollectionTracker = (function() {
 	let standardSetsEnum = {
 		basic: "basic",
 		classic: "classic",
-		witchwood: "witchwood",
-		boomsday: "boomsday",
-		rastakhan: "rastakhan",
 		ros: "ros",
 		uldum: "uldum",
 		dragons: "dragons",
@@ -110,7 +107,8 @@ let HSCollectionTracker = (function() {
 		rastakhan: "rastakhan",
 		ros: "ros",
 		uldum: "uldum",
-		dragons: "dragons"
+		dragons: "dragons",
+		outland: "outland"
 	};
 	
 	let rewardsEnum = {
@@ -120,7 +118,8 @@ let HSCollectionTracker = (function() {
 		rastakhan: "rastakhan",
 		ros: "ros",
 		uldum: "uldum",
-		dragons: "dragons"
+		dragons: "dragons",
+		outland: "outland"
 	};	
 	
 	let craftingCost = {
