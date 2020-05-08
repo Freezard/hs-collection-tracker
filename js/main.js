@@ -538,10 +538,10 @@ let HSCollectionTracker = (function() {
 				  '<img src="https://art.hearthstonejson.com/v1/render/latest/enUS/256x/'
 				  + $a.data("card-id") + '.png" width="256" height="387">');
 				tippy('[data-tippy-content]', {
+				  animateFill: true,
 				  offset: "150, 20",
 				  followCursor: true,
 				  hideOnClick: false,
-				  a11y: false,
 				  duration: 0,
 				  delay: [500, 0],
 				});
@@ -1019,6 +1019,7 @@ let HSCollectionTracker = (function() {
 				if (isVisible(card)) {
 					let listItem = document.createElement("li");
 					let listItemLink = document.createElement("a");
+					listItemLink.tabIndex = -1;
 					listItemLink.textContent = name;
 					(function (card) {
 						listItemLink.addEventListener("click", function() { addCard(card, this); });
