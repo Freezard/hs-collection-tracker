@@ -301,6 +301,7 @@ p {
   text-transform: uppercase;
   background-color: white;
   cursor: pointer;
+  outline: none;
 }
 #classCards li a.buttonAll {
   box-shadow: inset 0px 0px 0px 1px #DDDDDD;
