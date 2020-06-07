@@ -32,6 +32,7 @@ let HSCollectionTracker = (function() {
 		basic: "basic",
 		classic: "classic",
 		hof: "hof",
+		dh: "dh",
 		naxxramas: "naxxramas",
 		gvg: "gvg",
 		blackrock: "blackrock",
@@ -56,6 +57,7 @@ let HSCollectionTracker = (function() {
 	let standardSetsEnum = {
 		basic: "basic",
 		classic: "classic",
+		dh: "dh",
 		ros: "ros",
 		uldum: "uldum",
 		dragons: "dragons",
@@ -71,6 +73,7 @@ let HSCollectionTracker = (function() {
 	let setsUncraftable = {
 		basic: "both",
 		classic: "none",
+		dh: "normal",
 		//reward: "none",
 		//promo: "golden",
 		hof: "none",
@@ -577,7 +580,7 @@ let HSCollectionTracker = (function() {
 		let setMap = {
 			"CORE": setsEnum.basic,
 			"EXPERT1": setsEnum.classic,
-			"DEMON_HUNTER_INITIATE": setsEnum.classic,
+			"DEMON_HUNTER_INITIATE": setsEnum.dh,
 			"HOF": setsEnum.hof,
 			"NAXX": setsEnum.naxxramas,
 			"GVG": setsEnum.gvg,
