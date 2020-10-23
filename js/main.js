@@ -52,7 +52,8 @@ let HSCollectionTracker = (function() {
 		dragons: "dragons",
 		galakrond: "galakrond",
 		outland: "outland",
-		scholomance: "scholomance"
+		scholomance: "scholomance",
+		darkmoon: "darkmoon"
 	};
 
 	let standardSetsEnum = {
@@ -64,7 +65,8 @@ let HSCollectionTracker = (function() {
 		dragons: "dragons",
 		galakrond: "galakrond",
 		outland: "outland",
-		scholomance: "scholomance"
+		scholomance: "scholomance",
+		darkmoon: "darkmoon"
 	};
 
 	// The number of cards and craftable cards in each set.
@@ -96,7 +98,8 @@ let HSCollectionTracker = (function() {
 		dragons: "none",
 		galakrond: "none",
 		outland: "none",
-		scholomance: "none"
+		scholomance: "none",
+		darkmoon: "darkmoon"
 	};
 	
 	let packsEnum = {
@@ -182,7 +185,7 @@ let HSCollectionTracker = (function() {
 	let currentDust = 0;
 	let disenchantedDust = 0;
 	
-	let version = 3.11;
+	let version = 3.12;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, id, uncraftable) {
@@ -606,7 +609,8 @@ let HSCollectionTracker = (function() {
 			"DRAGONS": setsEnum.dragons,
 			"YEAR_OF_THE_DRAGON": setsEnum.galakrond,
 			"BLACK_TEMPLE": setsEnum.outland,
-			"SCHOLOMANCE": setsEnum.scholomance
+			"SCHOLOMANCE": setsEnum.scholomance,
+			"DARKMOON_FAIRE": setsEnum.darkmoon
 		};
 		
 		for (let i = 0; i < cardData.length; i++) {
