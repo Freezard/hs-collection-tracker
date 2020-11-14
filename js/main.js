@@ -118,7 +118,8 @@ let HSCollectionTracker = (function() {
 		uldum: "uldum",
 		dragons: "dragons",
 		outland: "outland",
-		scholomance: "scholomance"
+		scholomance: "scholomance",
+		darkmoon: "darkmoon"
 	};
 	
 	let rewardsEnum = {
@@ -130,7 +131,8 @@ let HSCollectionTracker = (function() {
 		uldum: "uldum",
 		dragons: "dragons",
 		outland: "outland",
-		scholomance: "scholomance"
+		scholomance: "scholomance",
+		darkmoon: "darkmoon"
 	};	
 	
 	let craftingCost = {
@@ -185,7 +187,7 @@ let HSCollectionTracker = (function() {
 	let currentDust = 0;
 	let disenchantedDust = 0;
 	
-	let version = 3.12;
+	let version = 3.2;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, id, uncraftable) {
