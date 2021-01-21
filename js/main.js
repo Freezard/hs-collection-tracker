@@ -553,7 +553,7 @@ let HSCollectionTracker = (function() {
 				tippy('[data-tippy-content]', {
 				  allowHTML: true,
 				  animateFill: true,
-				  offset: [150, -10],
+				  offset: "150, -10",
 				  followCursor: true,
 				  hideOnClick: false,
 				  duration: 0,
