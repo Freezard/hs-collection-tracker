@@ -551,12 +551,13 @@ let HSCollectionTracker = (function() {
 				  '<img src="https://art.hearthstonejson.com/v1/render/latest/enUS/256x/'
 				  + $a.data("card-id") + '.png" width="256" height="387">');
 				tippy('[data-tippy-content]', {
+				  allowHTML: true,
 				  animateFill: true,
-				  offset: "150, 20",
+				  offset: [150, -10],
 				  followCursor: true,
 				  hideOnClick: false,
 				  duration: 0,
-				  delay: [500, 0],
+				  delay: [400, 0]
 				});
 			});
 		});
