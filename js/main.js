@@ -53,7 +53,8 @@ let HSCollectionTracker = (function() {
 		galakrond: "galakrond",
 		outland: "outland",
 		scholomance: "scholomance",
-		darkmoon: "darkmoon"
+		darkmoon: "darkmoon",
+		barrens: "barrens"
 	};
 
 	let standardSetsEnum = {
@@ -66,7 +67,8 @@ let HSCollectionTracker = (function() {
 		galakrond: "galakrond",
 		outland: "outland",
 		scholomance: "scholomance",
-		darkmoon: "darkmoon"
+		darkmoon: "darkmoon",
+		barrens: "barrens"
 	};
 
 	// The number of cards and craftable cards in each set.
@@ -99,7 +101,8 @@ let HSCollectionTracker = (function() {
 		galakrond: "none",
 		outland: "none",
 		scholomance: "none",
-		darkmoon: "darkmoon"
+		darkmoon: "none",
+		barrens: "none"
 	};
 	
 	let packsEnum = {
@@ -187,7 +190,7 @@ let HSCollectionTracker = (function() {
 	let currentDust = 0;
 	let disenchantedDust = 0;
 	
-	let version = 3.22;
+	let version = 3.23;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, id, uncraftable) {
@@ -613,7 +616,8 @@ let HSCollectionTracker = (function() {
 			"YEAR_OF_THE_DRAGON": setsEnum.galakrond,
 			"BLACK_TEMPLE": setsEnum.outland,
 			"SCHOLOMANCE": setsEnum.scholomance,
-			"DARKMOON_FAIRE": setsEnum.darkmoon
+			"DARKMOON_FAIRE": setsEnum.darkmoon,
+			"THE_BARRENS": setsEnum.barrens,
 		};
 		
 		for (let i = 0; i < cardData.length; i++) {
@@ -1000,15 +1004,12 @@ let HSCollectionTracker = (function() {
 			var cardList = classAll.cards;
 		else
 			var cardList = classes[className].cards;
-		
+			
 		// One list for each rarity in the game
 		for (var rarity in raritiesEnum) {
 			// Empty the HTML lists
 			let list = document.getElementById("list_" + rarity);
-			while (list.firstChild)
-				list.removeChild(list.firstChild);
-			// TEMPORARY TO MAKE LISTS FIXED WIDTH WHEN EMPTY
-			//list.innerHTML="&nbsp";
+			list.innerHTML = "";
 			
 			// Init the "apply to all" button
 			let listItem = document.createElement("li");
