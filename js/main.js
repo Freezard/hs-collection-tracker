@@ -927,7 +927,8 @@ let HSCollectionTracker = (function() {
 			
 			// Set the initial filter as selected
 			if (filterBySet === filterListItem.innerHTML.toLowerCase()) {
-				filterListItem.classList.add("selected");
+                if (!filterListItem.getAttribute("data-toggle"))
+                    filterListItem.classList.add("selected");
 				
 				//  In case element is part of a dropdown-menu
 				let dropdown = filterListItem.parentElement.
