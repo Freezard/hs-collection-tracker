@@ -190,7 +190,7 @@ let HSCollectionTracker = (function() {
 	let currentDust = 0;
 	let disenchantedDust = 0;
 	
-	let version = 3.23;
+	let version = 3.25;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, id, uncraftable) {
@@ -592,7 +592,7 @@ let HSCollectionTracker = (function() {
 	function importCards(cardData) {
 		// Maps HearthstoneJSON set names to HSCT setsEnum
 		let setMap = {
-			"CORE": setsEnum.basic,
+			"BASIC": setsEnum.basic,
 			"EXPERT1": setsEnum.classic,
 			"DEMON_HUNTER_INITIATE": setsEnum.dh,
 			"HOF": setsEnum.hof,
@@ -1241,7 +1241,7 @@ let HSCollectionTracker = (function() {
 		td.innerHTML = deckName || "Deck List";
 		tr.appendChild(td);
 		table.appendChild(tr);
-		
+
 		// Create card rows
 		for (let cardName in deck) {
 			let className = "";
@@ -1249,16 +1249,20 @@ let HSCollectionTracker = (function() {
 			//let image = "";
 			
 			// Get necessary card data
-			for (let i = 0; i < cardData.length; i++)
+			for (let i = 0; i < cardData.length; i++) {
+                if (cardData[i].set == "CORE" || cardData[i].set == "VANILLA")
+                    continue;
+            
 			    if (cardName == cardData[i].name) {
 					className = cardData[i].cardClass.toLowerCase();
 					rarity = cardData[i].rarity.toLowerCase();
 					//image = cardData.cards[k].image_url;
 					break;
 				}
-				
+            }
+                        
 			let card = classes[className].cards[rarity][cardName];
-			
+            
 			// Get card copies and dust owned/missing
 			let copiesNormal = Math.min(card.normal, deck[cardName]);
 			currentDust.normal += getCraftingCost(card, "normal", Math.min(card.normal, deck[cardName]));
@@ -1858,8 +1862,11 @@ let HSCollectionTracker = (function() {
 					  let quality = "";
 				
 					  // Get other necessary card data
-					  for (let i = 0; i < cardData.length; i++) {
+					  for (let i = 0; i < cardData.length; i++) {                          
 						  let card = cardData[i];
+                          
+                          if (card.set == "CORE" || card.set == "VANILLA")
+                              continue;
 
 						  if (id == card.dbfId) {
 							  name = card.name;
@@ -1872,7 +1879,7 @@ let HSCollectionTracker = (function() {
 					  // Add the card info to HSCT
 					  if (name != "" && className != "") {						  
 						  let card = classes[className].cards[rarity][name];
-									
+                          
 						  updateCard(card, "normal", Math.min(collection.collection[id][0], getMaxCopies(rarity)));
 						  updateCard(card, "golden", Math.min(collection.collection[id][1], getMaxCopies(rarity)));
 					  }
