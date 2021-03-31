@@ -58,13 +58,6 @@ let HSCollectionTracker = (function() {
 	};
 
 	let standardSetsEnum = {
-		basic: "basic",
-		classic: "classic",
-		dh: "dh",
-		ros: "ros",
-		uldum: "uldum",
-		dragons: "dragons",
-		galakrond: "galakrond",
 		outland: "outland",
 		scholomance: "scholomance",
 		darkmoon: "darkmoon",
@@ -80,8 +73,6 @@ let HSCollectionTracker = (function() {
 		basic: "both",
 		classic: "none",
 		dh: "normal",
-		//reward: "none",
-		//promo: "golden",
 		hof: "none",
 		naxxramas: "none",
 		gvg: "none",
@@ -122,20 +113,15 @@ let HSCollectionTracker = (function() {
 		dragons: "dragons",
 		outland: "outland",
 		scholomance: "scholomance",
-		darkmoon: "darkmoon"
+		darkmoon: "darkmoon",
+        barrens: "barrens"
 	};
 	
 	let rewardsEnum = {
-		classic: "classic",
-		witchwood: "witchwood",
-		boomsday: "boomsday",
-		rastakhan: "rastakhan",
-		ros: "ros",
-		uldum: "uldum",
-		dragons: "dragons",
 		outland: "outland",
 		scholomance: "scholomance",
-		darkmoon: "darkmoon"
+		darkmoon: "darkmoon",
+        barrens: "barrens"
 	};	
 	
 	let craftingCost = {
@@ -1586,11 +1572,11 @@ let HSCollectionTracker = (function() {
 		    else averageDust[rarity] = disenchantmentValue[rarity].golden;
 		}
 		
-		document.getElementById("chest20AverageDust").innerHTML = (averageDust.common + 5).toFixed(1);
-		document.getElementById("chest15AverageDust").innerHTML = (averageDust.common + averageDust.rare + 5).toFixed(1);
-		document.getElementById("chest10AverageDust").innerHTML = (averageDust.common * 2 + averageDust.rare + 5).toFixed(1);
-		document.getElementById("chest5AverageDust").innerHTML = (averageDust.common * 2 + averageDust.epic + 5).toFixed(1);
-		document.getElementById("chestLegendaryAverageDust").innerHTML = (averageDust.common * 3 + averageDust.epic).toFixed(1);
+		//document.getElementById("chest20AverageDust").innerHTML = (averageDust.common + 5).toFixed(1);
+		//document.getElementById("chest15AverageDust").innerHTML = (averageDust.common + averageDust.rare + 5).toFixed(1);
+		//document.getElementById("chest10AverageDust").innerHTML = (averageDust.common * 2 + averageDust.rare + 5).toFixed(1);
+		//document.getElementById("chest5AverageDust").innerHTML = (averageDust.common * 2 + averageDust.epic + 5).toFixed(1);
+		//document.getElementById("chestLegendaryAverageDust").innerHTML = (averageDust.common * 3 + averageDust.epic).toFixed(1);
 	}
 	/*********************************************************
 	**********************DECK RECIPES************************
