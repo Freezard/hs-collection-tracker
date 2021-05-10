@@ -29,9 +29,7 @@ let HSCollectionTracker = (function() {
 	};
 	
 	let setsEnum = {
-		basic: "basic",
-		classic: "classic",
-		hof: "hof",
+		legacy: "legacy",
 		dh: "dh",
 		naxxramas: "naxxramas",
 		gvg: "gvg",
@@ -70,10 +68,8 @@ let HSCollectionTracker = (function() {
 	
 	// Lists which card qualities are uncraftable for each set
 	let setsUncraftable = {
-		basic: "both",
-		classic: "none",
+		legacy: "none",
 		dh: "normal",
-		hof: "none",
 		naxxramas: "none",
 		gvg: "none",
 		blackrock: "none",
@@ -97,7 +93,7 @@ let HSCollectionTracker = (function() {
 	};
 	
 	let packsEnum = {
-		classic: "classic",
+		legacy: "legacy",
 		gvg: "gvg",
 		tgt: "tgt",
 		wotog: "wotog",
@@ -176,7 +172,7 @@ let HSCollectionTracker = (function() {
 	let currentDust = 0;
 	let disenchantedDust = 0;
 	
-	let version = 3.25;
+	let version = 3.3;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, id, uncraftable) {
@@ -408,26 +404,26 @@ let HSCollectionTracker = (function() {
 		document.getElementById("files").addEventListener("change", importCollection);
 	}
 	
-	function switchClassicPack() {
-		let image = document.getElementById("imageClassicPack");
+	function switchLegacyPack() {
+		let image = document.getElementById("imageLegacyPack");
 		
 		if (!image.src.includes("golden")) {
-			image.src = "images/pack_classic_golden.png";
-			image.alt = "Golden Classic Pack";
+			image.src = "images/pack_legacy_golden.png";
+			image.alt = "Golden Legacy Pack";
 			image.width = 157;
 			
-			let averageValue = calculatePackValue("classic", true);
+			let averageValue = calculatePackValue("legacy", true);
 		
-			document.getElementById("classicAverageDust").innerHTML = (averageValue * 5).toFixed(1);
+			document.getElementById("legacyAverageDust").innerHTML = (averageValue * 5).toFixed(1);
 		}
 		else {
-			image.src = "images/pack_classic.png";
-			image.alt = "Classic Pack";
+			image.src = "images/pack_legacy.png";
+			image.alt = "Legacy Pack";
 			image.width = 160;
 			
-			let averageValue = calculatePackValue("classic");
+			let averageValue = calculatePackValue("legacy");
 		
-			document.getElementById("classicAverageDust").innerHTML = (averageValue * 5).toFixed(1);
+			document.getElementById("legacyAverageDust").innerHTML = (averageValue * 5).toFixed(1);
 		}
 	}
 	
@@ -578,10 +574,9 @@ let HSCollectionTracker = (function() {
 	function importCards(cardData) {
 		// Maps HearthstoneJSON set names to HSCT setsEnum
 		let setMap = {
-			"BASIC": setsEnum.basic,
-			"EXPERT1": setsEnum.classic,
+			"EXPERT1": setsEnum.legacy,
+            "LEGACY": setsEnum.legacy,
 			"DEMON_HUNTER_INITIATE": setsEnum.dh,
-			"HOF": setsEnum.hof,
 			"NAXX": setsEnum.naxxramas,
 			"GVG": setsEnum.gvg,
 			"BRM": setsEnum.blackrock,
@@ -1633,8 +1628,8 @@ let HSCollectionTracker = (function() {
 		document.getElementById("containerRow").innerHTML = template;
 		
 		// If news page was updated, remove the news highlight when clicking on the button
-		let news = document.getElementById("link-news");
-		news.className = news.className.replace(" news", "");
+		//let news = document.getElementById("link-news");
+		//news.className = news.className.replace(" news", "");
 		
 		document.getElementById("qualityButtons").style.visibility = "hidden";
 		
@@ -1653,7 +1648,7 @@ let HSCollectionTracker = (function() {
 		updatePackGuide();
 		updateChestGuide();
 		
-		document.getElementById("imageClassicPack").addEventListener("click", switchClassicPack);
+		document.getElementById("imageLegacyPack").addEventListener("click", switchLegacyPack);
 		
 		document.getElementById("qualityButtons").style.visibility = "hidden";
 		

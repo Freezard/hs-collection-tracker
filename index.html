@@ -80,9 +80,8 @@
 	    <li class="dropdown">
 		  <a class="dropdown-toggle" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Wild</a>
 		  <div class="dropdown-menu">
-          	<a class="dropdown-item">Classic</a>
+          	<a class="dropdown-item">Legacy</a>
             <a class="dropdown-item">DH</a>
-		    <a class="dropdown-item">HoF</a>
 			<a class="dropdown-item">Naxxramas</a>
 			<a class="dropdown-item">Blackrock</a>
 			<a class="dropdown-item">LoE</a>
@@ -217,9 +216,7 @@
   For each class there are two rows, one that displays normal cards and another that displays golden. If you have ticked the "I don't care about golden cards" box, golden data will not be displayed.
   If you have ticked the "Don't display free cards" box, the free data column will not be displayed.</p>
   <select id="select">
-    <option value="basic">Basic</option>
-    <option value="classic">Classic</option>
-    <option value="hof">Hall of Fame</option>
+    <option value="legacy">Legacy</option>
 	<option value="dh">Demon Hunter Initiate</option>
 	<option value="naxxramas">Naxxramas</option>
 	<option value="gvg">Goblins vs Gnomes</option>
@@ -390,7 +387,7 @@
 	 
   <p>If you have ticked the "I don't care about golden cards" box, it is assumed that every golden card will be disenchanted.</p>
   
-  <p class="special2">Click on a pack to see its golden version (currently only Classic).</p>
+  <p class="special2">Click on a pack to see its golden version (currently only Legacy).</p>
   <div class="mainDiv">
     <div class="row">
 	  <div class="col-3">
@@ -434,11 +431,11 @@
 	<hr>
 	<div class="row">
 	  <div class="col-4">
-        <img id="imageClassicPack" class="img-fluid" src="images/pack_classic.png" alt="Classic pack" width="160" height="216">
+        <img id="imageLegacyPack" class="img-fluid" src="images/pack_legacy.png" alt="Legacy pack" width="160" height="216">
 	    <table class="tablePack">
 	      <tr>
 	        <td>Average dust =</td>
-		    <td id="classicAverageDust"></td>
+		    <td id="legacyAverageDust"></td>
 	      </tr>
 	    </table>
       </div>    
