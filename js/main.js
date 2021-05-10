@@ -1628,8 +1628,8 @@ let HSCollectionTracker = (function() {
 		document.getElementById("containerRow").innerHTML = template;
 		
 		// If news page was updated, remove the news highlight when clicking on the button
-		//let news = document.getElementById("link-news");
-		//news.className = news.className.replace(" news", "");
+		let news = document.getElementById("link-news");
+		news.className = news.className.replace(" news", "");
 		
 		document.getElementById("qualityButtons").style.visibility = "hidden";
 		
@@ -1918,8 +1918,8 @@ let HSCollectionTracker = (function() {
 									settings[setting] = storedSettings[setting];
 								
 								// Highlight the news button
-								let news = document.getElementById("link-news");
-								news.className = news.className + " news";
+								//let news = document.getElementById("link-news");
+								//news.className = news.className + " news";
 							}
 							
 							updateLocalStorage();
