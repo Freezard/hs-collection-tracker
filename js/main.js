@@ -52,14 +52,16 @@ let HSCollectionTracker = (function() {
 		outland: "outland",
 		scholomance: "scholomance",
 		darkmoon: "darkmoon",
-		barrens: "barrens"
+		barrens: "barrens",
+        stormwind: "stormwind",
 	};
 
 	let standardSetsEnum = {
 		outland: "outland",
 		scholomance: "scholomance",
 		darkmoon: "darkmoon",
-		barrens: "barrens"
+		barrens: "barrens",
+        stormwind: "stormwind",
 	};
 
 	// The number of cards and craftable cards in each set.
@@ -89,7 +91,8 @@ let HSCollectionTracker = (function() {
 		outland: "none",
 		scholomance: "none",
 		darkmoon: "none",
-		barrens: "none"
+		barrens: "none",
+        stormwind: "none",
 	};
 	
 	let packsEnum = {
@@ -110,14 +113,14 @@ let HSCollectionTracker = (function() {
 		outland: "outland",
 		scholomance: "scholomance",
 		darkmoon: "darkmoon",
-        barrens: "barrens"
+        barrens: "barrens",
 	};
 	
 	let rewardsEnum = {
 		outland: "outland",
 		scholomance: "scholomance",
 		darkmoon: "darkmoon",
-        barrens: "barrens"
+        barrens: "barrens",
 	};	
 	
 	let craftingCost = {
@@ -172,7 +175,8 @@ let HSCollectionTracker = (function() {
 	let currentDust = 0;
 	let disenchantedDust = 0;
 	
-	let version = 3.32;
+	let version = 3.33;
+    let highlightNews = false;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, id, uncraftable) {
@@ -599,6 +603,7 @@ let HSCollectionTracker = (function() {
 			"SCHOLOMANCE": setsEnum.scholomance,
 			"DARKMOON_FAIRE": setsEnum.darkmoon,
 			"THE_BARRENS": setsEnum.barrens,
+            "STORMWIND": setsEnum.stormwind,
 		};
 		
 		for (let i = 0; i < cardData.length; i++) {
@@ -1918,8 +1923,10 @@ let HSCollectionTracker = (function() {
 									settings[setting] = storedSettings[setting];
 								
 								// Highlight the news button
-								let news = document.getElementById("link-news");
-								news.className = news.className + " news";
+                                if (highlightNews) {
+                                    let news = document.getElementById("link-news");
+                                    news.className = news.className + " news";
+                                }
 							}
 							
 							updateLocalStorage();
