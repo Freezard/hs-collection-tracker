@@ -114,6 +114,7 @@ let HSCollectionTracker = (function() {
 		scholomance: "scholomance",
 		darkmoon: "darkmoon",
         barrens: "barrens",
+        stormwind: "stormwind",
 	};
 	
 	let rewardsEnum = {
@@ -121,6 +122,7 @@ let HSCollectionTracker = (function() {
 		scholomance: "scholomance",
 		darkmoon: "darkmoon",
         barrens: "barrens",
+        stormwind: "stormwind",
 	};	
 	
 	let craftingCost = {
@@ -175,8 +177,8 @@ let HSCollectionTracker = (function() {
 	let currentDust = 0;
 	let disenchantedDust = 0;
 	
-	let version = 3.33;
-    let highlightNews = false;
+	let version = 3.4;
+    let highlightNews = true;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, id, uncraftable) {
