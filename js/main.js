@@ -54,6 +54,7 @@ let HSCollectionTracker = (function() {
 		darkmoon: "darkmoon",
 		barrens: "barrens",
         stormwind: "stormwind",
+        alterac: "alterac",
 	};
 
 	let standardSetsEnum = {
@@ -62,6 +63,7 @@ let HSCollectionTracker = (function() {
 		darkmoon: "darkmoon",
 		barrens: "barrens",
         stormwind: "stormwind",
+        alterac: "alterac",
 	};
 
 	// The number of cards and craftable cards in each set.
@@ -93,6 +95,7 @@ let HSCollectionTracker = (function() {
 		darkmoon: "none",
 		barrens: "none",
         stormwind: "none",
+        alterac: "none",
 	};
 	
 	let packsEnum = {
@@ -177,7 +180,7 @@ let HSCollectionTracker = (function() {
 	let currentDust = 0;
 	let disenchantedDust = 0;
 	
-	let version = 3.5;
+	let version = 3.6;
     let highlightNews = false;
 	
 	// Card object
@@ -606,6 +609,7 @@ let HSCollectionTracker = (function() {
 			"DARKMOON_FAIRE": setsEnum.darkmoon,
 			"THE_BARRENS": setsEnum.barrens,
             "STORMWIND": setsEnum.stormwind,
+            "ALTERAC_VALLEY": setsEnum.alterac,
 		};
 		
 		for (let i = 0; i < cardData.length; i++) {
