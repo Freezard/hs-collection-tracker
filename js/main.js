@@ -180,8 +180,8 @@ let HSCollectionTracker = (function() {
 	let currentDust = 0;
 	let disenchantedDust = 0;
 	
-	let version = 3.6;
-    let highlightNews = false;
+	let version = 3.7;
+    let highlightNews = true;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, id, uncraftable) {
