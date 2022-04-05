@@ -55,6 +55,7 @@ let HSCollectionTracker = (function() {
 		barrens: "barrens",
         stormwind: "stormwind",
         alterac: "alterac",
+        sunken: "sunken"
 	};
 
 	let standardSetsEnum = {
@@ -64,6 +65,7 @@ let HSCollectionTracker = (function() {
 		barrens: "barrens",
         stormwind: "stormwind",
         alterac: "alterac",
+        sunken: "sunken"
 	};
 
 	// The number of cards and craftable cards in each set.
@@ -96,6 +98,7 @@ let HSCollectionTracker = (function() {
 		barrens: "none",
         stormwind: "none",
         alterac: "none",
+        sunken: "none"
 	};
 	
 	let packsEnum = {
@@ -118,6 +121,7 @@ let HSCollectionTracker = (function() {
 		darkmoon: "darkmoon",
         barrens: "barrens",
         stormwind: "stormwind",
+        sunken: "sunken"
 	};
 	
 	let rewardsEnum = {
@@ -126,6 +130,7 @@ let HSCollectionTracker = (function() {
 		darkmoon: "darkmoon",
         barrens: "barrens",
         stormwind: "stormwind",
+        sunken: "sunken"
 	};	
 	
 	let craftingCost = {
@@ -180,8 +185,8 @@ let HSCollectionTracker = (function() {
 	let currentDust = 0;
 	let disenchantedDust = 0;
 	
-	let version = 3.8;
-    let highlightNews = false;
+	let version = 3.9;
+    let highlightNews = true;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, id, uncraftable) {
@@ -610,6 +615,7 @@ let HSCollectionTracker = (function() {
 			"THE_BARRENS": setsEnum.barrens,
             "STORMWIND": setsEnum.stormwind,
             "ALTERAC_VALLEY": setsEnum.alterac,
+            "THE_SUNKEN_CITY": setsEnum.sunken
 		};
 		
 		for (let i = 0; i < cardData.length; i++) {
