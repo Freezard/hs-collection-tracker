@@ -55,13 +55,11 @@ let HSCollectionTracker = (function() {
 		barrens: "barrens",
         stormwind: "stormwind",
         alterac: "alterac",
-        sunken: "sunken"
+        sunken: "sunken",
+        nathria: "nathria"
 	};
 
 	let standardSetsEnum = {
-		outland: "outland",
-		scholomance: "scholomance",
-		darkmoon: "darkmoon",
 		barrens: "barrens",
         stormwind: "stormwind",
         alterac: "alterac",
@@ -123,7 +121,7 @@ let HSCollectionTracker = (function() {
         stormwind: "stormwind",
         sunken: "sunken"
 	};
-	
+
 	let rewardsEnum = {
 		outland: "outland",
 		scholomance: "scholomance",
@@ -185,8 +183,8 @@ let HSCollectionTracker = (function() {
 	let currentDust = 0;
 	let disenchantedDust = 0;
 	
-	let version = 4.0;
-    let highlightNews = true;
+    let version = 4.1;
+    let highlightNews = false;
 	
 	// Card object
 	function card(name, rarity, mana, type, className, set, id, uncraftable) {
@@ -615,7 +613,8 @@ let HSCollectionTracker = (function() {
 			"THE_BARRENS": setsEnum.barrens,
             "STORMWIND": setsEnum.stormwind,
             "ALTERAC_VALLEY": setsEnum.alterac,
-            "THE_SUNKEN_CITY": setsEnum.sunken
+            "THE_SUNKEN_CITY": setsEnum.sunken,
+            "REVENDRETH": setsEnum.nathria
 		};
 		
 		for (let i = 0; i < cardData.length; i++) {
