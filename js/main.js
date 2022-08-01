@@ -63,7 +63,8 @@ let HSCollectionTracker = (function() {
 		barrens: "barrens",
         stormwind: "stormwind",
         alterac: "alterac",
-        sunken: "sunken"
+        sunken: "sunken",
+        nathria: "nathria"
 	};
 
 	// The number of cards and craftable cards in each set.
@@ -96,7 +97,8 @@ let HSCollectionTracker = (function() {
 		barrens: "none",
         stormwind: "none",
         alterac: "none",
-        sunken: "none"
+        sunken: "none",
+        nathria: "none"
 	};
 	
 	let packsEnum = {
@@ -119,7 +121,8 @@ let HSCollectionTracker = (function() {
 		darkmoon: "darkmoon",
         barrens: "barrens",
         stormwind: "stormwind",
-        sunken: "sunken"
+        sunken: "sunken",
+        nathria: "nathria"
 	};
 
 	let rewardsEnum = {
@@ -128,7 +131,8 @@ let HSCollectionTracker = (function() {
 		darkmoon: "darkmoon",
         barrens: "barrens",
         stormwind: "stormwind",
-        sunken: "sunken"
+        sunken: "sunken",
+        nathria: "nathria"
 	};	
 	
 	let craftingCost = {
@@ -183,7 +187,7 @@ let HSCollectionTracker = (function() {
 	let currentDust = 0;
 	let disenchantedDust = 0;
 	
-    let version = 4.1;
+    let version = 4.11;
     let highlightNews = false;
 	
 	// Card object
