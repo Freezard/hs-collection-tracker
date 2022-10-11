@@ -1718,6 +1718,8 @@ let HSCollectionTracker = (function() {
 		document.oncontextmenu = function() {
             return false;
         }
+
+		$('#modalAppMoved').modal();
 	}
 	
 	function displayProgress() {
