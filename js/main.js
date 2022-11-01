@@ -56,7 +56,8 @@ let HSCollectionTracker = (function() {
         stormwind: "stormwind",
         alterac: "alterac",
         sunken: "sunken",
-        nathria: "nathria"
+        nathria: "nathria",
+        lichking: "lichking",
 	};
 
 	let standardSetsEnum = {
@@ -64,7 +65,8 @@ let HSCollectionTracker = (function() {
         stormwind: "stormwind",
         alterac: "alterac",
         sunken: "sunken",
-        nathria: "nathria"
+        nathria: "nathria",
+        lichking: "lichking",
 	};
 
 	// The number of cards and craftable cards in each set.
@@ -98,7 +100,8 @@ let HSCollectionTracker = (function() {
         stormwind: "none",
         alterac: "none",
         sunken: "none",
-        nathria: "none"
+        nathria: "none",
+        lichking: "none",
 	};
 	
 	let packsEnum = {
@@ -618,7 +621,8 @@ let HSCollectionTracker = (function() {
             "STORMWIND": setsEnum.stormwind,
             "ALTERAC_VALLEY": setsEnum.alterac,
             "THE_SUNKEN_CITY": setsEnum.sunken,
-            "REVENDRETH": setsEnum.nathria
+            "REVENDRETH": setsEnum.nathria,
+            "RETURN_OF_THE_LICH_KING": setsEnum.lichking
 		};
 		
 		for (let i = 0; i < cardData.length; i++) {
@@ -1718,8 +1722,6 @@ let HSCollectionTracker = (function() {
 		document.oncontextmenu = function() {
             return false;
         }
-
-		$('#modalAppMoved').modal();
 	}
 	
 	function displayProgress() {
