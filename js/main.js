@@ -8,6 +8,7 @@ let HSCollectionTracker = (function() {
 	*********************************************************/
 	let classesEnum = {
 		neutral: "neutral",
+        dk: "dk",
 		dh: "dh",
 		druid: "druid",
 		hunter: "hunter",
@@ -58,6 +59,7 @@ let HSCollectionTracker = (function() {
         sunken: "sunken",
         nathria: "nathria",
         lichking: "lichking",
+        arthas: "arthas",
 	};
 
 	let standardSetsEnum = {
@@ -67,42 +69,12 @@ let HSCollectionTracker = (function() {
         sunken: "sunken",
         nathria: "nathria",
         lichking: "lichking",
+        arthas: "arthas",
 	};
 
 	// The number of cards and craftable cards in each set.
 	// Created dynamically when visiting progress page/pack guide
 	let setsCards;
-	
-	// Lists which card qualities are uncraftable for each set
-	let setsUncraftable = {
-		legacy: "none",
-		dh: "normal",
-		naxxramas: "none",
-		gvg: "none",
-		blackrock: "none",
-		tgt: "none",
-		loe: "none",
-		wotog: "none",
-		ungoro: "none",
-		kotft: "none",
-		kobolds: "none",
-		witchwood: "none",
-		boomsday: "none",
-		rastakhan: "none",
-		ros: "none",
-		uldum: "none",
-		dragons: "none",
-		galakrond: "none",
-		outland: "none",
-		scholomance: "none",
-		darkmoon: "none",
-		barrens: "none",
-        stormwind: "none",
-        alterac: "none",
-        sunken: "none",
-        nathria: "none",
-        lichking: "none",
-	};
 	
 	let packsEnum = {
 		legacy: "legacy",
@@ -190,7 +162,7 @@ let HSCollectionTracker = (function() {
 	let currentDust = 0;
 	let disenchantedDust = 0;
 	
-    let version = 4.12;
+    let version = 4.20;
     let highlightNews = false;
 	
 	// Card object
@@ -296,7 +268,7 @@ let HSCollectionTracker = (function() {
 					data.missingCards.all += missingCards.overall[set][rarity][quality];
 				}
 				
-				if(setsUncraftable[set] != "both" && setsUncraftable[set] != quality && setsCards[set][rarity][className] != undefined) {
+				if(setsCards[set][rarity][className] != undefined) {
 				    data.totalDust[rarity] += setsCards[set][rarity][className][quality] * craftingCost[rarity][quality];
 					data.totalDust.all += setsCards[set][rarity][className][quality] * craftingCost[rarity][quality];
 					
@@ -622,7 +594,8 @@ let HSCollectionTracker = (function() {
             "ALTERAC_VALLEY": setsEnum.alterac,
             "THE_SUNKEN_CITY": setsEnum.sunken,
             "REVENDRETH": setsEnum.nathria,
-            "RETURN_OF_THE_LICH_KING": setsEnum.lichking
+            "RETURN_OF_THE_LICH_KING": setsEnum.lichking,
+            "PATH_OF_ARTHAS": setsEnum.arthas,
 		};
 		
 		for (let i = 0; i < cardData.length; i++) {
@@ -632,12 +605,13 @@ let HSCollectionTracker = (function() {
 			// Don't add cards from new sets that are yet to be added to HSCT,
 			// or core heroes/skins
 			if (set !== undefined && !newCard.id.includes("HERO")) {
-				let className = newCard.cardClass === "DEMONHUNTER" ? "dh" : newCard.cardClass.toLowerCase();
+				let className = newCard.cardClass === "DEMONHUNTER" ? "dh" :
+                                newCard.cardClass === "DEATHKNIGHT" ? "dk" : newCard.cardClass.toLowerCase();
 				let rarity = newCard.rarity.toLowerCase();
 				let type = newCard.type.toLowerCase();
 				
 				classes[className].addCard(new card(newCard.name, rarity, newCard.cost,
-				  type, className, set, newCard.id, setsUncraftable[set]));
+				  type, className, set, newCard.id));
 			}
 		}
 	}
@@ -863,7 +837,7 @@ let HSCollectionTracker = (function() {
 		// Create the class tabs
 		let createClassTab = function (className) {
 			let listItem = document.createElement("li");
-			listItem.setAttribute("class", "col-12ths nopadding");
+			listItem.setAttribute("class", "col-13ths nopadding");
 			let listItemLink = document.createElement("a");
 			let span = document.createElement("span");
 			if (className in classes)
@@ -1417,6 +1391,8 @@ let HSCollectionTracker = (function() {
 		if (quality == "normal") {
 			if (className === "dh") // HACK
 				td.innerHTML = "DH";
+            else if (className === "dk") // HACK
+				td.innerHTML = "DK";
 			else td.innerHTML = capitalizeFirstLetter(className);
 		}
 		

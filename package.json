@@ -1,7 +1,7 @@
 {
   "name": "hs-collection-tracker",
   "version": "0.0.1",
-  "description": "Heroku app",
+  "description": "Tracks your Hearthstone card collection.",
   "main": "app.js",
   "scripts": {
     "start": "node app.js"
@@ -17,11 +17,11 @@
   },
   "homepage": "",
   "dependencies": {
-    "cheerio": "1.0.0-rc.2",
-    "express": "4.16.4",
-    "express-validator": "^5.3.1",
-    "request": "2.88.0",
+    "cheerio": "^1.0.0-rc.12",
+    "express": "^4.18.2",
+    "express-validator": "^6.14.2",
+    "request": "^2.88.0",
     "serve-favicon": "^2.5.0",
-    "unirest": "0.6.0"
+    "unirest": "^0.6.0"
   }
 }

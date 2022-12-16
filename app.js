@@ -1,13 +1,11 @@
 "use strict";
 
 const express = require('express');
-const fs = require('fs');
 const request = require('request');
-const cheerio = require('cheerio');
 const favicon = require('serve-favicon')
 const path = require('path');
 const app = express();
-const { check, validationResult } = require('express-validator/check');
+const { check, validationResult } = require('express-validator');
 
 const port = process.env.PORT || 3000;
 

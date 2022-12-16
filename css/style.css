@@ -108,6 +108,11 @@ p {
   background-color: #736358;
   border-color: #938378;
 }
+#classTabs .dk, #classTabsBar.dk {
+  background-color: #30333C;
+  border-color: #3E5161;
+  color: #6E7181;
+}
 #classTabs .dh, #classTabsBar.dh {
   background-color: #4F7747;
   border-color: #599E0F;
@@ -201,6 +206,15 @@ p {
 }
 #classTabsBar.neutral li a:hover, #classTabsBar.neutral li a.selected {
   background-color: #938378;
+}
+#classTabsBar.dk li a {
+  background-color: #30333C;
+  box-shadow: inset 0px 0px 2px 1px #6E7181;
+  color: #6E7181;
+}
+#classTabsBar.dk li a:hover, #classTabsBar.dk li a.selected {
+  background-color: #60636C;
+  color: #000;
 }
 #classTabsBar.dh li a {
   background-color: #4F7747;
@@ -530,6 +544,10 @@ h2 {
   background-color: #736358;
   border-bottom: 1px solid #635348;
 }
+#progressTable .dk td {
+  background-color: #60636C;
+  border-bottom: 1px solid #6E7181;
+}
 #progressTable .dh td {
   background-color: #4F7747;
   border-bottom: 1px solid #3F6737;
@@ -637,8 +655,8 @@ h2 {
     width: 20%;
     float: left;
 }
-.col-12ths {
-    width: calc(100%/12);
+.col-13ths {
+    width: calc(100%/13);
     float: left;
 }
 .nopadding {
