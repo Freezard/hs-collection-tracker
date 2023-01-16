@@ -162,7 +162,7 @@ let HSCollectionTracker = (function() {
 	let currentDust = 0;
 	let disenchantedDust = 0;
 	
-    let version = 4.20;
+    let version = 4.21;
     let highlightNews = false;
 	
 	// Card object
@@ -1852,14 +1852,15 @@ let HSCollectionTracker = (function() {
 
 						  if (id == card.dbfId) {
 							  name = card.name;
-							  className = card.cardClass === "DEMONHUNTER" ? "dh" : card.cardClass.toLowerCase();
+                              className = card.cardClass === "DEMONHUNTER" ? "dh" :
+                                          card.cardClass === "DEATHKNIGHT" ? "dk" : card.cardClass.toLowerCase();
 							  rarity = card.rarity.toLowerCase();
 							  break;
 						  }
 					  }
 
 					  // Add the card info to HSCT
-					  if (name != "" && className != "") {						  
+					  if (name != "" && className != "") {
 						  let card = classes[className].cards[rarity][name];
                           
 						  updateCard(card, "normal", Math.min(collection.collection[id][0], getMaxCopies(rarity)));
