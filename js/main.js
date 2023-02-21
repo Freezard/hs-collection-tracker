@@ -162,7 +162,7 @@ let HSCollectionTracker = (function() {
 	let currentDust = 0;
 	let disenchantedDust = 0;
 	
-    let version = 4.21;
+    let version = 4.22;
     let highlightNews = false;
 	
 	// Card object
