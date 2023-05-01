@@ -60,16 +60,15 @@ let HSCollectionTracker = (function() {
         nathria: "nathria",
         lichking: "lichking",
         arthas: "arthas",
+        festival: "festival",
 	};
 
 	let standardSetsEnum = {
-		barrens: "barrens",
-        stormwind: "stormwind",
-        alterac: "alterac",
         sunken: "sunken",
         nathria: "nathria",
         lichking: "lichking",
         arthas: "arthas",
+        festival: "festival",
 	};
 
 	// The number of cards and craftable cards in each set.
@@ -162,7 +161,7 @@ let HSCollectionTracker = (function() {
 	let currentDust = 0;
 	let disenchantedDust = 0;
 	
-    let version = 4.22;
+    let version = 4.23;
     let highlightNews = false;
 	
 	// Card object
@@ -596,6 +595,7 @@ let HSCollectionTracker = (function() {
             "REVENDRETH": setsEnum.nathria,
             "RETURN_OF_THE_LICH_KING": setsEnum.lichking,
             "PATH_OF_ARTHAS": setsEnum.arthas,
+            "BATTLE_OF_THE_BANDS": setsEnum.festival,
 		};
 		
 		for (let i = 0; i < cardData.length; i++) {
