@@ -61,6 +61,8 @@ let HSCollectionTracker = (function() {
         lichking: "lichking",
         arthas: "arthas",
         festival: "festival",
+        titans: "titans",
+        badlands: "badlands",
 	};
 
 	let standardSetsEnum = {
@@ -161,7 +163,7 @@ let HSCollectionTracker = (function() {
 	let currentDust = 0;
 	let disenchantedDust = 0;
 	
-    let version = 4.23;
+    let version = 4.24;
     let highlightNews = false;
 	
 	// Card object
@@ -596,6 +598,8 @@ let HSCollectionTracker = (function() {
             "RETURN_OF_THE_LICH_KING": setsEnum.lichking,
             "PATH_OF_ARTHAS": setsEnum.arthas,
             "BATTLE_OF_THE_BANDS": setsEnum.festival,
+            "TITANS": setsEnum.titans,
+            "WILD_WEST": setsEnum.badlands,
 		};
 		
 		for (let i = 0; i < cardData.length; i++) {
